@@ -20,6 +20,27 @@ public class ElseIfQuest2 {
 		System.out.print("평점 입력 : ");
 		double score = sc.nextDouble();
 		
+		if(score == 4.5)
+			System.out.println("A+");
+		else if(score >= 4)
+			System.out.println("A");
+		else if(score >= 3.5)
+			System.out.println("B+");
+		else if(score >= 3.0)
+			System.out.println("B");
+		else if(score >= 2.5)
+			System.out.println("C+");
+		else if(score >= 2.0)
+			System.out.println("C");
+		else if(score >= 1.5)
+			System.out.println("D+");
+		else if(score >= 1.0)
+			System.out.println("D");
+		else
+			System.out.println("F");
+			
+		
+		
 		
 	}
 
