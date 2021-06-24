@@ -19,6 +19,20 @@ public class Clothes {
 	//재고
 	int ea;
 	
+	public Clothes(String brand, String product, int kind, int season, boolean gender, int size, int color, int price,
+			int ea) {
+		super();
+		this.brand = brand;
+		this.product = product;
+		this.kind = kind;
+		this.season = season;
+		this.gender = gender;
+		this.size = size;
+		this.color = color;
+		this.price = price;
+		this.ea = ea;
+	}
+	
 }
 
 
