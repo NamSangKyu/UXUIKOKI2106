@@ -25,7 +25,18 @@ public class Calculator {
 		divCount++;
 		return n1 / n2;
 	}
+	//각 메서드 호출한 개수들을 출력하는 메서드 작성
+	void printCalcCount() {
+		System.out.println("덧셈 횟수 : "+addCount);
+		System.out.println("뺄셈횟수 : "+subCount);
+		System.out.println("곱셈 횟수 : "+mulCount);
+		System.out.println("나눗셈 횟수 : "+divCount);
+	}
 }
+
+
+
+
 
 
 
