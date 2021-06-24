@@ -7,6 +7,12 @@ public class AirconMain {
 		air.powerOnOff();
 		air.powerOnOff();
 		air.powerOnOff();
+		
+		for(int i=0;i<15;i++)
+			air.tempUp();
+		
+		for(int i=0;i<15;i++)
+			air.tempDown();
 	}
 
 }
