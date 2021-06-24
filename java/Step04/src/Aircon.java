@@ -33,9 +33,18 @@ public class Aircon {
 			
 	}
 	//온도를 올리는 기능
-	
+	void tempUp() {
+		if(temp == MAX_TEMP)
+			return;
+		temp++;
+		System.out.println("현재 온도 : "+temp );
+	}
 	//온도를 내리는 기능
-	
+	void tempDown() {
+		if(temp > MIN_TEMP)
+			temp--;
+		System.out.println("현재 온도 : "+temp );
+	}
 	
 	
 }
