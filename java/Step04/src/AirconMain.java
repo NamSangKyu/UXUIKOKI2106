@@ -15,6 +15,8 @@ public class AirconMain {
 		
 		for(int i=0;i<10;i++)
 			air.setTimer();
+		for(int i=0;i<10;i++)
+			air.setWindPower();
 	}
 
 }

@@ -59,6 +59,31 @@ public class Aircon {
 			System.out.println(timer + "분 뒤 종료");
 		}
 	}
+	//바람세기 : 1, 2, 3, 자동 --> 데이터는 계속 순환
+	/*
+	 *  바람세기 : 1
+	 *  바람세기 : 2
+	 *  바람세기 : 3
+	 *  바람세기 : 자동
+	 *  바람세기 : 1
+	 *  ...
+	 */
+	void setWindPower() {
+		windPower++;
+		if(windPower > 4)
+			windPower = 1;
+		switch(windPower) {
+		case 1:
+		case 2:
+		case 3:
+			System.out.println("바람세기 : " + windPower);
+			break;
+		default:
+			System.out.println("바람세기 : 자동");
+				
+		}
+	}
+	
 }
 
 
