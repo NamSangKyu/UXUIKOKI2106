@@ -1,0 +1,16 @@
+TV
+	전원-boolean, 채널-int, 음량-int, 음소거-boolean
+	채널 최대값 = 789, 채널 최소값 = 1
+	음량 최대값 = 30, 음량 최소값 = 0
+	
+	생성자 : 기본생성자, 초기값은 자유롭게 지정
+	
+	true - on, false - off
+	
+	전원OnOff() - void
+	음소거OnOff() - void
+	채널Up() - void
+	채널Down() - void
+	음량Up() - void
+	음량Down() - void
+	
