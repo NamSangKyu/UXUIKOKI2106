@@ -10,8 +10,9 @@ public class DalPang {
 		int i=0, j=-1, add=1;
 		char ch = 'A';
 		while(true) {
-			j+=add;
 			//가로 방향 채우기
+			//열번호 셋팅
+			j+=add;
 			for(int c=0;c<count;c++) {
 				arr[i][j] = ch++; 
 				j+=add;
@@ -21,6 +22,7 @@ public class DalPang {
 			//채울 개수가 없으면 멈춤
 			if(count == 0) break;
 			//세로 방향 채우기
+			//행번호 셋팅
 			i += add;
 			for(int c=0;c<count;c++) {
 				arr[i][j] = ch++;
