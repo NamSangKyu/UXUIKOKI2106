@@ -23,7 +23,23 @@ public class Person {
 		age = a;
 		System.out.println("Person(String, int)");
 	}
+	//생성시 이름, 나이, 성별 받아옴
+	Person(String n, int a, char g){
+		name = n;
+		age = a;
+		gender = g;
+		System.out.println("Person(String, int, char)");
+	}
 }
+
+
+
+
+
+
+
+
+
 
 
 
