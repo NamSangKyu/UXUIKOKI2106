@@ -30,6 +30,10 @@ public class Person {
 		gender = g;
 		System.out.println("Person(String, int, char)");
 	}
+	//개인 인적사항 출력
+	void printInfo(){
+		System.out.println(name + " "+ age + " "+ gender);
+	} 
 }
 
 
