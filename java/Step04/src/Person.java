@@ -18,8 +18,16 @@ public class Person {
 		System.out.println("Person(String)");
 	}
 	//생성시 이름, 나이를 받아옴
-	
+	Person(String n, int a){
+		name = n;
+		age = a;
+		System.out.println("Person(String, int)");
+	}
 }
+
+
+
+
 
 
 

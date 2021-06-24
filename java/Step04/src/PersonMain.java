@@ -22,6 +22,9 @@ public class PersonMain {
 		Person p4 = new Person("김철수");
 		System.out.println(p4.name + " " + p4.age + " " + p4.gender);
 		
+		Person p5 = new Person("김철수",33);
+		System.out.println(p5.name + " " + p5.age + " " + p5.gender);
+		
 		
 		
 	}
