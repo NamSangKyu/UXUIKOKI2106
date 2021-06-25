@@ -57,6 +57,25 @@ public class StudentService {
 			
 	}
 	//학생 데이터 삭제 - 3
+	public void deleteStudent(Scanner sc) {
+		System.out.println("학생 정보 삭제를 시작합니다..............");
+		System.out.print("삭제할 학번 입력 : ");
+		String no = sc.nextLine();
+		
+		for(int i=0;i<index;i++) {
+			//학번이 동일한지 체크
+			if(arr[i].getStudentNo().equals(no)) {
+				for(int j=i;j<index-1;j++) {
+					arr[j] = arr[j+1];
+				}
+				index--;
+				System.out.println("데이터 삭제 완료");
+				return;
+			}
+		}
+		System.out.println("삭제할 데이터가 없습니다.");
+	}
+	
 	//학생 데이터 수정 - 4
 	public void updateStudent(Scanner sc) {
 		System.out.println("학생 정보 수정을 시작합니다..............");
