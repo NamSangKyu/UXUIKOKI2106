@@ -1,5 +1,6 @@
+package vo;
 
-public class Student {
+public class StudentVO {
 	private String studentNo;
 	private String name;
 	private String major;
@@ -38,21 +39,21 @@ public class Student {
 	}
 
 	// 전체 필드 초기화하는 생성자 작성
-	public Student(String studentNo, String name, String major, double score) {
+	public StudentVO(String studentNo, String name, String major, double score) {
 		this.studentNo = studentNo;
 		this.name = name;
 		this.major = major;
 		this.score = score;
 	}
 
-	public Student(String studentNo, String name, String major) {
+	public StudentVO(String studentNo, String name, String major) {
 		super();
 		this.studentNo = studentNo;
 		this.name = name;
 		this.major = major;
 	}
 
-	public Student(String studentNo) {
+	public StudentVO(String studentNo) {
 		// this 키워드는 자기 자신 객체를 나타내닌 키워드
 		// this.studentNo = studentNo;
 		// 다른 생성자 호출
