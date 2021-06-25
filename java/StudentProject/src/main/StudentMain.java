@@ -25,6 +25,7 @@ public class StudentMain {
 				service.insertStudent(sc);
 				break;
 			case 2:
+				service.selectStudent(sc);
 				break;
 			case 3:
 				break;

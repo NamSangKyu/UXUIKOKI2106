@@ -36,9 +36,29 @@ public class StudentService {
 		//index 증가
 		index++;
 	}
-	//학생 데이터 검색 - 2
+	//학생 데이터 검색 - 학번을 기준으로 검색
+	public void selectStudent(Scanner sc) {
+		System.out.println("학생 정보 검색을 시작합니다..............");
+		System.out.print("검색할 학번 입력 : ");
+		String no = sc.nextLine();
+		StudentVO vo = null;
+		
+		for(int i=0;i<index;i++) {
+			//학번이 동일한지 체크
+			if(arr[i].getStudentNo().equals(no)) {
+				vo = arr[i]; //동일한 값이 있으면 vo에 저장
+				break;
+			}
+		}
+		if(vo == null)
+			System.out.println("검색결과가 없습니다.");
+		else
+			vo.printStudentInfo();
+			
+	}
 	//학생 데이터 삭제 - 3
-	//학생 데이터 수정 - 4 
+	//학생 데이터 수정 - 4
+	
 	//전체 학생 데이터 출력 - 5
 	public void selectAllStudent() {
 		System.out.println("학생 전체 데이터 출력합니다......");
