@@ -36,10 +36,19 @@ public class StudentService {
 		//index 증가
 		index++;
 	}
-	//학생 데이터 검색
-	//학생 데이터 삭제
-	//학생 데이터 수정
-	//전체 학생 데이터 출력
+	//학생 데이터 검색 - 2
+	//학생 데이터 삭제 - 3
+	//학생 데이터 수정 - 4 
+	//전체 학생 데이터 출력 - 5
+	public void selectAllStudent() {
+		System.out.println("학생 전체 데이터 출력합니다......");
+		if(index==0) {
+			System.out.println("등록된 학생 데이터가 없습니다.");
+			return;
+		}
+		for(int i=0;i<index;i++)
+			arr[i].printStudentInfo();
+	}
 	
 	
 

@@ -1,10 +1,12 @@
 package main;
 import java.util.*;
+
+import service.StudentService;
 public class StudentMain {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
+		StudentService service = new StudentService();
 		while(true) {
 			System.out.println("----학적관리 프로그램----");
 			System.out.println("1. 학생정보 등록");
@@ -20,6 +22,7 @@ public class StudentMain {
 			
 			switch(no) {
 			case 1:
+				service.insertStudent(sc);
 				break;
 			case 2:
 				break;
@@ -28,6 +31,7 @@ public class StudentMain {
 			case 4:
 				break;
 			case 5:
+				service.selectAllStudent();
 				break;
 			}
 			
