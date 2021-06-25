@@ -28,6 +28,7 @@ public class StudentMain {
 				service.selectStudent(sc);
 				break;
 			case 3:
+				service.updateStudent(sc);
 				break;
 			case 4:
 				break;

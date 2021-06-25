@@ -58,7 +58,44 @@ public class StudentService {
 	}
 	//학생 데이터 삭제 - 3
 	//학생 데이터 수정 - 4
-	
+	public void updateStudent(Scanner sc) {
+		System.out.println("학생 정보 수정을 시작합니다..............");
+		//검색 
+		System.out.print("수정할 학번 입력 : ");
+		String no = sc.nextLine();
+		StudentVO vo = null;
+		int r = -1;
+		for(int i=0;i<index;i++) {
+			//학번이 동일한지 체크
+			if(arr[i].getStudentNo().equals(no)) {
+				vo = arr[i]; //동일한 값이 있으면 vo에 저장
+				r = i;
+				break;
+			}
+		}
+		//검색결과가 없는 경우
+		//	메서드 종료
+		if(vo == null) {
+			System.out.println("수정할 대상이 없습니다.");
+			return;
+		}
+		//검색결과가 있는 경우
+		//학번을 제외한 모든 데이터를 입력
+		System.out.print("이름 입력 : ");
+		String name = sc.nextLine();
+		System.out.print("학과 입력 : ");
+		String major = sc.nextLine();
+		System.out.print("평점 입력 : ");
+		double score = sc.nextDouble();
+		sc.nextLine();
+		//입력 받은 데이터를 다시 검색 결과에 저장 수정 - 방법1
+//		vo.setMajor(major);
+//		vo.setName(name);
+//		vo.setScore(score);
+		//새로 생성해서 객체를 교체 - 방법2
+		arr[r] = new StudentVO(no, name, major, score);
+		
+	}
 	//전체 학생 데이터 출력 - 5
 	public void selectAllStudent() {
 		System.out.println("학생 전체 데이터 출력합니다......");
