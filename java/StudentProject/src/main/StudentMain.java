@@ -18,7 +18,28 @@ public class StudentMain {
 			sc.nextLine();//엔터를 메모리에서 비움
 			if(no == 0) break;
 			
+			switch(no) {
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			}
+			
+			
 		}		
 	}
 
 }
+
+
+
+
+
+
+
