@@ -12,13 +12,23 @@ public class StudentService {
 		arr = new StudentVO[10];
 		index = 0; //데이터가 등록될 배열 인덱스 번호
 	}
+	
+	//배열 길이 늘리기
+	public void reallocArray() {
+		StudentVO[] temp = arr;
+		arr = new StudentVO[temp.length+5];
+		for(int i=0;i<temp.length;i++)
+			arr[i] = temp[i];
+	}
+	
 	//학생 데이터 등록
 	//	학생데이터 입력 받아서 배열에 등록
 	public void insertStudent(Scanner sc) {
 		System.out.println("학생정보 등록을 시작합니다..........");
 		if(index == arr.length) {
-			System.out.println("더 이상 저장할 공간이 없습니다.");
-			return;
+//			System.out.println("더 이상 저장할 공간이 없습니다.");
+//			return;
+			reallocArray();
 		}
 		//학생데이터 입력
 		System.out.print("학번 입력 : ");
