@@ -7,12 +7,20 @@ import vo.StudentVO;
 public class StudentService {
 	private StudentVO[] arr;
 	private int index;
-
-	public StudentService() {
+	
+	private static StudentService instance = new StudentService();
+	
+	private StudentService() {
 		arr = new StudentVO[10];
 		index = 0; //데이터가 등록될 배열 인덱스 번호
 	}
 	
+	public static StudentService getInstance() {
+		if(instance == null)
+			instance = new StudentService();
+		return instance;
+	}
+
 	//배열 길이 늘리기
 	public void reallocArray() {
 		StudentVO[] temp = arr;
