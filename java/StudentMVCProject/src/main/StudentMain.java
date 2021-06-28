@@ -21,7 +21,8 @@ public class StudentMain {
 			if(no == 0) break;
 			
 			Controller controller = HandlerMapping.getInstance().createController(no);
-			controller.excute(sc);
+			if(controller != null)
+				controller.excute(sc);
 			
 		}		
 	}
