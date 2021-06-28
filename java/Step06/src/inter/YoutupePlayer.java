@@ -1,6 +1,6 @@
 package inter;
 
-public class YoutupePlayer implements Player{
+public class YoutupePlayer implements Player, Share{
 
 	@Override
 	public void play() {
@@ -19,5 +19,16 @@ public class YoutupePlayer implements Player{
 	public void pre() {
 		System.out.println("유튜브 동영상 이전 목록 재생");
 	}
+	@Override
+	public void snsShare() {
+		System.out.println("인스타에 해당 유튜브 동영상 공유");
+	}
 
 }
+
+
+
+
+
+
+
