@@ -20,6 +20,7 @@ public class RegisterController implements Controller {
 		String major = sc.nextLine();
 		System.out.print("평점 입력 : ");
 		double score = sc.nextDouble();
+		sc.nextLine();
 		
 		boolean result = StudentService.getInstance().
 				registerStudent(new StudentVO(no, name, major, score));
