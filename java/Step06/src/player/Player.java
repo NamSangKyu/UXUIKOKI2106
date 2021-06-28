@@ -24,7 +24,23 @@ public class Player {
 
 	public void setHp(int hp) {
 		this.hp = hp;
+		System.out.println("현재 hp : "+hp);
+	}
+
+	public Skill getSkill() {
+		return skill;
+	}
+
+	public void setSkill(Skill skill) {
+		this.skill = skill;
 	}
 	
 	
+	
 }
+
+
+
+
+
+
