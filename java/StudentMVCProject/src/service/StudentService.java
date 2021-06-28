@@ -28,7 +28,7 @@ public class StudentService {
 	public boolean registerStudent(StudentVO vo) {
 		if(index==arr.length)
 			reallocArray();
-		if(searchStudent(vo.getStudentNo())!=null)
+		if(searchStudent(vo.getStudentNo())==-1)
 			return false;
 		arr[index] = vo;//받아온 vo 배열에 저장
 		index++;
@@ -45,17 +45,42 @@ public class StudentService {
 			arr[i].printStudentInfo();
 	}
 
-	public StudentVO searchStudent(String no) {
+	public int searchStudent(String no) {
 		for(int i=0;i<index;i++) {
 			//동일한 학번이있는지 검사
 			if(arr[i].getStudentNo().equals(no))
-				return arr[i];//검색한 학생정보를 리턴
+				return i;//검색한 학생정보의 인덱스 번호를 리턴
 		}
-		return null;//검색한 결과가 없을 때
+		return -1;//검색한 결과가 없을 때
+	}
+	
+	public StudentVO getStudentVO(int i) {
+		return arr[i];
+	}
+	
+	public boolean deleteStudent(String no) {
+		int index = searchStudent(no);
+		
+		if(index == -1)
+			return false;
+		
+		for(int i=index;i<index-1;i++)
+			arr[i] = arr[i+1];
+		
+		return true;
 	}
 
 	
 }
+
+
+
+
+
+
+
+
+
 
 
 
