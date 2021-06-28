@@ -18,6 +18,9 @@ public class HandlerMapping {
 		case 1:
 			controller = new RegisterController();
 			break;
+		case 5:
+			controller = new SelectAllController();
+			break;
 		}
 		return controller;
 	}

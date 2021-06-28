@@ -38,6 +38,16 @@ public class StudentService {
 		return true;//학생정보를 등록을 한 경우 true;
 	}
 
+	public void selectAllStudent() {
+		System.out.println("전체 학생 정보를 출력합니다......");
+		if(index == 0) {
+			System.out.println("출력할 학생 데이터가 없습니다.");
+			return;
+		}
+		for(int i=0;i<index;i++)
+			arr[i].printStudentInfo();
+	}
+
 	
 }
 
