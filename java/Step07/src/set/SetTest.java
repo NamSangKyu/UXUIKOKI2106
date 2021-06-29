@@ -27,6 +27,20 @@ public class SetTest {
 			//다음 위치로 이동 후에 해당 데이터 리턴
 			System.out.println(it.next());
 		}
+		System.out.println("-----------");
+		//set 안에 해당 데이터가 있는가?
+		System.out.println(set1.contains(15));
+		System.out.println(set1.contains(5));
+		//set이 비어있는가?(set에 데이터가 하나도 없냐?)
+		System.out.println(set1.isEmpty());
+//		set1.clear();//set에 내용을 전부 비우겠다.
+//		System.out.println(set1.isEmpty());
+		//set에 해당 데이터 삭제
+		System.out.println(set1.remove(5));
+		//현재 set에 저장된 데이터 개수 리턴
+		System.out.println(set1.size());
+		//전체 set 내용을 출력
+		System.out.println(set1);
 	}
 
 }
