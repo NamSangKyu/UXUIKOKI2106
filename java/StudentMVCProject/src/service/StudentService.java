@@ -54,6 +54,11 @@ public class StudentService {
 		return list.remove(vo);
 	}
 
+	public void updateStudent(StudentVO vo, StudentVO newVo) {
+		int i = list.indexOf(vo);//vo가 있는 인덱스 위치값 리턴
+		list.set(i,newVo);//인덱스 i 위치에 있는 값을 교체
+	}
+
 	
 }
 
