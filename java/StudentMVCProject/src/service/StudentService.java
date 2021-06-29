@@ -1,17 +1,18 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import vo.StudentVO;
 
 public class StudentService {
 	//싱글톤 적용
 	private static StudentService instance = new StudentService();
 
-	private StudentVO[] arr;
-	private int index;
+	private ArrayList<StudentVO> list;
 	
 	private StudentService() {
-		arr = new StudentVO[10];
-		index=0;
+		list = new ArrayList<StudentVO>();
 	}
 
 	public static StudentService getInstance() {
@@ -19,55 +20,38 @@ public class StudentService {
 			instance = new StudentService();
 		return instance;
 	}
-	public void reallocArray() {
-		StudentVO[] temp = arr;
-		arr = new StudentVO[temp.length+5];
-		for(int i=0;i<temp.length;i++)
-			arr[i] = temp[i];
-	}
+	//학생정보 등록하는 부분을 리스트에 맞게 변경
 	public boolean registerStudent(StudentVO vo) {
-		if(index==arr.length)
-			reallocArray();
-		if(searchStudent(vo.getStudentNo())==-1)
-			return false;
-		arr[index] = vo;//받아온 vo 배열에 저장
-		index++;
-		return true;//학생정보를 등록을 한 경우 true;
+		return list.add(vo);//학생정보를 등록을 한 경우 true;
 	}
-
+	//학생정보 전체 출력하는 부분을 리스트에 맞게 변경 - Iterator로 작업
 	public void selectAllStudent() {
 		System.out.println("전체 학생 정보를 출력합니다......");
-		if(index == 0) {
+		if(list.isEmpty()) {
 			System.out.println("출력할 학생 데이터가 없습니다.");
 			return;
 		}
-		for(int i=0;i<index;i++)
-			arr[i].printStudentInfo();
+		Iterator<StudentVO> it = list.iterator();
+		while(it.hasNext())
+			it.next().printStudentInfo();
 	}
-
-	public int searchStudent(String no) {
-		for(int i=0;i<index;i++) {
+	//학생정보 검색하는 부분을 작성
+	public StudentVO searchStudent(String no) {
+		for(int i=0;i<list.size();i++) {
 			//동일한 학번이있는지 검사
-			if(arr[i].getStudentNo().equals(no))
-				return i;//검색한 학생정보의 인덱스 번호를 리턴
+			if(list.get(i).getStudentNo().equals(no))
+				return list.get(i);//검색한 학생정보의 인덱스 번호를 리턴
 		}
-		return -1;//검색한 결과가 없을 때
+		return null;//검색한 결과가 없을 때
 	}
-	
-	public StudentVO getStudentVO(int i) {
-		return arr[i];
-	}
-	
+	//학생 정보를 삭제
 	public boolean deleteStudent(String no) {
-		int index = searchStudent(no);
+		StudentVO vo = searchStudent(no);
 		
-		if(index == -1)
+		if(vo == null)
 			return false;
 		
-		for(int i=index;i<index-1;i++)
-			arr[i] = arr[i+1];
-		
-		return true;
+		return list.remove(vo);
 	}
 
 	
