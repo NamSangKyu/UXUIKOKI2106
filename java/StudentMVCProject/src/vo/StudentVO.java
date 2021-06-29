@@ -1,5 +1,13 @@
 package vo;
 
+import java.util.Objects;
+
+/*
+ * toString
+ * equals
+ * hashcode 
+ * 재정의
+ */
 public class StudentVO {
 	private String studentNo;
 	private String name;
@@ -87,6 +95,32 @@ public class StudentVO {
 		
 		return grade;
 	}
+
+	@Override
+	public String toString() {
+		return "StudentVO [studentNo=" + studentNo + ", name=" + name + ", major=" + major + ", score=" + score + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(major, name, score, studentNo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StudentVO other = (StudentVO) obj;
+		return Objects.equals(major, other.major) && Objects.equals(name, other.name)
+				&& Double.doubleToLongBits(score) == Double.doubleToLongBits(other.score)
+				&& Objects.equals(studentNo, other.studentNo);
+	}
+	
+	
 }
 
 
