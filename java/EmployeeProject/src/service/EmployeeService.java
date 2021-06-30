@@ -58,6 +58,17 @@ public class EmployeeService {
 		
 	}
 	//5. 전체 사원정보 중 연봉정보가 3000이상인 사람들을 조회하여 출력하시오
+	public void filterSalary() {
+		//리스트에 데이터가 있나? 확인
+		if(list.isEmpty()) {
+			System.out.println("데이터가 하나도 없습니다.");
+			return;
+		}
+		//리스트에 있는 내용 출력
+		for(int i=0;i<list.size();i++)
+			if(list.get(i).getSalary() >= 3000)
+				list.get(i).printEmployeeInfo();
+	}
 }
 
 
