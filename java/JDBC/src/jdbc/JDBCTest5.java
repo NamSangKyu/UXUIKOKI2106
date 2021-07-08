@@ -9,11 +9,7 @@ public class JDBCTest5 {
 
 	public static void main(String[] args) {
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager
-					.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe",
-					"scott", "tiger");
-			conn.setAutoCommit(false);//auto commit 해제
+			Connection conn = DBManager.getInstance().getConn();
 			String sql = "insert into student values(?,?,?,?)";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, "20201133");
@@ -27,9 +23,7 @@ public class JDBCTest5 {
 			
 			stmt.close();
 			conn.close();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
+		}  catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
