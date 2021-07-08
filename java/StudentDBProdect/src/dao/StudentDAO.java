@@ -77,6 +77,27 @@ public class StudentDAO {
 		return list;
 	}
 
+	public StudentVO selectSnoStudent(String sno) {
+		String sql = "select s.sno, s.name, m.major_name, s.score from student s, major m"
+				+ " where s.major_no = m.major_no and s.sno like ?";
+		
+		PreparedStatement pstmt = null;
+		StudentVO vo = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, sno);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo = new StudentVO(rs.getString(1), rs.getString(2), 
+						-1, rs.getString(3), rs.getDouble(4));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+
 }
 
 

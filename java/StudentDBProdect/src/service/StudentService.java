@@ -25,6 +25,11 @@ public class StudentService {
 	public ArrayList<StudentVO> selectAllStudent(){
 		return dao.selectAllStudent();
 	}
+
+	public StudentVO selectSnoStudent(String sno) {
+		if(sno == null) return null;
+		return dao.selectSnoStudent(sno);
+	}
 	
 }
 

@@ -19,6 +19,9 @@ public class HandlerMapping {
 		case 1:
 			controller = new InsertStudentController();
 			break;
+		case 2:
+			controller = new SelectSnoStudentController();
+			break;
 		case 5:
 			controller = new SelectAllStudentController();
 			break;
