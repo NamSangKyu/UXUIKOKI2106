@@ -30,6 +30,10 @@ public class StudentService {
 		if(sno == null) return null;
 		return dao.selectSnoStudent(sno);
 	}
+
+	public int updateStudent(StudentVO vo) {
+		return dao.updateStudent(vo);
+	}
 	
 }
 
