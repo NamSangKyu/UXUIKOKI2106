@@ -1,4 +1,5 @@
 package vo;
+
 //학번 이름 학과번호 학과명 평점
 public class StudentVO {
 	private String sno;
@@ -6,7 +7,7 @@ public class StudentVO {
 	private int majorNo;
 	private String majorName;
 	private double score;
-	
+
 	public StudentVO(String sno, String name, int majorNo, String majorName, double score) {
 		super();
 		this.sno = sno;
@@ -62,6 +63,16 @@ public class StudentVO {
 				+ ", score=" + score + "]";
 	}
 
-	
-	
+	public void printStudentInfo() {
+		System.out.printf("%s %s %s %.2f\n", sno, name, majorName, score);
+	}
+
 }
+
+
+
+
+
+
+
+

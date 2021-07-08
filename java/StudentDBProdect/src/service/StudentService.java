@@ -1,5 +1,7 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.StudentDAO;
 import vo.StudentVO;
 
@@ -20,6 +22,9 @@ public class StudentService {
 		return dao.insertStudentVO(studentVO);
 	}
 	
+	public ArrayList<StudentVO> selectAllStudent(){
+		return dao.selectAllStudent();
+	}
 	
 }
 

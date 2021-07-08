@@ -2,7 +2,9 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import db.DBManager;
 import vo.StudentVO;
@@ -48,8 +50,37 @@ public class StudentDAO {
 	//3. 학생정보 수정
 	//4. 학생정보 삭제
 	//5. 전체 학생정보 출력
+	public ArrayList<StudentVO> selectAllStudent() {
+		ArrayList<StudentVO> list = new ArrayList<StudentVO>();
+		String sql = "select s.sno, s.name, m.major_name, s.score from student s, major m"
+				+ " where s.major_no = m.major_no";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new StudentVO(rs.getString(1), rs.getString(2), 
+						-1, rs.getString(3), rs.getDouble(4)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return list;
+	}
 
 }
+
+
+
 
 
 
