@@ -37,6 +37,7 @@ public class StudentDAO {
 			
 			int count= pstmt.executeUpdate();
 			System.out.println(count + "건 적용 완료");
+			conn.commit();
 			return count;
 		} catch (SQLException e) {
 			e.printStackTrace();

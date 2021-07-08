@@ -11,7 +11,7 @@ public class DBManager {
 	private DBManager() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "scott", "tiger");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "scott", "tiger");
 			conn.setAutoCommit(false);// auto commit 해제
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
