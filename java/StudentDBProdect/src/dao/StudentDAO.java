@@ -162,6 +162,43 @@ public class StudentDAO {
 		
 		return map;
 	}
+	
+	public HashMap<Integer, ArrayList<StudentVO>> selectRankTop10(){
+		HashMap<Integer, ArrayList<StudentVO>> map = new HashMap<Integer, ArrayList<StudentVO>>();
+		
+		String sql = "select * from rank_student_view where rk <= 10";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				//해당 순위가 저장되어 있는 리스트 꺼냄
+				ArrayList<StudentVO> list = map.get(rs.getInt(1));
+				//null이면 맵에 해당 순위가 있는 리스트가 없음
+				if(list == null)
+					list = new ArrayList<StudentVO>();
+				list.add(new StudentVO(rs.getString(2), rs.getString(3), -1,
+						rs.getString(4), rs.getDouble(5)));
+				map.put(rs.getInt(1), list);//순위 정보가 있는 리스트 최신화
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null)rs.close();
+				if(pstmt != null)pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+				
+		
+		
+		return map;
+	}
 
 }
 

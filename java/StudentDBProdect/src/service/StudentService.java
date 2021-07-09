@@ -47,6 +47,10 @@ public class StudentService {
 	public HashMap<String, Integer> selectMajorCount() {
 		return dao.selectMajorCount();
 	}
+
+	public HashMap<Integer, ArrayList<StudentVO>> selectTop10Score() {
+		return dao.selectRankTop10();
+	}
 	
 }
 

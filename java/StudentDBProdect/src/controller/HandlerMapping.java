@@ -34,6 +34,9 @@ public class HandlerMapping {
 		case 6:
 			controller = new SelectMajorCountController();
 			break;
+		case 7:
+			controller = new SelectTop10ScoreController();
+			break;
 		}
 		return controller;
 	}

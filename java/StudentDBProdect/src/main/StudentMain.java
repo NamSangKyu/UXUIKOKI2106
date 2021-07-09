@@ -15,6 +15,7 @@ public class StudentMain {
 			System.out.println("4. 학생정보 삭제");
 			System.out.println("5. 전체 학생정보 출력");
 			System.out.println("6. 학과별 인원수 출력");
+			System.out.println("7. 성적 상위 10명 출력");
 			System.out.println("0. 프로그램 종료");
 			System.out.print("원하시는 메뉴 번호를 입력하세요 : ");
 			int no = sc.nextInt();
