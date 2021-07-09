@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 
 import dao.StudentDAO;
+import exception.StudentException;
 import vo.StudentVO;
 
 public class StudentService {
@@ -18,7 +19,10 @@ public class StudentService {
 		return instance;
 	}
 
-	public int insertStudent(StudentVO studentVO) {
+	public int insertStudent(StudentVO studentVO) throws StudentException {
+		StudentVO vo = selectSnoStudent(studentVO.getSno());
+		if(vo != null)
+			throw new StudentException("중복된 회원 내용이 있습니다.");
 		return dao.insertStudentVO(studentVO);
 	}
 	

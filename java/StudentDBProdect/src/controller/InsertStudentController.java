@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Scanner;
 
+import exception.StudentException;
 import service.StudentService;
 import vo.StudentVO;
 
@@ -22,12 +23,17 @@ public class InsertStudentController implements Controller {
 		double score = sc.nextDouble();
 		sc.nextLine();
 		
-		int result = StudentService.getInstance()
-				.insertStudent(new StudentVO(sno, name, major, null, score));
-		if(result == 1)
-			System.out.println("학생정보 등록 성공");
-		else
-			System.out.println("학생정보 등록 실패");
+		int result;
+		try {
+			result = StudentService.getInstance()
+					.insertStudent(new StudentVO(sno, name, major, null, score));
+			if(result == 1)
+				System.out.println("학생정보 등록 성공");
+			else
+				System.out.println("학생정보 등록 실패");
+		} catch (StudentException e) {
+			System.out.println(e.getMessage());
+		}
 			
 	}
 
