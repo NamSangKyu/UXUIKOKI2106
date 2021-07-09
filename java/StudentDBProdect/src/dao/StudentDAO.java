@@ -200,6 +200,29 @@ public class StudentDAO {
 		return map;
 	}
 
+	public ArrayList<StudentVO> selectKickStudent() {
+		String sql = "select * from "
+				+ "(select * from rank_student_view order by rk desc) s "
+				+ "where ROWNUM <= 5 and score < 2.0";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<StudentVO> list = new ArrayList<StudentVO>();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add(new StudentVO(rs.getString(2), rs.getString(3), -1,
+						rs.getString(4), rs.getDouble(5)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 }
 
 

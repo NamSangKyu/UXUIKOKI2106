@@ -51,6 +51,10 @@ public class StudentService {
 	public HashMap<Integer, ArrayList<StudentVO>> selectTop10Score() {
 		return dao.selectRankTop10();
 	}
+
+	public ArrayList<StudentVO> selectKickStudent() {
+		return dao.selectKickStudent();
+	}
 	
 }
 
