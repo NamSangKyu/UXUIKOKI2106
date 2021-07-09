@@ -1,7 +1,7 @@
 package service;
 
 import dao.ProfessorDAO;
-
+ 
 public class ProfessorService {
 	private static ProfessorService instance = new ProfessorService();
 	private ProfessorDAO dao;
