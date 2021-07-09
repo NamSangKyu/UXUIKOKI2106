@@ -31,6 +31,9 @@ public class HandlerMapping {
 		case 5:
 			controller = new SelectAllStudentController();
 			break;
+		case 6:
+			controller = new SelectMajorCountController();
+			break;
 		}
 		return controller;
 	}

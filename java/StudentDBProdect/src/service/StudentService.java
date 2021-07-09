@@ -1,6 +1,7 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import dao.StudentDAO;
 import exception.StudentException;
@@ -41,6 +42,10 @@ public class StudentService {
 
 	public int deleteStudent(String sno) {
 		return dao.deleteStudent(sno);
+	}
+
+	public HashMap<String, Integer> selectMajorCount() {
+		return dao.selectMajorCount();
 	}
 	
 }

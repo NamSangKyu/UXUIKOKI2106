@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import db.DBManager;
 import vo.StudentVO;
@@ -132,6 +133,34 @@ public class StudentDAO {
 		}
 		
 		return count;
+	}
+
+	public HashMap<String, Integer> selectMajorCount() {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		String sql = "select major_name, count(*) from student s , major m "
+				+ "where s.major_no = m.major_no group by m.major_name";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				map.put(rs.getString(1), rs.getInt(2));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null)pstmt.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		return map;
 	}
 
 }
