@@ -1,5 +1,7 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.ProfessorDAO;
  
 public class ProfessorService {
@@ -16,6 +18,15 @@ public class ProfessorService {
 	public boolean login(String no, String name) {
 		return dao.login(no,name);
 	}
+	public ArrayList<String> selectRegisterSubjectList(String pno) {
+		return dao.selectRegisterSubjectList(pno);
+	}
 	
 	
 }
+
+
+
+
+
+

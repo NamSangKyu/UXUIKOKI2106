@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import db.DBManager;
 
@@ -42,6 +43,33 @@ public class ProfessorDAO {
 		}
 		
 		return result;
+	}
+	public ArrayList<String> selectRegisterSubjectList(String pno) {
+		ArrayList<String> list = new ArrayList<String>();
+		String sql = "select subject_name || ' - ' || scount || '명' "
+				+ "from subject where profersor_no like ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pno);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return list;
 	}
 	
 }
