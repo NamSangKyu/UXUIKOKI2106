@@ -19,6 +19,10 @@ public class HandlerMapping {
 		case 1:
 			controller = new LoginController();
 			break;
+		case 2:
+			controller = new SelectLectureController();
+			break;
+				
 		}
 		return controller;
 	}

@@ -1,8 +1,10 @@
 package service;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import dao.StudentDAO;
 import exception.StudentException;
+import vo.SubjectVO;
 
 public class StudentService {
 	private static StudentService instance = new StudentService();
@@ -23,6 +25,13 @@ public class StudentService {
 		if(map.size() == 0)
 			throw new StudentException("학번을 확인하세요, 로그인 실패!");
 		return map;
+	}
+
+	public ArrayList<SubjectVO> selectLecture(String sno) throws StudentException {
+		ArrayList<SubjectVO> list = dao.selectLecture(sno);
+		if(list.size() == 0)
+			throw new StudentException("수강신청한 강의 목록이 없습니다.");
+		return list;
 	}
 
 	

@@ -15,7 +15,7 @@ public class StudentMain {
 				System.out.println("2. 수강신청 목록 조회");
 				System.out.println("3. 수강신청하기");
 				System.out.println("4. 수강 취소하기");
-				System.out.println("5. 등록한 수업 목록 조회");
+				System.out.println("5. 수강 신청 가능한 목록 조회");
 			}
 			System.out.println("0. 프로그램 종료");
 			System.out.print("원하시는 메뉴 번호를 입력하세요 : ");
