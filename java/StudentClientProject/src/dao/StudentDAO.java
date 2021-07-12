@@ -112,7 +112,7 @@ public class StudentDAO {
 			cstmt = conn.prepareCall(sql);
 			cstmt.setString(1, subjectNo);
 			cstmt.setString(2, sno);
-			cstmt.registerOutParameter(1, OracleTypes.NUMBER);
+			cstmt.registerOutParameter(3, OracleTypes.NUMBER);
 			cstmt.execute();
 			result = cstmt.getInt(3);
 		} catch (SQLException e) {
