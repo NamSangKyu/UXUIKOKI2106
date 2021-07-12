@@ -25,7 +25,12 @@ public class HandlerMapping {
 		case 3:
 			controller = new RegisterLectureController();
 			break;
-				
+		case 4:
+			controller = new CancelLecuteController();
+			break;
+		case 5:
+			controller = new SelectAllSubjectController();
+			break;
 		}
 		return controller;
 	}

@@ -72,7 +72,7 @@ public class StudentDAO {
 			cstmt.execute();
 			rs = (ResultSet) cstmt.getObject(2);
 			while(rs.next()) {
-				list.add(new SubjectVO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4)));
+				list.add(new SubjectVO(rs.getInt(1) ,rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -84,7 +84,7 @@ public class StudentDAO {
 	}
 
 	public ArrayList<SubjectVO> selectAllLecture() {
-		String sql = "Select * from subject";
+		String sql = "Select * from enable_subject_view";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<SubjectVO> list = new ArrayList<SubjectVO>();
@@ -124,6 +124,22 @@ public class StudentDAO {
 		
 		
 		return result;
+	}
+
+	public int cancelLecture(String sno) {
+		String sql = "delete from REGISTER_LECTURE where register_no = ?";
+		PreparedStatement pstmt = null;
+		int count = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, sno);
+			count = pstmt.executeUpdate();
+			conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return count;
 	}
 
 	

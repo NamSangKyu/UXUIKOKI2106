@@ -44,6 +44,12 @@ public class StudentService {
 			throw new StudentException("수강 신청에 실패하였습니다");
 	}
 
+	public void cancelLecture(String sno) throws StudentException {
+		int count = dao.cancelLecture(sno);
+		if(count == 0)
+			throw new StudentException("수강 신청에 실패하였습니다");
+	}
+
 	
 }
 
