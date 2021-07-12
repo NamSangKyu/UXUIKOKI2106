@@ -142,8 +142,10 @@ public class ProfessorDAO {
 			int count = pstmt.executeUpdate();
 			if(count == 0 )
 				System.out.println("업데이트 할 정보가 없습니다.");
-			else
+			else {
+				conn.commit();
 				System.out.println("업데이트 성공하였습니다.");
+			}
 				
 		} catch (SQLException e) {
 			e.printStackTrace();
