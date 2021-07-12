@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import db.DBManager;
+import session.LoginSession;
 
 public class ProfessorDAO {
 	private static ProfessorDAO instance = new ProfessorDAO();
@@ -99,6 +100,55 @@ public class ProfessorDAO {
 			}
 		}
 		return list;
+	}
+	public void insertSubject(String no, String name, int count) {
+		String sql = "insert into subject values(?,?,?,?)";
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, no);		
+			pstmt.setString(2, name);		
+			//로그인 되어있는 교수번호로 등록
+			pstmt.setString(3, LoginSession.getInstance().getPno());		
+			pstmt.setInt(4, count);
+			
+			int result = pstmt.executeUpdate();
+			
+			if(result == 0)
+				System.out.println("과목 등록 실패");
+			else {
+				System.out.println("과목 등록 성공");
+				conn.commit();
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	public void updateSubject(String sno, String name, int ea) {
+		String sql = "update subject set subject_name = ?, scount = ?"
+				+ " where profersor_no = ? and subject_no = ?";
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setInt(2, ea);
+			pstmt.setString(3, LoginSession.getInstance().getPno());
+			pstmt.setString(4, sno);
+			
+			int count = pstmt.executeUpdate();
+			if(count == 0 )
+				System.out.println("업데이트 할 정보가 없습니다.");
+			else
+				System.out.println("업데이트 성공하였습니다.");
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

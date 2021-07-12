@@ -22,6 +22,12 @@ public class HandlerMapping {
 		case 2:
 			controller = new SelectSubjectController();
 			break;
+		case 3:
+			controller = new RegisterSubjectController();
+			break;
+		case 4:
+			controller = new UpdateSubjectController();
+			break;
 		case 5:
 			controller = new RegisterSubjectListController();
 			break;

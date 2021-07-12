@@ -27,6 +27,12 @@ public class ProfessorService {
 			throw new Exception("검색 결과가 없습니다.");
 		return list;
 	}
+	public void insertSubject(String no, String name, int count) {
+		dao.insertSubject(no,name,count);		
+	}
+	public void updateSubject(String sno, String name, int ea) {
+		dao.updateSubject(sno,name,ea);
+	}
 	
 	
 }
