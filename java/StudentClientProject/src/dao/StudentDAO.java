@@ -84,20 +84,46 @@ public class StudentDAO {
 	}
 
 	public ArrayList<SubjectVO> selectAllLecture() {
-		String sql = "Select * from subject_lecture";
+		String sql = "Select * from subject";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+		ArrayList<SubjectVO> list = new ArrayList<SubjectVO>();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new SubjectVO(rs.getString(1), rs.getString(2),
+						rs.getString(3), rs.getInt(4)));
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close(pstmt, rs);
+		}
+		
+		return list;
+	}
+
+	public int registerLecture(String subjectNo, String sno) {
+		String sql = "call REGISTER_SUBJECT_LECTURE(?,?,?)";
+		CallableStatement cstmt = null;
+		int result = 0;
+		try {
+			cstmt = conn.prepareCall(sql);
+			cstmt.setString(1, subjectNo);
+			cstmt.setString(2, sno);
+			cstmt.registerOutParameter(1, OracleTypes.NUMBER);
+			cstmt.execute();
+			result = cstmt.getInt(3);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(cstmt,null);
 		}
 		
 		
 		
-		return null;
+		return result;
 	}
 
 	

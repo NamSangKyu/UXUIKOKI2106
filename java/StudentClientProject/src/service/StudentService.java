@@ -38,6 +38,12 @@ public class StudentService {
 		return dao.selectAllLecture();
 	}
 
+	public void registerLecture(String subjectNo, String sno) throws StudentException{
+		int count = dao.registerLecture(subjectNo,sno);
+		if(count == -1)
+			throw new StudentException("수강 신청에 실패하였습니다");
+	}
+
 	
 }
 
