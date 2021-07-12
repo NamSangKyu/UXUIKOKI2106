@@ -34,6 +34,10 @@ public class StudentService {
 		return list;
 	}
 
+	public ArrayList<SubjectVO> selectAllLecture() {
+		return dao.selectAllLecture();
+	}
+
 	
 }
 

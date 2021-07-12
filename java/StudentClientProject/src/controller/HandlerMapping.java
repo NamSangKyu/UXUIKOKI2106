@@ -22,6 +22,9 @@ public class HandlerMapping {
 		case 2:
 			controller = new SelectLectureController();
 			break;
+		case 3:
+			controller = new RegisterLectureController();
+			break;
 				
 		}
 		return controller;

@@ -83,6 +83,23 @@ public class StudentDAO {
 		
 	}
 
+	public ArrayList<SubjectVO> selectAllLecture() {
+		String sql = "Select * from subject_lecture";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return null;
+	}
+
 	
 }
 
