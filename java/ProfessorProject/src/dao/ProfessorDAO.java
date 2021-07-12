@@ -71,6 +71,35 @@ public class ProfessorDAO {
 		
 		return list;
 	}
+	public ArrayList<String> selectSubject(String subject) {
+		//String sql = "select * from major where major_name like '%" + subject + "%'";
+		String sql = "select * from subject where subject_name like '%'||?||'%'";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<String> list = new ArrayList<String>();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, subject);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString(1) + " " + rs.getString(2) 
+				+ " " + rs.getString(3) + " " + rs.getInt(4));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null)
+					rs.close();
+				if(pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
 	
 }
 

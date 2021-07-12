@@ -21,6 +21,12 @@ public class ProfessorService {
 	public ArrayList<String> selectRegisterSubjectList(String pno) {
 		return dao.selectRegisterSubjectList(pno);
 	}
+	public ArrayList<String> selectSubject(String subject) throws Exception{
+		ArrayList<String> list = dao.selectSubject(subject);
+		if(list.size() == 0)
+			throw new Exception("검색 결과가 없습니다.");
+		return list;
+	}
 	
 	
 }
