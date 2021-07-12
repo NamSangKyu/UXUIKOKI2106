@@ -4,17 +4,17 @@ import java.util.Scanner;
 import controller.Controller;
 import controller.HandlerMapping;
 import session.LoginSession;
-public class ProfessorMain {
+public class StudentMain {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		while(true) {
-			System.out.println("----교수 업무관리 프로그램----");
+			System.out.println("----수강 신청 프로그램----");
 			System.out.println("1. 로그인");
 			if(LoginSession.getInstance().updateSession()) {
-				System.out.println("2. 과목 검색");
-				System.out.println("3. 과목 등록");
-				System.out.println("4. 과목 수정");
+				System.out.println("2. 수강신청 목록 조회");
+				System.out.println("3. 수강신청하기");
+				System.out.println("4. 수강 취소하기");
 				System.out.println("5. 등록한 수업 목록 조회");
 			}
 			System.out.println("0. 프로그램 종료");
