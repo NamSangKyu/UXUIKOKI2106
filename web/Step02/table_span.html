@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            vertical-align: center;
+            font-size: 24px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!--5행 5열 테이블 작성-->
+    <table>
+        <tr>
+            <td colspan="2">1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td colspan="3">7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td rowspan="3">11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>17</td>
+            <td colspan="2" rowspan="2">18</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>22</td>
+        </tr>
+    </table>
+</body>
+</html>
