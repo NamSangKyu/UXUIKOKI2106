@@ -22,8 +22,10 @@
     src = "경로" , controls = 컨트롤러표시, loop = 반복설정
 <iframe> : 외부 사이트 페이지 츨력
     src = "경로" ,frameborder = "테두리 두께"
+<a> : 다른 페이지 이동
+    hreft = "이동할 경로" title = "툴팁내용"
 태그의 종류는 크게 두가지로 나눔
 inline 태그 : 내용 일부분을 디자인 내용에 해당하는 태그 --> 글자로 취급 --> 줄바꿈 X
-    ---> b, i, em, u, mark, img, video. audio, iframe
+    ---> b, i, em, u, mark, img, video. audio, iframe, a
 block 태그 : 내용에 대한 영역을 잡는 태그 ---> 문단(영역)으로 취급 --> 줄바꿈 O
     ---> h1~h6, ul, li, ol, p, pre, blockquout, 
