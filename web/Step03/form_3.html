@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>label, checkbox</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <label for="id">아이디</label> <input type="text" id="id"><br>
+    <label for="passwd">암호</label> <input type="password" id="passwd"><br>
+    <input type="checkbox" value="1" id="chk1"> <label for="chk1">항목1</label><br>
+    <input type="checkbox" value="2" id="chk2" checked> <label for="chk2">항목2</label><br>
+    <input type="checkbox" value="3" id="chk3" checked> <label for="chk3">항목3</label><br>
+    <input type="checkbox" value="4" id="chk4"> <label for="chk4">항목4</label><br>
+    <hr>
+    <input type="radio" name="agree" value="yes" id="r1"><label for="r1">예</label>
+    <input type="radio" name="agree" value="no" id="r2" checked><label for="r2">아니오</label>
+    <hr>
+    <select name="tel">
+        <option value="0">010</option>
+        <option value="1">011</option>
+        <option value="6" selected>016</option>
+        <option value="9">019</option>
+    </select><br>
+    <select name="major">
+        <optgroup label="컴퓨터공학부">
+            <option value="1">임베디드 학과</option>
+            <option value="2">게임 학과</option>
+            <option value="3">빅데이터 학과</option>
+            <option value="4">AI 학과</option>
+        </optgroup>
+        <optgroup label="융합학과">
+            <option value="5">전자바이오물리 학과</option>
+            <option value="6">동북아문화산업 학과</option>
+            <option value="7">전자경영 학과</option>
+        </optgroup>
+    </select><br>
+    <select name="major" multiple size="10">
+        <optgroup label="컴퓨터공학부">
+            <option value="1">임베디드 학과</option>
+            <option value="2">게임 학과</option>
+            <option value="3">빅데이터 학과</option>
+            <option value="4">AI 학과</option>
+        </optgroup>
+        <optgroup label="융합학과">
+            <option value="5">전자바이오물리 학과</option>
+            <option value="6">동북아문화산업 학과</option>
+            <option value="7">전자경영 학과</option>
+        </optgroup>
+    </select>
+</body>
+</html>
