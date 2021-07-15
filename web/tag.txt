@@ -33,6 +33,20 @@
 <tbody> : 테이블 본문 영역
 <tfoot> : 테이블 꼬리말 영역
 
+<form> : 사용자에게 입력 받을 태그를 감싸는 태그
+         폼태그 내부에 있는 태그들에 데이터 입력하면
+         입력한 데이터를 전송할 페이지 및 전송 형태를 결정해주는 태그
+
+<input> : 사용자에게 입력을 받는 태그, type 속성을 이용해서 다양한 형태로 입력을 받음
+    text, password, checkbox, radio, button, submit, reset number, date, file, email
+    color
+<select> : 사용자에게 드롭다운 형식으로 항목을 선택하게 하는 태그
+<textarea> : 사용자에게 여러줄의 텍스트를 입력받을 떄 사용(댓글)
+<button> : 버튼 생성하는 태그 button, submit, reset 있음
+<label> : input 태그를 id 속성값으로 연결해서 focus 효과를 주는 태그
+    연결하기위해 for 속성을 사용
+
+
 태그의 종류는 크게 두가지로 나눔
 inline 태그 : 내용 일부분을 디자인 내용에 해당하는 태그 --> 글자로 취급 --> 줄바꿈 X
     ---> b, i, em, u, mark, img, video. audio, iframe, a

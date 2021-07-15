@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>회원가입</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <h1>회원가입 페이지</h1>
+    <form action="">
+        <label for="id">아이디</label>
+        <input type="text" id="id" placeholder="아이디를 입력하세요"><br>
+        <label for="passwd">암호</label>
+        <input type="password" id="passwd" placeholder="암호를 입력하세요"><br>
+        <label for="passwd_check">암호 확인</label>
+        <input type="password" id="passwd_check" placeholder="암호를 한번더 입력하세요"><br>
+        <label for="name">이름</label>
+        <input type="text" id="name" placeholder="이름을 입력하세요"><br>
+        <label for="tel2">연락처</label>
+        <select id="tel1">
+            <option value="0">010</option>
+            <option value="1">011</option>
+            <option value="6">016</option>
+            <option value="9">019</option>
+        </select>-<input type="text" id="tel2">-<input type="text" id="tel3"><br>
+        <label for="email">이메일</label>
+        <input type="text" id="email" placeholder="메일 주소를 입력하세요">@
+        <select>
+            <option value="1">hanmail.net</option>
+            <option value="2">naver.com</option>
+            <option value="3">gmail.com</option>
+            <option value="4">nate.com</option>
+            <option value="-1">직접입력</option>
+        </select><br>
+        <label>메일링 서비스 동의</label>
+        <input type="checkbox" id="chk"><label for="chk">가입</label><br>
+        <label>약관 동의</label>
+        <input type="radio" id="yes" name="agree"><label for="yes">동의</label>
+        <input type="radio" id="no" name="agree" checked><label for="no">비동의</label><br>
+        <button>회원가입</button>
+        <button type="reset">초기화</button>
+        <button type="button">취소</button>
+    </form>
+</body>
+
+</html>
