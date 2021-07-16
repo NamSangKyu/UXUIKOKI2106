@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>position</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body{
+            height: 5000px;
+        }
+        div{
+            width:200px;
+            height: 200px;
+            border:1px solid black;
+            background-image: url(/resource/images/waterfalls.jpg);
+            background-size: 100% 100%;
+        }
+        .absolute{
+            /*문서 상에서 고정, 스크롤바를 따라서 움직임*/
+            position: absolute;
+            top : 30px;
+            right: 500px;
+        }
+        .fixed{
+            /*웹 브라우저 상에서 고정, 스크롤바를 따라서 움직이지 않음*/
+            position: fixed;
+            bottom : 200px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="absolute"></div>
+    <div class="fixed"></div>
+</body>
+</html>
