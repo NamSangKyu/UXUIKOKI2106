@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>font size</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            html{
+               font-size: 30px; 
+            }
+            div{
+                font-size: 20px;
+            }
+            .size1 {
+                /*부모 기준으로 비율로 크기를 잡음*/
+                font-size:1.5em;
+            };
+            .size2{
+                /* %도 부모 기준으로 크기를 잡음*/
+                font-size: 150%;
+            }
+            .size3{
+                font-size: 1.5rem;
+            }
+            .size4{
+                font-size : 45px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>p 폰트 크기 - M - 30px</p>
+        <div>
+            div 폰트 크기 - M - 20px
+            <p class="size1">p 폰트 크기 - M - 1.5em</p>
+            <p class="size2">p 폰트 크기 - M - 150%</p>
+            <p class="size3">p 폰트 크기 - M - 1.5rem</p>
+            <p class="size4">p 폰트 크기 - M - 45px</p>
+        </div>
+
+    </body>
+</html>
