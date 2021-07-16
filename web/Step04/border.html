@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>border</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+            text-align: center;
+        }
+        .box1{
+            border-left: 10px solid orange;
+            border-top: 5px dashed rgb(0, 255, 0);
+            border-bottom: 10px dotted #ff4321;
+            border-right: 5px double black;
+            margin-bottom: 20px;
+            border-radius: 30px;
+        }
+        .box2{
+            border:20px outset yellowgreen;
+            border-radius: 170px;
+            margin:0 auto;
+        }
+        .box2:active{
+            border:20px inset yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+</body>
+</html>
