@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>배경</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        div{
+            width: 600px;
+            height: 400px;
+            padding:20px;
+            border:20px dashed red;
+            margin-top: 40px;
+            margin-left: 200px;
+        }
+        .box1{
+            background-color: cornflowerblue;
+            background-clip: content-box;
+        }
+        .box2{
+            width: 1000px;
+            height: 500px;
+            background-image: url(/resource/images/waterfalls.jpg);
+            background-repeat: no-repeat;
+            /* left right top bottom center*/
+            /*background-position: center;*/
+            /*
+            cover : 가로세로 비율 중 큰거 기준으로 채움,
+                    큰 비율에 해당하는 이미지가 짤림(가로나 세로영역 일부가 짤림)
+                    이미지가 영역 전체를 채움
+            contain : 가로세로 비율 중 작은 거 기준으로 채움
+                    이미지가 영역 전체를 채우지는 못함
+            */
+            background-size: contain;
+            background-origin: content-box;
+        }
+        .box3{
+            /*background: border-box blueviolet;*/
+            background: center / contain no-repeat url(/resource/images/galaxy.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>
