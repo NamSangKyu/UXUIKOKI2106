@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>레이아웃 잡기 - 1</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        header,nav,section,article,aside,footer{
+            border : 1px solid black;
+            padding:20px;
+        }
+        header{
+            width:1200px;
+            height: 200px;
+            margin:0 auto;
+        }
+        nav{
+            width: 1200px;
+            margin:0 auto;
+            text-align: center;
+        }
+        ul{
+            list-style-type: none;
+            display: inline-block;
+            border:1px solid black;
+        }
+        li{
+            float: left;
+        }
+        a{
+            display: inline-block;
+            color:black;
+            text-decoration: none;
+            width:200px;
+            padding:20px 0px;
+            border:1px solid black;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>머리글 영역</h1>
@@ -34,4 +72,5 @@
         꼬리말 영역
     </footer>
 </body>
+
 </html>
