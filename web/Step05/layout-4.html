@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 1200px;
+            height: 200px;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+
+        nav {
+            width: 1200px;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+
+        ul {
+            display: inline-block;
+            list-style-type: none;
+        }
+
+        li {
+            float: left;
+            margin-left: 50px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 20px 0px;
+        }
+        section{
+            width: 1200px;
+            padding: 20px 0px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        article{
+            width: 525px;
+            height: 400px;
+            margin-left: 50px;
+            float: left;
+            border:1px solid black;
+        }
+        .section_container{
+            width: 100%;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        footer{
+            width: 1200px;
+            padding:30px 0px;
+            border:1px solid black;
+            margin: 0 auto;
+            clear: both;
+        }
+        .footer_container{
+            width:100%;
+            display: inline-block;
+        }
+        .company{
+            width: 300px;
+            height: 100px;
+            border:1px solid black;
+            float: right;
+        }
+        .logo{
+            width: 200px;
+            height: 100px;
+            border:1px solid black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>header 제목영역</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="">menu1</a></li>
+            <li><a href="">menu2</a></li>
+            <li><a href="">menu3</a></li>
+            <li><a href="">menu4</a></li>
+            <li><a href="">menu5</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>본문 제목 영역</h2>
+        <div class="section_container">
+            <article>
+                <h3>aritcle 제목</h3>
+                <p>article 내용</p>
+            </article>
+            <article>
+                <h3>aritcle 제목</h3>
+                <p>article 내용</p>
+            </article>
+        </div>
+    </section>
+    <footer>
+        <div class="footer_container">
+            <div class="logo">로고</div>
+            <div class="company">회사정보</div>
+        </div>
+    </footer>
+</body>
+</html>
