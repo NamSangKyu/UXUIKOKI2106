@@ -46,7 +46,31 @@
             text-decoration: line-through;
         }
 
-        
+        /*가상클래스*/
+        /*하이퍼 링크가 걸려있을때*/
+        /*방문한 적이 있는 페이지 일때*/
+        a:link, a:visited{
+            color :chocolate;
+            text-decoration: none;
+        }
+        /*마우스가 올라갔을때*/
+        a:hover{
+            background-color: cornsilk;
+        }
+        /*마우스를 클릭했을때*/
+        a:active{
+            background-color: crimson;
+        }
+        /*focus, 해당 태그가 선택이 된 이벤트*/
+        input:focus{
+            background-color: deepskyblue;
+        }
+        /* disabled, 해당 태그가 비활성화 된 상태*/
+        input:disabled{
+            background-color: darkgoldenrod;
+        }
+
+
     </style>
 </head>
 <body>
