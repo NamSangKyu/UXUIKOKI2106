@@ -41,6 +41,26 @@
             padding:20px 0px;
             border:1px solid black;
         }
+        section{
+            width:820px;
+            box-sizing: border-box;
+            height: 400px;
+            float: left;
+        }
+        aside{
+            width:420px;
+            box-sizing: border-box;
+            height: 400px;
+            float: left;
+        }
+        .container{
+            width: 1240px;
+            margin: 0 auto;
+        }
+        footer{
+            height: 300px;
+            clear: left;
+        }
     </style>
 </head>
 
@@ -58,16 +78,18 @@
             <li><a href="#">menu</a></li>
         </ul>
     </nav>
-    <section>
-        <h2>본문 영역</h2>
-        <article>
-            <h3>본문 내용 영역</h3>
-        </article>
-        <article>
-            <h3>본문 내용 영역</h3>
-        </article>
-    </section>
-    <aside>본문외 영역</aside>
+    <div class="container">
+        <section>
+            <h2>본문 영역</h2>
+            <article>
+                <h3>본문 내용 영역</h3>
+            </article>
+            <article>
+                <h3>본문 내용 영역</h3>
+            </article>
+        </section>
+        <aside>본문외 영역</aside>
+    </div>
     <footer>
         꼬리말 영역
     </footer>
