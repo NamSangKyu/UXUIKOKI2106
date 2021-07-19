@@ -5,6 +5,49 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        /*
+            자식 선택자
+                선택자 > 선택자
+        */
+        h2 > span{
+            text-decoration: underline;
+        }
+        p > span {
+            color : red;
+        }
+        .container > ul > li {
+            font-weight: bold;
+        }
+        /*
+            자손 선택자
+                선택자 선택자
+        */
+        .container li{
+            text-decoration: line-through;
+        }
+        .container *{
+            font-style: italic;
+        }
+        /* 클래스가 container를 선택하고, 그 안에 자식들 중 ul을 선택하여
+           ul 태그의 자손들 중 모든 li 태그를 선택한 후.
+           선택된 모든 요소에 배경색을 자유롭게 지정*/
+        .container > ul li{
+            background-color: burlywood;
+        }
+
+        /* 동생 요소 선택 */
+        .brother1+li{
+            text-decoration: underline;
+        }
+        
+        /* 동생 요소들 선택 */
+        .brother2~li{
+            text-decoration: line-through;
+        }
+
+        
+    </style>
 </head>
 <body>
     
