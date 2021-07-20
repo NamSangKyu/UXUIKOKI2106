@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            animation-name: ani1;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+        }
+        .mbox{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            animation-name: ani2;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+            position: absolute;
+        }
+        @keyframes ani1 {
+            from{
+                border-radius: 0px;
+            }
+            to{
+                border-radius: 100px;
+                background-color: coral;
+            }
+        }
+        @keyframes ani2 {
+            0%{
+                left: 0px;
+            }
+            50%{
+                background-color: cornflowerblue;
+            }
+            100%{
+                left: calc(100% - 200px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>    
+    <hr>
+    <div class="mbox"></div>
+</body>
+</html>
