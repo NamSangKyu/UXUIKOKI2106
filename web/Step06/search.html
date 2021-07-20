@@ -5,6 +5,52 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .container{
+            display: inline-block;
+            margin: 50px;
+        }
+        #kind{
+            width: 70px;
+            height: 40px;
+            outline: none;
+            font-size: 20px;
+            box-sizing: border-box;
+            border:1px solid black;
+            float: left;
+        }
+        .search{
+            float: left;
+            box-sizing: border-box;
+            width: 200px;
+            height: 40px;
+            outline: none;
+            font-size: 20px;
+            border:1px solid black;
+            padding-left: 40px;
+            background-image: url(/resource/images/zoom.png);
+            background-repeat: no-repeat;
+            background-size: 30px;
+            background-position: 5px center;
+        }
+        .search:focus{
+            outline: none;
+            border:1px solid black;
+        }
+        button{
+            float: left;
+            width: 50px;
+            height: 40px;
+            box-sizing: border-box;
+            background-color: white;
+            border: none;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
