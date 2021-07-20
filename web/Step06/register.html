@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>회원가입 예제</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>kakao</h1>
+    <div class="container">
+        <h2>카카오 계정 정보를 입력해 주세요.</h2>
+        <form action="">
+            <ul>
+                <li><label for="id">카카오계정 이메일</label></li>
+                <li class="border_bottom">
+                    <input type="text" name="id" id="id" placeholder="아이디를 입력하세요">
+                    <span class="sub_txt">@kakao.com</span>
+                </li>
+                <ul>
+                    <li>입력한 카카오메일로 카카오 계정에 로그인할 수 있습니다.</li>
+                    <li>한번 만든 카카오 메일은 변경할 수 없으니, 오타가 없도록 신중히 확인해 주세요.</li>
+                    <li>생성한 카카오메일로 카카오계정과 관련한 알림을 받아볼 수 있습니다.</li>
+                </ul>
+                <li><label for="pass">비밀번호</label></li>
+                <li class="border_bottom">
+                    <input type="password" name="pass" id="pass" placeholder="비밀번호(8~32자리)" maxlength="32" minlength="8">
+                </li>
+                <li class="border_bottom">
+                    <input type="password" id="pass_chk" placeholder="비밀번호 재입력" maxlength="32" minlength="8">
+                </li>
+                <li><label for="nick">닉네임</label></li>
+                <li class="border_bottom">
+                    <input type="text" name="nick" id="nick" placeholder="닉네임을 입력하세요">
+                    <span class="sub_txt">0/20</span>
+                </li>
+                <li><label for="tel">전화번호</label></li>
+                <li class="border_bottom">
+                    <select name="gcode" id="gcode">
+                        <option value="82">+82</option>
+                        <option value="1">+1</option>
+                        <option value="84">+84</option>
+                        <option value="55">+55</option>
+                    </select><input type="text" name="tel" id="tel" placeholder="전화번호 입력하세요 -는 빼고" class="left_border">
+                </li>
+                <li>
+                    <button type="button" class="btn_send_no">인증번호 전송</button>
+                </li>
+                <li>
+                    <button class="btn_next">다음</button>
+                </li>
+                
+            </ul>
+        </form>
+
+    </div>
+</body>
+</html>
