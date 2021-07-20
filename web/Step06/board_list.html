@@ -36,6 +36,49 @@
         .date{
             width: 130px;
         }
+        /*--------------------------*/
+        .container{
+            display: inline-block;
+        }
+        #kind{
+            width: 70px;
+            height: 40px;
+            outline: none;
+            font-size: 20px;
+            box-sizing: border-box;
+            border:1px solid black;
+            float: left;
+        }
+        .search{
+            float: left;
+            box-sizing: border-box;
+            width: 200px;
+            height: 40px;
+            outline: none;
+            font-size: 20px;
+            border:1px solid black;
+            padding-left: 40px;
+            background-image: url(/resource/images/zoom.png);
+            background-repeat: no-repeat;
+            background-size: 30px;
+            background-position: 5px center;
+        }
+        .search:focus{
+            outline: none;
+            border:1px solid black;
+        }
+        button{
+            float: left;
+            width: 50px;
+            height: 40px;
+            box-sizing: border-box;
+            background-color: white;
+            border: none;
+            outline: none;
+        }
+        .board_bar{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -89,6 +132,33 @@
                 <td>30</td>
             </tr>
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="7">
+                    <ul class="pagging">
+                        <li><<</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>>></li>
+                    </ul>
+                </td>
+                </tr>
+                <td colspan="7" class="board_bar">
+                    <div class="container">
+                        <select id="kind">
+                            <option value="title">제목</option>
+                            <option value="id">아이디</option>
+                            <option value="content">내용</option>
+                        </select>
+                        <input type="text" class="search">
+                        <button>검색</button>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
     </table>    
 </body>
 </html>
