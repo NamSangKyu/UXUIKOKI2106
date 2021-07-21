@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        div{
+            width:200px;
+            height: 200px;
+            background-color: gray;
+            border:1px solid black;
+        }
+        div.t1{
+            transform: translate(100px,100px);
+            -webkit-transform: translate(100px,100px);
+            -o-transform: translate(100px,100px);
+            -moz-transform: translate(100px,100px);
+            -ms-transform: translate(100px,100px);
+        }
+        div.t2{
+            background-image: url(/resource/images/waterfalls.jpg);
+            background-size: 100% 100%;
+            transform: translate(200px,0px) rotateX(130deg);
+        }
+        div.t3{
+            background-image: url(/resource/images/waterfalls.jpg);
+            background-size: 100% 100%;
+            transform: translate(200px,0px) rotateY(40deg);
+        }
+        div.t4{
+            background-image: url(/resource/images/waterfalls.jpg);
+            background-size: 100% 100%;
+            transform: translate(200px,0px) rotatez(40deg);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="t1"></div>    
+    <div class="t2"></div>    
+    <div class="t3"></div>    
+    <div class="t4"></div>    
+</body>
+</html>
