@@ -10,10 +10,17 @@
             margin:0;
             padding:0;
         }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            height: 3000px;
+        }
         nav{
             width: 100px;
             float: left;
             margin-left: 200px;
+            position: fixed;
         }
         nav > table{
             border-collapse: collapse;
@@ -28,8 +35,7 @@
         }
         section{
             width: 1200px;
-            margin-left: 100px;
-            float: left;
+            margin-left: 500px;
         }
         article{
             width: 100%;
@@ -72,27 +78,27 @@
                 <td><a href="#"><img src="/resource/images/icon/home.png"></a></td>
             </tr>
             <tr>
-                <td><a href="#"><img src="/resource/images/icon/nike.png"></a></td>
+                <td><a href="#nike"><img src="/resource/images/icon/nike.png"></a></td>
             </tr>
             <tr>
-                <td><a href="#"><img src="/resource/images/icon/adidas.png"></a></td>
+                <td><a href="#adidas"><img src="/resource/images/icon/adidas.png"></a></td>
             </tr>
             <tr>
-                <td><a href="#"><img src="/resource/images/icon/fila.png"></a></td>
+                <td><a href="#fila"><img src="/resource/images/icon/fila.png"></a></td>
             </tr>
             <tr>
-                <td><a href="#"><img src="/resource/images/icon/lg.png"></a></td>
+                <td><a href="#lg"><img src="/resource/images/icon/lg.png"></a></td>
             </tr>
             <tr>
-                <td><a href="#"><img src="/resource/images/icon/samsung.png"></a></td>
+                <td><a href="#samsung"><img src="/resource/images/icon/samsung.png"></a></td>
             </tr>
             <tr>
-                <td><a href="#"><img src="/resource/images/icon/apple.png"></a></td>
+                <td><a href="#apple"><img src="/resource/images/icon/apple.png"></a></td>
             </tr>
         </table>
     </nav>
     <section>
-        <article>
+        <article id="nike">
             <h2>Nike</h2>
             <div class="thumnail">
                 <div class="item">
@@ -125,7 +131,7 @@
                 </div>
             </div>
         </article>
-        <article>
+        <article id="adidas">
             <h2>Adidas</h2>
             <div class="thumnail">
                 <div class="item">
@@ -158,7 +164,7 @@
                 </div>
             </div>
         </article>
-        <article>
+        <article id="fila">
             <h2>FILA</h2>
             <div class="thumnail">
                 <div class="item">
@@ -191,7 +197,7 @@
                 </div>
             </div>
         </article>
-        <article>
+        <article id="lg">
             <h2>LG</h2>
             <div class="thumnail">
                 <div class="item">
@@ -224,7 +230,7 @@
                 </div>
             </div>
         </article>
-        <article>
+        <article id="samsung">
             <h2>SAMSUNG</h2>
             <div class="thumnail">
                 <div class="item">
@@ -257,7 +263,7 @@
                 </div>
             </div>
         </article>
-        <article>
+        <article id="apple">
             <h2>Apple</h2>
             <div class="thumnail">
                 <div class="item">
