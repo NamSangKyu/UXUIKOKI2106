@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            height: 3000px;
+        }
+        nav{
+            width: 100px;
+            float: left;
+        }
+        nav > table{
+            border-collapse: collapse;
+        }
+        td{
+            border:1px solid black;
+            font-size: 0px;
+        }
+        td img{
+            width: 60px;
+            padding:10px;
+        }
+        header{
+            width: 1800px;
+            height: 200px;
+            background-color: #e9e9e9;
+            float: left;
+        }
+        #menu {
+            font-size: 0px;
+            width: 1800px;
+            float: left;
+            text-align: center;
+            background-color: chartreuse;
+        }
+        #menu a:link,
+        #menu a:visited {
+            font-size: 20px;
+            color: black;
+            text-decoration: none;
+            width: 150px;
+            padding: 10px 0px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        #menu a:hover {
+            background-color: rgb(3, 102, 3);
+            color: white;
+        }
+
+        #menu li {
+            float: left;
+        }
+
+        #menu>ul {
+            display: inline-block;
+        }
+        section{
+            width: 1800px;
+            float: left;
+        }
+        article{
+            width: 100%;
+            clear: both;
+            margin-top: 20px;
+        }
+        .thumnail{
+            width: 100%;
+            overflow-x: scroll;
+            white-space: nowrap ;
+            text-overflow: clip;
+
+        }
+        .item{
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            margin-left: 30px;
+            position: relative;
+        }
+        .item > img{
+            width: 200px;
+            height: 200px;
+        }
+        .item_bar{
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.514);
+            color: black;
+            position: absolute;
+            bottom: 0px;
+            text-align: center;
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+<body>
+   
+    <nav>
+        <table>
+            <tr>
+                <td><a href="#"><img src="/resource/images/icon/home.png"></a></td>
+            </tr>
+            <tr>
+                <td><a href="#nike"><img src="/resource/images/icon/nike.png"></a></td>
+            </tr>
+            <tr>
+                <td><a href="#adidas"><img src="/resource/images/icon/adidas.png"></a></td>
+            </tr>
+            <tr>
+                <td><a href="#fila"><img src="/resource/images/icon/fila.png"></a></td>
+            </tr>
+            <tr>
+                <td><a href="#lg"><img src="/resource/images/icon/lg.png"></a></td>
+            </tr>
+            <tr>
+                <td><a href="#samsung"><img src="/resource/images/icon/samsung.png"></a></td>
+            </tr>
+            <tr>
+                <td><a href="#apple"><img src="/resource/images/icon/apple.png"></a></td>
+            </tr>
+        </table>
+    </nav>
+    <header>
+        <h1>헤더 영역</h1>
+    </header>
+    <nav id="menu">
+        <ul>
+            <li><a href="#" title="메뉴1 페이지로 이동">메뉴1</a></li>
+            <li><a href="#" title="메뉴2 페이지로 이동">메뉴2</a></li>
+            <li><a href="#" title="메뉴3 페이지로 이동">메뉴3</a></li>
+            <li><a href="#" title="메뉴4 페이지로 이동">메뉴4</a></li>
+            <li><a href="#" title="메뉴5 페이지로 이동">메뉴5</a></li>
+        </ul>
+    </nav>
+    <section>
+        <article id="nike">
+            <h2>Nike</h2>
+            <div class="thumnail">
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+            </div>
+        </article>
+        <article id="adidas">
+            <h2>Adidas</h2>
+            <div class="thumnail">
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+            </div>
+        </article>
+        <article id="fila">
+            <h2>FILA</h2>
+            <div class="thumnail">
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+            </div>
+        </article>
+        <article id="lg">
+            <h2>LG</h2>
+            <div class="thumnail">
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+            </div>
+        </article>
+        <article id="samsung">
+            <h2>SAMSUNG</h2>
+            <div class="thumnail">
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+            </div>
+        </article>
+        <article id="apple">
+            <h2>Apple</h2>
+            <div class="thumnail">
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <div class="item_bar">제품명</div>
+                </div>
+            </div>
+        </article>
+    </section>
+</body>
+</html>
