@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>그리드</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .item{
+            padding:50px;
+            font-size: 24px;
+            border:1px solid black;
+        }
+        .container1{
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: minmax(100px,auto);
+        }
+        .container2{
+            display: grid;
+            grid-template-columns: 1fr 2fr 3fr;
+            grid-template-rows: minmax(100px,auto);
+        }
+        .container3{
+            display: grid;
+            grid-template-columns: repeat(3,minmax(200px,1fr));
+            grid-template-rows: minmax(100px,auto);
+        }
+        .container4{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+            grid-template-rows: minmax(100px,auto);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <div class="container2">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <div class="container3">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <div class="container4">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+</html>
