@@ -62,9 +62,16 @@
             padding:20px 0px;
             display: inline-block;
         }
-        section{
+        .section1{
             grid-area: section1;
-            border:1px solid white;
+            position: relative;
+        }
+        .section2{
+            grid-area: section2;
+            position: relative;
+        }
+        .section3{
+            grid-area: section3;
             position: relative;
         }
         .arrow_background{
@@ -75,12 +82,21 @@
             border-radius: 30px;
             font-size: 0px;
         }
-        .arrow_background:nth-child(2){
+        .arrow_background+.arrow_background{
             right: 0px;
         }
+      
         .left_arrow, .right_arrow{
             width: 60px;
             opacity: 0.8;
+        }
+        .section2 .left_arrow, .section2 .right_arrow,
+        .section3 .left_arrow, .section3 .right_arrow{
+            width: 40px;
+        }
+        .section3 > article,
+        .section2 > article{
+            grid-template-columns: repeat(6, 1fr);
         }
         .right_arrow{
             transform: rotate(180deg);
@@ -94,6 +110,7 @@
             
         }
         .item > img{
+            width: 100%;
             position: relative;
             z-index: -1;
         }
@@ -122,6 +139,22 @@
             border-radius: 15px;
             margin-left: 10px;
         }
+        section h2 {
+            padding: 10px 50px;
+            color: white;
+        }
+        footer{
+            grid-area: footer;
+            color:white;
+        }
+        footer h2{
+            padding:30px 20px;
+            border-top : 1px solid white;
+            border-bottom : 1px solid white;
+        }
+        footer ul{
+            padding: 30px 20px;
+        }
     </style>
 </head>
 <body>
@@ -138,7 +171,7 @@
                 </ul>
             </nav>
         </header>
-        <section>
+        <section class="section1">
             <span class="arrow_background"><img src="/resource/images/icon/left.png" class="left_arrow"></span>
             <span class="arrow_background"><img src="/resource/images/icon/left.png" class="right_arrow"></span>
             <article>
@@ -166,6 +199,104 @@
                 <a href="#"></a>
             </div>
         </section>
+        <section class="section2">
+            <h2>지금 핫한 VOD 목록</h2>
+            <span class="arrow_background"><img src="/resource/images/icon/left.png" class="left_arrow"></span>
+            <span class="arrow_background"><img src="/resource/images/icon/left.png" class="right_arrow"></span>
+            <article>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+            </article>
+            <div class="gallery_bar">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+        </section>
+        <section class="section3">
+            <h2>사용자 추천 VOD</h2>
+            <span class="arrow_background"><img src="/resource/images/icon/left.png" class="left_arrow"></span>
+            <span class="arrow_background"><img src="/resource/images/icon/left.png" class="right_arrow"></span>
+            <article>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+            </article>
+            <div class="gallery_bar">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+        </section>
+        <footer>
+            <h2>공지사항 QuickMedia 접속 불량 현상 해결 공지</h2>
+            <ul>
+                <li>회사명 : QuickMedia</li>
+                <li>대표이사 : 홍길동</li>
+                <li>사업자번호 : 000-0000-0000</li>
+                <li>주소 : 서울시 강서 화곡동</li>
+                <li>고객센터 : 0000-0000</li>
+            </ul>
+        </footer>
     </div>
 </body>
 </html>
