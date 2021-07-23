@@ -20,17 +20,28 @@
             padding:10px;
         }
         .box{
-            padding: 5px 45px;
             margin: 5px;
-            width: 300px;
+            width: 100px;
             background-color: darkblue;
             color: white;
+        }
+        .flex_row{
+            display: flex;
+            flex-direction: row;
+            /*플렉스 항목 배치 속성*/
+            justify-content: center;
         }
     </style>
 </head>
 <body>
     <div class="flex_container">
-
+        <div class="flex_row">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+        </div>
     </div>
 </body>
 </html>
