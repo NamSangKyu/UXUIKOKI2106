@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>펜션</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .flex_container{
+            display: flex;
+            flex-direction: column;
+            width: 1200px;
+            margin: 0 auto;
+            font-size: 0px;
+        }
+        #member_bar{
+            height: 50px;
+            background-color: #e9e9e9;
+        }
+        nav{
+            padding:20px 0px;
+            background-color: #e9e9e9;
+        }
+        nav ul{
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+       
+        nav a:link,nav a:visited{
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex_container">
+        <header>
+            <div id="member_bar">
+                <div>
+                    <img src="/resource/images/profile.png" alt="">
+                    <p>OOO로그인 하셨습니다.</p>
+                    <p>로그아웃 | 정보수정</p>
+                </div>
+            </div>
+            <div class="ad_img">
+                <img src="/resource/images/main_4.jpg" alt="">
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">예약</a></li>
+                <li><a href="#">펜션스토리</a></li>
+                <li><a href="#">펜션소개</a></li>
+                <li><a href="#">오시는길</a></li>
+            </ul>
+        </nav>
+    </div>    
+</body>
+</html>
