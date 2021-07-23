@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>그리드 예제</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        body{
+            background-color: #28262e;
+        }
+        .container{
+            display: grid;
+            min-width: 1200px;
+            grid-template-columns: repeat(6,1fr);
+            grid-template-areas: 
+                "header header header header header header"
+                "section1 section1 section1 section1 section1 section1"
+                "section2 section2 section2 section2 section2 section2"
+                "section3 section3 section3 section3 section3 section3"
+                "footer footer footer footer footer footer"
+            ;
+        }
+        header{
+            grid-area:header;
+            padding:20px 80px;
+            font-size: 0px;
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            grid-template-areas: "logo . . nav nav nav";
+            border-bottom: 1px solid white;
+        }
+        .logo{
+            font-size: 32px;
+            color: white;
+            text-shadow: 0px 6px 5px white;
+            font-weight: bold;
+            grid-area : logo;
+        }
+        nav{
+            grid-area:nav;
+            text-align: right;
+        }
+        ul{
+            list-style-type: none;
+            display: inline-block;
+        }
+        nav li{
+            float: left;
+        }
+        nav a:link, nav a:visited{
+            color:white;
+            font-weight: bold;
+            width: 150px;
+            font-size: 20px;
+            text-align: right;
+            text-decoration: none;
+            padding:20px 0px;
+            display: inline-block;
+        }
+        section{
+            grid-area: section1;
+            border:1px solid white;
+            position: relative;
+        }
+        .arrow_background{
+            display: inline-block;
+            position: absolute;
+            top : calc(50% - 30px);
+            background-color: white;
+            border-radius: 30px;
+            font-size: 0px;
+        }
+        .arrow_background:nth-child(2){
+            right: 0px;
+        }
+        .left_arrow, .right_arrow{
+            width: 60px;
+            opacity: 0.8;
+        }
+        .right_arrow{
+            transform: rotate(180deg);
+        }
+        article{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+        .item{
+            position: relative;
+            
+        }
+        .item > img{
+            position: relative;
+            z-index: -1;
+        }
+        .item > h3,.item > p {
+            position: absolute;
+            color: white;
+            
+        }
+        .item > h3{
+            left: 50px;
+            bottom:100px;
+        }
+        .item > p {
+            left: 50px;
+            bottom:80px;
+        }
+        .gallery_bar{
+            padding:5px;
+            text-align: center;
+        }
+        .gallery_bar > a:link, .gallery_bar > a:visited{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-radius: 15px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">QuickMedia</div>
+            <nav>
+                <ul>
+                    <li><a href="">홈</a></li>
+                    <li><a href="">카테고리</a></li>
+                    <li><a href="">실시간 방송</a></li>
+                    <li><a href="">찜</a></li>
+                    <li><a href="">로그인</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <span class="arrow_background"><img src="/resource/images/icon/left.png" class="left_arrow"></span>
+            <span class="arrow_background"><img src="/resource/images/icon/left.png" class="right_arrow"></span>
+            <article>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+                <div class="item">
+                    <img src="/resource/images/galaxy.jpg" alt="">
+                    <h3>VOD 제목</h3>
+                    <p>VOD 내용</p>
+                </div>
+            </article>
+            <div class="gallery_bar">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
