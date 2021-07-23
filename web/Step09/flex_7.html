@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>플렉스</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .container{
+
+            display: flex;
+            width: 100%;
+        }
+        .glow0{
+            flex: 0 0;
+        }
+        .glow1{
+            flex: 1 1;
+        }
+        .glow2{
+            flex: 2 2;
+        }
+        .glow3{
+            flex: 3 3 200px;
+        }
+        .box{
+            font-size: 16px;
+            height: 60px;
+            color: white;
+            background-color: black;
+            border:1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box glow0">0</div>
+        <div class="box glow0">0</div>
+        <div class="box glow1">1</div>
+        <div class="box glow2">2</div>
+        <div class="box glow3">3</div>
+    </div>
+</body>
+</html>
