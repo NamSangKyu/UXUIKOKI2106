@@ -21,13 +21,73 @@
         }
         .box{
             margin: 5px;
-            width: 300px;
+            width: 70px;
             background-color: darkblue;
             color: white;
+        }
+        .flex_row {
+            display: flex;
+            flex-direction: row;
+        }
+        .align1{
+            /*메인 축 시작점 기준으로 배치*/
+            justify-content: flex-start;
+        }
+        /*메인 축 끝점 기준으로 배치*/
+        .align2{
+            justify-content: flex-end;
+        }
+        /*메인 축 가운데 기준으로 배치*/
+        .align3{
+            justify-content: center;
+        }
+        /*메인 축 같은 간격으로 배치*/
+        .align4{
+            justify-content: space-around;
+        }
+        /*메인 축 양끝에 배치 후 가운데에서는 같은 간격으로 배치*/
+        .align5{
+            justify-content: space-between;
         }
     </style>
 </head>
 <body>
-    
+    <div class="flex_container">
+        <div class="flex_row align1">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+        </div>
+        <div class="flex_row align2">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+        </div>
+        <div class="flex_row align3">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+        </div>
+        <div class="flex_row align4">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+        </div>
+        <div class="flex_row align5">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+        </div>
+    </div>
 </body>
 </html>
