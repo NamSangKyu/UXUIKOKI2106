@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            border:1px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+        var tag = `<table>`;
+        var num = 1;
+        for (row = 0; row < 5; row++) {
+
+            tag += `<tr>`;
+            for (col = 0; col < 5; col++) {
+                tag += `<td>${num}</td>`;
+                num++;
+            }
+
+            tag += `</tr>`;
+        }
+        tag += `</table>`;
+        console.log(tag);
+        document.write(tag);
+    </script>
+</head>
+
+<body>
+   
+</body>
+
+</html>
