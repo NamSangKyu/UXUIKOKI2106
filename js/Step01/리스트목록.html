@@ -11,6 +11,7 @@
             padding:0;
         }
         .list_item{
+            margin-bottom: 10px;
             width: 360px;
             display: flex;
             flex-direction: row;
@@ -36,13 +37,19 @@
             border: none;
         }
     </style>
+    <script>
+        var tag = "";
+        for(i=0;i<5;i++){
+            tag +=`<div class="list_item">
+                <img src="/resource/image/profile.png">
+                <p>Lina Tales님이 링크를 공유했습니다.<br>
+                    <span>12시간 전</span></p>
+                <button>···</button>
+            </div>`;        
+        }    
+        document.write(tag);
+    </script>
 </head>
 <body>
-    <div class="list_item">
-        <img src="/resource/image/profile.png">
-        <p>Lina Tales님이 링크를 공유했습니다.<br>
-            <span>12시간 전</span></p>
-        <button>···</button>
-    </div>    
 </body>
 </html>
