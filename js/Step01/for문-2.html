@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .red{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        //숫자 하나 입력 - 해당 숫자의 factorial 값을 출력
+        var n = Number(prompt("숫자 하나 입력","0"));
+        var fac = 1;
+        // 단 값 100000 보다 크면 해당 숫자를 빨간색, 글꼴을 두껍게 처리해서 출력
+        for(i=1;i<=n;i++)
+            fac *= i;
+        var className = fac >= 100000 ? "red" : "";
+        document.write(`<p class="${className}">${n}! = ${fac}</p>`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

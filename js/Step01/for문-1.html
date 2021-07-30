@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .bold{
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        //1~10까지 출력, 3의 배수만 글꼴을 두껍게 처리
+        for(i = 1; i <= 10; i++){
+            var tag = i%3 == 0 ? `<p class="bold">${i}</p>` :`<p>${i}</p>`;
+            document.write(tag);
+        }
+        console.log(tag);
+        document.write(i);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
