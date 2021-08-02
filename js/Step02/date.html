@@ -20,6 +20,12 @@
         document.write("월 : ",yday.getMonth(),"<br>");
         document.write("일 : ",yday.getDate(),"<br>");
         document.write("요일 : ",yday.getDay(),"<br>");//요일 일~토, 0~6
+
+        var tday = new Date(2021,7,2);
+        document.write(yday.getTime(),"<br>");
+        //밀리초 * 초 * 분 * 시
+        document.write(tday.getTime()-yday.getTime(),"<br>");//몇 일 지나거나 남았는가?
+        
     </script>
 </head>
 <body>
