@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        /*
+            반복문은 무한 루프로 설정
+            숫자를 계속해서 입력 받아
+            총합을 저장하는 변수에 계속 누적을 함
+            반복문의 종료는 숫자 0을 입력하거나
+            총합이 5000 이상이면 강제 종료
+        */
+        var total = 0;
+        while(true){
+            var n = Number(prompt("숫자 하나 입력 : ","0"));
+            total += n;
+            if(total >= 5000 || n == 0)
+                break;
+        }
+        document.write("입력하신 숫자들의 총합 : "+total);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
