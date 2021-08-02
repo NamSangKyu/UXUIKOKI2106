@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>switch문</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var num = Number(prompt("숫자 입력, 1-Google,2-Naver,3-Daum", "0"));
+        var url = "https://";
+
+        //입력한 숫자에 따라서 url을 완성해 보세요
+        switch (num) {
+            case 1:
+                url += "google.co.kr";
+                break;
+            case 2:
+                url += "naver.com";
+                break;
+            case 3:
+                url += "daum.net";
+                break;
+            default:
+                url += "cyworld.com";
+        }
+        location.href = url;
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
