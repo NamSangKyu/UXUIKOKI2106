@@ -30,7 +30,24 @@
             <th>수</th><th>목</th><th>금</th><th>토</th></tr>`;
         
         //달력 1일 마지막날까지 출력
-        
+        //시작날짜, 마지막 날짜
+        var start = new Date();
+        start.setDate(1);
+        start.setHours(0);
+        start.setMinutes(0);
+        start.setSeconds(0);
+        var end = new Date();
+        end.setMonth(end.getMonth()+1);
+        end.setDate(0);
+        end.setHours(0);
+        end.setMinutes(0);
+        end.setSeconds(0);
+        //달력 첫번째칸 날짜 계산
+        start.setDate(start.getDate() - start.getDay());    
+        //달력 마지막칸 날짜 계산
+        end.setDate(end.getDate() + 6 - end.getDay());    
+        //달력 줄수
+        var line = (end.getTime() - start.getTime) / (100 * 60 * 60 * 24 * 7);
 
         //------------------------
         tag += "</table>";
