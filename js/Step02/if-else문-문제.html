@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //숫자 두개 입력을 받아서
+        var n1 = Number(prompt("숫자 하나 입력하세요"),"0");
+        var n2 = Number(prompt("숫자 하나 입력하세요"),"0");
+
+        //입력한 숫자들 중 작은숫자 부터 큰숫자까지 합을 출력
+        //1 입력, 10입력 --> 55출력
+        //10 입력, 1입력 --> 55출력
+        if(n1 > n2){
+            var temp = n1;
+            n1 = n2;
+            n2 = temp;
+        }
+        var sum = 0;
+        for(i=n1;i<=n2;i++){
+            sum += i;
+        }
+        document.write(`${n1}부터 ${n2}까지 합은 ${sum}이다`);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
