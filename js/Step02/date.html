@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //오늘 날짜정보 획득
+        var today = new Date();
+        document.write(today.toLocaleString(),"<br>");
+        document.write("년도 : ",today.getFullYear(),"<br>");
+        document.write("월 : ",today.getMonth(),"<br>");
+        document.write("일 : ",today.getDate(),"<br>");
+        document.write("요일 : ",today.getDay(),"<br>");
+
+        //날짜 지정
+        var yday = new Date(2021,7,1);
+        document.write("년도 : ",yday.getFullYear(),"<br>");
+        document.write("월 : ",yday.getMonth(),"<br>");
+        document.write("일 : ",yday.getDate(),"<br>");
+        document.write("요일 : ",yday.getDay(),"<br>");//요일 일~토, 0~6
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
