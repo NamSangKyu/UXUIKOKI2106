@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -9,26 +10,40 @@
         table {
             border-collapse: collapse;
         }
-        td,th{
+
+        td,
+        th {
             width: 100px;
-            border:1px solid black;
-            padding:5px;
+            border: 1px solid black;
+            padding: 5px;
         }
-        td{height: 100px;}
-        td:nth-child(7n), th:nth-child(7n){
+
+        td {
+            height: 100px;
+            text-align: right;
+            vertical-align: top;
+        }
+
+        td:nth-child(7n),
+        th:nth-child(7n) {
             color: blue;
         }
-        td:nth-child(7n+1), th:nth-child(7n+1){
+
+        td:nth-child(7n+1),
+        th:nth-child(7n+1) {
             color: red;
+        }
+        .disable{
+            color:gray !important;
         }
     </style>
     <script>
         var today = new Date();
-        var tag = `<h2>${today.getMonth()+1}월</h2>`;
+        var tag = `<h2>${today.getMonth() + 1}월</h2>`;
         //요일
         tag += `<table><tr><th>일</th><th>월</th><th>화</th>
             <th>수</th><th>목</th><th>금</th><th>토</th></tr>`;
-        
+
         //달력 1일 마지막날까지 출력
         //시작날짜, 마지막 날짜
         var start = new Date();
@@ -37,25 +52,40 @@
         start.setMinutes(0);
         start.setSeconds(0);
         var end = new Date();
-        end.setMonth(end.getMonth()+1);
+        end.setMonth(end.getMonth() + 1);
         end.setDate(0);
         end.setHours(0);
         end.setMinutes(0);
         end.setSeconds(0);
         //달력 첫번째칸 날짜 계산
-        start.setDate(start.getDate() - start.getDay());    
+        start.setDate(start.getDate() - start.getDay());
         //달력 마지막칸 날짜 계산
-        end.setDate(end.getDate() + 6 - end.getDay());    
+        end.setDate(end.getDate() + 6 - end.getDay());
         //달력 줄수
-        var line = (end.getTime() - start.getTime) / (100 * 60 * 60 * 24 * 7);
+        var line = (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 7);
+        console.log(line);
+        for (i = 0; i < line; i++) {
+            tag += "<tr>";
+            for (j = 0; j < 7; j++) {
+                var className = "";
+                if(start.getMonth() != today.getMonth())
+                    className = "disable";
+                tag += `<td class="${className}">${start.getDate()}</td>`;
+                start.setDate(start.getDate() + 1);
+            }
 
+            tag += "</tr>";
+
+        }
         //------------------------
         tag += "</table>";
         document.write(tag);
 
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
