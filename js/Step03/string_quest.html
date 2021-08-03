@@ -19,9 +19,10 @@
         var count = 0;
         var idx = 0;
         while(true){
-            idx = str.indexOf(search,idx+search.length);
+            idx = str.indexOf(search,idx);
             if(idx == -1)
                 break;
+            idx+=search.length;
             count++;
         }
         console.log(count);
