@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        /*
+            1. 사용자로부터 영문 이름을 입력 받은 후 
+                전부 대문자로 변환해서 출력
+        */
+        var name = prompt("이름 입력하세요","").toUpperCase();
+        document.write(name,"<br>");
+
+        /*
+            2. 주민등록번호를 입력받아서 아래 형태로 출력하시오
+                777777-1****** 출력이 되겠끔 작성
+        */
+        var personNumber = prompt("주민등록번호를 입력하세요","").substr(0,8)+"******";
+        document.write(personNumber);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
