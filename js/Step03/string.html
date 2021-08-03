@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var str = "누구든지 체포 또는 구속을 당한 때에는 "+
+        "즉시 변호인의 조력을 받을 권리를 가진다. 다만, " +
+        "형사피고인이 스스로 변호인을 구할 수 없을 때에는" + 
+        "법률이 정하는 바에 의하여 국가가 변호인을 붙인다.";
+
+        //문자열에서 위치에 해당하는 한글자 뽑음 - 인덱스 번호 기준(0부처 시작)
+        document.write(str.charAt(2)," ",str.charAt(3),"<br>");
+        
+        //문자열 검색 - 찾는 문자열이 없으면 -1을 리턴함
+        document.write(str.indexOf("변호인"),"<br>");//indexOf는 왼쪽부터
+        document.write(str.indexOf("변호인",38),"<br>");
+        document.write(str.lastIndexOf("변호인"),"<br>");//lastIndexOf는 오른쪽부터
+        document.write(str.lastIndexOf("변호인", 95),"<br>");
+
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
