@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //배열 생성
+        //var arr = [];
+        var arr = new Array();
+
+        //데이터 추가
+        arr.push(1);
+        arr.push(3);
+        arr.push(7);
+        arr.push(2);
+        arr.push(3);
+        arr.push(6);
+        arr.push(1);
+        //document.write(arr);
+
+        //배열 검색
+        document.write("값이 7에 해당하는 인덱스 번호 : ",arr.indexOf(7),"<br>");
+        document.write("값이 6에 해당하는 인덱스 번호 : ",arr.indexOf(6),"<br>");
+        //찾는 값이 없으면 -1
+        document.write("값이 4에 해당하는 인덱스 번호 : ",arr.indexOf(4),"<br>");
+
+        //배열 삭제
+        document.write(arr,"<br>");
+        //삭제할 인덱스 시작, 삭제할 개수
+        document.write(arr.splice(3,2),"<br>");
+        document.write(arr);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
