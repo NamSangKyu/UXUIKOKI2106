@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body{
+            height: 8000px;
+        }
+        #pop{
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            position: fixed;
+            top : 20px;
+            left: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var body = document.getElementsByTagName("body")[0];
+            //e 를 이벤트 객체(이벤트가 발생했을때 정보를 담고 있는 객체)
+            body.onclick = function(e){
+                console.log(e);//e에 있는 정보를 전부 조회
+                //마우스 x좌표,y 좌표값을 찾아서 콘솔창에 출력
+                console.log(e.clientX + " " + e.clientY);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="pop"></div>
+</body>
+</html>

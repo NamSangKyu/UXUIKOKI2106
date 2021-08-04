@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function(){
+            var google = document.getElementById("google");
+            google.onclick = function(e){
+                //기존 태그에 적용된 이벤트의 기능을 실행하지 않음
+                //e.preventDefault();
+                return false;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <!--구글, 네이버로 이동하는 하이퍼링크 작성-->
+    <a href="https://www.google.com" id="google">구글로 이동</a><br>
+    <a href="https://www.naver.com" id="naver">네이버로 이동</a>
+</body>
+</html>

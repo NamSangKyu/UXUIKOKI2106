@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //window onload 이벤트, id, pass, btn 전부 선택
+        window.onload = function(){
+            var id = document.getElementById("id");
+            var pass = document.getElementById("pass");
+            var btn = document.getElementById("btn");
+
+            //버튼을 클릭 했을때 아이디와 비번을 입력했는지 체크
+            btn.onclick = function(){
+                //alert(id.value + " " + pass.value);
+                //아이디에는 6글자 이상 입력
+                //암호에도 6글자 이상 입력, 6글자 이상 입력이 안되어 있으면 
+                //'아이디와 암호는 6글자 이상 입력하세요' 경고창 출력
+                if(id.value.length < 6 || pass.value.length < 6)
+                    alert("아이디와 암호는 6글자 이상 입력하세요");
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="id"><br> 
+    <input type="password" id="pass"><br> 
+    <button id="btn">로그인</button>
+</body>
+</html>
