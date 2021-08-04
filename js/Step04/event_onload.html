@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //onload 이벤트는 해당 객체가 읽기가 끝난 시점
+        //html 요소가 전부 load 후에 실행되는 함수를 저장
+        window.onload = function(){
+            //h2 선택 후 가지고 있는 내용을 로그로 출력
+            var h2 = document.getElementsByTagName("h2");
+            console.log(h2[0].innerHTML);
+        }
+    </script>
+</head>
+<body>
+    <h2>웹 페이지 제목</h2>
+</body>
+</html>
