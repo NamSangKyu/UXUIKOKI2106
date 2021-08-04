@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //변수 선언후에 데이터 안넣으면 undefined 상태
+        function sum(a,b){
+            //데이터를 받지 못한 경우
+            if(a==undefined)
+                a=0;
+            if(b == undefined)
+                b=0;
+            document.write(a," ",b,"<br>");
+            return a+b;
+        }
+        sum();
+        sum(10);
+        sum(20,30);
+        var c;
+        document.write(c);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
