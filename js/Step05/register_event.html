@@ -190,11 +190,31 @@
             passResult.innerHTML = "암호가 일치합니다.";
             return true;
         }
+        function checkNick(){
+            var nick = document.querySelector("#nick");
+            var nickLength = document.querySelector("#nick_length");
+            if(nick.value.length > 20){
+                nick.value = nick.value.substr(0,20);
+            }
+            nickLength.innerHTML = `${nick.value.length}/20`;
+
+        }
         window.onload = function () {
             var frm = document.querySelector("#frm");
             var pass = document.querySelector("#pass");
             var passChk = document.querySelector("#pass_chk");
             var id = document.querySelector("#id");
+            var nick = document.querySelector("#nick");
+            var nickLength = document.querySelector("#nick_length");
+            var tel = document.querySelector("#tel");
+
+
+            tel.onkeydown =tel.onkeyup= function(){
+                tel.value = tel.value.replaceAll("-","");
+            }
+            //닉네임 글자 개수 처리 부분
+            nick.onkeyup =nick.onkeydown = checkNick;
+
             console.log(pass);
             pass.onkeyup = passChk.onkeyup = passCheck;
             id.onkeyup = idCheck;
@@ -237,7 +257,7 @@
                 <li class="pass_check"></li>
                 <li><label for="nick">닉네임</label></li>
                 <li class="border_bottom">
-                    <input type="text" name="nick" id="nick" placeholder="닉네임을 입력하세요"><span class="sub_txt">0/20</span>
+                    <input type="text" name="nick" id="nick" placeholder="닉네임을 입력하세요"><span class="sub_txt" id="nick_length">0/20</span>
                 </li>
                 <li><label for="tel">전화번호</label></li>
                 <li class="border_bottom">
