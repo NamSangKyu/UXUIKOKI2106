@@ -90,12 +90,44 @@
             background-color: #ffe606;
         }
     </style>
+    <script>
+        function idCheck(){
+            var id = document.querySelector("#id");
+            if(id.value.length < 8 || id.value.length > 20){
+                alert("아이디는 글자수가 8~20글자 사이로 사용하세요");
+                return false;
+            }
+            if(id.value.indexOf(" ") != -1){
+                alert("아이디에 띄워쓰기를 넣을수는 없습니다.");
+                return false;
+            }
+            if(!isNaN(id.value)){
+                alert("아이디를 숫자로만 구성할수는 없습니다.");
+                return false;
+            }
+            return true;
+        }
+        function passCheck(){
+
+        }
+        window.onload = function(){
+            var frm = document.querySelector("#frm");
+            frm.onsubmit = function(e){
+                if(!idCheck()){
+                    return false;
+                }
+                if(passCheck()){
+                    
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>kakao</h1>
     <div class="container">
         <h2>카카오 계정 정보를 입력해 주세요.</h2>
-        <form action="">
+        <form action="" id="frm">
             <ul>
                 <li><label for="id">카카오계정 이메일</label></li>
                 <li class="border_bottom">
@@ -113,6 +145,7 @@
                 <li class="border_bottom">
                     <input type="password" id="pass_chk" placeholder="비밀번호 재입력" maxlength="32" minlength="8">
                 </li>
+                <li class="pass_check"></li>
                 <li><label for="nick">닉네임</label></li>
                 <li class="border_bottom">
                     <input type="text" name="nick" id="nick" placeholder="닉네임을 입력하세요"><span class="sub_txt">0/20</span>
