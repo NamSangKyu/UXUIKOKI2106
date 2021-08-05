@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function(){
+            var txt = document.querySelector("#txt");
+            var area = document.querySelector("#area");
+
+            txt.onkeydown = function(e){
+                console.log("현재 누른 키보드 키 : ",e.keyCode);
+            }
+            txt.onkeypress = function(e){
+                console.log("현재 누르고 있는 키보드 키 : ",e.keyCode);
+            }
+            txt.onkeyup = function(e){
+                console.log("현재 눌렀다 뗀 키보드 키 : ",e.keyCode);
+                area.innerHTML = "현재 눌렀다 뗀 키보드 키 : "+e.keyCode
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt">
+    <div id="area"></div>
+</body>
+</html>

@@ -10,5 +10,8 @@
     onmouseout/onmouseleave : 마우스가 포인터가 영역에 벗어났을때
 
 키보드
+    onkeyup : 키보드 키를 눌렀다가 뗀 순간
+    onkeydown : 키보드 키를 누른 순간
+    onkeypress : 키보드 키를 누르고 있을때
 폼
 기타
