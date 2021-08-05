@@ -118,20 +118,40 @@
         }
     </style>
     <script>
+
         function idCheck() {
             var id = document.querySelector("#id");
+            var idResult = document.querySelector(".id_result");
             if (id.value.length < 8 || id.value.length > 20) {
-                alert("아이디는 글자수가 8~20글자 사이로 사용하세요");
+                idResult.innerHTML = "아이디는 글자수가 8~20글자 사이로 사용하세요";
+                if (idResult.classList.contains("true"))
+                    idResult.classList.remove("true");
+                if (!idResult.classList.contains("false"))
+                    idResult.classList.add("false");
                 return false;
             }
             if (id.value.indexOf(" ") != -1) {
-                alert("아이디에 띄워쓰기를 넣을수는 없습니다.");
+                idResult.innerHTML = "아이디에 띄워쓰기를 넣을수는 없습니다.";
+                if (idResult.classList.contains("true"))
+                    idResult.classList.remove("true");
+                if (!idResult.classList.contains("false"))
+                    idResult.classList.add("false");
                 return false;
             }
             if (!isNaN(id.value)) {
-                alert("아이디를 숫자로만 구성할수는 없습니다.");
+                idResult.innerHTML = "아이디를 숫자로만 구성할수는 없습니다.";
+                if (idResult.classList.contains("true"))
+                    idResult.classList.remove("true");
+                if (!idResult.classList.contains("false"))
+                    idResult.classList.add("false");
                 return false;
             }
+            if (idResult.classList.contains("false"))
+                idResult.classList.remove("false");
+            if (!idResult.classList.contains("true"))
+                idResult.classList.add("true");
+            idResult.innerHTML = "아이디가 올바르게 입력되었습니다.";
+
             return true;
         }
         function passCheck() {
@@ -174,8 +194,10 @@
             var frm = document.querySelector("#frm");
             var pass = document.querySelector("#pass");
             var passChk = document.querySelector("#pass_chk");
+            var id = document.querySelector("#id");
             console.log(pass);
             pass.onkeyup = passChk.onkeyup = passCheck;
+            id.onkeyup = idCheck;
             frm.onsubmit = function (e) {
                 if (!idCheck()) {
                     return false;
@@ -199,6 +221,7 @@
                     <input type="text" name="id" id="id" placeholder="아이디를 입력하세요"><span
                         class="sub_txt">@kakao.com</span>
                 </li>
+                <li class="id_result"></li>
                 <ul>
                     <li>입력한 카카오메일로 카카오 계정에 로그인할 수 있습니다.</li>
                     <li>한번 만든 카카오 메일은 변경할 수 없으니, 오타가 없도록 신중히 확인해 주세요.</li>
