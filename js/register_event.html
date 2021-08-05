@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>회원가입 예제</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
-        *{
+        * {
             margin: 0;
-            padding:0;
+            padding: 0;
         }
-        h1{
+
+        h1 {
             text-align: center;
-            margin-top:40px;
+            margin-top: 40px;
         }
-        .container{
-            width:700px;
-            padding:40px;
-            margin:0 auto;
-            border:1px solid #d1d1d1;
+
+        .container {
+            width: 700px;
+            padding: 40px;
+            margin: 0 auto;
+            border: 1px solid #d1d1d1;
         }
-        .container > form > ul{
+
+        .container>form>ul {
             list-style-type: none;
         }
-        .container > form > ul > li{
-            margin-top:10px;
+
+        .container>form>ul>li {
+            margin-top: 10px;
         }
-        .container > form > ul > ul{ 
-            margin-top:5px;
+
+        .container>form>ul>ul {
+            margin-top: 5px;
             padding-left: 40px;
             list-style-type: disc;
             color: gray;
         }
-        label{
+
+        label {
             font-weight: bold;
         }
-        .border_bottom{
+
+        .border_bottom {
             border-bottom: 2px solid #c4c4c4;
         }
-        input{
-            border:none;
+
+        input {
+            border: none;
             outline: none;
             height: 50px;
             width: 80%;
             font-size: 20px;
         }
-        .sub_txt{
+
+        .sub_txt {
             display: inline-block;
             text-align: right;
             width: 20%;
@@ -55,7 +65,8 @@
             font-weight: bold;
             color: gray;
         }
-        select{
+
+        select {
             width: 100px;
             font-size: 20px;
             height: 50px;
@@ -63,66 +74,120 @@
             border: none;
             border-right: 1px solid #c4c4c4;
         }
-        #tel{
+
+        #tel {
             padding-left: 10px;
         }
-        .btn_send_no{
+
+        .btn_send_no {
             width: 230px;
             height: 50px;
             background-color: white;
-            border:1px solid #c4c4c4;
+            border: 1px solid #c4c4c4;
             border-radius: 25px;
         }
-        .btn_send_no:hover{
+
+        .btn_send_no:hover {
             background-color: #d4d4d4;
         }
-        .btn_send_no:active{
+
+        .btn_send_no:active {
             background-color: white;
         }
-        .btn_next{
+
+        .btn_next {
             width: 100%;
             height: 50px;
             background-color: #d4d4d4;
             border-radius: 10px;
-            border:none;
+            border: none;
         }
-        .btn_next:hover{
+
+        .btn_next:hover {
             background-color: #ffe606;
+        }
+
+        .true {
+            color: blue;
+            font-weight: bold;
+        }
+
+        .false {
+            color: red;
+            font-weight: bold;
         }
     </style>
     <script>
-        function idCheck(){
+        function idCheck() {
             var id = document.querySelector("#id");
-            if(id.value.length < 8 || id.value.length > 20){
+            if (id.value.length < 8 || id.value.length > 20) {
                 alert("아이디는 글자수가 8~20글자 사이로 사용하세요");
                 return false;
             }
-            if(id.value.indexOf(" ") != -1){
+            if (id.value.indexOf(" ") != -1) {
                 alert("아이디에 띄워쓰기를 넣을수는 없습니다.");
                 return false;
             }
-            if(!isNaN(id.value)){
+            if (!isNaN(id.value)) {
                 alert("아이디를 숫자로만 구성할수는 없습니다.");
                 return false;
             }
             return true;
         }
-        function passCheck(){
+        function passCheck() {
+            var pass = document.querySelector("#pass");
+            var passChk = document.querySelector("#pass_chk");
+            var passResult = document.querySelector(".pass_check");
 
+            if (pass.value.length < 8 || pass.value.length > 32) {
+                passResult.innerHTML = "암호는 글자수가 8~32글자 사이로 사용하세요";
+                if (passResult.classList.contains("true"))
+                    passResult.classList.remove("true");
+                if (!passResult.classList.contains("false"))
+                    passResult.classList.add("false");
+                return false;
+            }
+            if (!isNaN(pass.value)) {
+                passResult.innerHTML = "암호는 숫자로만 구성할수는 없습니다.";
+                if (passResult.classList.contains("true"))
+                    passResult.classList.remove("true");
+                if (!passResult.classList.contains("false"))
+                    passResult.classList.add("false");
+                return false;
+            }
+            if (pass.value != passChk.value) {
+                passResult.innerHTML = "암호가 일치하지 않습니다.";
+                if (passResult.classList.contains("true"))
+                    passResult.classList.remove("true");
+                if (!passResult.classList.contains("false"))
+                    passResult.classList.add("false");
+                return false;
+            }
+            if (passResult.classList.contains("false"))
+                passResult.classList.remove("false");
+            if (!passResult.classList.contains("true"))
+                passResult.classList.add("true");
+            passResult.innerHTML = "암호가 일치합니다.";
+            return true;
         }
-        window.onload = function(){
+        window.onload = function () {
             var frm = document.querySelector("#frm");
-            frm.onsubmit = function(e){
-                if(!idCheck()){
+            var pass = document.querySelector("#pass");
+            var passChk = document.querySelector("#pass_chk");
+            console.log(pass);
+            pass.onkeyup = passChk.onkeyup = passCheck;
+            frm.onsubmit = function (e) {
+                if (!idCheck()) {
                     return false;
                 }
-                if(passCheck()){
-                    
+                if (!passCheck()) {
+                    return false;
                 }
             }
         }
     </script>
 </head>
+
 <body>
     <h1>kakao</h1>
     <div class="container">
@@ -131,7 +196,8 @@
             <ul>
                 <li><label for="id">카카오계정 이메일</label></li>
                 <li class="border_bottom">
-                    <input type="text" name="id" id="id" placeholder="아이디를 입력하세요"><span class="sub_txt">@kakao.com</span>
+                    <input type="text" name="id" id="id" placeholder="아이디를 입력하세요"><span
+                        class="sub_txt">@kakao.com</span>
                 </li>
                 <ul>
                     <li>입력한 카카오메일로 카카오 계정에 로그인할 수 있습니다.</li>
@@ -140,10 +206,10 @@
                 </ul>
                 <li><label for="pass">비밀번호</label></li>
                 <li class="border_bottom">
-                    <input type="password" name="pass" id="pass" placeholder="비밀번호(8~32자리)" maxlength="32" minlength="8">
+                    <input type="password" name="pass" id="pass" placeholder="비밀번호(8~32자리)">
                 </li>
                 <li class="border_bottom">
-                    <input type="password" id="pass_chk" placeholder="비밀번호 재입력" maxlength="32" minlength="8">
+                    <input type="password" id="pass_chk" placeholder="비밀번호 재입력">
                 </li>
                 <li class="pass_check"></li>
                 <li><label for="nick">닉네임</label></li>
@@ -165,10 +231,11 @@
                 <li>
                     <button class="btn_next">다음</button>
                 </li>
-                
+
             </ul>
         </form>
 
     </div>
 </body>
+
 </html>
