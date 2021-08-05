@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function(){
+            var frm = document.querySelector("#frm");
+            var id = document.querySelector("#id");
+            var pass = document.querySelector("#pass");
+
+            frm.onsubmit = function(e){
+                if(id.value.length==0){
+                    alert("아이디를 입력하세요");
+                    e.preventDefault();
+                    id.focus();
+                }else if(pass.value.length==0){
+                    alert("암호를 입력하세요")
+                    e.preventDefault();
+                    pass.focus();
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" id="frm">
+        <input type="text" id="id" name="id"><br>
+        <input type="password" id="pass" name="pass"><br>
+        <button>로그인</button>
+
+    </form>
+</body>
+</html>
