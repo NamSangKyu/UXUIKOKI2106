@@ -26,8 +26,12 @@
                 if(httpRequest.status === 200){//code 200이면 정상적으로 수행되고 데이터를 받았음
                     console.log(httpRequest.responseText);
                     var result = httpRequest.responseText;
-                    var view = document.querySelector("#view");
-                    view.innerHTML = result;
+	                result = result.split("<br>")[1];
+	                var json_result = JSON.parse(result);
+	               document.getElementById("view").innerHTML =
+	            	   json_result.message.result.translatedText;
+                    console.log(json_result.message);
+                    console.log(json_result.message.result);
                 }
             }
         }
