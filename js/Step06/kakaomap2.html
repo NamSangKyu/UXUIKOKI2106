@@ -17,27 +17,31 @@
                 level: 3
             };
             var map = new kakao.maps.Map(mapContainer, mapOption);
-            //주소로 좌표 검색
-            //좌표값 받아서 좌표 셋팅
-            //맵을 이동
-            // 주소-좌표 변환 객체를 생성합니다
-            var geocoder = new kakao.maps.services.Geocoder();
+            //--------------------------------------------------------
+            var btn = document.querySelector("#btn");
+            btn.onclick = function(){
+                var address = document.querySelector("#address");
+                //주소로 좌표 검색
+                //좌표값 받아서 좌표 셋팅
+                //맵을 이동
+                // 주소-좌표 변환 객체를 생성합니다
+                var geocoder = new kakao.maps.services.Geocoder();
 
-            // 주소로 좌표를 검색합니다
-            geocoder.addressSearch('서울특별시 영등포구 의사당대로 1', function (result, status) {
-
-                // 정상적으로 검색이 완료됐으면 
-                if (status === kakao.maps.services.Status.OK) {
-
-                    //주소 --> 좌표로 변환된 결과
-                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                // 주소로 좌표를 검색합니다
+                geocoder.addressSearch(address.value, function (result, status) {
+                    
+                    // 정상적으로 검색이 완료됐으면 
+                    if (status === kakao.maps.services.Status.OK) {
+                        
+                        //주소 --> 좌표로 변환된 결과
+                        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
                     // 결과값으로 받은 위치를 마커로 표시합니다
                     var marker = new kakao.maps.Marker({
                         map: map,
                         position: coords
                     });
-
+                    
                     // 인포윈도우로 장소에 대한 설명을 표시합니다
                     /*        var infowindow = new kakao.maps.InfoWindow({
                                 content: '<div style="width:150px;text-align:center;padding:6px 0;">핵 떨어질곳</div>'
@@ -48,6 +52,7 @@
                     map.setCenter(coords);
                 }
             });
+            }
         }
     </script>
 </head>
@@ -57,7 +62,7 @@
     <hr>
     <!-- 지도를 표시할 div 입니다 -->
     <div id="map" style="width:100%;height:350px;"></div>
-
+    
 </body>
 
 </html>
