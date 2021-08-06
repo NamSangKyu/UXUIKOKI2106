@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var count = 0;
+        function addFunction(){
+            console.log("addFunction");
+            var num = document.querySelector("#num");
+            ++count;
+            num.value = count;
+        }
+        window.onload = function(){
+            var num = document.querySelector("#num");
+            var add = document.querySelector("#add");
+            var minus = document.querySelector("#minus");
+            /*add.onclick = function(){
+                //var count = 0; //지역변수
+                count++;
+                num.value = count;
+            }*/
+            add.onclick = addFunction;
+
+            minus.onclick = function(){
+                count--;
+                num.value = count;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="num" value="0">
+    <button id="add">증가</button>
+    <button id="minus">감소</button>
+</body>
+</html>
