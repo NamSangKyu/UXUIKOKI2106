@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function makeRequest(){
+            httpRequest = new XMLHttpRequest();
+
+            if(!httpRequest){
+                alert("XMLHTTP 객체 생성 실패");
+                return false;
+            }
+            httpRequest.onreadystatechange = alertContents;
+            httpRequest.open('GET','http://nam2626.dothome.co.kr/ajax_xml.php');
+            httpRequest.send();
+        }
+        //응답을 받은 함수
+        function alertContents(){
+            if(httpRequest.readyState === XMLHttpRequest.DONE){//응답이 완료, 이상없음
+                if(httpRequest.status === 200){//code 200이면 정상적으로 수행되고 데이터를 받았음
+                    console.log(httpRequest.responseText);
+                }
+            }
+        }
+        window.onload = function(){
+            
+            makeRequest();
+        }
+    </script>
+</head>
+<body>
+    <div id="time"></div><!--실제 웹페이지가 로드된 시간-->
+    <button id="btn">버튼</button>
+    <div id="view"></div>    
+</body>
+</html>
