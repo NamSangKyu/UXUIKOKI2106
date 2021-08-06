@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>const 변수</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function(){
+
+            const n = 10;
+            //n++;//const로 선언된 변수의 내용은 수정할수 없다
+            const t1 = document.querySelector("#txt1");
+            //t1 = document.querySelector("#txt2");//객체 변경 X
+            t1.value=100;
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1">
+    <input type="text" id="txt2">
+</body>
+</html>
