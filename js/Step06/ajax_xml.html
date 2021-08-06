@@ -22,12 +22,44 @@
             if(httpRequest.readyState === XMLHttpRequest.DONE){//응답이 완료, 이상없음
                 if(httpRequest.status === 200){//code 200이면 정상적으로 수행되고 데이터를 받았음
                     console.log(httpRequest.responseText);
+                    var result = httpRequest.responseText;
+                    var xmlParser = new DOMParser();
+                    var xmlDoc = xmlParser.parseFromString(result,"text/xml");
+                    printMenu(xmlDoc);
+                    allPrintXml(xmlDoc);
                 }
             }
         }
+        function printMenu(xmlDoc){
+            var question = xmlDoc.getElementsByTagName("question");
+            var answer = xmlDoc.getElementsByTagName("answer");
+
+            document.querySelector("#view").innerHTML = 
+            `문제 : ${question[0].innerHTML}<br>답 : ${answer[0].innerHTML}`;
+
+        }
+        function allPrintXml(xmlDoc){
+            var root = xmlDoc.getElementsByTagName("root")[0];
+            console.log("root의 자식 태그 개수: "+root.childNodes.length);
+            for(i=0;i<root.childNodes.length;i++){
+                console.log(root.childNodes[i].nodeName);
+                for(j=0;j<root.childNodes[i].childNodes.length;j++){
+                    console.log("   " + root.childNodes[i].childNodes[j].nodeName
+                    +" : "+root.childNodes[i].childNodes[j].childNodes[0].nodeValue
+                    );
+                } 
+            }
+        }
         window.onload = function(){
-            
-            makeRequest();
+            //time에는 현재 날짜 시간이 출력
+            var time = document.querySelector("#time");
+            var today = new Date();
+            time.innerHTML = today.toLocaleString();
+
+            var btn = document.querySelector("#btn");
+            btn.onclick = function(){
+                makeRequest();//버튼이 클릭되면 실행이 되게끔 처리
+            }
         }
     </script>
 </head>
