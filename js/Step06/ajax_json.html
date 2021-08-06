@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function makeRequest() {
+            //요청할 url http://nam2626.dothome.co.kr/papago.php?txt=
+            //맨끝의 데이터는 #txt 내용추가
+            httpRequest = new XMLHttpRequest();
+
+            if(!httpRequest){
+                alert("XMLHTTP 객체 생성 실패");
+                return false;
+            }
+            var txt = document.querySelector("#txt");
+            httpRequest.onreadystatechange = alertContents;
+            httpRequest.open('GET',`http://nam2626.dothome.co.kr/papago.php?txt=${txt.value}`);
+            httpRequest.send();
+        }
+        function alertContents() {
+            //받은 내용을 콘솔에 출력
+            if(httpRequest.readyState === XMLHttpRequest.DONE){//응답이 완료, 이상없음
+                if(httpRequest.status === 200){//code 200이면 정상적으로 수행되고 데이터를 받았음
+                    console.log(httpRequest.responseText);
+                    var result = httpRequest.responseText;
+                    var view = document.querySelector("#view");
+                    view.innerHTML = result;
+                }
+            }
+        }
+        window.onload = function(){
+            //time에는 현재 날짜 시간
+            //버튼 눌렀을시 ajax 실행
+             //time에는 현재 날짜 시간이 출력
+             var time = document.querySelector("#time");
+             var today = new Date();
+             time.innerHTML = today.toLocaleString();
+ 
+             var btn = document.querySelector("#btn");
+             btn.onclick = function(){
+                 makeRequest();//버튼이 클릭되면 실행이 되게끔 처리
+             }
+        }
+    </script>
+</head>
+<body>
+    <div id="time"></div><!--실제 웹페이지가 로드된 시간-->
+    <textarea id="txt"></textarea><br>
+    <button id="btn">버튼</button>
+    <div id="view"></div>    
+</body>
+</html>
