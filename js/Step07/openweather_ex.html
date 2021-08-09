@@ -26,12 +26,21 @@
             if(httpRequest.readyState === XMLHttpRequest.DONE){//응답이 완료, 이상없음
                 if(httpRequest.status === 200){//code 200이면 정상적으로 수행되고 데이터를 받았음
                     console.log(httpRequest.responseText);
+                    var data = JSON.parse(httpRequest.responseText);
+                    var tag = `<p>도시명 : ${data.name}</p>`;
+                    tag += `<p>현재날씨 : ${data.weather[0].main}</p>`;
+                    tag += `<p>최저온도 : ${data.main.temp_min-273.15}</p>`;
+                    tag += `<p>현재온도 : ${data.main.temp-273.15}</p>`;
+                    tag += `<p>최고온도 : ${data.main.temp_max-273.15}</p>`;
+                    tag += `<p>바람세기 : ${data.wind.speed}m/s</p>`;
+
+                    var result = document.querySelector("#result");
+                    result.innerHTML = tag;
                 }
             }
         }
         window.onload = function(){
             var btn = document.querySelector("#request");
-            var result = document.querySelector("#result");
 
             btn.onclick = function(){
                 makeRequest();
