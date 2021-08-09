@@ -16,7 +16,7 @@
                 return false;
             }
             httpRequest.onreadystatechange = weatherResult;
-            httpRequest.open('GET',`api.openweathermap.org/data/2.5/weather?q=Seoul&appid=23815d818a51ef76062d119292b5691e`);
+            httpRequest.open('GET',`http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=23815d818a51ef76062d119292b5691e`);
             httpRequest.send();
         }
         //결과처리하는 함수 - weatherResult
