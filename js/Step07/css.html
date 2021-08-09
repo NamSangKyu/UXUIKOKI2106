@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        p{
+            background-color: cornflowerblue;
+            font-size: 20px;
+            color: white;
+        }
+        .back{
+            background-color: black;
+        }
+    </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //css("속성") --> 현재 설정된 css 값
+            console.log($("p").css("background-color"));
+            console.log($("div").css("color"));
+            //css("속성","값") --> 해당 css속성에 새 속성값을 지정
+            //div 태그에 글자색을 흰색으로 바꿈, 글꼴을 두껍게 처리
+            /*$("div").css({
+               "color":"white",
+               "font-wegiht":"bold"
+            });*/
+            $("div").css("color","white").css("font-weight","bold");
+            
+        });
+    </script>
+</head>
+<body>
+    <p class="back">내용</p>
+    <div class="back">내용</div>
+</body>
+</html>
