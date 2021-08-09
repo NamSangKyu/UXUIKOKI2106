@@ -9,7 +9,18 @@
     <script>
         $(function(){
             //선택한 요소 다음 위치에있는 요소
-            $(".txt + p").css("background-color", "yellow");
+            //$(".txt + p").css("background-color", "yellow");
+            $(".txt").next().css("background-color","green");
+            $(".txt").next().next().css("background-color","red");
+            //선택한 요소 이전 위치에 있는 요소
+            $(".txt").prev().css("color","green");
+            $(".txt").prev().prev().css("color","red");
+            //선택한 요소의 모든 형요소 선택
+            $(".tit").prevAll().css("text-decoration","underline");
+            //선택한 요소의 모든 동생요소 선택
+            $(".tit").nextAll().css("text-decoration","line-through");
+            //선택한 자신을 제외한 모든 형제 요소 선택
+            $(".tit").siblings().css("color","red");
         });
     </script>
 </head>
