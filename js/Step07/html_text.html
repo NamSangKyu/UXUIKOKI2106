@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            console.log($("#d3").html());
+            console.log($("#d3").text());
+            //innerHTML을 jQuery 담당 부분
+            $("#d1").html("<h2>제목 태그</h2>");
+            $("#d2").text("<h2>제목 태그</h2>");
+        });
+    </script>
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3">
+        <p>#d3 문단 내용</p>
+        <p>#d3 문단 내용</p>
+    </div>
+</body>
+</html>
