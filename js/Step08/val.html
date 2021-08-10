@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //val() value 값 읽어옴
+            console.log($("#txt").val());
+            console.log($("#txt").attr("value"));
+            //버튼 클릭 이벤트
+            $("#btn").click(function(){
+                console.log("-------클릭 이벤트--------");
+                //$("#txt").attr("value","1111111");//태그에서 설정
+                $("#txt").val("111111");//값을 입력
+                console.log($("#txt").val());//현재 입력된 값 기준으로 읽어옴
+                console.log($("#txt").attr("value"));//태그에 설정된 속성값을 읽어옴
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="txt" value="test">
+    <button id="btn">실행</button>
+</body>
+</html>
