@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //해당 선택자에 마지막 자식요소로 추가
+            $("ul").append("<li>마지막 요소 추가 - 1</li>");
+            $("ul").append("<li>마지막 요소 추가 - 2</li>");
+            $("ul").append("<li>마지막 요소 추가 - 3</li>");
+            $("<li>마지막 요소 추가 - 4</li>").appendTo("ul");
+            //해당 선택자에 첫번째 자식요소로 추가
+            $("ul").prepend("<li>첫번쨰 요소 추가 - 1</li>");
+            $("ul").prepend("<li>첫번쨰 요소 추가 - 2</li>");
+            $("ul").prepend("<li>첫번쨰 요소 추가 - 3</li>");
+            $("<li>첫번쨰 요소 추가 - 4</li>").prependTo("ul");
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>목록</li>
+
+    </ul>
+</body>
+</html>
