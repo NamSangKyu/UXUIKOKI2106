@@ -17,7 +17,18 @@
     <script>
         $(function(){
             $("#on").click(function(){
-                $("div");
+                $("div").animate({
+                    "height" : "300px",
+                    "border-width" : "1px"
+                },1000,function(){
+                    alert("animate on");
+                });
+            });
+            $("#off").click(function(){
+                $("div").animate({
+                    "height" : "0px",
+                    "border-width" : "0px"
+                },1000);
             });
         });
     </script>
