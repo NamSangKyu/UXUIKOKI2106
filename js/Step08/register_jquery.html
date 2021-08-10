@@ -117,116 +117,85 @@
             font-weight: bold;
         }
     </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
 
         function idCheck() {
-            var id = document.querySelector("#id");
-            var idResult = document.querySelector(".id_result");
-            if (id.value.length < 8 || id.value.length > 20) {
-                idResult.innerHTML = "아이디는 글자수가 8~20글자 사이로 사용하세요";
-                if (idResult.classList.contains("true"))
-                    idResult.classList.remove("true");
-                if (!idResult.classList.contains("false"))
-                    idResult.classList.add("false");
+            if ($("#id").val().length < 8 || $("#id").val().length > 20) {
+                $(".id_result").html("아이디는 글자수가 8~20글자 사이로 사용하세요");
+                $(".id_result").addClass("false");
+                $(".id_result").removeClass("true")
                 return false;
             }
-            if (id.value.indexOf(" ") != -1) {
-                idResult.innerHTML = "아이디에 띄워쓰기를 넣을수는 없습니다.";
-                if (idResult.classList.contains("true"))
-                    idResult.classList.remove("true");
-                if (!idResult.classList.contains("false"))
-                    idResult.classList.add("false");
+            if ($("#id").val().indexOf(" ") != -1) {
+                $(".id_result").html("아이디에 띄워쓰기를 넣을수는 없습니다.");
+                $(".id_result").addClass("false");
+                $(".id_result").removeClass("true")
                 return false;
             }
-            if (!isNaN(id.value)) {
-                idResult.innerHTML = "아이디를 숫자로만 구성할수는 없습니다.";
-                if (idResult.classList.contains("true"))
-                    idResult.classList.remove("true");
-                if (!idResult.classList.contains("false"))
-                    idResult.classList.add("false");
+            if (!isNaN($("#id").val())) {
+                $(".id_result").html("아이디를 숫자로만 구성할수는 없습니다.");
+                $(".id_result").addClass("false");
+                $(".id_result").removeClass("true")
                 return false;
             }
-            if (idResult.classList.contains("false"))
-                idResult.classList.remove("false");
-            if (!idResult.classList.contains("true"))
-                idResult.classList.add("true");
-            idResult.innerHTML = "아이디가 올바르게 입력되었습니다.";
+            $(".id_result").addClass("true");
+            $(".id_result").removeClass("false")
+            $(".id_result").html("아이디가 올바르게 입력되었습니다.");
 
             return true;
         }
         function passCheck() {
-            var pass = document.querySelector("#pass");
-            var passChk = document.querySelector("#pass_chk");
-            var passResult = document.querySelector(".pass_check");
-
-            if (pass.value.length < 8 || pass.value.length > 32) {
-                passResult.innerHTML = "암호는 글자수가 8~32글자 사이로 사용하세요";
-                if (passResult.classList.contains("true"))
-                    passResult.classList.remove("true");
-                if (!passResult.classList.contains("false"))
-                    passResult.classList.add("false");
+              if ($("#pass").val().length < 8 || $("#pass").val().length > 32) {
+                $(".pass_check").html("암호는 글자수가 8~32글자 사이로 사용하세요");
+                $(".pass_check").addClass("false");
+                $(".pass_check").removeClass("true");
                 return false;
             }
-            if (!isNaN(pass.value)) {
-                passResult.innerHTML = "암호는 숫자로만 구성할수는 없습니다.";
-                if (passResult.classList.contains("true"))
-                    passResult.classList.remove("true");
-                if (!passResult.classList.contains("false"))
-                    passResult.classList.add("false");
+            if (!isNaN($("#pass").val())) {
+                $(".pass_check").html("암호는 숫자로만 구성할수는 없습니다.");
+                $(".pass_check").addClass("false");
+                $(".pass_check").removeClass("true");
                 return false;
             }
-            if (pass.value != passChk.value) {
-                passResult.innerHTML = "암호가 일치하지 않습니다.";
-                if (passResult.classList.contains("true"))
-                    passResult.classList.remove("true");
-                if (!passResult.classList.contains("false"))
-                    passResult.classList.add("false");
+            if ($("#pass").val() != $("#pass_chk").val()) {
+                $(".pass_check").html("암호가 일치하지 않습니다.");
+                $(".pass_check").addClass("false");
+                $(".pass_check").removeClass("true");
                 return false;
             }
-            if (passResult.classList.contains("false"))
-                passResult.classList.remove("false");
-            if (!passResult.classList.contains("true"))
-                passResult.classList.add("true");
-            passResult.innerHTML = "암호가 일치합니다.";
+            $(".pass_check").html("암호가 일치합니다.");
+            $(".pass_check").addClass("true");
+            $(".pass_check").removeClass("false");
             return true;
         }
         function checkNick(){
-            var nick = document.querySelector("#nick");
-            var nickLength = document.querySelector("#nick_length");
-            if(nick.value.length > 20){
-                nick.value = nick.value.substr(0,20);
+            if($("#nick").val().length > 20){
+                $("#nick").val($("#nick").val().substr(0,20));
             }
-            nickLength.innerHTML = `${nick.value.length}/20`;
+            $("#nick_length").html(`${$("#nick").val().length}/20`);
 
         }
-        window.onload = function () {
-            var frm = document.querySelector("#frm");
-            var pass = document.querySelector("#pass");
-            var passChk = document.querySelector("#pass_chk");
-            var id = document.querySelector("#id");
-            var nick = document.querySelector("#nick");
-            var nickLength = document.querySelector("#nick_length");
-            var tel = document.querySelector("#tel");
-
-
-            tel.onkeydown =tel.onkeyup= function(){
-                tel.value = tel.value.replaceAll("-","");
-            }
+        $(function(){
+            $("#tel").keyup(function(){
+                $(this).val($(this).val().replaceAll("-",""));
+            });
+            
             //닉네임 글자 개수 처리 부분
-            nick.onkeyup =nick.onkeydown = checkNick;
+            $("#nick").keyup(checkNick);
 
-            console.log(pass);
-            pass.onkeyup = passChk.onkeyup = passCheck;
-            id.onkeyup = idCheck;
-            frm.onsubmit = function (e) {
+            $("#pass, #pass_chk").keyup(passCheck);
+            $("#id").keyup(idCheck);
+
+            $("#frm").submit(function (e) {
                 if (!idCheck()) {
                     return false;
                 }
                 if (!passCheck()) {
                     return false;
                 }
-            }
-        }
+            });
+    });
     </script>
 </head>
 
