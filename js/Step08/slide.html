@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        img{
+            width: 500px;
+        }
+    </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#slideUp").click(function(){
+                $("img").slideUp(1000);
+            });
+            $("#slideDown").click(function(){
+                $("img").slideDown(1000);
+            });
+            $("#slideToggle").click(function(){
+                $("img").slideToggle(1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="slideUp">slideUp</button>
+    <button id="slideDown">slideDown</button>
+    <button id="slideToggle">slideToggle</button>
+    <hr>
+    <img src="/resource/image/main_4.jpg" alt="">
+    
+</body>
+</html>
