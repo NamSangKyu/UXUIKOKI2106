@@ -18,13 +18,24 @@
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
         $(function(){
-            $("#box1").mouseover(function(){
+            /*$("#box1").mouseover(function(){
                 $(this).css("background-color","red");
             });
             $("#box1").mouseout(function(){
                 $(this).css("background-color","white");
+            });*/
+            $("#box1").hover(function(){
+                $(this).css("background-color","red");
+            },function(){
+                $(this).css("background-color","white");
             });
             //box2, mouseenter, mouseleave- 둥근테두리, transition
+            $("#box2").mouseenter(function(){
+                $(this).css("border-radius","150px");
+            });
+            $("#box2").mouseleave(function(){
+                $(this).css("border-radius","0px");
+            });
         });
     </script>
 </head>
