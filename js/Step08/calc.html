@@ -27,6 +27,8 @@
                     result = n1 / n2;
 
                 $("#result").val(result);
+                $("#history").html(
+                    $("#history").html()+`<p>${n1} ${op} ${n2} = ${result} ${new Date().toLocaleString()}</p>`);
             });
         });
     </script>
