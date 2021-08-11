@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .thumnail_container{
+            width: 500px;
+            text-align: center;
+            position: relative;
+            margin: 0 auto;
+
+        }
+        .main_img{
+            width: 400px;
+            height: 400px;
+        }
+        .thumnail_bar{
+            width: 400px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .left_arrow img, .right_arrow img{
+            width: 40px;
+            height: 40px;
+        }
+        .left_arrow{
+            left: 0px;
+            bottom: 10px;
+            position: absolute;
+        }
+        .right_arrow{
+            right: 0px;
+            bottom: 10px;
+            position: absolute;
+        }
+
+        .thumnail{
+            width: 720px;
+            height: 80px;
+            font-size: 0px;
+        }
+        .thumnail img{
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="thumnail_container">
+        <img src="/resource/image/slide/1.jpg" class="main_img">
+        <div class="thumnail_bar">
+            <div class="thumnail">
+                <img src="/resource/image/slide/1.jpg" alt="">
+                <img src="/resource/image/slide/2.jpg" alt="">
+                <img src="/resource/image/slide/3.jpg" alt="">
+                <img src="/resource/image/slide/4.jpg" alt="">
+                <img src="/resource/image/slide/5.jpg" alt="">
+                <img src="/resource/image/slide/6.jpg" alt="">
+                <img src="/resource/image/slide/7.jpg" alt="">
+                <img src="/resource/image/slide/8.jpg" alt="">
+                <img src="/resource/image/slide/9.jpg" alt="">
+            </div>
+        </div>
+        <a class="left_arrow"><img src="/resource/image/left_arrow.png"></a>
+        <a class="right_arrow"><img src="/resource/image/right_arrow.png"></a>
+
+    </div>
+</body>
+</html>
