@@ -45,8 +45,13 @@
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
         $(function(){
-            
-        })
+            $("a").click(function(){
+                $("a").removeClass("select");
+                $(this).addClass("select");
+                $("p").removeClass("active");
+                $(`p:eq(${$(this).index()})`).addClass("active");
+            });
+        });
     </script>
 </head>
 <body>
