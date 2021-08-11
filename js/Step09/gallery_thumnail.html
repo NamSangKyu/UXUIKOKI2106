@@ -58,10 +58,19 @@
             $(".thumnail img").click(function(){
                 $(".main_img").attr("src",$(this).attr("src"));
             });
+
+            var thumnailBarWidth = $(".thumnail_bar").width();
+            var thumnailWidth = $(".thumnail").width();
+            //left_arrow 구현
+            $(".left_arrow").click(function(){
+                if(index == 0) //첫번쨰 이미지
+                    return;
+                index--;
+                var marginLeft = index * -80;
+                $(".thumnail").stop().animate({"margin-left":marginLeft+"px"},500);
+            });
             $(".right_arrow").click(function(){
                 var marginLeft = index * -80;
-                var thumnailBarWidth = $(".thumnail_bar").width();
-                var thumnailWidth = $(".thumnail").width();
                 console.log(marginLeft, thumnailBarWidth, thumnailWidth,marginLeft+thumnailBarWidth);
                 if(marginLeft+thumnailWidth == thumnailBarWidth)
                 return;
