@@ -11,7 +11,7 @@
             padding: 0;
         }
             /*스크롤바를 부드럽게 움직임*/
-       /*  html{
+        /*html{
             scroll-behavior: smooth;
         } */
         .container{
@@ -40,6 +40,23 @@
             //class가 container인 요소에 배경색을 bgColor에 있는 배열 요소로 변경
             $(".container").each(function(i){
                 $(this).css("background-color",bgColor[i]);
+            });
+            var slideNo = 0;
+            $("#next").click(function(){
+                if(slideNo == bgColor.length-1) return;
+                slideNo++;
+                //$("html").scrollTop(slideNo*969);
+                $("html").animate({
+                    "scrollTop" : slideNo*969
+                },500);
+            });
+            $("#back").click(function(){
+                if(slideNo == 0) return;
+                slideNo--;
+               // $("html").scrollTop(slideNo*969);
+               $("html").animate({
+                "scrollTop" : slideNo*969
+            },500);
             });
         });
     </script>
