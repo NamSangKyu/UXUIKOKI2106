@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -12,7 +13,7 @@
         }
 
         .container {
-            top : 100px;
+            top: 100px;
             left: 200px;
             width: 200px;
             height: 200px;
@@ -61,19 +62,29 @@
                         return cookieName[1];
                     }
                 }
-            } 
+            }
             return;
         }
         $(function () {
             var cookieCheck = getCookie("popup");
-            if (cookieCheck == "N"){
+            if (cookieCheck == "N") {
                 $(".container").hide(0);
             }
             //팝업의 X버튼 클릭시 팝업이 사라지게끔 처리
+            $("a").click(function () {
+                $(this).parent().hide(0);
+            });
 
+            $("#chk").click(function () {
+                if ($(this).is(":checked"))
+                    cookieInit("popup", "N", 1);
+                else
+                    cookieInit("popup", "Y", 1);
+            })
         });
     </script>
 </head>
+
 <body>
     <div class="container">
         <a href="#">X</a> <img alt="" src="/resource/image/profile.png">
@@ -88,4 +99,5 @@
         <div id="pop_nav"><input type="checkbox" id="chk"> 다시보지 않기</div>
     </div>
 </body>
+
 </html>
