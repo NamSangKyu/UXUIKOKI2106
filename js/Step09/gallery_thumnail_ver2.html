@@ -23,6 +23,7 @@
             height: 400px;
         }
         .thumnail_bar{
+            border: 1px solid black;
             width: 400px;
             overflow: hidden;
             margin: 0 auto;
@@ -43,6 +44,7 @@
         }
 
         .thumnail{
+            border: 1px solid blue;
             width: 720px;
             height: 80px;
             font-size: 0px;
@@ -60,10 +62,13 @@
             });
             //left_arrow 구현
             $(".left_arrow").click(function(){
-                $(".thumnail")
+                $(".thumnail > img:first-child").stop().animate({"margin-left":"-80px"},100,function(){
+                    $(this).prependTo($(".thumnail"));
+                });
             });
             $(".right_arrow").click(function(){
-               
+                $(".thumnail > img:last-child").css("margin-left","-80px")
+                .prependTo($(".thumnail")).stop().animate({"margin-left":"0px"},100);
             });
         });
     </script>
