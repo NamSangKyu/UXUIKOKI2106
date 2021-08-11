@@ -52,6 +52,13 @@
             height: 80px;
         }
     </style>
+    <script>
+        $(function(){
+            $(".thumnail img").click(function(){
+                $(".main_img").attr("src",$(this).attr("src"));
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="thumnail_container">
