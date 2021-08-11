@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        function loginCheck(e){
+            //아이디와 비번에 데이터를 입력한 경우만 true 리턴, 반대일 경우 fasle
+            //preventDefault 사용해도 됨
+            if($("#id").val().length == 0 || $("#pass").val().length == 0){
+                alert("아이디 비번 입력하세요");
+                e.preventDefault();
+                return;
+            }
+            alert("로그인 작업을 수행합니다.");
+           
+        }
+        $(function(){
+            $("#frm").submit(loginCheck);
+            $("#id").focus();//포커스 이벤트 강제 실행
+            //하이퍼링크 클릭했을때 페이지 이동 못하게끔 처리
+            $("a").click(function(e){
+                e.preventDefault();
+                $("#frm").submit();//해당 이벤트를 강제 실행
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="frm">
+        <input type="text" name="id" id="id"><br>
+        <input type="password" name="pass" id="pass"><br>
+        <button>로그인</button><a href="https://www.google.co.kr" id="sub">전송</a>
+    </form>    
+</body>
+</html>
