@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //버튼 클릭하면 #result에 p 태그를 추가
+            $("button").click(function(){
+                //$("#result").append("<p>추가된 p 태그</p>");
+                $("<p>추가된 p 태그</p>").appendTo("#result").click(function(){
+                    alert($(this).html());
+                });
+
+            });
+            //p태그 클릭하면 p 태그가 담고있는 내용을 경고창으로 출력
+            $("p").click(function(){
+                alert($(this).html());
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>p태그 추가</button>    
+    <hr>
+    <div id="result">
+        <p>미리 작성된 p 태그</p>
+    </div>
+</body>
+</html>
