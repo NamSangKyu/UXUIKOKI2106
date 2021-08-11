@@ -41,6 +41,16 @@
             display: block;
         }
     </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("h2").click(function(){
+                $(this).next().slideDown(500);
+                $(this).addClass("select");
+                //클릭이 안된 나머지는 숨김 및 select 클래스를 제거
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="accodion">
