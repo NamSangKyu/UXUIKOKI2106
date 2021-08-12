@@ -40,6 +40,20 @@
         }
         
     </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var slideImageWidth = $(".slide_img_container > img:first-child").width();
+            $(".left_arrow").click(function(){
+                $(".slide_img_container > img:first-child").animate({
+                    "margin-left":"-"+slideImageWidth
+                },1000,function(){
+                    //콜백함수
+                    $(this).appendTo($(".slide_img_container")).css("margin-left","0px");
+                });
+            });
+        });
+    </script>
 </head>
 <body>
         <div class="slide_container">
