@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <button id="inter">Interval Stop</button>
+    <button id="out">Timeout Stop</button>
+    <script>
+        var inter = document.getElementById("inter");
+        var out = document.getElementById("out");
+
+        //원하는 시간 주기별로 원하는 함수를 실행하는 함수
+        var id_inter=setInterval(function(){
+            console.log(`1초 마다 실행 - ${new Date().toLocaleString()}`);
+        },1000);
+
+        inter.onclick= function(){
+            //해당 Interval 멈춤
+            clearInterval(id_inter);
+        }
+
+        //원하는 시간이 지나면 해당 함수를 실행
+        var id_time = setTimeout(function(){
+            console.log("setTimeout run");
+        },5000);
+
+        out.onclick = function(){
+            //해당 타임아웃 멈춤
+            clearTimeout(id_time);
+        }
+    </script>
+</body>
+</html>
