@@ -1,70 +1,96 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
-        *{
-            margin:0;
-            padding:0;
+        * {
+            margin: 0;
+            padding: 0;
         }
-        .slide_container{
+
+        .slide_container {
             width: 1200px;
             height: 400px;
-            margin:0 auto;
+            margin: 0 auto;
             overflow: hidden;
             position: relative;
         }
-        .slide_img_container{
+
+        .slide_img_container {
             width: 4800px;
             font-size: 0px;
         }
-        .slide_container > button{
+
+        .slide_container>button {
             position: absolute;
             display: inline-block;
             height: 100%;
-            top:0px;
+            top: 0px;
             background-color: rgba(255, 255, 255, 0.6);
             border: none;
         }
-        .right_arrow{
+
+        .right_arrow {
             right: 0px;
         }
-        .slide_container > button:hover{
+
+        .slide_container>button:hover {
             background-color: rgba(255, 255, 255, 0.8);
         }
-        .slide_container > button:active{
+
+        .slide_container>button:active {
             background: none;
         }
-        
     </style>
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
-        $(function(){
+        $(function () {
             var slideImageWidth = $(".slide_img_container > img:first-child").width();
-            $(".left_arrow").click(function(){
+            $(".left_arrow").click(function () {
+                if (!ani)
+                    return;
+                ani = false;
                 $(".slide_img_container > img:first-child").animate({
-                    "margin-left":"-"+slideImageWidth
-                },1000,function(){
+                    "margin-left": "-" + slideImageWidth + "px"
+                }, 1000, function () {
                     //콜백함수
-                    $(this).appendTo($(".slide_img_container")).css("margin-left","0px");
+                    $(this).appendTo($(".slide_img_container")).css("margin-left", "0px");
+                    ani = true;
                 });
+            });
+            var ani = true;
+            $(".right_arrow").click(function () {
+                if (!ani)
+                    return;
+                ani = false;
+                $(".slide_img_container > img:last-child").
+                    css("margin-left", "-" + slideImageWidth + "px").
+                    prependTo($(".slide_img_container")).animate({
+                        "margin-left": "0px"
+                    }, 1000, function () {
+                        ani = true;
+                    });
+
             });
         });
     </script>
 </head>
+
 <body>
-        <div class="slide_container">
-            <div class="slide_img_container">
-                <img src="/resource/image/main_1.jpg" alt="">
-                <img src="/resource/image/main_2.jpg" alt="">
-                <img src="/resource/image/main_3.jpg" alt="">
-                <img src="/resource/image/main_4.jpg" alt="">
-            </div>
-            <button class="left_arrow"><img src="/resource/image/left_arrow.png" alt=""></button>
-            <button class="right_arrow"><img src="/resource/image/right_arrow.png" alt=""></button>
+    <div class="slide_container">
+        <div class="slide_img_container">
+            <img src="/resource/image/main_1.jpg" alt="">
+            <img src="/resource/image/main_2.jpg" alt="">
+            <img src="/resource/image/main_3.jpg" alt="">
+            <img src="/resource/image/main_4.jpg" alt="">
         </div>
+        <button class="left_arrow"><img src="/resource/image/left_arrow.png" alt=""></button>
+        <button class="right_arrow"><img src="/resource/image/right_arrow.png" alt=""></button>
+    </div>
 </body>
+
 </html>
