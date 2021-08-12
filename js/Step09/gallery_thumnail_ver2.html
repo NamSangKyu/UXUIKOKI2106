@@ -61,6 +61,9 @@
             var index = 0;
             $(".thumnail img").click(function(){
                 $(".main_img").attr("src",$(this).attr("src"));
+                $(this).css("opacity","1");
+                $(".thumnail > img").not($(this)).css("opacity","0.6");
+
             });
             //left_arrow 구현
             $(".left_arrow").click(function(){
