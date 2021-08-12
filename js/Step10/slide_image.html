@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .slide_container{
+            width: 1200px;
+            height: 400px;
+            margin:0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide_img_container{
+            width: 4800px;
+            font-size: 0px;
+        }
+        .slide_container > button{
+            position: absolute;
+            display: inline-block;
+            height: 100%;
+            top:0px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border: none;
+        }
+        .right_arrow{
+            right: 0px;
+        }
+        .slide_container > button:hover{
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .slide_container > button:active{
+            background: none;
+        }
+        
+    </style>
+</head>
+<body>
+        <div class="slide_container">
+            <div class="slide_img_container">
+                <img src="/resource/image/main_1.jpg" alt="">
+                <img src="/resource/image/main_2.jpg" alt="">
+                <img src="/resource/image/main_3.jpg" alt="">
+                <img src="/resource/image/main_4.jpg" alt="">
+            </div>
+            <button class="left_arrow"><img src="/resource/image/left_arrow.png" alt=""></button>
+            <button class="right_arrow"><img src="/resource/image/right_arrow.png" alt=""></button>
+        </div>
+</body>
+</html>
