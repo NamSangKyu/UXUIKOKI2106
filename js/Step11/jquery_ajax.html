@@ -22,7 +22,7 @@
                     dataType:"json",
                     success:function(data){
                         console.log(data);
-                        //json으로 변경하는 부분
+                        //json으로 변경하는 부분 - dataType json으로 하면 json으로 파싱할 필요가 없음
                         //data = JSON.parse(data);
                         $("div").html(JSON.stringify(data));
                     }
