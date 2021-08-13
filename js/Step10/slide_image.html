@@ -96,17 +96,23 @@
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
         $(function () {
+            var index = 0;
             var slideImageWidth = $(".slide_img_container > img:first-child").width();
             $(".left_arrow").click(function () {
                 if (!ani)
                     return;
                 ani = false;
+                index++;
+                if(index > 3)
+                    index=0;
                 $(".slide_img_container > img:first-child").animate({
                     "margin-left": "-" + slideImageWidth + "px"
                 }, 1000, function () {
                     //콜백함수
                     $(this).appendTo($(".slide_img_container")).css("margin-left", "0px");
                     ani = true;
+                    $(`.radio_bar li`).removeClass("select");
+                    $(`.radio_bar li:eq(${index})`).addClass("select");
                 });
             });
             var ani = true;
@@ -114,21 +120,26 @@
                 if (!ani)
                     return;
                 ani = false;
+                index--;
+                if(index < 0)
+                    index= 3;
                 $(".slide_img_container > img:last-child").
                     css("margin-left", "-" + slideImageWidth + "px").
                     prependTo($(".slide_img_container")).animate({
                         "margin-left": "0px"
                     }, 1000, function () {
                         ani = true;
+                        $(`.radio_bar li`).removeClass("select");
+                        $(`.radio_bar li:eq(${index})`).addClass("select");
                     });
             });
             var id = setInterval(function(){
-                $(".right_arrow").click();
+                $(".left_arrow").click();
             },3000);
             $(".play").click(function(){
                 if(id != 0) return;
                 id = setInterval(function(){
-                    $(".right_arrow").click();
+                    $(".left_arrow").click();
                 },3000);
             });
             $(".pause").click(function(){
