@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resource/lib/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resource/lib/jquery-ui.css">
+    <link rel="stylesheet" href="/resource/lib/jquery-ui.theme.css">
+    <script>
+        $(function(){
+            $("#date1").datepicker();
+            $("#date2").datepicker();
+            $("#date2").datepicker( "option", "dateFormat", "yy-mm-dd");
+        }); 
+    </script>
+</head>
+<body>
+    <input type="text" id="date1"><br>
+    <input type="text" id="date2"><br>
+    
+</body>
+</html>

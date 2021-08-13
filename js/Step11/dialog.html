@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Dialog - Default functionality</title>
+  <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+  <script src="/resource/lib/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resource/lib/jquery-ui.css">
+  <link rel="stylesheet" href="/resource/lib/jquery-ui.theme.css">
+  <script>
+  $( function() {
+    $( "#dialog" ).dialog();
+    $("button").click(function(){
+        alert("경고창")
+    });
+    $( "#dialog-confirm" ).dialog({
+        resizable: false,
+        height: "auto",
+        width: 400,
+        modal: true,
+        buttons: {
+          "Delete all items": function() {
+            $( this ).dialog( "close" );
+          },
+          Cancel: function() {
+            $( this ).dialog( "close" );
+          }
+        }
+      });
+  } );
+  </script>
+</head>
+<body>
+    <div>
+        Modal(모달)과 일반 팝업의 차이는 일반 팝업은 그냥 현재 페이지 다른 곳의 이벤트를 실행할수 있다.
+        하지만 모달은 다른 곳의 이벤트를 실행하지 못하게끔 막음
+    </div>
+ <button>클릭</button>
+<div id="dialog" title="Basic dialog">
+  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
+</div>
+<div id="dialog-confirm" title="Empty the recycle bin?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+  </div>
+ 
+ 
+</body>
+</html>
