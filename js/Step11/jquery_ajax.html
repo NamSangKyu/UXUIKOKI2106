@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>jquery ajax</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                var text = $("textarea").val();
+
+                $.ajax({
+                    //호출할 url
+                    url:'http://nam2626.dothome.co.kr/papago.php',
+                    //데이터
+                    data:"txt="+text,
+                    //데이터 전송 타입
+                    type :"get",
+                    //결과처리
+                    dataType:"json",
+                    success:function(data){
+                        console.log(data);
+                        //json으로 변경하는 부분
+                        //data = JSON.parse(data);
+                        $("div").html(JSON.stringify(data));
+                    }
+
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+    <textarea></textarea>
+    <button>파파고 호출</button>    
+    <hr>
+    <div></div>
+</body>
+</html>
