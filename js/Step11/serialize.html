@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>    
+        $(function(){
+            $("button").click(function(){
+                var queryString1 = `id=${$("input:text").val()}&pass=${$("input:password").val()}`;
+                alert(queryString1);
+                var queryString2 = $("form").serialize();
+                alert(queryString2);
+            });
+        });
+    </script>
+</head>
+<body>
+        <!-- 로그인 폼, name 속성값 넣어서 작성  -->
+        <form>
+            <input type="text" name="id">
+            <input type="password" name="pass"><button>로그인</button>
+        </form>
+</body>
+</html>
