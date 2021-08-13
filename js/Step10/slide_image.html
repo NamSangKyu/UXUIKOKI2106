@@ -73,6 +73,25 @@
         .play{
             right: 40px;
         }
+        .radio_bar{
+            margin-top: 5px;
+            position: absolute;
+            width: 200px;
+            left: calc(100% / 2 - 100px);
+            text-align: center;
+        }
+        .radio_bar li{
+            width: 30px;
+            height: 30px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            border:5px solid #B6B6B6;
+            display: inline-block;
+        }
+        .select{
+            background-color: #B6B6B6;
+        }
+
     </style>
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
@@ -131,6 +150,12 @@
         <button class="left_arrow"><img src="/resource/image/left_arrow.png" alt=""></button>
         <button class="right_arrow"><img src="/resource/image/right_arrow.png" alt=""></button>
         <div class="slide_nav_bar">
+            <ul class="radio_bar">
+                <li class="radio select"></li>
+                <li class="radio"></li>
+                <li class="radio"></li>
+                <li class="radio"></li>
+            </ul>
             <button class="btn play"><img src="/resource/image/right_arrow.png" alt=""></button>
             <button class="btn pause"><img src="/resource/image/pause.png" alt=""></button>
         </div>
