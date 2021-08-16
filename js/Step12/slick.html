@@ -6,31 +6,48 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="/resource/lib/slick.css">
-    <link rel="stylesheet" href="/resource/lib/slick-theme.css">
+    
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script src="/resource/lib/slick.js"></script>
     <style>
         .container{
              width:1200px;
              margin:0 auto;
+             padding:20px;
+             position: relative;
+         }
+         .slick-prev, .slick-next{
+             position: absolute;
+             z-index: 200;
+             top:168px;
+         }
+         .slick-prev{
+             left: -64px;
+         }
+         .slick-next{
+             right: 0px;
          }
      </style>
     <script>
         $(function(){
-            $(".container").slick({
-                arrows : true,
-                nextArrow:`<button type="button" class="slick-next">Next</button>`,
-                prevArrow : `<button type="button" class="slick-prev">Previous</button>`
+            $(".slick_container").slick({
+                prevArrow:$(".slick-prev"),
+                nextArrow:`<button class="slick-next slick-arrow"><img src="/resource/image/right_arrow.png"></button>`
             });
+            
         });
     </script>
 </head>
 <body>
+    
     <div class="container">
-        <div><img src="/resource/image/main_1.jpg" alt=""></div>
-        <div><img src="/resource/image/main_2.jpg" alt=""></div>
-        <div><img src="/resource/image/main_3.jpg" alt=""></div>
-        <div><img src="/resource/image/main_4.jpg" alt=""></div>
+        <button class="slick-prev slick-arrow"><img src="/resource/image/left_arrow.png"></button>
+        <div class="slick_container">
+            <div><img src="/resource/image/main_1.jpg" alt=""></div>
+            <div><img src="/resource/image/main_2.jpg" alt=""></div>
+            <div><img src="/resource/image/main_3.jpg" alt=""></div>
+            <div><img src="/resource/image/main_4.jpg" alt=""></div>
+        </div>
     </div>
 </body>
 </html>
