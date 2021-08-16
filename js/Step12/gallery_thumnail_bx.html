@@ -5,7 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/resource/lib/jquery.bxslider.css">
     <style>
         *{
             margin:0;
@@ -22,14 +22,19 @@
             width: 400px;
             height: 400px;
         }
-        .thumnail_bar{
-            width: 400px;
-            margin: 0 auto;
+        .bx-wrapper{
+            margin:0 auto;
+            box-shadow: none;
+            border: none;
         }
-       
-       
+        .bx-wrapper .bx-next{
+            right: -30px;
+        }
+        .bx-wrapper .bx-prev{
+            left: -30px;
+        }
     </style>
-    <link rel="stylesheet" href="/resource/lib/jquery.bxslider.css">
+   
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script src="/resource/lib/jquery.bxslider.js"></script>
     <script>
@@ -39,7 +44,7 @@
                 maxSlides:4,
                 minSlide:4,
                 moveSlides:1,
-                shrinkItems:true
+                pager:false
             });
         });
     </script>
@@ -47,18 +52,16 @@
 <body>
     <div class="thumnail_container">
         <img src="/resource/image/slide/1.jpg" class="main_img">
-        <div class="thumnail_bar">
-            <div class="thumnail">
-                <img src="/resource/image/slide/1.jpg" alt="">
-                <img src="/resource/image/slide/2.jpg" alt="">
-                <img src="/resource/image/slide/3.jpg" alt="">
-                <img src="/resource/image/slide/4.jpg" alt="">
-                <img src="/resource/image/slide/5.jpg" alt="">
-                <img src="/resource/image/slide/6.jpg" alt="">
-                <img src="/resource/image/slide/7.jpg" alt="">
-                <img src="/resource/image/slide/8.jpg" alt="">
-                <img src="/resource/image/slide/9.jpg" alt="">
-            </div>
+        <div class="thumnail">
+            <div><img src="/resource/image/slide/1.jpg" alt=""></div>
+            <div><img src="/resource/image/slide/2.jpg" alt=""></div>
+            <div><img src="/resource/image/slide/3.jpg" alt=""></div>
+            <div><img src="/resource/image/slide/4.jpg" alt=""></div>
+            <div><img src="/resource/image/slide/5.jpg" alt=""></div>
+            <div><img src="/resource/image/slide/6.jpg" alt=""></div>
+            <div><img src="/resource/image/slide/7.jpg" alt=""></div>
+            <div><img src="/resource/image/slide/8.jpg" alt=""></div>
+            <div><img src="/resource/image/slide/9.jpg" alt=""></div>
         </div>
     </div>
 </body>
