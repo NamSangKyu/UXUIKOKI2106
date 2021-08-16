@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/resource/lib/slick.css">
+    <link rel="stylesheet" href="/resource/lib/slick-theme.css">
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resource/lib/slick.js"></script>
+    <style>
+        .container{
+             width:1200px;
+             margin:0 auto;
+         }
+     </style>
+    <script>
+        $(function(){
+            $(".container").slick({
+                arrows : true,
+                nextArrow:`<button type="button" class="slick-next">Next</button>`,
+                prevArrow : `<button type="button" class="slick-prev">Previous</button>`
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div><img src="/resource/image/main_1.jpg" alt=""></div>
+        <div><img src="/resource/image/main_2.jpg" alt=""></div>
+        <div><img src="/resource/image/main_3.jpg" alt=""></div>
+        <div><img src="/resource/image/main_4.jpg" alt=""></div>
+    </div>
+</body>
+</html>
