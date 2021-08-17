@@ -101,7 +101,27 @@
         .section{
             margin:30px 0px;
         }
+        footer{
+            padding:30px 100px;
+            background-color: rgb(189, 236, 255);
+        }
+        footer ul{
+            list-style-type: none;
+        }
+        footer ul li{
+            margin: 5px 0px;
+        }
     </style>
+    <script>
+        $(function(){
+            $(".main_menu").mouseenter(function(){
+                $(this).children(".sub_menu").stop().slideDown(500);
+            });
+            $(".main_menu").mouseleave(function(){
+                $(this).children(".sub_menu").stop().slideUp(500);
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -213,8 +233,8 @@
                     <caption class="text-center">공지사항</caption>
                     <thead>
                         <tr>
-                            <th class="col-xs-1">번호</th>
-                            <th class="col-xs-9">제목</th>
+                            <th class="col-xs-2">번호</th>
+                            <th class="col-xs-8">제목</th>
                             <th class="col-xs-2">작성자</th>
                         </tr>
                     </thead>
@@ -258,8 +278,8 @@
                     <caption class="text-center">이벤트</caption>
                     <thead>
                         <tr>
-                            <th class="col-xs-1">번호</th>
-                            <th class="col-xs-9">제목</th>
+                            <th class="col-xs-2">번호</th>
+                            <th class="col-xs-8">제목</th>
                             <th class="col-xs-2">작성자</th>
                         </tr>
                     </thead>
@@ -302,5 +322,13 @@
              
         </div>
     </div>
+    <footer>
+        <ul>
+            <li>사업자 번호 : 0000-000-00000</li>
+            <li>고객센터 : <a href="tel:+082-02-0000-0000">02-0000-0000</a></li>
+            <li>홈페이지 담당자 : OOO</li>
+            <li>주소 : 서울시 OO구 OO동 000-00번지 1층</li>
+        </ul>
+    </footer>
 </body>
 </html>
