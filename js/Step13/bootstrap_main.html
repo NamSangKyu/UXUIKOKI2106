@@ -10,6 +10,11 @@
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script src="/resource/lib/js/bootstrap.js"></script>
     <style>
+        *{
+            margin:0;
+            padding:0;
+
+        }
         .container{
             width: 1170px;
         }
@@ -47,6 +52,50 @@
             color : #6d6564;
             text-decoration: none;
         }
+        .nav{
+            height: 50px;
+            background-color: #8f9d65;
+            font-size: 0px;
+            text-align: center;
+            z-index: 1000;
+        }
+        .nav ul {
+            list-style-type: none ;
+            float:left;
+        }
+        .nav_container{
+            display: inline-block;
+        }
+        .main_menu > li > a:link,.main_menu > li > a:visited{
+            font-size: 18px;
+            font-weight: bold;
+            color: #6d6564;
+            width: 200px;
+            padding: 16px 0px;
+            line-height: 18px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .sub_menu > li > a:link,.sub_menu > li > a:visited{
+            font-size: 16px;
+            font-weight: bold;
+            color: #6d6564;
+            background-color: #c6d39e;
+            width: 200px;
+            padding: 16px 0px;
+            line-height: 18px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .sub_menu > li > a:hover{
+            background-color: #6d6564;
+            color: white;
+        }
+        /*
+        .sub_menu{
+            display: none;
+        }
+        */
     </style>
 </head>
 <body>
@@ -100,7 +149,59 @@
                 </a>
               </div>
         </div>
-
+        <div class="row">
+            <div class="col-xs-12 nav">
+                <div class="nav_container">
+                    <ul class="main_menu">
+                        <li>
+                            <a href="#">HOME</a>
+                        </li>
+                    </ul>
+                    <ul class="main_menu">
+                        <li>
+                            <a href="#">예약</a>
+                        </li>
+                        <ul class="sub_menu">
+                            <li>
+                                <a href="#">예약하기</a>
+                            </li>
+                            <li>
+                                <a href="#">예약조회</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <ul class="main_menu">
+                        <li>
+                            <a href="#">펜션스토리</a>
+                        </li>
+                        <ul class="sub_menu">
+                            <li>
+                                <a href="#">커뮤니티</a>
+                            </li>
+                            <li>
+                                <a href="#">갤러리</a>
+                            </li>
+                            <li>
+                                <a href="#">QnA</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <ul class="main_menu">
+                        <li>
+                            <a href="#">펜션소개</a>
+                        </li>
+                        <ul class="sub_menu">
+                            <li>
+                                <a href="#">오시는길</a>
+                            </li>
+                            <li>
+                                <a href="#">시설안내</a>
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
