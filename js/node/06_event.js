@@ -22,9 +22,7 @@ function runEvent(){
     emitter.emit("array",[123,3245,34,1,11,1,124,2]);
 }
 //runEvent();
-emitter.removeListener("array",function(err){
-    //exception 처리
-    console.log(err);
-});
+//제거할 이벤트명, 함수
+emitter.removeListener("array",printArray);
 //emitter.removeAllListeners();
 runEvent();
