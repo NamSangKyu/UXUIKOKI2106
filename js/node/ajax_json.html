@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                $.ajax({
+                    url:"http://127.0.0.1:3000/sendDate",
+                    type:"get",
+                    dataType:"json",
+                    success:function(data){
+                        $("#result").html(data.date);
+                    }
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>Ajax호출</button>
+    <hr>
+    <div id="result"></div>
+</body>
+</html>
