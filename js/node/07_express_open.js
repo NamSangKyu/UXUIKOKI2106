@@ -1,6 +1,7 @@
 const fs = require("fs");
 //express 모듈 로드
 const express = require('express');
+const { traceDeprecation } = require("process");
 
 //서버 객체 생성
 const app = express();
@@ -41,6 +42,15 @@ app.get("/sendDate",(req,res) =>{
     data['date'] = now.toLocaleString();
     res.send(data);
 });
+//네이버 웹페이지로 이동
+app.get('/naver',(req,res)=>{
+    console.log("네이버로 이동하였음");
+    res.redirect("https://www.naver.com");
+});
 
-
-
+//html 파일을 전송
+app.get('/registerView',(req,res) => {
+    //html파일 읽어옴
+    var file = fs.readFileSync("register_event.html","utf-8");
+    res.send(file);
+});
