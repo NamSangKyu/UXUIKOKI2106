@@ -54,3 +54,8 @@ app.get('/registerView',(req,res) => {
     var file = fs.readFileSync("register_event.html","utf-8");
     res.send(file);
 });
+//html에서 보낸 내용을 확인
+app.get('/register.do',(req,res)=>{
+    console.log(req.query);
+    res.send("회원가입완료");
+});
