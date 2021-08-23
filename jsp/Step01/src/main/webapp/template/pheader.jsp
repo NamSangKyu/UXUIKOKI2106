@@ -20,10 +20,10 @@
 </header>
 <nav>
 	<ul>
-		<li><a href="main.html">HOME</a></li>
-		<li><a href="sub_page2.html">예약</a></li>
+		<li><a href="main.jsp">HOME</a></li>
+		<li><a href="sub_page2.jsp">예약</a></li>
 		<li><a href="#">펜션스토리</a></li>
 		<li><a href="#">펜션소개</a></li>
-		<li><a href="sub_page1.html">오시는길</a></li>
+		<li><a href="sub_page1.jsp">오시는길</a></li>
 	</ul>
 </nav>

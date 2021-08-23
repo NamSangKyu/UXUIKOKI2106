@@ -1,0 +1,279 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>펜션</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .flex_container{
+            display: flex;
+            flex-direction: column;
+            width: 1200px;
+            margin: 0 auto;
+            font-size: 0px;
+        }
+        #member_bar{
+            height: 50px;
+            background-color: #e9e9e9;
+            text-align: right;
+        }
+        #member_bar img{
+            width: 50px;
+            float: left;
+        }
+        #member_bar > div > p{
+            width: 200px;
+            float: left;
+            font-size: 16px;
+            text-align: left;
+            padding-left: 5px;
+            margin-top: 2px;
+        }
+        #member_bar > div{
+            width: 300px;
+            display: inline-block;
+        } 
+        nav{
+            padding:20px 100px;
+            background-color: #e9e9e9;
+        }
+        nav ul{
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+       
+        nav a:link,nav a:visited{
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color:black;
+        }
+        .ad_img {
+            position: relative;
+        }
+        .ad_img button{
+            background: none;
+            border: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 50px;
+            height: 50px;
+        }
+        .ad_img button img{
+            width: 50px;
+        }
+        .left_arrow{
+            top : calc(50% - 50px);
+        }
+        .right_arrow{
+            top : calc(50% - 50px);
+            right: 0px;
+            transform: rotate(180deg);            
+        }
+        section{
+            margin-top: 20px;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+        section > h2{
+            padding:20px 0px;
+            text-align: center;
+        }
+        .time_table > table{
+            border-collapse: collapse;
+        }
+        .time_table > table th, .time_table > table td{
+            border :1px solid #e9e9e9;
+            width: 100px;
+            text-align: center;
+        }
+        .time_table{
+            display: flex;
+            flex-direction: row;  
+            justify-content: center; 
+        }
+        .time_table > table td{
+            height: 100px;
+            text-align: right;
+            vertical-align: top;
+            padding:5px;
+        }
+        .time_table > .left_arrow,.time_table > .right_arrow {
+            align-self: center;
+            margin: auto 30px;
+            border: none;
+            background: none;
+        }
+        table td:nth-child(7n), table th:nth-child(7n){
+            color:blue;
+        }
+        table td:nth-child(7n+1), table th:nth-child(7n+1){
+            color:red;
+        }
+        .form_container{
+            display: flex;
+            flex-direction:row ;
+            justify-content: center;
+            padding:20px 20px;
+        }
+        .form_container > div{
+            width: 200px;
+            margin-right: 20px;
+        }
+        .form_container label{
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .form_container input[type=date]{
+            width: 100%;
+            height: 35px;
+            padding: 3px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .form_container input[type=text]{
+            width: 70%;
+            height: 35px;
+            padding: 3px;
+            font-size: 16px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .plus, .minus{
+            width: 15%;
+            height: 35px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .form_container > div:last-child > button{
+            width: 80px;
+            height: 100%;
+            color: white;
+            font-weight: bold;
+            background-color: #1d9be4;
+            border:2px outset #0a6da7;
+        }
+        .form_container > div:last-child{
+            text-align: center;
+        }
+        .form_container > div:last-child > button:active{
+            background-color: white;
+            color: #1d9be4;
+            border-style: inset;
+        }
+        footer{
+            margin-top: 50px;
+            padding:15px 10px;
+            font-size: 16px;
+            background-color: #e9e9e9;
+        }
+        footer ul{
+            list-style-type: none;
+        }
+        footer ul li{
+            margin: 5px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex_container">
+        <jsp:include page="template/pheader.jsp"></jsp:include>
+        <section>
+          <h2>3월 예약 일정표</h2>
+          <div class="time_table">
+            <button class="left_arrow"><img src="resource/images/left_arrow.png" alt=""></button>
+            <table>
+                <tr>
+                    <th>일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <button class="right_arrow"><img src="resource/images/left_arrow.png" alt=""></button>
+        </div>
+        <div class="form_container">
+              <div>
+                <label for="start_date">체크인</label>
+                <input type="date" id="start_date">
+              </div>
+              <div>
+                <label for="end_date">체크아웃</label>
+                <input type="date" id="end_date">
+              </div>
+              <div>
+                <label for="count">인원수</label>
+                <button class="minus">-</button><input type="text" id="count" value="0" readonly><button class="plus">+</button>
+              </div>
+              <div>
+                  <button>예약하기</button>
+              </div>
+
+          </div>
+        </section>
+       	<jsp:include page="template/pfooter.jsp"></jsp:include>
+    </div>    
+</body>
+</html>
