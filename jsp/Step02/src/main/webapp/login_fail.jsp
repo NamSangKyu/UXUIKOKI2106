@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%=request.getParameter("name") %><br>
-	<%=request.getParameter("hobby") %><br>
-	forwardResult.jsp 페이지 입니다.
+	<h1>로그인 실패</h1>
 </body>
 </html>
