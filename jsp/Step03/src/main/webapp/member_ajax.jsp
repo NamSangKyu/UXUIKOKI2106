@@ -16,7 +16,22 @@
 				data : data,
 				type:"get",
 				success : function(result){
-					$("#result").html(result);					
+					result = result.trim();
+					//받아온 데이터를 쪼개서 테이블 형태로 출력 split
+					var tag = "<table>";
+					var row = result.split("\n");
+					for(i=0;i<row.length;i++){
+						var tr = row[i].split(",");
+						tag += "<tr>";
+						console.log(tr);
+						for(j=0;j<tr.length;j++){
+							console.log(tr[j]);
+							tag += "<td>"+tr[j]+"</td>";
+						}
+						tag += "</tr>";
+					}
+					tag += "</table>";
+					$("#result").html(tag);					
 				}	
 			});
 		})
