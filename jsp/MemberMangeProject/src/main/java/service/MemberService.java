@@ -1,5 +1,7 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.MemberDAO;
 import dto.MemberDTO;
 
@@ -20,6 +22,15 @@ public class MemberService {
 		return dto;
 	}
 	
+	public ArrayList<MemberDTO> selectAllMember(){
+		return MemberDAO.getInstance().selectAllMember();
+	}
 	
 	
 }
+
+
+
+
+
+

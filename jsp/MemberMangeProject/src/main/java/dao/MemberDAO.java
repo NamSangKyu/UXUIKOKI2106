@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import config.DBManager;
 import dto.MemberDTO;
@@ -48,6 +49,29 @@ public class MemberDAO {
 		
 		
 		return dto;
+	}
+
+	public ArrayList<MemberDTO> selectAllMember() {
+		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+				
+		try {
+			String sql = "select * from member";
+			PreparedStatement pstmt = manager.getConnection().prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				String id = rs.getString(1);
+				String name = rs.getString(3);
+				int  age = rs.getInt(4);
+				int gender= rs.getInt(5);
+				int point = rs.getInt(6);
+				String grade = rs.getString(7);
+				list.add(new MemberDTO(id, null, name, age, gender, point, grade));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 	
 	
