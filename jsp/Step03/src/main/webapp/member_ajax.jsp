@@ -12,7 +12,7 @@
 			//폼 태그에 있는 input 태그에 입력한 내용을 전부 쿼리스트링으로 자동으로 생성
 			var data = $("#frm").serialize();
 			$.ajax({
-				url,"member_ajax_select_name.jsp",
+				url:"member_select_name_ajax.jsp",
 				data : data,
 				type:"get",
 				success : function(result){
