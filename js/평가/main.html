@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("#frm").submit(function (e) {
+                if ($("#title").val().length < 5) {
+                    $("#title").next().html("제목은 5글자 이상입력하셔야 합니다."); 
+                    e.preventDefault(); 
+                }else{
+                    $("#title").next().html("");
+                }
+                if($("#writer").val().length == 0) {
+                    $("#writer").next().html("작성자는 반드시 입력하셔야 합니다."); 
+                    e.preventDefault(); 
+                }else{
+                    $("#writer").next().html("");
+                }
+                if($("#tel").val().length < 11) {
+                    $("#tel").next().html("연락처는 11글자 이상 입력하셔야 합니다.");
+                    e.preventDefault(); 
+                }else{
+                    $("#tel").next().html("");
+                }
+                if($("#company").val().length == 0) {
+                    $("#company").next().html("회사명은 반드시 입력하셔야 합니다.");
+                    e.preventDefault();
+                }else{
+                    $("#company").next().html("");
+                }
+                if($("#content").val().length < 10) {
+                    $("#content").next().html("문의 내용은 10글자 이상 입력하셔야 합니다.");
+                    e.preventDefault();
+                }else{
+                    $("#content").next().html("");
+                }
+            });
+        });
+    </script>
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 1200px;
+            background-color: #e8e8e8;
+            padding-left: 50px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            padding: 30px 0px;
+        }
+
+        nav {
+            width: 1000px;
+            margin: 0 auto;
+            font-size: 0px;
+        }
+
+        nav>ul {
+            list-style-type: none;
+            display: inline-block;
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav a:link,
+        nav a:visited {
+            display: inline-block;
+            text-align: center;
+            width: 200px;
+            font-size:16px;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            color: black;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #b9b9b9;
+        }
+
+        section {
+            width: 800px;
+            height: 600px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        article h2 {
+            margin-bottom: 30px;
+        }
+
+        article {
+            padding: 20px 50px;
+            margin: 10px 0px;
+        }
+
+        article p {
+            padding-left: 20px;
+            line-height: 30px;
+        }
+
+        aside {
+            width: 300px;
+            padding: 20px;
+            height: 600px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        aside input {
+            width: 100%;
+            height: 30px;
+            border-radius: 5px;
+            margin-top: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        aside textarea {
+            width: 100%;
+            height: 300px;
+            margin-top: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        aside button {
+            width: 100%;
+            height: 40px;
+            margin-top: 5px;
+        }
+
+        #container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer {
+            width: 1920px;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            padding: 40px 200px;
+            box-sizing: border-box;
+            background-color: cornflowerblue;
+        }
+        .fail{
+            font-size: 0.8em;
+            font-weight: bold;
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Papop Soultions</h1>
+        <nav>
+            <ul>
+                <li><a href="#" title="회사 소개 페이지로 이동">회사소개</a></li>
+                <li><a href="#" title="솔루션 페이지로 이동">솔루션</a></li>
+                <li><a href="#" title="블로그로 이동">블로그</a></li>
+                <li><a href="#" title="구입 페이지로 이동">구입</a></li>
+                <li><a href="#" title="고객센터 페이지로 이동">고객센터</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="container">
+
+        <section>
+            <article>
+                <h2>Introduce My Company</h2>
+                <p>대통령은 제4항과 제5항의 규정에 의하여 확정된 법률을 지체없이 공포하여야 한다. 제5항에 의하여 법률이 확정된 후 또는 제4항에 의한 확정법률이 정부에 이송된 후 5일 이내에
+                    대통령이 공포하지 아니할 때에는 국회의장이 이를 공포한다.</p>
+
+                <p>국가는 건전한 소비행위를 계도하고 생산품의 품질향상을 촉구하기 위한 소비자보호운동을 법률이 정하는 바에 의하여 보장한다. 정기회의 회기는 100일을, 임시회의 회기는 30일을 초과할
+                    수 없다.</p>
+
+                <p>선거와 국민투표의 공정한 관리 및 정당에 관한 사무를 처리하기 위하여 선거관리위원회를 둔다. 모든 국민은 언론·출판의 자유와 집회·결사의 자유를 가진다.</p>
+
+                <p>계엄을 선포한 때에는 대통령은 지체없이 국회에 통고하여야 한다. 국회의원이 회기전에 체포 또는 구금된 때에는 현행범인이 아닌 한 국회의 요구가 있으면 회기중 석방된다.</p>
+
+
+            </article>
+
+        </section>
+        <aside>
+            <h2>문의하기</h2>
+            <form id="frm">
+                <input type="text" name="title" id="title" placeholder="제목">
+                <div class="fail"></div>
+                <input type="text" name="writer" id="writer" placeholder="작성자">
+                <div class="fail"></div>
+                <input type="text" name="company" id="company" placeholder="회사명">
+                <div class="fail"></div>
+                <input type="text" name="tel" id="tel" placeholder="연락처">
+                <div class="fail"></div>
+                <textarea name="content" id="content" placeholder="문의 내용 입력"></textarea>
+                <div class="fail"></div>
+                <button>문의메일 보내기</button>
+            </form>
+        </aside>
+    </div>
+    <footer>
+        <p>서울시 마포구 노고산동 44-44번지 뉴로빌딩 5층</p>
+        <p>대표 : 김철수</p>
+        <p>고객센터 : 1588-9090(오전10~오후6시까지 고객센터 운영)</p>
+        <p>사업자번호 : 000-0000-0000000</p>
+
+    </footer>
+</body>
+
+</html>
