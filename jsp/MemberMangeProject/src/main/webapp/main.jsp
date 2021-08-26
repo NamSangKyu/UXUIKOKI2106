@@ -30,6 +30,23 @@
 	
 	
 </style>
+<script src="resource/lib/jquery-3.6.0.min.js"></script>
+<script>
+	$(function(){
+		$("section button").click(function() {
+			var data = $("form").serialize();
+			$.ajax({
+				data:data,
+				type:"get",
+				dataType:"json",
+				url:"search_process.jsp",
+				success:function(r){
+					
+				}
+			});
+		});
+	});
+</script>
 </head>
 <body>
 	<%
@@ -67,6 +84,21 @@
 		</div>
 	</header>	
 	<section>
+		<!-- search bar start -->
+		<!-- 
+			이름을 입력해서 입력 값 일부와 동일한 데이터를 .content에 출력
+			ajax를 이용해서 결과값을 출력
+			
+			1. 검색어 받을 폼
+			2. ajax 처리
+			3. process 작업
+		 -->
+		<!-- search bar end -->
+		<div>
+			<form>
+				<input type="text" name="search"><button type="button">검색</button>
+			</form>
+		</div>
 		<table>
 			<thead>
 				<tr>
