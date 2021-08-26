@@ -109,11 +109,17 @@
 				2. DB 조회해서 리스트로 받고
 				3. json 조립 후 클라이언트에게 전송
 			4. success부분의 함수에서 출력
+			--추가 작업
+			1. 기존은 이름으로 검색 -> search bar를 아이디, 이름, 등급중에 하나 선택해서 검색을 하게끔 변경 
 		 -->
 		<!-- search bar end -->
 		<div>
 			<form>
-				<input type="text" name="search"><button type="button">검색</button>
+				<select name="kind">
+					<option value="id">아이디</option>
+					<option value="name">이름</option>
+					<option value="grade">등급</option>
+				</select><input type="text" name="search"><button type="button">검색</button>
 			</form>
 		</div>
 		<table>

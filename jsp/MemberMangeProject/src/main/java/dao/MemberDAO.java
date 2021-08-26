@@ -99,11 +99,11 @@ public class MemberDAO {
 		return result;
 	}
 
-	public ArrayList<MemberDTO> searchMember(String search) {
+	public ArrayList<MemberDTO> searchMember(String kind,String search) {
 		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
 
 		try {
-			String sql = "select * from member where name like '%' || ? || '%'";
+			String sql = "select * from member where "+kind+" like '%' || ? || '%'";
 			PreparedStatement pstmt = manager.getConnection().prepareStatement(sql);
 			pstmt.setString(1, search);
 			ResultSet rs = pstmt.executeQuery();

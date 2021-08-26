@@ -25,8 +25,8 @@ public class MemberService {
 	public ArrayList<MemberDTO> selectAllMember(){
 		return MemberDAO.getInstance().selectAllMember();
 	}
-	public ArrayList<MemberDTO> searchMember(String search){
-		return MemberDAO.getInstance().searchMember(search);
+	public ArrayList<MemberDTO> searchMember(String kind,String search){
+		return MemberDAO.getInstance().searchMember(kind,search);
 	}
 	
 	public int insertMember(MemberDTO dto) {

@@ -7,8 +7,8 @@
     pageEncoding="UTF-8"%>
 <%
 	String search = request.getParameter("search");
-
-	ArrayList<MemberDTO> list = MemberService.getInstance().searchMember(search);
+	String kind = request.getParameter("kind");
+	ArrayList<MemberDTO> list = MemberService.getInstance().searchMember(kind,search);
 	
 	//json 조립
 	JSONArray array = new JSONArray();
