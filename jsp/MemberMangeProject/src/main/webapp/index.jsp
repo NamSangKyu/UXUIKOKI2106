@@ -33,6 +33,14 @@ form {
 font-size :0px;
 }
 </style>
+<script src="resource/lib/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$("#register").click(function() {
+			location.href="member_register.jsp";
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="container">
@@ -41,7 +49,7 @@ font-size :0px;
 			<input type="text" name="id" placeholder="아이디를 입력하세요"><br>
 			<input type="password" name="pass" placeholder="암호를 입력하세요"><br>
 			<button>로그인</button>
-			<button type="button">회원가입</button>
+			<button type="button" id="register">회원가입</button>
 		</form>
 	</div>
 </body>

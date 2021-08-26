@@ -5,10 +5,10 @@ public class MemberDTO {
 	private String pass;
 	private String name;
 	private int age;
-	private int gender;
+	private String gender;
 	private int point;
 	private String grade;
-	public MemberDTO(String id, String pass, String name, int age, int gender, int point, String grade) {
+	public MemberDTO(String id, String pass, String name, int age, String gender, int point, String grade) {
 		super();
 		this.id = id;
 		this.pass = pass;
@@ -46,10 +46,10 @@ public class MemberDTO {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(int gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	public int getPoint() {

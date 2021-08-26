@@ -63,7 +63,7 @@
 		<div class="profile">
 			<img src="resource/profile.png">
 			<p><%=dto.getName() %>님 로그인 하셨습니다.<br>
-				<a href="#">로그아웃</a></p>
+				<a href="logout_process.jsp">로그아웃</a></p>
 		</div>
 	</header>	
 	<section>
@@ -88,7 +88,7 @@
 						<td><%=list.get(i).getId() %></td>
 						<td><%=list.get(i).getName() %></td>
 						<td><%=list.get(i).getAge() %></td>
-						<td><%=list.get(i).getGender() == 0 ? "여" : "남" %></td>
+						<td><%=list.get(i).getGender().equals("0") ? "여" : "남" %></td>
 						<td><%=list.get(i).getPoint() %></td>
 						<td><%=list.get(i).getGrade() %></td>
 						<td><a href="#">수정</a><a href="#">삭제</a></td>
