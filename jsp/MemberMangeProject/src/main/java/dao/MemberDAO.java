@@ -176,4 +176,25 @@ public class MemberDAO {
 		return result;
 	}
 
+	public void deleteMember(String id) {
+		String sql = "delete from member where id like ?";
+
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = manager.getConnection().prepareStatement(sql);
+			pstmt.setString(1, id);
+
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 }

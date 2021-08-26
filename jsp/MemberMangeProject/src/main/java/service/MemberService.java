@@ -40,7 +40,9 @@ public class MemberService {
 		return MemberDAO.getInstance().updateMember(dto);
 	}
 	
-	
+	public void deleteMember(String id) {
+		MemberDAO.getInstance().deleteMember(id);
+	}
 }
 
 
