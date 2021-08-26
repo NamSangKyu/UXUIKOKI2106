@@ -25,10 +25,14 @@ public class MemberService {
 	public ArrayList<MemberDTO> selectAllMember(){
 		return MemberDAO.getInstance().selectAllMember();
 	}
+	public ArrayList<MemberDTO> searchMember(String search){
+		return MemberDAO.getInstance().searchMember(search);
+	}
 	
 	public int insertMember(MemberDTO dto) {
 		return MemberDAO.getInstance().insertMember(dto);
 	}
+	
 	
 }
 

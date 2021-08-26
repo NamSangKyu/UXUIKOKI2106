@@ -41,7 +41,20 @@
 				dataType:"json",
 				url:"search_process.jsp",
 				success:function(r){
-					
+					console.log(r);
+					var tag = "";
+					for(i=0;i<r.length;i++){
+						tag += "<tr>";
+						tag += "<td>"+r[i].id+"</td>";
+						tag += "<td>"+r[i].name+"</td>";
+						tag += "<td>"+r[i].age+"</td>";
+						tag += "<td>"+r[i].gender+"</td>";
+						tag += "<td>"+r[i].point+"</td>";
+						tag += "<td>"+r[i].grade+"</td>";
+						tag += "<td><a href=\"#\">수정</a><a href=\"#\">삭제</a></td>";
+						tag += "</tr>";
+					}
+					$(".content").html(tag);
 				}
 			});
 		});
@@ -92,6 +105,10 @@
 			1. 검색어 받을 폼
 			2. ajax 처리
 			3. process 작업
+				1. 사용자가 보낸 데이터를 받아서
+				2. DB 조회해서 리스트로 받고
+				3. json 조립 후 클라이언트에게 전송
+			4. success부분의 함수에서 출력
 		 -->
 		<!-- search bar end -->
 		<div>

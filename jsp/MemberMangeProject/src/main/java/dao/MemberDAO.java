@@ -99,4 +99,28 @@ public class MemberDAO {
 		return result;
 	}
 
+	public ArrayList<MemberDTO> searchMember(String search) {
+		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+
+		try {
+			String sql = "select * from member where name like '%' || ? || '%'";
+			PreparedStatement pstmt = manager.getConnection().prepareStatement(sql);
+			pstmt.setString(1, search);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String id = rs.getString(1);
+				String name = rs.getString(3);
+				int age = rs.getInt(4);
+				String gender = rs.getString(5);
+				int point = rs.getInt(6);
+				String grade = rs.getString(7);
+				list.add(new MemberDTO(id, null, name, age, gender, point, grade));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
 }
