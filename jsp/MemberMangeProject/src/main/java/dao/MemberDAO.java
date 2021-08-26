@@ -99,11 +99,11 @@ public class MemberDAO {
 		return result;
 	}
 
-	public ArrayList<MemberDTO> searchMember(String kind,String search) {
+	public ArrayList<MemberDTO> searchMember(String kind, String search) {
 		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
 
 		try {
-			String sql = "select * from member where "+kind+" like '%' || ? || '%'";
+			String sql = "select * from member where " + kind + " like '%' || ? || '%'";
 			PreparedStatement pstmt = manager.getConnection().prepareStatement(sql);
 			pstmt.setString(1, search);
 			ResultSet rs = pstmt.executeQuery();
@@ -145,6 +145,35 @@ public class MemberDAO {
 		}
 
 		return dto;
+	}
+
+	public int updateMember(MemberDTO dto) {
+		String sql = "update member set name=?,age=?," + "grade=?,point=?,gender=? where id like ?";
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = manager.getConnection().prepareStatement(sql);
+			pstmt.setString(1, dto.getName());
+			pstmt.setInt(2, dto.getAge());
+			pstmt.setString(3, dto.getGrade());
+			pstmt.setInt(4, dto.getPoint());
+			pstmt.setString(5, dto.getGender());
+			pstmt.setString(6, dto.getId());
+
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return result;
 	}
 
 }

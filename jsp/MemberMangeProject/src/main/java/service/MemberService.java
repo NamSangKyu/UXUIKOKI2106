@@ -36,6 +36,9 @@ public class MemberService {
 	public int insertMember(MemberDTO dto) {
 		return MemberDAO.getInstance().insertMember(dto);
 	}
+	public int updateMember(MemberDTO dto) {
+		return MemberDAO.getInstance().updateMember(dto);
+	}
 	
 	
 }

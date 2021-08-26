@@ -14,7 +14,7 @@
 	MemberDTO dto = MemberService.getInstance().selectMember(id);
 %>
 	<form action="member_update_process.jsp" method="post">
-		<input type="text" name="id" placeholder="아이디를 입력하세요" value="<%=dto.getId()%>"><br>
+		<input type="text" name="id" placeholder="아이디를 입력하세요" value="<%=dto.getId()%>" readonly><br>
 		<input type="text" name="name" placeholder="이름을 입력하세요" value="<%=dto.getName()%>"><br>
 		<input type="text" name="age" placeholder="나이를 입력하세요" value="<%=dto.getAge()%>"><br>
 		<input type="radio" name="gender" value="1" <%=dto.getGender().equals("1") ? "checked" : "" %>>남
