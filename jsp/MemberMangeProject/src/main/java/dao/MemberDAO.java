@@ -123,4 +123,28 @@ public class MemberDAO {
 		return list;
 	}
 
+	public MemberDTO selectMember(String id) {
+		MemberDTO dto = null;
+
+		try {
+			String sql = "select * from member where id = ?";
+			PreparedStatement pstmt = manager.getConnection().prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				String name = rs.getString(3);
+				int age = rs.getInt(4);
+				String gender = rs.getString(5);
+				int point = rs.getInt(6);
+				String grade = rs.getString(7);
+
+				dto = new MemberDTO(id, null, name, age, gender, point, grade);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return dto;
+	}
+
 }

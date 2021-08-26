@@ -21,6 +21,10 @@ public class MemberService {
 		MemberDTO dto = MemberDAO.getInstance().login(id,pass);
 		return dto;
 	}
+	public MemberDTO selectMember(String id) {
+		MemberDTO dto = MemberDAO.getInstance().selectMember(id);
+		return dto;
+	}
 	
 	public ArrayList<MemberDTO> selectAllMember(){
 		return MemberDAO.getInstance().selectAllMember();
