@@ -16,7 +16,9 @@ public class HandlerMapping {
 		Controller controller = null;
 		
 		switch(command) {
-		
+		case "login.action":
+			controller = new LoginController();
+			break;
 		}
 		
 		return controller;
