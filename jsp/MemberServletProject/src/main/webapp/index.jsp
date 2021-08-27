@@ -43,6 +43,10 @@ font-size :0px;
 </script>
 </head>
 <body>
+	<%
+		if(session.getAttribute("obj") != null)
+			response.sendRedirect("main.jsp");
+	%>
 	<div class="container">
 		<h2>로그인 페이지</h2>
 		<form action="login.do" method="post">
