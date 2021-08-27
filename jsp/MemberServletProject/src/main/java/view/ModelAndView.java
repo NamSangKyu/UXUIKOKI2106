@@ -1,11 +1,13 @@
 package view;
 
+import servlet.DispatcherServlet;
+
 public class ModelAndView {
 	private String path;
 	private boolean redirect;
 	public ModelAndView(String path, boolean redirect) {
 		super();
-		this.path = path;
+		this.path = DispatcherServlet.CONTEXT_PATH + path;
 		this.redirect = redirect;
 	}
 	public String getPath() {

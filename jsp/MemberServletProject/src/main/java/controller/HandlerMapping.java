@@ -19,6 +19,10 @@ public class HandlerMapping {
 		case "login.action":
 			controller = new LoginController();
 			break;
+		case "logout.action":
+			controller = new LogoutController();
+			break;
+			
 		}
 		
 		return controller;

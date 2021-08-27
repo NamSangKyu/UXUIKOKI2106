@@ -97,7 +97,7 @@
 		<div class="profile">
 			<img src="resource/profile.png">
 			<p><%=dto.getName() %>님 로그인 하셨습니다.<br>
-				<a href="logout.do">로그아웃</a></p>
+				<a href="logout.action">로그아웃</a></p>
 		</div>
 	</header>	
 	<section>

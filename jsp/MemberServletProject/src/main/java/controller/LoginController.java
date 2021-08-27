@@ -27,7 +27,7 @@ public class LoginController implements Controller {
 			session.setAttribute("obj", dto);
 			ArrayList<MemberDTO> list = MemberService.getInstance().selectAllMember();
 			session.setAttribute("list", list);
-			return new ModelAndView(request.getContextPath()+"/main.jsp", true);
+			return new ModelAndView("/main.jsp", true);
 		}else {
 			out.print("<script>");
 			out.print("alert('로그인 실패, 아이디 비번 확인하세요');");

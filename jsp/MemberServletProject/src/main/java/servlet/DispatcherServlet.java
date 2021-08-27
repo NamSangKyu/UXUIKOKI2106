@@ -17,6 +17,8 @@ import view.ModelAndView;
 @WebServlet("*.action")
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static String  CONTEXT_PATH = "";
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -25,6 +27,14 @@ public class DispatcherServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+	@Override
+	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		CONTEXT_PATH = arg0.getContextPath();
+		//System.out.println(CONTEXT_PATH);
+		super.service(arg0, arg1);
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -40,7 +50,7 @@ public class DispatcherServlet extends HttpServlet {
 			view = controller.execute(request, response);
 		
 		if(view == null) return;
-		
+		System.out.println(view.getPath());
 		if(view.isRedirect()) {
 			response.sendRedirect(view.getPath());
 		}else {
