@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -9,22 +8,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.connector.Response;
 
 import dto.MemberDTO;
 import service.MemberService;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class UpdateServlet
  */
-@WebServlet("/login.do")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/update.do")
+public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public UpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,27 +33,23 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
 		String id = request.getParameter("id");
-		String pass = request.getParameter("pass");
-		HttpSession session = request.getSession();
-		PrintWriter out = response.getWriter();
-		MemberDTO dto = MemberService.getInstance().login(id, pass);
+		String name = request.getParameter("name");
+		int age = Integer.parseInt(request.getParameter("age"));
+		String gender = request.getParameter("gender");
+		int point = Integer.parseInt(request.getParameter("point"));
+		String grade = request.getParameter("grade");
 		
-		if(dto != null) {
-			//로그인 성공 했을때
-			session.setAttribute("obj", dto);
+		int count = MemberService.getInstance().updateMember(new MemberDTO(id,null,name,age,gender,point,grade));
+		
+		if(count == 1){
+			response.sendRedirect("main.jsp");
+			//수정후 데이터를 다시 읽어오는 부분
 			ArrayList<MemberDTO> list = MemberService.getInstance().selectAllMember();
-			session.setAttribute("list", list);
-			response.sendRedirect(request.getContextPath()+"/main.jsp");
-		}else {
-			out.print("<script>");
-			out.print("alert('로그인 실패, 아이디 비번 확인하세요');");
-			out.print("history.back();");
-			out.print("</script>");
+			request.getSession().setAttribute("list", list);
+		}else{
+			response.getWriter().write("<script>history.back();</script>");
 		}
-		
-			
 	}
 
 	/**
@@ -65,3 +61,8 @@ public class LoginServlet extends HttpServlet {
 	}
 
 }
+
+
+
+
+

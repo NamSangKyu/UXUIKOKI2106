@@ -51,7 +51,7 @@
 						tag += "<td>"+r[i].gender+"</td>";
 						tag += "<td>"+r[i].point+"</td>";
 						tag += "<td>"+r[i].grade+"</td>";
-						tag += "<td><a href='update_view.jsp?id="+r[i].id+"'>수정</a><a href=\"#\">삭제</a></td>";
+						tag += "<td><a href='updateView.do?id="+r[i].id+"'>수정</a><a href=\"#\">삭제</a></td>";
 						tag += "</tr>";
 					}
 					$(".content").html(tag);
@@ -146,7 +146,7 @@
 						<td><%=list.get(i).getGender().equals("0") ? "여" : "남" %></td>
 						<td><%=list.get(i).getPoint() %></td>
 						<td><%=list.get(i).getGrade() %></td>
-						<td><a href="update_view.jsp?id=<%=list.get(i).getId()%>">수정</a><a href="member_delete_process.jsp?id=<%=list.get(i).getId()%>">삭제</a></td>
+						<td><a href="updateView.do?id=<%=list.get(i).getId()%>">수정</a><a href="member_delete_process.jsp?id=<%=list.get(i).getId()%>">삭제</a></td>
 					</tr>
 					<%
 				}
