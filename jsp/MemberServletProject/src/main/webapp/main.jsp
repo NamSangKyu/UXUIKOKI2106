@@ -39,7 +39,7 @@
 				data:data,
 				type:"get",
 				dataType:"json",
-				url:"search_process.jsp",
+				url:"search.do",
 				success:function(r){
 					console.log(r);
 					var tag = "";
@@ -93,7 +93,7 @@
 		<div class="profile">
 			<img src="resource/profile.png">
 			<p><%=dto.getName() %>님 로그인 하셨습니다.<br>
-				<a href="logout_process.jsp">로그아웃</a></p>
+				<a href="logout.do">로그아웃</a></p>
 		</div>
 	</header>	
 	<section>
