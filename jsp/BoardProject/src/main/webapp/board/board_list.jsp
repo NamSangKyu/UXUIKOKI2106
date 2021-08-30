@@ -20,7 +20,7 @@
 				<th>싫어요</th>
 			</tr>		
 		</table>
-		<a href="board_write.jsp">글쓰기</a>
+		<a href="board/board_write.jsp">글쓰기</a>
 	</div>
 </body>
 </html>
