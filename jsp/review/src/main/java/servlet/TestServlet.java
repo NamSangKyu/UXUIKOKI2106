@@ -38,8 +38,7 @@ public class TestServlet extends HttpServlet {
 		session.setAttribute("test", search);
 		//페이지 이동
 		//response.sendRedirect(request.getContextPath()+"/result.jsp");
-		RequestDispatcher dis =  request.getRequestDispatcher("result.jsp");
-		System.out.println(dis.FORWARD_REQUEST_URI);
+		RequestDispatcher dis =  request.getRequestDispatcher("/result.jsp");
 		dis.forward(request, response);
 		
 	}
