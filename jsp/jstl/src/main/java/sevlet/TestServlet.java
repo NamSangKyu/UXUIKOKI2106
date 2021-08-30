@@ -29,6 +29,8 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("dto", new MemberDTO("A0001", "12345", "홍길동", 20, "남", 33000, "VVIP"));
+		request.setAttribute("age", 30);
+		request.getSession().setAttribute("msg", "session message");
 		request.getRequestDispatcher("jstl_el.jsp").forward(request, response);		
 	}
 

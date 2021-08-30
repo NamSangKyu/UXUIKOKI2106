@@ -64,6 +64,11 @@ public class MemberDTO {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
+	@Override
+	public String toString() {
+		return "MemberDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", age=" + age + ", gender=" + gender
+				+ ", point=" + point + ", grade=" + grade + "]";
+	}
 	
 	
 }
