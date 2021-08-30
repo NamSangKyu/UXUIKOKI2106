@@ -31,7 +31,8 @@ public class HandlerMapping {
 			break;
 		case "delete.adction":
 			//회원 삭제 기능
-			
+			controller = new DeleteController();
+			break;
 			
 			
 			
