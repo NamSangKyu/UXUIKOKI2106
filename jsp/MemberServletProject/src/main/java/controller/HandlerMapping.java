@@ -25,6 +25,15 @@ public class HandlerMapping {
 		case "register.action":
 			controller = new RegisterController();
 			break;
+		case "update.action":
+			//회원 정보 수정 하는 기능을 붙임
+			controller = new UpdateController();
+			break;
+		case "delete.adction":
+			//회원 삭제 기능
+			
+			
+			
 			
 		}
 		
