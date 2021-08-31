@@ -48,6 +48,10 @@ public class HandlerMapping {
 		case "boardDelete.do":
 			controller = new BoardDeleteController();
 			break;
+		case "boardUpdateView.do":
+			controller = new BoardUpdateViewController();
+			break;
+			
 		}
 		
 		return controller;

@@ -32,6 +32,10 @@
 			 		btnDelete.onclick = function(){
 			 			location.href = "boardDelete.do?bno=${requestScope.board.bno}";
 			 		}
+			 		var btnUpdate= document.querySelector(".btnUpdate");
+			 		btnUpdate.onclick = function(){
+			 			location.href = "boardUpdateView.do?bno=${requestScope.board.bno}";
+			 		}
 			 </script>
 		</c:if>
 		<button class="btnBack">뒤로가기</button></p>  
