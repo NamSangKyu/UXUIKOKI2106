@@ -1,7 +1,8 @@
-package controller;
+package service;
 
 import java.util.ArrayList;
 
+import dao.BoardDAO;
 import dto.BoardDTO;
 
 public class BoardService {

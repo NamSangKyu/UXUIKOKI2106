@@ -1,4 +1,4 @@
-package controller;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,7 +42,7 @@ public class BoardDAO {
 	public ArrayList<BoardDTO> selectAllBoard(){
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 		
-		String sql = "select * from board";
+		String sql = "select * from board order by bno desc";
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
