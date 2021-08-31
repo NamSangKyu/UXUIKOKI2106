@@ -22,6 +22,8 @@ REFERENCES MEMBER(ID) ON DELETE CASCADE;
 --시퀸스 : 1~
 CREATE SEQUENCE BOARD_NO START WITH 1;
 
+insert into board(bno, title, content, writer, bdate, blike, bhate,bcount)
+values(board_no.nextval,'제목','내용','작성자',sysdate,0,0,0);
 
 
 

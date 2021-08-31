@@ -16,11 +16,11 @@ public class BoardWriteController implements Controller {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String writer = request.getParameter("writer");
-		
+		 
 		BoardDTO dto = new BoardDTO(title, content, writer);
 		BoardService.getInstance().InsertBoard(dto);
 				
-		return new ModelAndView("board/board_list.jsp", false);
+		return new ModelAndView("/board/board_list.jsp", false);
 	}
 
 }
