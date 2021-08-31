@@ -11,14 +11,15 @@ import dto.BoardDTO;
 
 public class BoardDAO {
 	private static BoardDAO instance = new BoardDAO();
-	private Connection conn; 
+	private Connection conn;
+
 	private BoardDAO() {
 		super();
 		conn = DBManager.getInstance().getConnection();
 	}
 
 	public static BoardDAO getInstance() {
-		if(instance==null)
+		if (instance == null)
 			instance = new BoardDAO();
 		return instance;
 	}
@@ -26,7 +27,7 @@ public class BoardDAO {
 	public void insertBoard(BoardDTO dto) {
 		String sql = "insert into board(bno, title, content, writer, bdate, blike, bhate,bcount)"
 				+ " values(board_no.nextval, ?,?,?,sysdate,0,0,0)";
-		//DB 처리
+		// DB 처리
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getTitle());
@@ -36,39 +37,65 @@ public class BoardDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	public ArrayList<BoardDTO> selectAllBoard(){
+
+	public ArrayList<BoardDTO> selectAllBoard() {
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
-		
+
 		String sql = "select * from board order by bno desc";
-		
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				list.add(new BoardDTO(rs.getInt(1), rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(4),
+						rs.getInt(5), rs.getInt(6), rs.getInt(8)));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (rs != null)
+					rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+
+	public BoardDTO selectBoard(int bno) {
+		String sql = "select bno, title, content, writer, bdate, bcount, blike, bhate"
+				+ " from board where bno = ?";
+		BoardDTO dto = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				list.add(new BoardDTO(rs.getInt(1), rs.getString(2), rs.getString(7), rs.getString(3),
-						rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(8)));
+			if(rs.next()) {
+				dto = new BoardDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString("bdate"), rs.getInt("blike"), rs.getInt("bhate"), rs.getInt("bcount"));
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		
-		return list;
+		return dto;
 	}
-	
+
 }
-
-
-
-
 
 
 

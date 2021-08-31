@@ -42,6 +42,9 @@ public class HandlerMapping {
 		case "boardWriteView.do":
 			controller = new BoardWriteViewController();
 			break;
+		case "boardView.do":
+			controller = new BoardViewController();
+			break;
 		}
 		
 		return controller;

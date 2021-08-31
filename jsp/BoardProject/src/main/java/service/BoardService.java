@@ -25,6 +25,10 @@ public class BoardService {
 	public ArrayList<BoardDTO> selectAllBoard(){
 		return BoardDAO.getInstance().selectAllBoard();
 	}
+
+	public BoardDTO selectBoard(int bno) {
+		return BoardDAO.getInstance().selectBoard(bno);
+	}
 	
 }
 

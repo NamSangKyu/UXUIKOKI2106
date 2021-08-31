@@ -13,7 +13,8 @@
 		내용<br>
 		<textarea name="content"></textarea><br>
 		<button>글쓰기</button><button type="button">취소</button>
-		<input type="hidden" name="writer" value="A0001">
+													<!-- session.getAttribute("obj").getId() -->
+		<input type="hidden" name="writer" value="${sessionScope.obj.id }">
 	</form>
 </body>
 </html>
