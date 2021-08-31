@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +20,8 @@ public class BoardWriteController implements Controller {
 		 
 		BoardDTO dto = new BoardDTO(title, content, writer);
 		BoardService.getInstance().InsertBoard(dto);
-				
+		ArrayList<BoardDTO> list = BoardService.getInstance().selectAllBoard();
+		request.setAttribute("list", list);		
 		return new ModelAndView("/board/board_list.jsp", false);
 	}
 

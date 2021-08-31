@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import dto.BoardDTO;
 
 public class BoardService {
@@ -19,4 +21,11 @@ public class BoardService {
 		BoardDAO.getInstance().insertBoard(dto);
 	}
 	
+	public ArrayList<BoardDTO> selectAllBoard(){
+		return BoardDAO.getInstance().selectAllBoard();
+	}
+	
 }
+
+
+
