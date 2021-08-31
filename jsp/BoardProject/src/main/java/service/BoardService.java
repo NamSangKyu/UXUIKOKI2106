@@ -37,6 +37,10 @@ public class BoardService {
 	public void deleteBoard(int bno) {
 		BoardDAO.getInstance().deleteBoard(bno);		
 	}
+
+	public void updateBoard(int bno, String title, String content) throws Exception {
+		BoardDAO.getInstance().updateBoard(bno, title, content);
+	}
 	
 }
 

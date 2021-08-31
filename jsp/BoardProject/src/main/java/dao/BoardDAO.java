@@ -145,6 +145,30 @@ public class BoardDAO {
 		
 	}
 
+	public void updateBoard(int bno, String title, String content) throws Exception {
+		PreparedStatement pstmt = null;
+		String sql = "update board set title=?,content=? where bno = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, bno);
+			int count = pstmt.executeUpdate();
+			if(count == 0)
+				throw new Exception("수정할 게시글이 없습니다.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 }
 
 
