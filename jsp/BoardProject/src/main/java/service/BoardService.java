@@ -33,6 +33,10 @@ public class BoardService {
 	public void addBoardCount(int bno) {
 		BoardDAO.getInstance().addBoardCount(bno);		
 	}
+
+	public void deleteBoard(int bno) {
+		BoardDAO.getInstance().deleteBoard(bno);		
+	}
 	
 }
 

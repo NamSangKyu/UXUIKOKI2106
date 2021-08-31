@@ -27,6 +27,12 @@
 				삭제 수행 -> boardDelete.do?bno=?
 				location.href 
 			 -->
+			 <script type="text/javascript">
+			 		var btnDelete = document.querySelector(".btnDelete");
+			 		btnDelete.onclick = function(){
+			 			location.href = "boardDelete.do?bno=${requestScope.board.bno}";
+			 		}
+			 </script>
 		</c:if>
 		<button class="btnBack">뒤로가기</button></p>  
 	</div>

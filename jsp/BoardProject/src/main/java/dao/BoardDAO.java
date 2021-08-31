@@ -124,6 +124,27 @@ public class BoardDAO {
 		}
 	}
 
+	public void deleteBoard(int bno) {
+		PreparedStatement pstmt = null;
+		String sql = "delete from board where bno = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
 }
 
 
