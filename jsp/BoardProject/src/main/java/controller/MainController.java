@@ -18,7 +18,7 @@ public class MainController implements Controller {
 		System.out.println("MainController");
 		ArrayList<BoardDTO> list = BoardService.getInstance().selectAllBoard();
 		request.setAttribute("list", list);
-		return new ModelAndView("board/board_list.jsp", false);
+		return new ModelAndView("/board/board_list.jsp", false);
 	}
 
 }

@@ -32,7 +32,11 @@
 				</tr>
 			</c:forEach>	
 		</table>
-		<a href="board/board_write.jsp">글쓰기</a>
+		<a href="boardWriteView.do">글쓰기</a>
 	</div>
 </body>
 </html>
+
+
+
+
