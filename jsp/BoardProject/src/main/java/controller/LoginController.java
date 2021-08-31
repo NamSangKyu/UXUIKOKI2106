@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dto.BoardDTO;
 import dto.MemberDTO;
+import service.BoardService;
 import service.MemberService;
 import view.ModelAndView;
 
@@ -25,9 +27,9 @@ public class LoginController implements Controller {
 		if(dto != null) {
 			//로그인 성공 했을때
 			session.setAttribute("obj", dto);
-			ArrayList<MemberDTO> list = MemberService.getInstance().selectAllMember();
-			session.setAttribute("list", list);
-			return new ModelAndView("/main.jsp", true);
+			ArrayList<BoardDTO> list = BoardService.getInstance().selectAllBoard();
+			request.setAttribute("list", list);
+			return new ModelAndView("/board/board_list.jsp", false);
 		}else {
 			out.print("<script>");
 			out.print("alert('로그인 실패, 아이디 비번 확인하세요');");
