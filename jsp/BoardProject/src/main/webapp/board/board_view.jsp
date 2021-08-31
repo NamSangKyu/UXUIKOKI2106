@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +18,16 @@
 		<p>
 			${requestScope.board.content }	
 		</p>
-		<p><button class="btnUpdate">수정</button>
-		<button class="btnDelete">삭제</button>
+		<p>
+		<!-- 해당 게시글 작성자와 현재 로그인한 사용자가 같을떄만 수정 삭제 버튼이 출력 되게끔 처리 jstl -> if-->
+		<c:if test="${requestScope.board.writer == sessionScope.obj.id }">
+			<button class="btnUpdate">수정</button>
+			<button class="btnDelete">삭제</button>
+			<!-- jquery나 js이용해서 해당 버튼 클릭 했을때 삭제 및 수정하는 기능을 수행
+				삭제 수행 -> boardDelete.do?bno=?
+				location.href 
+			 -->
+		</c:if>
 		<button class="btnBack">뒤로가기</button></p>  
 	</div>
 </body>
