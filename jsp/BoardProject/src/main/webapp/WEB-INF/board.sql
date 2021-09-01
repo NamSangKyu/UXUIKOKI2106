@@ -26,8 +26,18 @@ REFERENCES MEMBER(ID) ON DELETE CASCADE;
 --시퀸스 : 1~
 CREATE SEQUENCE BOARD_NO START WITH 1;
 
-insert into board(bno, title, content, writer, bdate, blike, bhate,bcount)
-values(board_no.nextval,'제목','내용','작성자',sysdate,0,0,0);
+insert into board(bno, title, content, writer, bdate, bcount)
+values(board_no.nextval,'제목25','내용','A0001',sysdate,0);
+insert into board(bno, title, content, writer, bdate, bcount)
+values(board_no.nextval,'제목26','내용','A0001',sysdate,0);
+insert into board(bno, title, content, writer, bdate, bcount)
+values(board_no.nextval,'제목27','내용','A0001',sysdate,0);
+insert into board(bno, title, content, writer, bdate, bcount)
+values(board_no.nextval,'제목28','내용','A0001',sysdate,0);
+insert into board(bno, title, content, writer, bdate, bcount)
+values(board_no.nextval,'제목29','내용','A0001',sysdate,0);
+insert into board(bno, title, content, writer, bdate, bcount)
+values(board_no.nextval,'제목30','내용','A0001',sysdate,0);
 
 select * from member;
 
