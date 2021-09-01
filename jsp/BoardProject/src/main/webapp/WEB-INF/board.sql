@@ -27,4 +27,40 @@ values(board_no.nextval,'제목','내용','작성자',sysdate,0,0,0);
 
 select * from member;
 
+--좋아요 테이블
+--글번호, 회원아이디
+create table board_like(
+	bno number,
+	id varchar2(20 BYTE),
+	constraint board_like_pk primary key(bno,id)
+);
+ALTER TABLE board_like ADD CONSTRAINT board_like_bno_fk FOREIGN KEY(bno)
+REFERENCES board(bno) ON DELETE CASCADE;
+
+ALTER TABLE board_like ADD CONSTRAINT board_like_id_fk FOREIGN KEY(id)
+REFERENCES MEMBER(ID) ON DELETE CASCADE;
+
+insert into BOARD_LIKE values(1,'A0001');
+
+--싫어요 테이블
+--글번호, 회원아이디
+create table board_hate(
+	bno number,
+	id varchar2(20 BYTE),
+	constraint board_hate_pk primary key(bno,id)
+);
+ALTER TABLE board_hate ADD CONSTRAINT board_hate_bno_fk FOREIGN KEY(bno)
+REFERENCES board(bno) ON DELETE CASCADE;
+
+ALTER TABLE board_hate ADD CONSTRAINT board_hate_id_fk FOREIGN KEY(id)
+REFERENCES MEMBER(ID) ON DELETE CASCADE;
+
+insert into board_hate values(1,'A0001');
+
+
+
+
+
+
+
 

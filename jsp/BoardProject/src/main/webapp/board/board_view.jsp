@@ -6,13 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(".like").click(function(e) {
+			e.preventDefault();
+			$.ajax({
+				url : $(this).attr("href"),
+				type:"get",
+				success:function(r){
+					alert(r);
+				}
+			});
+		});
+		
+	});
+</script>
 </head>
 <body>
 	<div>
 		<p>글번호 :${requestScope.board.bno }</p>
 		<p>제목 : ${requestScope.board.title }</p>
 		<p>작성자 : ${requestScope.board.writer}</p>
-		<p>조회수 : ${requestScope.board.bcount}, 좋아요 : ${requestScope.board.blike},싫어요 : ${requestScope.board.bhate}</p>
+		<p>조회수 : ${requestScope.board.bcount}, 
+		좋아요 : <a href="boardLike.do?bno=${requestScope.board.bno}" class="like">${requestScope.board.blike}</a>,싫어요 : ${requestScope.board.bhate}</p>
 		
 		<p>내용</p>
 		<p>

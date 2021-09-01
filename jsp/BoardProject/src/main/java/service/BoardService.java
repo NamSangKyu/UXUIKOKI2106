@@ -41,6 +41,13 @@ public class BoardService {
 	public void updateBoard(int bno, String title, String content) throws Exception {
 		BoardDAO.getInstance().updateBoard(bno, title, content);
 	}
+
+	public boolean insertBoardLike(int bno, String id) {
+		int count = BoardDAO.getInstance().insertBoardLike(bno,id);
+		if(count==0)
+			BoardDAO.getInstance().deleteBoardLike(bno,id);
+		return count == 1;
+	}
 	
 }
 
