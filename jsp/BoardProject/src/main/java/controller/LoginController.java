@@ -27,7 +27,7 @@ public class LoginController implements Controller {
 		if(dto != null) {
 			//로그인 성공 했을때
 			session.setAttribute("obj", dto);
-			ArrayList<BoardDTO> list = BoardService.getInstance().selectAllBoard();
+			ArrayList<BoardDTO> list = BoardService.getInstance().selectAllBoard("bno");
 			request.setAttribute("list", list);
 			return new ModelAndView("/board/board_list.jsp", false);
 		}else {
