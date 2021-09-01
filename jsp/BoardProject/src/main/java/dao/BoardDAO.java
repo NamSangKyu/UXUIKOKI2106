@@ -25,8 +25,8 @@ public class BoardDAO {
 	}
 
 	public void insertBoard(BoardDTO dto) {
-		String sql = "insert into board(bno, title, content, writer, bdate, blike, bhate,bcount)"
-				+ " values(board_no.nextval, ?,?,?,sysdate,0,0,0)";
+		String sql = "insert into board(bno, title, content, writer, bdate,bcount)"
+				+ " values(board_no.nextval, ?,?,?,sysdate,0)";
 		// DB 처리
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
