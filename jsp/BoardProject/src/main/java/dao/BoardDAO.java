@@ -203,6 +203,35 @@ public class BoardDAO {
 		}
 		return count;
 	}
+
+	public int insertBoardHate(int bno, String id) {
+		String sql = "insert into board_hate values(?,?)";
+		PreparedStatement pstmt = null;
+		int count = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			pstmt.setString(2, id);
+			count = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+	public int deleteBoardHate(int bno, String id) {
+		String sql = "delete from board_hate where bno = ? and id like ?";
+		PreparedStatement pstmt = null;
+		int count = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			pstmt.setString(2, id);
+			count = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 }
 
 

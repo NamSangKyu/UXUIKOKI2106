@@ -48,6 +48,13 @@ public class BoardService {
 			BoardDAO.getInstance().deleteBoardLike(bno,id);
 		return count == 1;
 	}
+
+	public boolean insertBoardHate(int bno, String id) {
+		int count = BoardDAO.getInstance().insertBoardHate(bno,id);
+		if(count==0)
+			BoardDAO.getInstance().deleteBoardHate(bno,id);
+		return count == 1;
+	}
 	
 }
 
