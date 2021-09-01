@@ -43,7 +43,10 @@ public class BoardDAO {
 	public ArrayList<BoardDTO> selectAllBoard() {
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 
-		String sql = "select * from board order by bno desc";
+		String sql = "select b.bno, b.title, b.writer, b.bdate, b.content, b.bcount, "
+				+ "(select count(*) from BOARD_LIKE bl where b.bno = bl.bno) as blike, "
+				+ "(select count(*) from BOARD_hate bh where b.bno = bh.bno) as bhate "
+				+ "from board b order by bno desc";
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -53,8 +56,8 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				list.add(new BoardDTO(rs.getInt(1), rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(4),
-						rs.getInt(5), rs.getInt(6), rs.getInt(8)));
+				list.add(new BoardDTO(rs.getInt(1), rs.getString(2), rs.getString(5), rs.getString(3), rs.getString(4),
+						rs.getInt(7), rs.getInt(8), rs.getInt(6)));
 			}
 
 		} catch (SQLException e) {
@@ -74,8 +77,10 @@ public class BoardDAO {
 	}
 
 	public BoardDTO selectBoard(int bno) {
-		String sql = "select bno, title, content, writer, bdate, bcount, blike, bhate"
-				+ " from board where bno = ?";
+		String sql = "select b.bno, b.title, b.writer, b.bdate, b.content, b.bcount, "
+				+ "(select count(*) from BOARD_LIKE bl where b.bno = bl.bno) as blike, "
+				+ "(select count(*) from BOARD_hate bh where b.bno = bh.bno) as bhate "
+				+ "from board b where b.bno = ? order by bno desc";
 		BoardDTO dto = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -85,7 +90,8 @@ public class BoardDAO {
 			pstmt.setInt(1, bno);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				dto = new BoardDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString("bdate"), rs.getInt("blike"), rs.getInt("bhate"), rs.getInt("bcount"));
+				dto = new BoardDTO(rs.getInt(1), rs.getString(2), rs.getString(5), rs.getString(3), rs.getString(4),
+						rs.getInt(7), rs.getInt(8), rs.getInt(6));
 			}
 			
 		} catch (SQLException e) {

@@ -16,6 +16,7 @@
 				type:"get",
 				success:function(r){
 					alert(r);
+					location.reload();
 				}
 			});
 		});

@@ -18,7 +18,7 @@ alter table board drop column bhate;
 select b.*, 
 (select count(*) from BOARD_LIKE bl where b.bno = bl.bno) as blike, 
 (select count(*) from BOARD_hate bh where b.bno = bh.bno) as bhate
-from board b;
+from board b order by bno desc;
 --제약조건
 ALTER TABLE BOARD ADD CONSTRAINT FK_WRITER FOREIGN KEY(WRITER)
 REFERENCES MEMBER(ID) ON DELETE CASCADE;
