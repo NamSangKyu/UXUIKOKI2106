@@ -16,7 +16,8 @@ public class MainController implements Controller {
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//전체 게시글 목록
 		System.out.println("MainController");
-		ArrayList<BoardDTO> list = BoardService.getInstance().selectAllBoard();
+		String order = request.getParameter("order");
+		ArrayList<BoardDTO> list = BoardService.getInstance().selectAllBoard(order);
 		request.setAttribute("list", list);
 		return new ModelAndView("/board/board_list.jsp", false);
 	}

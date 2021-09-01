@@ -22,8 +22,8 @@ public class BoardService {
 		BoardDAO.getInstance().insertBoard(dto);
 	}
 	
-	public ArrayList<BoardDTO> selectAllBoard(){
-		return BoardDAO.getInstance().selectAllBoard();
+	public ArrayList<BoardDTO> selectAllBoard(String order){
+		return BoardDAO.getInstance().selectAllBoard(order);
 	}
 
 	public BoardDTO selectBoard(int bno) {

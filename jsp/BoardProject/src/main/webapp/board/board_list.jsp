@@ -6,6 +6,28 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판 글 목록</title>
+<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	th,td{
+	border :1px solid black;
+	text-align: center;
+	padding:5px 20px;
+	}
+	table{
+		border-collapse: collapse;
+		margin:0 auto;
+		
+	}
+	h1{
+		text-align: center;
+	}
+	.footer{
+	text-align: right;
+	}
+</style>
 </head>
 <body>
 	<h1>게시판 글목록</h1>
@@ -16,9 +38,9 @@
 				<th>제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
-				<th>조회수</th>
-				<th>좋아요</th>
-				<th>싫어요</th>
+				<th><a href="boardList.do?order=bcount">조회수</a></th>
+				<th><a href="boardList.do?order=blike">좋아요</a></th>
+				<th><a href="boardList.do?order=bhate">싫어요</a></th>
 			</tr>
 			<c:forEach var="board" items="${requestScope.list}" >
 				<tr>
@@ -31,8 +53,11 @@
 					<td>${board.bhate }</td>
 				</tr>
 			</c:forEach>	
+			<tr>
+			<td colspan="7" class="footer">
+				<a href="boardWriteView.do">글쓰기</a>
+			</tr>
 		</table>
-		<a href="boardWriteView.do">글쓰기</a>
 	</div>
 </body>
 </html>

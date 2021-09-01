@@ -40,13 +40,13 @@ public class BoardDAO {
 
 	}
 
-	public ArrayList<BoardDTO> selectAllBoard() {
+	public ArrayList<BoardDTO> selectAllBoard(String order) {
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
-
+		order = order == null ? "bno" : order;
 		String sql = "select b.bno, b.title, b.writer, b.bdate, b.content, b.bcount, "
 				+ "(select count(*) from BOARD_LIKE bl where b.bno = bl.bno) as blike, "
 				+ "(select count(*) from BOARD_hate bh where b.bno = bh.bno) as bhate "
-				+ "from board b order by bno desc";
+				+ "from board b order by "+order+" desc";
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
