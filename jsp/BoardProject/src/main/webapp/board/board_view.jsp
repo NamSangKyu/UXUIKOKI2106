@@ -14,9 +14,13 @@
 			$.ajax({
 				url : $(this).attr("href"),
 				type:"get",
+				dataType:"json",
 				success:function(r){
-					alert(r);
-					location.reload();
+					alert(r.msg);
+					if(r.code == 400)
+						location.href = "${pageContext.request.contextPath}/index.jsp";
+					else 
+						location.reload();
 				}
 			});
 		});
@@ -25,11 +29,18 @@
 			$.ajax({
 				url : $(this).attr("href"),
 				type:"get",
+				dataType:"json",
 				success:function(r){
-					alert(r);
-					location.reload();
+					alert(r.msg);
+					if(r.code == 400)
+						location.href = "${pageContext.request.contextPath}/index.jsp";
+					else 
+						location.reload();
 				}
 			});
+		});
+		$(".btnBack").click(function () {
+			history.back();
 		});
 		
 	});
@@ -41,7 +52,7 @@
 		<p>제목 : ${requestScope.board.title }</p>
 		<p>작성자 : ${requestScope.board.writer}</p>
 		<p>조회수 : ${requestScope.board.bcount}, 
-		좋아요 : <a href="boardLike.do?bno=${requestScope.board.bno}" class="like">${requestScope.board.blike}</a>,싫어요 : <a href="boardHate.do?bno=${requestScope.board.bno}" class="hate">${requestScope.board.bhate}</a></p>
+			좋아요 : <a href="boardLike.do?bno=${requestScope.board.bno}" class="like">${requestScope.board.blike}</a>,싫어요 : <a href="boardHate.do?bno=${requestScope.board.bno}" class="hate">${requestScope.board.bhate}</a></p>
 		
 		<p>내용</p>
 		<p>
