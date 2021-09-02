@@ -92,11 +92,13 @@
 		<button class="btnBack">뒤로가기</button></p>  
 	</div>
 	<div class="comment_area">
+		<c:if test="${sessionScope.obj != null }">
 		<form id="comment_frm">
 			<input type="hidden" name="bno" value="${requestScope.board.bno }">
 			<textarea name="content" placeholder="댓글 내용을 입력하세요"></textarea>
 			<button type="button" id="btnComment">입력</button>
 		</form>
+		</c:if>
 		<hr>
 		<!-- 댓글 출력 -->
 	</div>

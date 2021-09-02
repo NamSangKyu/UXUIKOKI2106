@@ -98,7 +98,7 @@ create table board_comment(
 	bno number,
 	writer varchar2(20 byte)
 );
-
+create sequence board_comment_no; 
 alter table board_comment add 
 constraint bc_writer_fk foreign key(writer)
 references member(id) on delete cascade;

@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 
 import dao.BoardDAO;
+import dto.BoardCommentDTO;
 import dto.BoardDTO;
 
 public class BoardService {
@@ -58,6 +59,14 @@ public class BoardService {
 
 	public int selectBoardCount() {
 		return BoardDAO.getInstance().selectBoardCount();
+	}
+
+	public int insertBoardComment(BoardCommentDTO dto) {
+		return BoardDAO.getInstance().insertBoardComment(dto);
+	}
+
+	public ArrayList<BoardCommentDTO> selectAllComment(int bno) {
+		return BoardDAO.getInstance().selectAllComment(bno);
 	}
 	
 }

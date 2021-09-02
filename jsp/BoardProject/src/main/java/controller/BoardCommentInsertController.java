@@ -22,11 +22,11 @@ public class BoardCommentInsertController implements Controller {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		String comment = request.getParameter("content");
 		String writer = ((MemberDTO)request.getSession().getAttribute("obj")).getId();
-		BoardService.getInstance().insertBoardComment(new BoardCommentDTO(bno, writer, comment) );
+		int result = BoardService.getInstance().insertBoardComment(new BoardCommentDTO(bno, writer, comment) );
 		ArrayList<BoardCommentDTO> list =BoardService.getInstance().selectAllComment(bno);
 		
 		JSONObject json = new JSONObject();
-		if(list.size() != 0) {
+		if(result != 0) {
 			json.put("code", 200);//정상 처리 되었을때
 			JSONArray arr = new JSONArray();
 			for(int i=0;i<list.size();i++)
