@@ -55,6 +55,7 @@
 			</c:forEach>	
 			<tr>
 				<td colspan="7" class="pager">
+					<c:if test="${pagging.priviousPageGroup}"><a href="boardList.do?pageNo=${pagging.startPageOfPageGroup-1 }&order=${param.order}">◀</a></c:if>
 					<c:forEach var="i" begin="${pagging.startPageOfPageGroup }" end="${pagging.endPageOfPageGroup }">
 					<c:choose>
 						<c:when test="${i == pagging.currentPageNo}">
@@ -65,6 +66,7 @@
 						</c:otherwise>
 					</c:choose>
 					</c:forEach>
+					<c:if test="${pagging.nextPageGroup}"><a href="boardList.do?pageNo=${pagging.endPageOfPageGroup+1 }&order=${param.order}">▶</a></c:if>
 				</td>
 			</tr>
 			<tr>

@@ -31,6 +31,7 @@ public class DispatcjerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
 		String[] arr = request.getRequestURI().split("/");
 		String command = arr[arr.length-1];
 		System.out.println(command);

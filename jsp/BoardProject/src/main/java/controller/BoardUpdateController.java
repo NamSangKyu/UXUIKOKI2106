@@ -18,7 +18,7 @@ public class BoardUpdateController implements Controller {
 		ModelAndView view = null;
 		try {
 			BoardService.getInstance().updateBoard(bno,title,content);
-			view = new ModelAndView("boardList.do", false);
+			view = new ModelAndView("boardList.do?pageNo=1", false);
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.getWriter().write("<script>alert('"+e.getMessage()+"');history.back();</script>");

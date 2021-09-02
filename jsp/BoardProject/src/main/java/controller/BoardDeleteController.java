@@ -14,7 +14,7 @@ public class BoardDeleteController implements Controller {
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		BoardService.getInstance().deleteBoard(bno);
-		return new ModelAndView("boardList.do", false);
+		return new ModelAndView("boardList.do?pageNo=1", false);
 	}
 
 }
