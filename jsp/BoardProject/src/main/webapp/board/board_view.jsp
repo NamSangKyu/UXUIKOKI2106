@@ -42,7 +42,18 @@
 		$(".btnBack").click(function () {
 			history.back();
 		});
-		
+		$("#btnComment").click(function(){
+			var param = $("#comment_frm").serialize();
+			$.ajax({
+				url : "insertComment.do",
+				data : param,
+				type:"get",
+				dataType:"json",
+				success:function(r){
+					alert(r.code);	
+				}
+			});
+		});
 	});
 </script>
 </head>
@@ -79,6 +90,15 @@
 			 </script>
 		</c:if>
 		<button class="btnBack">뒤로가기</button></p>  
+	</div>
+	<div class="comment_area">
+		<form id="comment_frm">
+			<input type="hidden" name="bno" value="${requestScope.board.bno }">
+			<textarea name="content" placeholder="댓글 내용을 입력하세요"></textarea>
+			<button type="button" id="btnComment">입력</button>
+		</form>
+		<hr>
+		<!-- 댓글 출력 -->
 	</div>
 </body>
 </html>
