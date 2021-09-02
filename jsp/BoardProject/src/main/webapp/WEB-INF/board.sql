@@ -88,9 +88,41 @@ select * from (select b.*, ceil(rownum / 5) as pageno from
 --전체 게시글 개수
 select count(*) from board_list;
 
+--댓글 테이블 - board_comment
+-- 작성자, 내용, 작성시간, 좋아요, 싫어요, 댓글번호, 게시글 번호
+drop table board_comment;
+create table board_comment(
+	cno number primary key,
+	content varchar2(500 byte),
+	cdate date default sysdate,
+	bno number,
+	writer varchar2(20 byte)
+);
 
+alter table board_comment add 
+constraint bc_writer_fk foreign key(writer)
+references member(id) on delete cascade;
+alter table board_comment add 
+constraint bc_bno_fk foreign key(bno)
+references board(bno) on delete cascade;
 
-
+drop table board_comment_like;
+--댓글 좋아요
+create table board_comment_like(
+	cno number,
+	id varchar2(20 byte)
+);
+alter table board_comment_like add 
+constraint like_cno_fk foreign key(cno)
+references board_comment(cno) on delete cascade;
+--댓글 싫어요
+create table board_comment_hate(
+	cno number,
+	id varchar2(20 byte)
+);
+alter table board_comment_hate add 
+constraint hate_cno_fk foreign key(cno)
+references board_comment(cno) on delete cascade;
 
 
 
