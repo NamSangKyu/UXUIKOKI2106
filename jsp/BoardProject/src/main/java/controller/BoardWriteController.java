@@ -21,7 +21,7 @@ public class BoardWriteController implements Controller {
 		 
 		BoardDTO dto = new BoardDTO(title, content, writer);
 		BoardService.getInstance().InsertBoard(dto);
-		ArrayList<BoardDTO> list = BoardService.getInstance().selectAllBoard("bno");
+		ArrayList<BoardDTO> list = BoardService.getInstance().selectAllBoard("bno",1);
 		request.setAttribute("list", list);		
 		return new ModelAndView("/board/board_list.jsp", false);
 	}

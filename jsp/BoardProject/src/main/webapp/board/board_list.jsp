@@ -54,8 +54,16 @@
 				</tr>
 			</c:forEach>	
 			<tr>
-			<td colspan="7" class="footer">
-				<a href="boardWriteView.do">글쓰기</a>
+				<td colspan="7" class="pager">
+					<c:forEach var="i" begin="${pagging.startPageOfPageGroup }" end="${pagging.endPageOfPageGroup }">
+						${i } <br>
+					</c:forEach>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="7" class="footer">
+					<a href="boardWriteView.do">글쓰기</a>
+				</td>
 			</tr>
 		</table>
 	</div>
