@@ -307,6 +307,28 @@ public class BoardDAO {
 
 	public ArrayList<BoardCommentDTO> selectAllComment(int bno) {
 		ArrayList<BoardCommentDTO> list = new ArrayList<BoardCommentDTO>();
+		String sql = "select cno, content, writer, cdate, "
+				+ "(select count(*) from board_comment_like bcl where bcl.cno = bc.cno ),"
+				+ "(select count(*) from board_comment_hate bch where bch.cno = bc.cno )"
+				+ "from board_comment bc where bno = ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int cno = rs.getInt(1);
+				String content = rs.getString(2);
+				String writer = rs.getString(3);
+				String date = rs.getString(4);
+				int clike = rs.getInt(5);
+				int chate= rs.getInt(6);
+				list.add(new BoardCommentDTO(cno, bno, writer, content, date, clike, chate));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 }

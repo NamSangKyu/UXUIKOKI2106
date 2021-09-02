@@ -50,9 +50,20 @@
 				type:"get",
 				dataType:"json",
 				success:function(r){
-					alert(r.code);	
+					//alert(r.code);
+					console.log(r);
+					var tag ="<table>";
+					tag = "<tr><th>작성자</th><th>작성일</th><th>내용</th><th>좋아요</th><th>싫어요</th></tr>"
+					for(i=0;i<r.list.length;i++){
+						tag+="<tr>";
+						tag += "<td>"+r.list[i].writer + "</td><td>" + r.list[i].date + "</td><td>" + r.list[i].content + "</td><td>" + r.list[i].clike + "</td><td>" + r.list[i].chate  +"</td>";
+						tag+="</tr>";
+					}
+					tag +="</table>";
+					$(".comment_list").html(tag);
 				}
 			});
+			$("#comment_frm")[0].reset();//폼 초기화
 		});
 	});
 </script>
@@ -101,6 +112,7 @@
 		</c:if>
 		<hr>
 		<!-- 댓글 출력 -->
+		<div class="comment_list"></div>
 	</div>
 </body>
 </html>

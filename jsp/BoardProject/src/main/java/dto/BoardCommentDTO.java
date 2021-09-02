@@ -103,7 +103,7 @@ public class BoardCommentDTO {
 		obj.put("content", content);
 		obj.put("date", date);
 		obj.put("clike", clike);
-		obj.put("chatte", chate);
+		obj.put("chate", chate);
 		return obj;
 	}
 	

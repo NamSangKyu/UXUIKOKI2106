@@ -98,7 +98,10 @@ create table board_comment(
 	bno number,
 	writer varchar2(20 byte)
 );
-create sequence board_comment_no; 
+create sequence board_comment_no;
+
+select * from board_comment;
+
 alter table board_comment add 
 constraint bc_writer_fk foreign key(writer)
 references member(id) on delete cascade;
@@ -124,6 +127,10 @@ alter table board_comment_hate add
 constraint hate_cno_fk foreign key(cno)
 references board_comment(cno) on delete cascade;
 
+select cno, content, writer, cdate, 
+(select count(*) from board_comment_like bcl where bcl.cno = bc.cno ),
+(select count(*) from board_comment_hate bch where bch.cno = bc.cno )
+from board_comment bc where bno = 48;
 
 
 
