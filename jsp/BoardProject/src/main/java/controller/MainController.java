@@ -29,7 +29,7 @@ public class MainController implements Controller {
 		//전체 게시글 개수 - DB 조회
 		int count = BoardService.getInstance().selectBoardCount();
 		PaggingVO vo = new PaggingVO(count, currentPageNo, 5, 4);
-		
+		request.setAttribute("pagging", vo);
 		
 		return new ModelAndView("/board/board_list.jsp", false);
 	}

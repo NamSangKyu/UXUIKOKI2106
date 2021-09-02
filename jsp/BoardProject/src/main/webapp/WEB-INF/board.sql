@@ -74,13 +74,14 @@ insert into board_hate values(1,'A0001');
 --해당 게시글의 페이지 번호를 조회, 한페이지당 게시글은 5개가 조회
 create or replace view board_list
 as
-select b.*, ceil(rownum / 5) as pageno from (
 select b.*, 
 (select count(*) from BOARD_LIKE bl where b.bno = bl.bno) as blike, 
 (select count(*) from BOARD_hate bh where b.bno = bh.bno) as bhate
-from board b order by bno desc) b;
+from board b;
 
-select * from board_list where pageno = 1;
+select b.*, ceil(rownum / 5) as pageno from
+(select * from board_list order by bno desc) b where ceil(rownum / 5) = 1;
+
 
 --전체 게시글 개수
 select count(*) from board_list;
