@@ -44,7 +44,7 @@ public class BoardDAO {
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 		order = order == null ? "bno" : order;
 		String sql = "select b.*, ceil(rownum / 5) as pageno from "
-				+ "(select * from board_list order by "+order+"desc) b where ceil(rownum / 5) = ?";
+				+ "(select * from board_list order by "+order+" desc) b where ceil(rownum / 5) = ?";
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
