@@ -55,6 +55,10 @@ public class BoardService {
 			BoardDAO.getInstance().deleteBoardHate(bno,id);
 		return count == 1;
 	}
+
+	public int selectBoardCount() {
+		return BoardDAO.getInstance().selectBoardCount();
+	}
 	
 }
 
