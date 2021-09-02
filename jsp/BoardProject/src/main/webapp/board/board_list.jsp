@@ -56,7 +56,14 @@
 			<tr>
 				<td colspan="7" class="pager">
 					<c:forEach var="i" begin="${pagging.startPageOfPageGroup }" end="${pagging.endPageOfPageGroup }">
-						${i } <br>
+					<c:choose>
+						<c:when test="${i == pagging.currentPageNo}">
+							${i }
+						</c:when>
+						<c:otherwise>
+							<a href="boardList.do?pageNo=${i }&order=${param.order}">${i }</a>
+						</c:otherwise>
+					</c:choose>
 					</c:forEach>
 				</td>
 			</tr>

@@ -46,12 +46,12 @@ public class PaggingVO {
 	
 	//현재 페이지 그룹 시작 페이지 번호
 	public int getStartPageOfPageGroup() {
-		return (currentPageNo - 1) * pageGroupOfCount + 1;
+		return (getNowPageGroupNo() - 1) * pageGroupOfCount + 1;
 	}
 	
 	//현재 페이지 그룹 마지막 페이지 번호
 	public int getEndPageOfPageGroup() {
-		int result = currentPageNo * pageGroupOfCount;
+		int result = getNowPageGroupNo() * pageGroupOfCount;
 		if(result > getTotalPage())
 			result = getTotalPage();
 		return result;

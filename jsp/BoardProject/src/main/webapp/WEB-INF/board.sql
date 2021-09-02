@@ -79,9 +79,11 @@ select b.*,
 (select count(*) from BOARD_hate bh where b.bno = bh.bno) as bhate
 from board b;
 
-select b.*, ceil(rownum / 5) as pageno from
-(select * from board_list order by bno desc) b where ceil(rownum / 5) = 1;
+select * from (select b.*, ceil(rownum / 5) as pageno from
+(select * from board_list order by bno desc) b) where pageno = 2;
 
+select * from (select b.*, ceil(rownum / 5) as pageno from
+(select * from board_list order by  desc) b) where pageno = ?
 
 --전체 게시글 개수
 select count(*) from board_list;

@@ -42,10 +42,10 @@ public class BoardDAO {
 
 	public ArrayList<BoardDTO> selectAllBoard(String order, int currentPageNo) {
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
-		order = order == null ? "bno" : order;
-		String sql = "select b.*, ceil(rownum / 5) as pageno from "
-				+ "(select * from board_list order by "+order+" desc) b where ceil(rownum / 5) = ?";
-		
+		order = order == null  || order.equals("")? "bno" : order;
+		String sql = "select * from (select b.*, ceil(rownum / 5) as pageno from "
+				+ "(select * from board_list order by "+order+" desc) b) where pageno = ?";
+		System.out.println(sql);
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
