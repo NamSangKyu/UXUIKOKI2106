@@ -310,7 +310,7 @@ public class BoardDAO {
 		String sql = "select cno, content, writer, cdate, "
 				+ "(select count(*) from board_comment_like bcl where bcl.cno = bc.cno ),"
 				+ "(select count(*) from board_comment_hate bch where bch.cno = bc.cno )"
-				+ "from board_comment bc where bno = ?";
+				+ "from board_comment bc where bno = ? order by cdate desc";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {

@@ -65,6 +65,24 @@
 			});
 			$("#comment_frm")[0].reset();//폼 초기화
 		});
+		//댓글 로드
+		$.ajax({
+			url : "selectComment.do",
+			data : "bno=${requestScope.board.bno }",
+			type:"get",
+			dataType:"json",
+			success:function(r){
+				var tag ="<table>";
+				tag = "<tr><th>작성자</th><th>작성일</th><th>내용</th><th>좋아요</th><th>싫어요</th></tr>"
+				for(i=0;i<r.list.length;i++){
+					tag+="<tr>";
+					tag += "<td>"+r.list[i].writer + "</td><td>" + r.list[i].date + "</td><td>" + r.list[i].content + "</td><td>" + r.list[i].clike + "</td><td>" + r.list[i].chate  +"</td>";
+					tag+="</tr>";
+				}
+				tag +="</table>";
+				$(".comment_list").html(tag);
+			}
+		});
 	});
 </script>
 </head>
