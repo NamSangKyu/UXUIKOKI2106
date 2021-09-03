@@ -1,5 +1,10 @@
 package service;
 
+import java.util.ArrayList;
+
+import dao.ProductDAO;
+import dto.ProductDTO;
+
 public class ProductService {
 	private static ProductService instance = new ProductService();
 
@@ -13,4 +18,15 @@ public class ProductService {
 		return instance;
 	}
 
+	public ArrayList<ProductDTO> selectAllProduct() {
+		return ProductDAO.getInstance().selectAllProduct();
+	}
+
 }
+
+
+
+
+
+
+
