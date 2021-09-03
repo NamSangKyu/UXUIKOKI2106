@@ -10,7 +10,7 @@
 <body>
 	<h2>${requestScope.user }가 보낸 파일 목록</h2>
 	<c:forEach var="list" items="${requestScope.file }">
-		<p>${ list.fileName},${ list.path},${list.type}</p>
+		<p><a href="fileDown.do?file=${ list.fileName}&writer=${requestScope.user }">${ list.fileName}</a>,${ list.path},${list.type}</p>
 	</c:forEach>
 </body>
 </html>
