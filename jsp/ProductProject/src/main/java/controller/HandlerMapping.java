@@ -1,0 +1,20 @@
+package controller;
+
+public class HandlerMapping {
+	private static HandlerMapping instance = new HandlerMapping();
+
+	private HandlerMapping() {
+		super();
+	}
+
+	public static HandlerMapping getInstance() {
+		if(instance == null)
+			instance = new HandlerMapping();
+		return instance;
+	}
+	
+	public Controller createController(String command) {
+		Controller controller = null;
+		return controller;
+	}
+}
