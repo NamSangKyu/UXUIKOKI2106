@@ -11,6 +11,9 @@
 	<h2>${requestScope.user }가 보낸 파일 목록</h2>
 	<c:forEach var="list" items="${requestScope.file }">
 		<p><a href="fileDown.do?file=${ list.fileName}&writer=${requestScope.user }">${ list.fileName}</a>,${ list.path},${list.type}</p>
+		<c:if test="${list.type=='image'}">
+			<img alt="" src="fileDown.do?file=${ list.fileName}">
+		</c:if>
 	</c:forEach>
 </body>
 </html>
