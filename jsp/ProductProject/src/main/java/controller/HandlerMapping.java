@@ -15,6 +15,15 @@ public class HandlerMapping {
 	
 	public Controller createController(String command) {
 		Controller controller = null;
+		switch(command) {
+		case "login.do":
+			controller = new LoginController();
+			break;
+		case "productList.do":
+			controller = new ProductListController();
+			break;
+		}
+		
 		return controller;
 	}
 }
