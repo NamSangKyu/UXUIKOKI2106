@@ -10,7 +10,7 @@ public class FileDTO {
 	public FileDTO(File file) {
 		this.path = file.getAbsolutePath();
 		this.fileName = file.getName();
-		switch(fileName.substring(fileName.lastIndexOf(".")+1)) {
+		switch(fileName.substring(fileName.lastIndexOf(".")+1).toLowerCase()) {
 		case "png":
 		case "bmp":
 		case "jpg":
