@@ -6,6 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
 <style type="text/css">
 	table{
 	margin:0;
@@ -16,6 +20,16 @@
 		text-align: center;
 	}
 </style>
+<script type="text/javascript">
+$(function() {
+	
+	$(".update").click(function(e) {
+		e.preventDefault();
+		var arr = $(this).parent().parent().children();
+		var url = "pno="+arr[0].innerText+"&pname="+arr[1].innerText;
+	});
+});
+</script>
 </head>
 <body>
 	<form action="insertProduct.do">
@@ -36,11 +50,12 @@
  	</tr>
  	<c:forEach var="obj" items="${requestScope.list }" >
  		<tr>
- 			<td>${obj.pno }</td>
- 			<td>${obj.pname }</td>
- 			<td>${obj.price }</td>
- 			<td>${obj.maker }</td>
- 			<td><a href="deleteProduct.do?pno=${obj.pno }">삭제</a></td>
+ 			<td><input type="text" name="pno" value="${obj.pno }"></td>
+ 			<td><input type="text" name="pname" value="${obj.pname }"></td>
+ 			<td><input type="text" name="price" value="${obj.price }"></td>
+ 			<td><input type="text" name="maker" value="${obj.maker }"></td>
+ 			<td><a href="deleteProduct.do?pno=${obj.pno }">삭제</a> / 
+ 			<a href="#" class="update">수정</a></td>
  		</tr>
  	</c:forEach>	
  </table>
