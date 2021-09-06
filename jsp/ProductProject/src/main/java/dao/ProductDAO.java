@@ -47,6 +47,30 @@ public class ProductDAO {
 		return list;
 	}
 
+	public int insertProduct(ProductDTO dto) {
+		String sql = "insert into product values(?,?,?,?)";
+		PreparedStatement pstmt = null;
+		int count = 0;
+		try {
+			pstmt = DBManager.getInstance().getConnection().prepareStatement(sql);
+			pstmt.setString(1, dto.getPno());
+			pstmt.setString(2, dto.getPname());
+			pstmt.setInt(3, dto.getPrice());
+			pstmt.setString(4, dto.getMaker());
+			count = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count;
+	}
+
 }
 
 

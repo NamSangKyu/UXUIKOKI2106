@@ -22,6 +22,10 @@ public class ProductService {
 		return ProductDAO.getInstance().selectAllProduct();
 	}
 
+	public int insertProduct(ProductDTO dto) {
+		return ProductDAO.getInstance().insertProduct(dto);
+	}
+
 }
 
 

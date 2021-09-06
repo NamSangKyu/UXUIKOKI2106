@@ -22,8 +22,19 @@ public class HandlerMapping {
 		case "productList.do":
 			controller = new ProductListController();
 			break;
+		case "insertProduct.do":
+			controller = new InsertProductController();
+			break;
 		}
 		
 		return controller;
 	}
 }
+
+
+
+
+
+
+
+
