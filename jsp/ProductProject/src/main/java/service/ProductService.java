@@ -26,6 +26,10 @@ public class ProductService {
 		return ProductDAO.getInstance().insertProduct(dto);
 	}
 
+	public void deleteProduct(String pno) {
+		ProductDAO.getInstance().deleteProduct(pno);
+	}
+
 }
 
 

@@ -71,6 +71,26 @@ public class ProductDAO {
 		return count;
 	}
 
+	public void deleteProduct(String pno) {
+		String sql = "delete from product where pno = ?";
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = DBManager.getInstance().getConnection().prepareStatement(sql);
+			pstmt.setString(1, pno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
 }
 
 

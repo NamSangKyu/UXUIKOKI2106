@@ -31,7 +31,8 @@
 		<th>제품번호</th> 		
 		<th>제품명</th> 		
 		<th>금액</th> 		
-		<th>제조사</th> 		
+		<th>제조사</th> 
+		<th>비고</th>		
  	</tr>
  	<c:forEach var="obj" items="${requestScope.list }" >
  		<tr>
@@ -39,6 +40,7 @@
  			<td>${obj.pname }</td>
  			<td>${obj.price }</td>
  			<td>${obj.maker }</td>
+ 			<td><a href="deleteProduct.do?pno=${obj.pno }">삭제</a></td>
  		</tr>
  	</c:forEach>	
  </table>
