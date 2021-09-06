@@ -91,6 +91,30 @@ public class ProductDAO {
 		
 	}
 
+	public int updateProduct(ProductDTO dto) {
+		String sql = "update product set pname=?,price=?,maker=? where pno = ?";
+		PreparedStatement pstmt = null;
+		int count = 0;
+		try {
+			pstmt = DBManager.getInstance().getConnection().prepareStatement(sql);
+			pstmt.setString(4, dto.getPno());
+			pstmt.setString(1, dto.getPname());
+			pstmt.setInt(2, dto.getPrice());
+			pstmt.setString(3, dto.getMaker());
+			count = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count;
+	}
+
 }
 
 

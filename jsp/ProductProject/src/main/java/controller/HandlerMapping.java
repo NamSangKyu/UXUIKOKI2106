@@ -28,6 +28,9 @@ public class HandlerMapping {
 		case "deleteProduct.do":
 			controller = new DeleteProductController();
 			break;
+		case "updateProduct.do":
+			controller = new UpdateProductController();
+			break;
 		}
 		
 		return controller;

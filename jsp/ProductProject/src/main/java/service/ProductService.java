@@ -30,6 +30,10 @@ public class ProductService {
 		ProductDAO.getInstance().deleteProduct(pno);
 	}
 
+	public int updateProduct(ProductDTO dto) {
+		return ProductDAO.getInstance().updateProduct(dto);
+	}
+
 }
 
 

@@ -25,8 +25,13 @@ $(function() {
 	
 	$(".update").click(function(e) {
 		e.preventDefault();
-		var arr = $(this).parent().parent().children();
-		var url = "pno="+arr[0].innerText+"&pname="+arr[1].innerText;
+		var url = "updateProduct.do?";
+		$(this).parent().parent().find("input").each(function(i,o) {
+			console.log(i,$(o).attr("name"),$(o).val());
+			url += $(o).attr("name")+"="+$(o).val() + "&";
+		});
+		console.log(url);
+		location.href=url;
 	});
 });
 </script>
@@ -50,7 +55,7 @@ $(function() {
  	</tr>
  	<c:forEach var="obj" items="${requestScope.list }" >
  		<tr>
- 			<td><input type="text" name="pno" value="${obj.pno }"></td>
+ 			<td><input type="text" name="pno" value="${obj.pno }" readonly></td>
  			<td><input type="text" name="pname" value="${obj.pname }"></td>
  			<td><input type="text" name="price" value="${obj.price }"></td>
  			<td><input type="text" name="maker" value="${obj.maker }"></td>

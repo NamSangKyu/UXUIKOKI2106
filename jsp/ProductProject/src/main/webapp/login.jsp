@@ -10,8 +10,7 @@
 	<form action="login.do" method="post">
 		<input type="text" name="id"><br>
 		<input type="password" name="pass"><br>
-		<button>로그인</button>
-		
+		<button>로그인</button>		
 	</form>
 </body>
 </html>
