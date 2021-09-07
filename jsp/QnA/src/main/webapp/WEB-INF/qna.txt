@@ -4,6 +4,7 @@
 	단 등급에따라 
 		등급이 관리자면 관리자 페이지 --> admin_main.jsp
 		등급이 회원이면 메인 페이지 --> member_main.jsp
+		
 2차 작업 내용
 	테이블 작성
 		TABLE QNA (질문 답변)
@@ -19,6 +20,7 @@
 		
 		TABLE QNAFileList
 			파일번호 number
+			질문번호 number
 			질문자 String
 			파일경로 String
 			등록일 date

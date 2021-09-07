@@ -18,6 +18,13 @@ public class HandlerMapping {
 		switch(command) {
 		case "login.do":
 			controller = new LoginController();
+			break;
+		case "adminMain.do":
+			controller = new AdminMainController();
+			break;
+		case "memberMain.do":
+			controller = new MemberMainController();
+			break;
 		}
 		
 		return controller;
