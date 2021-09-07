@@ -1,0 +1,27 @@
+1차 작업 내용
+	로그인
+		아이디 비번을 입력 받아서 로그인을 수행
+	단 등급에따라 
+		등급이 관리자면 관리자 페이지 --> admin_main.jsp
+		등급이 회원이면 메인 페이지 --> member_main.jsp
+2차 작업 내용
+	테이블 작성
+		TABLE QNA (질문 답변)
+			질문번호 number
+			질문종류코드 char
+			질문내용 String
+			등록일 date
+			질문자 String
+			답변상태 char(1)
+			답변내용 String
+			답변자 String
+			답변등록일 date
+		
+		TABLE QNAFileList
+			파일번호 number
+			질문자 String
+			파일경로 String
+			등록일 date
+			
+	질문 받는 페이지 작성  --> memberMain.do
+	파일 업로드 적용
