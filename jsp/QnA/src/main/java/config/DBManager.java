@@ -1,5 +1,7 @@
 package config;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.Context;
@@ -28,5 +30,18 @@ public class DBManager {
 		if(instance == null)
 			instance = new DBManager();
 		return instance;
+	}
+	
+	public void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
+		try {
+			if(conn != null)
+				conn.close();
+			if (pstmt != null)
+				pstmt.close();
+			if(rs != null)
+				rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

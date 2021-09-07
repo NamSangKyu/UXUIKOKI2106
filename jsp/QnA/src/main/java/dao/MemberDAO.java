@@ -23,19 +23,6 @@ public class MemberDAO {
 		return instance;
 	}
 
-	public void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
-		try {
-			if(conn != null)
-				conn.close();
-			if (pstmt != null)
-				pstmt.close();
-			if(rs != null)
-				rs.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public MemberDTO login(String id, String pass) {
 		String sql = "select * from member where id = ? and passwd = ?";
 		Connection conn = null;
@@ -59,6 +46,8 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			manager.close(conn, pstmt, rs);
 		}
 		return dto;
 	}
