@@ -38,7 +38,10 @@
 					</c:when>					
 					<c:when test="${obj.status=='2'}">
 						답변 보류
-					</c:when>					
+					</c:when>
+					<c:otherwise>
+						답변완료
+					</c:otherwise>					
 					</c:choose>
 				</td>
 			</tr>

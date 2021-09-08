@@ -187,6 +187,47 @@ public class QnaDAO {
 		
 		return list;
 	}
+
+	public void updateStatus(int qno, int status) {
+		String sql = "update qna set status = ? where qno = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, String.valueOf(status));
+			pstmt.setInt(2, qno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(conn, pstmt, null);
+		}
+		
+		
+	}
+
+	public void updateQna(QnaDTO dto) {
+		String sql = "update qna set acontent=?,adate=sysdate,awriter=?,status=? "
+				+ "where qno = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getAcontent());
+			pstmt.setString(2, dto.getAwriter());
+			pstmt.setString(3, dto.getStatus());
+			pstmt.setInt(4, dto.getQno());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(conn, pstmt, null);
+		}
+	}
 	
 }
 

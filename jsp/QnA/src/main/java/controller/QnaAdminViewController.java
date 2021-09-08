@@ -14,6 +14,7 @@ public class QnaAdminViewController implements Controller {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int qno = Integer.parseInt(request.getParameter("qno"));
+		QnaService.getInstance().updateStatus(qno,1);
 		QnaDTO dto = QnaService.getInstance().selectQna(qno );
 		request.setAttribute("dto", dto);
 		return new ModelAndView("/admin/qna_admin_detail.jsp", false);

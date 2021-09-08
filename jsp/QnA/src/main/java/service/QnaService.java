@@ -43,6 +43,14 @@ public class QnaService {
 	public ArrayList<QnaDTO> selectQnaAllList() {
 		return QnaDAO.getInstance().selectQnaAllList();
 	}
+
+	public void updateStatus(int qno, int i) {
+		QnaDAO.getInstance().updateStatus(qno, i);
+	}
+
+	public void updateQna(QnaDTO dto) {
+		QnaDAO.getInstance().updateQna(dto);
+	}
 	
 }
 

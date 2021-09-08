@@ -48,15 +48,18 @@
 		<h3>문의 내용</h3>
 		<div class="content">${requestScope.dto.qcontent } </div>
 		<hr>
-		<c:if test="${requestScope.dto.status =='3'}">
 		<div class="answer_container">
 			<h3>답변 내용</h3>
+			<c:if test="${requestScope.dto.status == 2 || requestScope.dto.status == 3  }">
 			<div>
 				<span> 작성자 : ${requestScope.dto.awriter }</span>
 				<span> 작성일 : ${requestScope.dto.adate }</span>
 			</div>
+			</c:if>
 			<div class="content">
 				<form action="answerUpdate.do">
+					<input type="hidden" name="awriter" value="${sessionScope.dto.id }">
+					<input type="hidden" name="qno" value="${requestScope.dto.qno }">
 					<select name="status">
 						<option value="3">답변완료</option>
 						<option value="2">답변보류</option>
@@ -66,7 +69,6 @@
 				</form>
 			</div>
 		</div>		
-		</c:if>
 
 	</div>
 	
