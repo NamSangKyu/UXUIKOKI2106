@@ -25,5 +25,6 @@ alter table QNA_FILE_LIST
 add constraint fk_qno foreign key(qno) 
 references qna(qno);
 
-
+select * from QNA;
+select * from QNA_FILE_LIST;
 

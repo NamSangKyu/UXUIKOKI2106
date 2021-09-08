@@ -61,7 +61,7 @@
 	<!-- 문의하기 폼 -->
 	<form action="qnaWrite.do" method="post" id="frm" enctype="multipart/form-data">
 		<textarea name="content"></textarea><button>전송</button>
-		<input type="hidden" name="qwriter" value="${sessScope.dto.id }">	
+		<input type="hidden" name="qwriter" value="${sessionScope.dto.id }">	
 		<hr>
 		<h3>첨부파일 - 최대 5파일 가능</h3>
 		<p>

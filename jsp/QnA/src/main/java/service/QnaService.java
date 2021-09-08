@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 
 import dao.QnaDAO;
+import dto.FileDTO;
 import dto.QnaDTO;
 
 public class QnaService {
@@ -27,8 +28,12 @@ public class QnaService {
 		int qno = QnaDAO.getInstance().getQno();
 		//문의글 등록
 		dto.setQno(qno);
-		QnaDAO.getInstance().insertQna(dto);
-		return 0;
+		int result = QnaDAO.getInstance().insertQna(dto);
+		return result == 0 ? 0 : qno;
+	}
+
+	public void insertFile(QnaDTO dto, ArrayList<FileDTO> flist) {
+		QnaDAO.getInstance().insertFile(dto,flist);
 	}
 	
 }

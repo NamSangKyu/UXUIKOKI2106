@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,7 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import config.DBManager;
+import dto.FileDTO;
 import dto.QnaDTO;
+import oracle.net.aso.f;
 
 public class QnaDAO {
 	private static QnaDAO instance = new QnaDAO();
@@ -77,9 +80,54 @@ public class QnaDAO {
 	}
 
 
-	public void insertQna(QnaDTO dto) {
+	public int insertQna(QnaDTO dto) {
 		String sql = "insert into qna(qno,qcode,qcontent,qdate,qwriter) "
 				+ "values(?,0,?,sysdate,?)";
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		int result = 0;
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dto.getQno());
+			pstmt.setString(2, dto.getQcontent());
+			pstmt.setString(3, dto.getQwriter());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(conn, pstmt, null);
+		}
+		return result;
+	}
+//	fno number primary key,
+//	qno number,
+//	writer varchar2(50),
+//	file_url varchar2(300),
+//	fdate date
+	public void insertFile(QnaDTO dto, ArrayList<FileDTO> flist) {
+		String sql = "insert into QNA_FILE_LIST(fno,qno,writer,file_url,fdate ) "
+				+ "values(file_no_seq.nextval,?,?,?,sysdate)";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = manager.getConnection();
+			for(int i=0;i<flist.size();i++) {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, dto.getQno());
+				String path = flist.get(i).getPath();
+				pstmt.setString(2, dto.getQwriter());
+				pstmt.setString(3, path);
+				pstmt.executeUpdate();
+				pstmt.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 }

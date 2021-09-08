@@ -79,14 +79,21 @@ public class QnaInsertController implements Controller {
 			}
 			//파일 업로드 및 dto 객체 완성
 			int qno = QnaService.getInstance().insertQna(dto);
-			if(flist.size() != 0)
-				QnaService.getInstance().insertFile(qno, flist);
+			if(flist.size() != 0 || qno != 0)
+				QnaService.getInstance().insertFile(dto, flist);
+			else {
+				//문의글 취소 및 등록이 안되었을때
+				for(int i=0;i<list.size();i++) {
+					File file = new File(flist.get(i).getPath());
+					file.delete();
+				}
+			}
 		} catch (FileUploadException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return new ModelAndView("memberMain.do", false);
 	}
 
 }
