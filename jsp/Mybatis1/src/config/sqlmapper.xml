@@ -10,6 +10,10 @@
     select * from employee where eno = #{eno}
   </select>
   <insert id="insertEmployee" parameterType="dto.EmployeeDTO">
-  	
+  		insert into employee(eno,name, position,department)
+  		values(#{eno}, #{name},#{position},#{department})
   </insert>
+  <update id="updatePosition" parameterType="int">
+  
+  </update>
 </mapper>

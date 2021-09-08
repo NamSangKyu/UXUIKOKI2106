@@ -17,11 +17,19 @@ public class EmployeeMain {
 					+ " "+list.get(i).getPosition()+ " "+list.get(i).getDepartment());
 		}
 		*/
-		EmployeeDTO dto = mapper.selectEmployeeDTO("JE10");
-		System.out.println(dto.getName() + " " + dto.getDepartment());
+		/*
+		 * EmployeeDTO dto = mapper.selectEmployeeDTO("JE10");
+		 * System.out.println(dto.getName() + " " + dto.getDepartment());
+		 */
+		
+		EmployeeDTO dto = new EmployeeDTO("AA22", "테스트", "영업", 4);
+		int result = mapper.insertEmployee(dto);
+		System.out.println(result);
+		
 	}
 
 }
+
 
 
 
