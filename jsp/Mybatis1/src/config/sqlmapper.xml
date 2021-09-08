@@ -13,7 +13,7 @@
   		insert into employee(eno,name, position,department)
   		values(#{eno}, #{name},#{position},#{department})
   </insert>
-  <update id="updatePosition" parameterType="int">
-  
+  <update id="updatePosition">
+  	update employee set position = 2 where position = 1
   </update>
 </mapper>
