@@ -1,0 +1,46 @@
+1. Mybatis 라이브러리, DB 라이브러리를 메이븐으로 셋팅
+
+2. 패키지 하나 생성 mybatis-config.xml 생성
+2-1. mybatis-config.xml에는 https://mybatis.org/mybatis-3/ko/getting-started.html 설정정보 찾아서 복사 붙여넣기
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="org/mybatis/example/BlogMapper.xml"/>
+  </mappers>
+</configuration>
+
+2-2. DB 접속 정보, mapper 파일위치(xml) 설정
+
+3. 2-2에서 설정한 맵퍼 파일 위치에 mapper 파일 생성(xml)
+3-1. xml 기본 셋팅과 sql문 작성
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="config.sqlmapper">
+  <select id="selectAllEmployee" resultType="dto.EmployeeDTO">
+    select * from employee
+  </select>
+</mapper>
+
+
+
+
+
+
+
+
