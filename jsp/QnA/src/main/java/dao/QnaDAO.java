@@ -54,6 +54,31 @@ public class QnaDAO {
 		
 		return list;
 	}
+
+	public int getQno() {
+		String sql = "select qna_no_seq.nextval from dual";
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		int result = 0;
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				result = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(conn, pstmt, rs);
+		}
+		
+		return result;
+	}
+
+	public void insertQna(QnaDTO dto) {
+		String sql = "insert into qna"
+	}
 	
 }
 
