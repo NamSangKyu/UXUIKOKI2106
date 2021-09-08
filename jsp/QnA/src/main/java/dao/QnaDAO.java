@@ -81,8 +81,8 @@ public class QnaDAO {
 
 
 	public int insertQna(QnaDTO dto) {
-		String sql = "insert into qna(qno,qcode,qcontent,qdate,qwriter) "
-				+ "values(?,0,?,sysdate,?)";
+		String sql = "insert into qna(qno,qcode,qcontent,qdate,qwriter, status) "
+				+ "values(?,0,?,sysdate,?,'0')";
 		PreparedStatement pstmt = null;
 		Connection conn = null;
 		int result = 0;
@@ -100,11 +100,7 @@ public class QnaDAO {
 		}
 		return result;
 	}
-//	fno number primary key,
-//	qno number,
-//	writer varchar2(50),
-//	file_url varchar2(300),
-//	fdate date
+
 	public void insertFile(QnaDTO dto, ArrayList<FileDTO> flist) {
 		String sql = "insert into QNA_FILE_LIST(fno,qno,writer,file_url,fdate ) "
 				+ "values(file_no_seq.nextval,?,?,?,sysdate)";
@@ -128,6 +124,37 @@ public class QnaDAO {
 		}
 		
 		
+	}
+
+	public QnaDTO selectQna(int qno) {
+		String sql = "select * from qna where qno = ?";
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		QnaDTO dto = null;
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qno);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				String qcode = rs.getString(2);
+				String qcontent= rs.getString(3);
+				String qdate= rs.getString(4);
+				String qwriter= rs.getString(5);
+				String status= rs.getString(6);
+				String acontent= rs.getString(7);
+				String awriter= rs.getString(8);
+				String adate= rs.getString(9);
+				dto = new QnaDTO(qno, qcode, qcontent, qdate, qwriter, status, acontent, awriter, adate);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(conn, pstmt, rs);
+		}
+		
+		return dto;
 	}
 	
 }

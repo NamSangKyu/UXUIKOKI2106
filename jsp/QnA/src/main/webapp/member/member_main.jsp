@@ -42,10 +42,22 @@
 		<c:forEach var="obj" items="${sessionScope.list }">
 			<tr>
 				<td>${obj.qno}</td>
-				<td>${obj.qcontent}</td>
+				<td><a href="qnaView.do?qno=${obj.qno}">${obj.qcontent}</a></td>
 				<td>${obj.qdate}</td>
 				<td>${obj.qwriter}</td>
-				<td>${obj.status}</td>
+				<td>
+					<c:choose>
+					<c:when test="${obj.status=='0'}">
+						읽지 않음
+					</c:when>					
+					<c:when test="${obj.status=='1'}">
+						읽음
+					</c:when>					
+					<c:when test="${obj.status=='2'}">
+						답변 보류
+					</c:when>					
+					</c:choose>
+				</td>
 			</tr>
 			<c:if test="${obj.status=='3' }">
 			<tr>

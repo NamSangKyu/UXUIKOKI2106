@@ -35,6 +35,10 @@ public class QnaService {
 	public void insertFile(QnaDTO dto, ArrayList<FileDTO> flist) {
 		QnaDAO.getInstance().insertFile(dto,flist);
 	}
+
+	public QnaDTO selectQna(int qno) {
+		return QnaDAO.getInstance().selectQna(qno);
+	}
 	
 }
 

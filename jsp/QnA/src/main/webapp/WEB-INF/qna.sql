@@ -10,6 +10,7 @@ create table QNA(
 	awriter varchar2(50),
 	adate date
 );
+update qna set status = '0';
 --시퀸스
 create sequence qna_no_seq start with 1; 
 --파일 테이블

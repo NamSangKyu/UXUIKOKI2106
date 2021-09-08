@@ -28,6 +28,9 @@ public class HandlerMapping {
 		case "qnaWrite.do":
 			controller = new QnaInsertController();
 			break;
+		case "qnaView.do":
+			controller = new QnaViewController();
+			break;
 		}
 		
 		return controller;
