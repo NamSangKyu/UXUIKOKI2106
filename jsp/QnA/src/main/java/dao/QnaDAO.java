@@ -228,6 +228,62 @@ public class QnaDAO {
 			manager.close(conn, pstmt, null);
 		}
 	}
+
+	public ArrayList<FileDTO> selectFileList(int qno) {
+		ArrayList<FileDTO> list = new ArrayList<FileDTO>();
+		String sql = "select file_url, fno from qna_file_list where qno = ?";
+		
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qno);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				FileDTO dto = new FileDTO(new File(rs.getString(1)));
+				dto.setFileNo(rs.getInt(2));
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(conn, pstmt, rs);
+		}
+		
+		return list;
+	}
+
+	public String getFilePath(int fno) {
+		ArrayList<FileDTO> list = new ArrayList<FileDTO>();
+		String sql = "select file_url, fno from qna_file_list where fno = ?";
+		String path = null;
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, fno);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				path = rs.getString(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(conn, pstmt, rs);
+		}
+		
+		return path;
+	}
 	
 }
 

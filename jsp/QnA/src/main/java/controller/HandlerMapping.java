@@ -37,6 +37,9 @@ public class HandlerMapping {
 		case "answerUpdate.do":
 			controller = new QnaAnswerUpdateController();
 			break;
+		case "fileDownload.do":
+			controller = new FileDownloadController();
+			break;
 		}
 		
 		return controller;

@@ -51,6 +51,14 @@ public class QnaService {
 	public void updateQna(QnaDTO dto) {
 		QnaDAO.getInstance().updateQna(dto);
 	}
+
+	public ArrayList<FileDTO> selectFileList(int qno) {
+		return QnaDAO.getInstance().selectFileList(qno);
+	}
+
+	public String getFilePath(int fno) {
+		return QnaDAO.getInstance().getFilePath(fno);
+	}
 	
 }
 

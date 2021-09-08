@@ -3,6 +3,7 @@ package dto;
 import java.io.File;
 
 public class FileDTO {
+	private int fileNo;
 	private String path;
 	private String fileName;
 	private String type;
@@ -20,6 +21,14 @@ public class FileDTO {
 		default:
 			type="normal";
 		}
+	}
+
+	public int getFileNo() {
+		return fileNo;
+	}
+
+	public void setFileNo(int fileNo) {
+		this.fileNo = fileNo;
 	}
 
 	public String getPath() {

@@ -47,6 +47,11 @@
 		</div>
 		<h3>문의 내용</h3>
 		<div class="content">${requestScope.dto.qcontent } </div>
+		<!-- 첨부파일을 링크 단, 링크에는 파일명으로 링크를 표시  -->
+		<h3>첨부파일</h3>
+		<c:forEach var="file" items="${requestScope.flist }">
+			<a href="fileDownload.do?fno=${file.fileNo}">${file.fileName }</a>		<br>
+		</c:forEach>
 		<hr>
 		<div class="answer_container">
 			<h3>답변 내용</h3>
