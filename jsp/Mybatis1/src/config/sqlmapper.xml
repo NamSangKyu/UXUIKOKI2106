@@ -6,4 +6,10 @@
   <select id="selectAllEmployee" resultType="dto.EmployeeDTO">
     select * from employee
   </select>
+  <select id="selectEmployee" parameterType="String" resultType="dto.EmployeeDTO">
+    select * from employee where eno = #{eno}
+  </select>
+  <insert id="insertEmployee" parameterType="dto.EmployeeDTO">
+  	
+  </insert>
 </mapper>

@@ -34,7 +34,15 @@ public class EmployeeMapper {
 		return list;
 	}
 	
+	public EmployeeDTO selectEmployeeDTO(String eno) {
+		return session.selectOne("selectEmployee", eno);
+	}
+	
 }
+
+
+
+
 
 
 
