@@ -156,6 +156,37 @@ public class QnaDAO {
 		
 		return dto;
 	}
+
+	public ArrayList<QnaDTO> selectQnaAllList() {
+		String sql = "select * from qna";
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		ArrayList<QnaDTO> list = new ArrayList<QnaDTO>();
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int qno = rs.getInt(1);
+				String qcode = rs.getString(2);
+				String qcontent= rs.getString(3);
+				String qdate= rs.getString(4);
+				String qwriter= rs.getString(5);
+				String status= rs.getString(6);
+				String acontent= rs.getString(7);
+				String awriter= rs.getString(8);
+				String adate= rs.getString(9);
+				list.add(new QnaDTO(qno, qcode, qcontent, qdate, qwriter, status, acontent, awriter, adate));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(conn, pstmt, rs);
+		}
+		
+		return list;
+	}
 	
 }
 

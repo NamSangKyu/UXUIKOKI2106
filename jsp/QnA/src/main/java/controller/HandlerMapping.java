@@ -31,6 +31,9 @@ public class HandlerMapping {
 		case "qnaView.do":
 			controller = new QnaViewController();
 			break;
+		case "qnaAdminView.do":
+			controller = new QnaAdminViewController();
+			break;
 		}
 		
 		return controller;

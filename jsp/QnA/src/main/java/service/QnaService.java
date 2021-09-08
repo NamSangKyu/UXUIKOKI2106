@@ -39,6 +39,10 @@ public class QnaService {
 	public QnaDTO selectQna(int qno) {
 		return QnaDAO.getInstance().selectQna(qno);
 	}
+
+	public ArrayList<QnaDTO> selectQnaAllList() {
+		return QnaDAO.getInstance().selectQnaAllList();
+	}
 	
 }
 
