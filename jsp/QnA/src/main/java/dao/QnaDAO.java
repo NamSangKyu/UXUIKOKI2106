@@ -76,8 +76,10 @@ public class QnaDAO {
 		return result;
 	}
 
+
 	public void insertQna(QnaDTO dto) {
-		String sql = "insert into qna"
+		String sql = "insert into qna(qno,qcode,qcontent,qdate,qwriter) "
+				+ "values(?,0,?,sysdate,?)";
 	}
 	
 }
