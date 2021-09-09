@@ -2,3 +2,5 @@
    모든 회원 정보를 list에 넣어서 member_manager.jsp가
    로드시 전부 출력
    
+2. 등록 버튼을 누르면 insertMember.do를 호출해서 입력한 회원 정보를 등록
+   회원 목록을 최신화 결과를 Ajax로 받아서 처리	
