@@ -34,10 +34,38 @@ h1{
 </style>
 <script src="resource/jquery-3.5.1.min.js"></script>
 <script>
-	/*
-		등록 버튼을 누르면 insertMember.do를 호출해서 입력한 회원 정보를 등록
-		회원 목록을 최신화 결과를 Ajax로 받아서 처리	
-	*/
+	function deleteAction() {
+		//alert($(this).siblings("input[name=id]").val());
+		var id = $(this).siblings("input[name=id]").val();
+		$.ajax({
+			url : "deleteMember.do",
+			data : "id="+id,
+			type:"post",
+			dataType:"json",
+			success:function(r){
+				//결과값을 받는 부분	
+				var str = "";
+				for(i=0;i<r.length;i++){
+					str += "<div class='item'>"
+					str += "<input type='text' name='id' value='"+r[i].id+"' placeholder='아이디'>"
+					str += "<input type='password' name='passwd' value='"+r[i].passwd+"' placeholder='암호'>"
+					str += "<input type='text' name='name' value='"+r[i].name+"' placeholder='이름'>" 
+					str += "<input type='text'name='age' value='"+r[i].age+"' placeholder='나이'>" 
+					str += "<select	name='gender'>"
+					str += 	"<option value='0' "+(r[i].gender == "0" ? "selected" : "")+">남</option>"
+					str += 	"<option value='1' "+(r[i].gender == "1" ? "selected" : "")+">여</option>"
+					str += "</select> "
+					str += "<input type='text' name='point' value='"+r[i].point+"' placeholder='포인트'>" 
+					str += "<input type='text' name='grade' value='"+r[i].grade+"' placeholder='등급'>"
+					str += "<button class='btnUpdate'>수정</button><button class='btnDelete'>삭제</button>"
+					str += "</div>"
+				}
+				$(".container").html(str);
+				//추가된 새 엘리먼트들이 이벤트 처리 부분 추가
+				$(".btnDelete").click(deleteAction);
+			}
+		});
+	}
 	$(function() {
 		$("#btnRegister").click(function(){
 			var d = $(".frm").serialize();
@@ -68,36 +96,9 @@ h1{
 				}
 			});
 		});
-		$(".btnDelete").click(function() {
-			//alert($(this).siblings("input[name=id]").val());
-			var id = $(this).siblings("input[name=id]").val();
-			$.ajax({
-				url : "deleteMember.do",
-				data : "id="+id,
-				type:"post",
-				dataType:"json",
-				success:function(r){
-					//결과값을 받는 부분	
-					var str = "";
-					for(i=0;i<r.length;i++){
-						str += "<div class='item'>"
-						str += "<input type='text' name='id' value='"+r[i].id+"' placeholder='아이디'>"
-						str += "<input type='password' name='passwd' value='"+r[i].passwd+"' placeholder='암호'>"
-						str += "<input type='text' name='name' value='"+r[i].name+"' placeholder='이름'>" 
-						str += "<input type='text'name='age' value='"+r[i].age+"' placeholder='나이'>" 
-						str += "<select	name='gender'>"
-						str += 	"<option value='0' "+(r[i].gender == "0" ? "selected" : "")+">남</option>"
-						str += 	"<option value='1' "+(r[i].gender == "1" ? "selected" : "")+">여</option>"
-						str += "</select> "
-						str += "<input type='text' name='point' value='"+r[i].point+"' placeholder='포인트'>" 
-						str += "<input type='text' name='grade' value='"+r[i].grade+"' placeholder='등급'>"
-						str += "<button class='btnUpdate'>수정</button><button class='btnDelete'>삭제</button>"
-						str += "</div>"
-					}
-					$(".container").html(str);
-				}
-			});
-		});
+		//동적 엘리먼트 이벤트 처리를 위해 삭제하는 함수를 외부로 별로도 선언
+		//이벤트 처리후 동적엘리먼트에 이벤트 추가를 위해 해당 이벤트 처리를 deleteAction ajax 마지막 처리부분에 추가
+		$(".btnDelete").click(deleteAction);
 	});
 </script>
 </head>
