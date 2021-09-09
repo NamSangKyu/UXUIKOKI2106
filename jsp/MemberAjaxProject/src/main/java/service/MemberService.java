@@ -24,6 +24,10 @@ public class MemberService {
 	public void insertMember(MemberDTO dto) {
 		MemberMapper.getInstance().insertMember(dto);		
 	}
+
+	public void deleteMember(String id) {
+		MemberMapper.getInstance().deleteMember(id);
+	}
 	
 	
 }

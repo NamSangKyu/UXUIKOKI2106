@@ -9,6 +9,9 @@
   	<insert id="insertMember" parameterType="dto.MemberDTO">
   		insert into member values(#{id},#{passwd},#{name},#{age},#{gender},#{point},#{grade})
   	</insert>
+  	<delete id="deleteMember" parameterType="String">
+  		delete from member where id = #{id}
+  	</delete>
 </mapper>
 
 

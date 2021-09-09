@@ -21,6 +21,9 @@ public class HandlerMapping {
 		case "insertMember.do":
 			controller = new InsertMemberController();
 			break;
+		case "deleteMember.do":
+			controller = new DeleteMemberController();
+			break;
 		
 		}
 		return controller;

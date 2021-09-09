@@ -33,6 +33,14 @@ public class MemberMapper {
 		session.commit();
 		session.close();		
 	}
+
+	public void deleteMember(String id) {
+		SqlSession session = manager.getSession();
+		session.delete("deleteMember",id);
+		session.commit();
+		session.close();		
+		
+	}
 }
 
 

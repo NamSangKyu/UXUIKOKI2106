@@ -68,6 +68,36 @@ h1{
 				}
 			});
 		});
+		$(".btnDelete").click(function() {
+			//alert($(this).siblings("input[name=id]").val());
+			var id = $(this).siblings("input[name=id]").val();
+			$.ajax({
+				url : "deleteMember.do",
+				data : "id="+id,
+				type:"post",
+				dataType:"json",
+				success:function(r){
+					//결과값을 받는 부분	
+					var str = "";
+					for(i=0;i<r.length;i++){
+						str += "<div class='item'>"
+						str += "<input type='text' name='id' value='"+r[i].id+"' placeholder='아이디'>"
+						str += "<input type='password' name='passwd' value='"+r[i].passwd+"' placeholder='암호'>"
+						str += "<input type='text' name='name' value='"+r[i].name+"' placeholder='이름'>" 
+						str += "<input type='text'name='age' value='"+r[i].age+"' placeholder='나이'>" 
+						str += "<select	name='gender'>"
+						str += 	"<option value='0' "+(r[i].gender == "0" ? "selected" : "")+">남</option>"
+						str += 	"<option value='1' "+(r[i].gender == "1" ? "selected" : "")+">여</option>"
+						str += "</select> "
+						str += "<input type='text' name='point' value='"+r[i].point+"' placeholder='포인트'>" 
+						str += "<input type='text' name='grade' value='"+r[i].grade+"' placeholder='등급'>"
+						str += "<button class='btnUpdate'>수정</button><button class='btnDelete'>삭제</button>"
+						str += "</div>"
+					}
+					$(".container").html(str);
+				}
+			});
+		});
 	});
 </script>
 </head>
