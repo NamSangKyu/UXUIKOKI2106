@@ -41,6 +41,13 @@ public class MemberMapper {
 		session.close();		
 		
 	}
+
+	public void updateMember(MemberDTO dto) {
+		SqlSession session = manager.getSession();
+		session.update("updateMember",dto);
+		session.commit();
+		session.close();		
+	}
 }
 
 

@@ -28,6 +28,10 @@ public class MemberService {
 	public void deleteMember(String id) {
 		MemberMapper.getInstance().deleteMember(id);
 	}
+
+	public void updatetMember(MemberDTO dto) {
+		MemberMapper.getInstance().updateMember(dto);
+	}
 	
 	
 }
