@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -51,6 +52,9 @@ public class EmployeeMapper {
 		map.put("n1", start);
 		map.put("n2", end);
 		return session.selectList("selectPosition", map);
+	}
+	public List<Map<String, Object>> selectPositionCount() {
+		return session.selectList("selectPositionCount");		
 	}
 	
 }

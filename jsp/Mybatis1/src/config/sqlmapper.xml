@@ -20,6 +20,13 @@
   <select id="selectPosition" resultType="dto.EmployeeDTO" parameterType="Map">
   	select * from employee where position between #{n1} and #{n2}
   </select>
+  <!-- 직급별 인원수를 조회 -->
+  <select id="selectPositionCount" resultType="Map">
+  	select pl.name, count(*) as e_count from employee e, position_list pl
+		where e.position = pl.pno group by pl.name 
+  </select>
+  
+  
 </mapper>
 
 
