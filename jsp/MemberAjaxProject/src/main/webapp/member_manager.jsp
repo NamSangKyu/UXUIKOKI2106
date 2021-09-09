@@ -79,6 +79,14 @@ h1{
 				//추가된 새 엘리먼트들이 이벤트 처리 부분 추가
 				$(".btnDelete").click(deleteAction);
 				$(".btnUpdate").click(updateAction);
+				$(".dialog").slideDown(500,function(){
+					$(this).html("회원등록이 정상적으로 수행되었습니다.");
+				
+					//3초 뒤에 해당 알림창을 자동으로 사라지게끔 처리
+					setTimeout(() => {
+						$(".dialog").slideUp(500);
+					}, 3000);
+				});
 			}
 		});
 	}
@@ -113,6 +121,14 @@ h1{
 				$(".container").html(str);
 				$(".btnDelete").click(deleteAction);
 				$(".btnUpdate").click(updateAction);
+				$(".dialog").slideDown(500,function(){
+					$(this).html("회원등록이 정상적으로 수행되었습니다.");
+				
+					//3초 뒤에 해당 알림창을 자동으로 사라지게끔 처리
+					setTimeout(() => {
+						$(".dialog").slideUp(500);
+					}, 3000);
+				});
 			}
 		});
 	}
