@@ -2,6 +2,7 @@ package mapper;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -44,6 +45,12 @@ public class EmployeeMapper {
 
 	public int updatePosition() {
 		return session.update("updatePosition");
+	}
+	public List<EmployeeDTO> selectPosition(int start,int end){
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("n1", start);
+		map.put("n2", end);
+		return session.selectList("selectPosition", map);
 	}
 	
 }

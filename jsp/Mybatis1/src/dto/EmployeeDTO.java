@@ -48,6 +48,12 @@ public class EmployeeDTO {
 	public void setPosition(int position) {
 		this.position = position;
 	}
+
+	@Override
+	public String toString() {
+		return "EmployeeDTO [eno=" + eno + ", name=" + name + ", department=" + department + ", position=" + position
+				+ "]";
+	}
 	
 	
 }

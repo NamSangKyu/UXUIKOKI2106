@@ -26,9 +26,13 @@ public class EmployeeMain {
 		 * int result = mapper.insertEmployee(dto); 
 		 * System.out.println(result);
 		 */
-		int result = mapper.updatePosition();
-		System.out.println(result);
-		
+		/*
+		 * int result = mapper.updatePosition(); System.out.println(result);
+		 */
+		List<EmployeeDTO> list = mapper.selectPosition(3, 5);
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i));
+		}
 	}
 
 }

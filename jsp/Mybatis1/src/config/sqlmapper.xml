@@ -16,4 +16,16 @@
   <update id="updatePosition">
   	update employee set position = 2 where position = 1
   </update>
+  <!-- 사원들의 직급이 시작값 ~ 마지막값을 보내서 조회  -->
+  <select id="selectPosition" resultType="dto.EmployeeDTO" parameterType="Map">
+  	select * from employee where position between #{n1} and #{n2}
+  </select>
 </mapper>
+
+
+
+
+
+
+
+
