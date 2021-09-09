@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import controller.Controller;
 import controller.HandlerMapping;
 
-@WebServlet("/*.do")
+@WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

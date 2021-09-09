@@ -1,5 +1,10 @@
 package service;
 
+import java.util.List;
+
+import dto.MemberDTO;
+import mapper.MemberMapper;
+
 public class MemberService {
 	private static MemberService instance = new MemberService();
 
@@ -11,6 +16,17 @@ public class MemberService {
 			instance = new MemberService();
 		return instance;
 	}
+
+	public List<MemberDTO> selectAllMember() {
+		return MemberMapper.getInstance().selectAllMember();
+	}
 	
 	
 }
+
+
+
+
+
+
+

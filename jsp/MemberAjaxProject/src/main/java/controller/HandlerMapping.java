@@ -15,6 +15,10 @@ public class HandlerMapping {
 	public Controller createController(String command) {
 		Controller controller = null;
 		switch (command) {
+		case "main.do":
+			controller = new MainController();
+			break;
+		
 		}
 		return controller;
 	}
