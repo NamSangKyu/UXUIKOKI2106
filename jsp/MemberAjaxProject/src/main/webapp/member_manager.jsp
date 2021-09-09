@@ -50,8 +50,8 @@ h1{
 					//결과값을 받는 부분	
 					var str = "";
 					for(i=0;i<r.length;i++){
-						str += "<div class='item'>";
-						str += "<input type='text' name='id' value='"+r[i].id+"' placeholder='아이디'>";
+						str += "<div class='item'>"
+						str += "<input type='text' name='id' value='"+r[i].id+"' placeholder='아이디'>"
 						str += "<input type='password' name='passwd' value='"+r[i].passwd+"' placeholder='암호'>"
 						str += "<input type='text' name='name' value='"+r[i].name+"' placeholder='이름'>" 
 						str += "<input type='text'name='age' value='"+r[i].age+"' placeholder='나이'>" 
@@ -61,7 +61,8 @@ h1{
 						str += "</select> "
 						str += "<input type='text' name='point' value='"+r[i].point+"' placeholder='포인트'>" 
 						str += "<input type='text' name='grade' value='"+r[i].grade+"' placeholder='등급'>"
-						str += "</div>";
+						str += "<button class='btnUpdate'>수정</button><button class='btnDelete'>삭제</button>"
+						str += "</div>"
 					}
 					$(".container").html(str);
 				}
@@ -102,6 +103,8 @@ h1{
 				</select> <input type="text" name="point" value="${member.point }"
 					placeholder="포인트"> <input type="text" name="grade"
 					value="${member.grade }" placeholder="등급">
+					<button class="btnUpdate">수정</button>
+					<button class="btnDelete">삭제</button>
 			</div>
 		</c:forEach>
 	</div>
