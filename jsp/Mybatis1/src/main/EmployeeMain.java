@@ -34,10 +34,18 @@ public class EmployeeMain {
 		 * List<EmployeeDTO> list = mapper.selectPosition(3, 5); for(int
 		 * i=0;i<list.size();i++) { System.out.println(list.get(i)); }
 		 */
-		List<Map<String, Object>> list= mapper.selectPositionCount();
-		for(int i=0;i<list.size();i++)
-			System.out.println(list.get(i).get("NAME") + " " + list.get(i).get("E_COUNT"));
-		System.out.println(list);
+		/*
+		 * List<Map<String, Object>> list= mapper.selectPositionCount(); for(int
+		 * i=0;i<list.size();i++) System.out.println(list.get(i).get("NAME") + " " +
+		 * list.get(i).get("E_COUNT")); System.out.println(list);
+		 */
+		
+		//List<EmployeeDTO> list = mapper.selectSearchEmployee("eno", "TQ98");
+		//List<EmployeeDTO> list = mapper.selectSearchEmployee("name", "김");
+		List<EmployeeDTO> list = mapper.selectSearchEmployee("department", "회계");
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i));
+		}
 	}
 
 }

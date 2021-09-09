@@ -25,7 +25,19 @@
   	select pl.name, count(*) as e_count from employee e, position_list pl
 		where e.position = pl.pno group by pl.name 
   </select>
-  
+  <select id="selectSearchEmployee" parameterType="Map" resultType="dto.EmployeeDTO">
+		select * from employee where 
+		<if test="kind.equals('name')">
+			name like '%' || #{search} || '%'
+		</if>
+		<if test="kind.equals('eno')">
+			eno = #{search}
+		</if>
+		<if test="kind.equals('department')">
+			department = #{search}
+		</if>
+		
+  </select>
   
 </mapper>
 
