@@ -1,0 +1,4 @@
+1. index.jsp 만들어서 member_manager.jsp로 이동
+   모든 회원 정보를 list에 넣어서 member_manager.jsp가
+   로드시 전부 출력
+   
