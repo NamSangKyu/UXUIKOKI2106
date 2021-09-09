@@ -26,6 +26,13 @@ public class MemberMapper {
 		session.close();
 		return list;
 	}
+
+	public void insertMember(MemberDTO dto) {
+		SqlSession session = manager.getSession();
+		session.insert("insertMember",dto);
+		session.commit();
+		session.close();		
+	}
 }
 
 

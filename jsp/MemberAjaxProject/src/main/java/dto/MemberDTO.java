@@ -1,5 +1,9 @@
 package dto;
 
+import java.util.Collection;
+
+import org.json.JSONObject;
+
 public class MemberDTO {
 	private String id;
 	private String passwd;
@@ -66,6 +70,5 @@ public class MemberDTO {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	
 	
 }

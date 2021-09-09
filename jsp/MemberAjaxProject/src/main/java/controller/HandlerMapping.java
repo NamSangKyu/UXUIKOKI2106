@@ -18,6 +18,9 @@ public class HandlerMapping {
 		case "main.do":
 			controller = new MainController();
 			break;
+		case "insertMember.do":
+			controller = new InsertMemberController();
+			break;
 		
 		}
 		return controller;

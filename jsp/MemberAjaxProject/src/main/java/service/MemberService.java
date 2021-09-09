@@ -20,6 +20,10 @@ public class MemberService {
 	public List<MemberDTO> selectAllMember() {
 		return MemberMapper.getInstance().selectAllMember();
 	}
+
+	public void insertMember(MemberDTO dto) {
+		MemberMapper.getInstance().insertMember(dto);		
+	}
 	
 	
 }

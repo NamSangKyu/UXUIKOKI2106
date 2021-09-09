@@ -6,7 +6,9 @@
  	<select id="selectAllMember" resultType="dto.MemberDTO">
  		select * from member
  	</select>
-  
+  	<insert id="insertMember" parameterType="dto.MemberDTO">
+  		insert into member values(#{id},#{passwd},#{name},#{age},#{gender},#{point},#{grade})
+  	</insert>
 </mapper>
 
 

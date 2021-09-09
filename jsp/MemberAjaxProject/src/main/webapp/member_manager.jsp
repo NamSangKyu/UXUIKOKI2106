@@ -32,11 +32,42 @@ h1{
 	text-align: center
 }
 </style>
+<script src="resource/jquery-3.5.1.min.js"></script>
 <script>
 	/*
 		등록 버튼을 누르면 insertMember.do를 호출해서 입력한 회원 정보를 등록
 		회원 목록을 최신화 결과를 Ajax로 받아서 처리	
 	*/
+	$(function() {
+		$("#btnRegister").click(function(){
+			var d = $(".frm").serialize();
+			$.ajax({
+				url : "insertMember.do",
+				data : d,
+				type : "post",
+				dataType:"json",
+				success : function(r) {
+					//결과값을 받는 부분	
+					var str = "";
+					for(i=0;i<r.length;i++){
+						str += "<div class='item'>";
+						str += "<input type='text' name='id' value='"+r[i].id+"' placeholder='아이디'>";
+						str += "<input type='password' name='passwd' value='"+r[i].passwd+"' placeholder='암호'>"
+						str += "<input type='text' name='name' value='"+r[i].name+"' placeholder='이름'>" 
+						str += "<input type='text'name='age' value='"+r[i].age+"' placeholder='나이'>" 
+						str += "<select	name='gender'>"
+						str += 	"<option value='0' "+(r[i].gender == "0" ? "selected" : "")+">남</option>"
+						str += 	"<option value='1' "+(r[i].gender == "1" ? "selected" : "")+">여</option>"
+						str += "</select> "
+						str += "<input type='text' name='point' value='"+r[i].point+"' placeholder='포인트'>" 
+						str += "<input type='text' name='grade' value='"+r[i].grade+"' placeholder='등급'>"
+						str += "</div>";
+					}
+					$(".container").html(str);
+				}
+			});
+		});
+	});
 </script>
 </head>
 <body>
