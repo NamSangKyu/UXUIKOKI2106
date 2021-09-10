@@ -176,7 +176,10 @@ h1{
 				error:function(xhr, textStatus, errorThrow){
 					/* console.log(xhr);
 					console.log(textStatus);
-					console.log(errorThrow); */
+					console.log(errorThrow);
+					//실제 에러는 xhr.status 상태값을 받음 , 200이면 정상수행 그외에는 에러
+					//xhr.responseText 에러메세지
+					*/
 					var msg = "";
 					switch(xhr.status){
 					case 1001:
