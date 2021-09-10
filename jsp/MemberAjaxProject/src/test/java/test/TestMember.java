@@ -30,8 +30,7 @@ class TestMember {
 			txt += temp;
 		}
 		//System.out.println(txt);
-		JSONObject json = new JSONObject(txt);
-		JSONArray array = new JSONArray(json.getJSONArray("data"));
+		JSONArray array = new JSONArray(txt);
 		//2. 읽은 내용을 ArrayList<MemberDTO>에 저장
 		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
 		for(int i=0;i<array.length();i++) {
