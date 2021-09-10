@@ -172,6 +172,27 @@ h1{
 							$(".dialog").slideUp(500);
 						}, 3000);
 					});
+				},
+				error:function(xhr, textStatus, errorThrow){
+					/* console.log(xhr);
+					console.log(textStatus);
+					console.log(errorThrow); */
+					var msg = "";
+					switch(xhr.status){
+					case 1001:
+						msg = "포인트와 나이에는 숫자만 입력하세요";
+						break;
+					}
+					$(".dialog").slideDown(500,function(){
+						
+						$(this).html(msg);
+					
+						//3초 뒤에 해당 알림창을 자동으로 사라지게끔 처리
+						setTimeout(() => {
+							$(".dialog").slideUp(500);
+						}, 3000);
+					});
+					
 				}
 			});
 		});
