@@ -46,6 +46,9 @@ h1{
 	padding:20px;
 	text-align: center;
 }
+.form_container{
+	text-align: center;
+}
 </style>
 <script src="resource/jquery-3.5.1.min.js"></script>
 <script>

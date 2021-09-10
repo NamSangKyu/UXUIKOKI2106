@@ -16,6 +16,27 @@
   		update member set passwd = #{passwd}, name = #{name},age = #{age}, gender  = #{gender},
   		point = #{point},grade = #{grade} where id = #{id}
   	</update>
+  	<select id="selectMember" parameterType="Map" resultType="dto.MemberDTO">
+  		select * from member
+  		<choose>
+  			<when test="kind.equals('id')">
+  				where id like '%' || #{search} || '%'
+  			</when>
+  			<when test="kind.equals('name')">
+  				where name like '%' || #{search} || '%'
+  			</when>
+  			<when test="kind.equals('grade')">
+  				where grade = #{search}
+  			</when>
+  			<when test='kind=="gender" and search=="남"'>
+  					where gender = '0'
+  			</when>
+  			<when test='kind=="gender" and search=="여"'>
+  					where gender = '1'
+  			</when>
+  		</choose>
+  	</select>
+  	
 </mapper>
 
 
