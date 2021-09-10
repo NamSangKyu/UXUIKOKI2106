@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.exceptions.PersistenceException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -39,6 +40,9 @@ public class InsertMemberController implements Controller {
 		} catch (NumberFormatException e) {
 			response.setStatus(1001);
 			response.getWriter().write(e.getMessage());
+		}catch (PersistenceException e) {
+			response.setStatus(1002);
+			response.getWriter().write("아이디가 중복되었습니다.");
 		}
 	}
 

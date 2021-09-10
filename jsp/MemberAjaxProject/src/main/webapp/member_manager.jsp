@@ -118,14 +118,24 @@ h1{
 					str += "</select> "
 					str += "<input type='text' name='point' value='"+r[i].point+"' placeholder='포인트'>" 
 					str += "<input type='text' name='grade' value='"+r[i].grade+"' placeholder='등급'>"
-					str += "<button class='btnUpdate'>수정</button><button class='btnDelete'>삭제</button>"
+					str += "<button class='btnUpdate' type='button'>수정</button><button class='btnDelete'>삭제</button>"
 					str += "</div>"
 				}
 				$(".container").html(str);
 				$(".btnDelete").click(deleteAction);
 				$(".btnUpdate").click(updateAction);
 				$(".dialog").slideDown(500,function(){
-					$(this).html("회원등록이 정상적으로 수행되었습니다.");
+					$(this).html("회원수정이 정상적으로 수행되었습니다.");
+				
+					//3초 뒤에 해당 알림창을 자동으로 사라지게끔 처리
+					setTimeout(() => {
+						$(".dialog").slideUp(500);
+					}, 3000);
+				});
+			},
+			error:function(xhr,errorText,errorThrow){
+				$(".dialog").slideDown(500,function(){
+					$(this).html(xhr.responseText);
 				
 					//3초 뒤에 해당 알림창을 자동으로 사라지게끔 처리
 					setTimeout(() => {
@@ -158,7 +168,7 @@ h1{
 						str += "</select> "
 						str += "<input type='text' name='point' value='"+r[i].point+"' placeholder='포인트'>" 
 						str += "<input type='text' name='grade' value='"+r[i].grade+"' placeholder='등급'>"
-						str += "<button class='btnUpdate'>수정</button><button class='btnDelete'>삭제</button>"
+						str += "<button class='btnUpdate' type='button'>수정</button><button class='btnDelete'>삭제</button>"
 						str += "</div>"
 					}
 					$(".container").html(str);
@@ -185,6 +195,11 @@ h1{
 					case 1001:
 						msg = "포인트와 나이에는 숫자만 입력하세요";
 						break;
+					case 1002:
+						msg = xhr.responseText;
+						break;
+					default:
+						msg = "에러가 발생했습니다.";
 					}
 					$(".dialog").slideDown(500,function(){
 						
@@ -226,7 +241,7 @@ h1{
 						str += "</select> "
 						str += "<input type='text' name='point' value='"+r[i].point+"' placeholder='포인트'>" 
 						str += "<input type='text' name='grade' value='"+r[i].grade+"' placeholder='등급'>"
-						str += "<button class='btnUpdate'>수정</button><button class='btnDelete'>삭제</button>"
+						str += "<button class='btnUpdate' type='button'>수정</button><button class='btnDelete'>삭제</button>"
 						str += "</div>"
 					}
 					$(".container").html(str);
@@ -284,7 +299,7 @@ h1{
 					placeholder="포인트"> <input type="text" name="grade"
 					value="${member.grade }" placeholder="등급">
 					<button class="btnUpdate" type="button">수정</button>
-					<button class="btnDelete">삭제</button>
+					<button class="btnDelete" type='button'>삭제</button>
 			</div>
 		</c:forEach>
 	</div>
