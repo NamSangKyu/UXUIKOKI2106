@@ -32,6 +32,10 @@ public class MemberService {
 	public void updatetMember(MemberDTO dto) {
 		MemberMapper.getInstance().updateMember(dto);
 	}
+
+	public List<MemberDTO> search(String kind, String search) {
+		return MemberMapper.getInstance().selectMember(kind,search);
+	}
 	
 	
 }

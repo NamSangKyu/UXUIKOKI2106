@@ -176,6 +176,39 @@ h1{
 		//이벤트 처리후 동적엘리먼트에 이벤트 추가를 위해 해당 이벤트 처리를 deleteAction ajax 마지막 처리부분에 추가
 		$(".btnDelete").click(deleteAction);
 		$(".btnUpdate").click(updateAction);
+		//검색처리
+		$("#btnSearch").click(function() {
+			var d = $(this).parent().serialize();
+			
+			$.ajax({
+				url:"search.do",
+				data:d,
+				type:"post",
+				dataType:"json",
+				success:function(r){
+					var str = "";
+					for(i=0;i<r.length;i++){
+						str += "<div class='item'>"
+						str += "<input type='text' name='id' value='"+r[i].id+"' placeholder='아이디'>"
+						str += "<input type='password' name='passwd' value='"+r[i].passwd+"' placeholder='암호'>"
+						str += "<input type='text' name='name' value='"+r[i].name+"' placeholder='이름'>" 
+						str += "<input type='text'name='age' value='"+r[i].age+"' placeholder='나이'>" 
+						str += "<select	name='gender'>"
+						str += 	"<option value='0' "+(r[i].gender == "0" ? "selected" : "")+">남</option>"
+						str += 	"<option value='1' "+(r[i].gender == "1" ? "selected" : "")+">여</option>"
+						str += "</select> "
+						str += "<input type='text' name='point' value='"+r[i].point+"' placeholder='포인트'>" 
+						str += "<input type='text' name='grade' value='"+r[i].grade+"' placeholder='등급'>"
+						str += "<button class='btnUpdate'>수정</button><button class='btnDelete'>삭제</button>"
+						str += "</div>"
+					}
+					$(".container").html(str);
+					$(".btnDelete").click(deleteAction);
+					$(".btnUpdate").click(updateAction);
+				}
+			});
+			
+		});
 	});
 </script>
 </head>
@@ -195,6 +228,18 @@ h1{
 		<button type="button" id="btnRegister">등록</button>
 	</form>
 	<hr>
+	<div class="form_container">
+		<form>
+			<select name="kind">
+				<option value="id">아이디</option>
+				<option value="name">이름</option>
+				<option value="grade">등급</option>
+				<option value="gender">성별</option>
+			</select>
+			<input type="text" name="search" placeholder="검색어를 입력하세요">
+			<button type="button" id="btnSearch">검색</button>
+		</form>
+	</div>
 	<div class="container">
 		<c:forEach var="member" items="${requestScope.list }">
 			<div class="item">
