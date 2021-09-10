@@ -21,8 +21,10 @@ public class SearchMemberController implements Controller {
 		
 		List<MemberDTO> list = MemberService.getInstance().search(kind,search);
 		JSONArray arr = new JSONArray(list);
+		System.out.println(arr.toString());
 		response.setContentType("text/html;charset=utf-8");
 		response.getWriter().write(arr.toString());
+		
 	}
 
 }
