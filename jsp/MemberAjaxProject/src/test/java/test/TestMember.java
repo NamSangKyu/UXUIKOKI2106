@@ -6,16 +6,19 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.SqlSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import config.DBManager;
 import dto.MemberDTO;
 
 class TestMember {
-
+	static SqlSession session;
+	//모든 테스트가 시작전에 실행
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		//테스트용 데이터 읽기
@@ -45,13 +48,19 @@ class TestMember {
 				int point = j.getInt("point");
 				list.add(new MemberDTO(id, passwd, name, age, gender, point, grade));
 				
-		}	
-		//3.데이터 추가
+		}
+		//세션 획득
+		session = DBManager.getInstance().getSession();
+		//3.데이터 추가 - DB에 추가
+		for(int i=0;i<list.size();i++)
+			session.insert("insertMember", list.get(i));
 	}
 
+	//모든 테스트가 끝난후 실행
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		//테스트 끝나면 롤백
+		session.rollback();
 	}
 
 	@Test
