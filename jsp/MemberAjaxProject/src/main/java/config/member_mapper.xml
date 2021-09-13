@@ -36,6 +36,9 @@
   			</when>
   		</choose>
   	</select>
+  	<update id="updatePoint" parameterType="Map">
+  		update member set point = #{point} where id = #{id}
+  	</update>
   	
 </mapper>
 

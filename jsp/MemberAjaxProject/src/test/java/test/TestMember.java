@@ -1,16 +1,21 @@
 package test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import config.DBManager;
@@ -64,8 +69,36 @@ class TestMember {
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	@DisplayName("포인트 업데이트 테스트")
+	void updatePoint() {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("point", 1000000);
+		map.put("id", "A0005");
+		assertEquals(session.update("updatePoint", map),1,"포인트 업데이트 실패");
 	}
-
+	@Test
+	@DisplayName("회원 삭제 테스트")
+	void deletePoint() {
+		String id = "A0006";
+		assertEquals(session.delete("deleteMember",id), 1);
+	}
+	
+	@Test
+	@DisplayName("회원 조회 테스트")
+	void selectMember() {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("search", "A0004");
+		map.put("kind", "id");
+		
+		MemberDTO dto = session.selectOne("selectMember",map);
+		//System.out.println(dto);
+		assertNotNull(dto, "조회 결과가 없습니다.");
+	}
 }
+
+
+
+
+
+
+
