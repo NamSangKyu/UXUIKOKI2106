@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 
 import org.korea.dto.MemberDTO;
 import org.korea.service.MemberService;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

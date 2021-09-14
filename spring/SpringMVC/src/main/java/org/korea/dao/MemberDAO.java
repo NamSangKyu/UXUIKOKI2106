@@ -5,10 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.korea.DIContainer;
-import org.korea.MainController;
 import org.korea.dto.MemberDTO;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import config.DBManager;
 

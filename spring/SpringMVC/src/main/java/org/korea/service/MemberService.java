@@ -1,6 +1,5 @@
 package org.korea.service;
 
-import org.korea.MainController;
 import org.korea.dao.MemberDAO;
 import org.korea.dto.MemberDTO;
 import org.springframework.stereotype.Service;
@@ -8,7 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberService {
 	private MemberDAO dao;
-
+	
+	//DIContainer에 Bean으로 등록되어있으면 자동으로 역주입
 	public MemberService(MemberDAO dao) {
 		this.dao = dao;
 	}
