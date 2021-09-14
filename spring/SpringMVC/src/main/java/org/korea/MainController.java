@@ -1,5 +1,7 @@
 package org.korea;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,7 +16,8 @@ public class MainController {
 	}
 
 	@RequestMapping("/login.do")
-	public String login(@RequestParam("id")String id, @RequestParam("pass")String pass ) {
+	public String login(@RequestParam("id")String id, @RequestParam("pass")String pass, HttpSession session ) {
+		session.setAttribute("id", id);
 		System.out.println(id + " " + pass);
 		return "main";
 	}
