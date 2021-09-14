@@ -11,4 +11,9 @@ public class AppContext {
 		return new Greeting(1, "test");
 	}
 	
+	@Bean
+	public BookDTO book() {
+		return new BookDTO();
+	}
+	
 }

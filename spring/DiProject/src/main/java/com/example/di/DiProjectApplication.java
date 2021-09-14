@@ -18,6 +18,11 @@ public class DiProjectApplication {
 		System.out.println(g1.getId() + " " + g1.getContent());
 		Greeting g4 = ctx.getBean("greeting",Greeting.class);
 		System.out.println(g1.getId() + " " + g1.getContent());
+		BookDTO d1 = ctx.getBean("book",BookDTO.class);
 	}
 
 }
+
+
+
+
