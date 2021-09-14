@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="config.sqlmapper">
+ 	<insert id="insertProduct" parameterType="dto.ProductDTO">
+ 		insert into product 
+ 		values(#{productNo},#{productName},#{price},#{ea},#{maker})
+ 	</insert>
+ 	<select id="selectAllProduct" resultType="Map">
+ 		select * from product
+ 	</select>
+ 	
+ 	<select id="selectProduct" parameterType="String" resultType="Map">
+ 		select * from product where PRODUCT_NO = #{no}
+ 	
+ 	</select>
+</mapper>
+
+
+
+
+
+
+
+
