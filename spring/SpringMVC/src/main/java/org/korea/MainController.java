@@ -1,5 +1,7 @@
 package org.korea;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -26,12 +28,24 @@ public class MainController {
 	@RequestMapping("/login.do")
 	//public String login(@RequestParam("id")String id, @RequestParam("pass")String pass, HttpSession session ) {
 	public String login(HttpServletRequest request, HttpSession session ) {
+		ArrayList<MemberDTO> list = null;
+		if(session.getAttribute("dto") != null) {
+			list = service.selectAllMember();
+			request.setAttribute("list", list);
+			return "member_manager";
+		}
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
 		MemberDTO dto = service.login(id, pass);
 		session.setAttribute("dto", dto);
-		System.out.println(dto.getId());
+		list = service.selectAllMember();
+		request.setAttribute("list", list);
 		return "member_manager";
+	}
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "main";
 	}
 	
 }

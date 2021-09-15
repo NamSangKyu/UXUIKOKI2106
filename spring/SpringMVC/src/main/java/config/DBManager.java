@@ -25,8 +25,10 @@ public class DBManager {
 		return connection;
 	}
 
-	public void close(PreparedStatement pstmt, ResultSet rs) {
+	public void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
 		try {
+			if(conn != null)
+				conn.close();
 			if (pstmt != null)
 				pstmt.close();
 			if (rs != null)

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${sessionScope.id == null }">
+	<c:if test="${sessionScope.dto == null }">
 		<!-- 로그인 폼 -->
 		<form action="login.do" method="post">
 			<input type="text" name="id" placeholder="아이디를 입력하세요"><br>
@@ -16,8 +16,17 @@
 			<button>로그인</button>
 		</form>
 	</c:if>
-	<c:if test="${sessionScope.id != null }">
-		<h2>${sessionScope.id }님 로그인하셨습니다.</h2>
+	<c:if test="${sessionScope.dto != null }">
+		<script type="text/javascript">
+			location.href="login.do";
+		</script>
 	</c:if>
 </body>
 </html>
+
+
+
+
+
+
+
