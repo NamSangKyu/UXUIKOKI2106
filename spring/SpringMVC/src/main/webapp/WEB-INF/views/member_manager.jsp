@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <script src="/resource/lib/jquery-3.6.0.min.js"></script>
 <script>
-	$(function() {
+	function updateEvent(){
 		$(".btnDelete").click(function() {
 			//alert($(this).parent().find("input[name=id]").val());
 			$.ajax({
@@ -21,17 +21,47 @@
 					for(i=0;i<r.length;i++){
 						tag += "<form>";
 						tag += "<input type='text' name='id' value='"+r[i].id+"'>";
-						tag += "<input type='text' name='passwd' value='"+r[i].passwd+"'>";
+						tag += "<input type='text' name='passwd' value='"+r[i].pass+"'>";
 						tag += "<input type='text' name='name' value='"+r[i].name+"'>";
 						tag += "<input type='text' name='age' value='"+r[i].age+"'>";
 						tag += "<input type='text' name='grade' value='"+r[i].grade+"'>";
+						tag += "<button type='button' class='btnUpdate'>수정</button>";
 						tag += "<button type='button' class='btnDelete'>삭제</button>";
 						tag += "</form>";
 					}
 					$(".result").html(tag);
+					updateEvent();
 				}
 			});
 		});
+		$(".btnUpdate").click(function() {
+			var d =	$(this).parent().serialize();
+			$.ajax({
+				data:d,
+				url : "update.do",
+				dataType:"json",
+				type:"get",
+				success:function(r){
+					var tag = "";
+					for(i=0;i<r.length;i++){
+						tag += "<form>";
+						tag += "<input type='text' name='id' value='"+r[i].id+"'>";
+						tag += "<input type='text' name='passwd' value='"+r[i].pass+"'>";
+						tag += "<input type='text' name='name' value='"+r[i].name+"'>";
+						tag += "<input type='text' name='age' value='"+r[i].age+"'>";
+						tag += "<input type='text' name='grade' value='"+r[i].grade+"'>";
+						tag += "<button type='button' class='btnUpdate'>수정</button>";
+						tag += "<button type='button' class='btnDelete'>삭제</button>";
+						tag += "</form>";
+					}
+					$(".result").html(tag);
+					updateEvent();
+				}
+			});
+		});
+	}
+	$(function() {
+		updateEvent();
 	});
 </script>
 </head>
@@ -49,7 +79,7 @@
 		<input type="text" name="name" value="${obj.name }">
 		<input type="text" name="age" value="${obj.age }">
 		<input type="text" name="grade" value="${obj.grade }">
-		<a href="#">수정</a>
+		<button type="button" class="btnUpdate">수정</button>
 		<button type="button" class="btnDelete">삭제</button><!-- 삭제 처리 Ajax로 삭제 처리 -->
 		</form>
 		
