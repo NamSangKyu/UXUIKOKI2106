@@ -69,6 +69,24 @@ public class MemberDAO {
 		
 		return list;
 	}
+
+	public void deleteMember(String id) {
+		String sql = "delete from member where id = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(pstmt, null);
+		}
+	}
 }
 
 

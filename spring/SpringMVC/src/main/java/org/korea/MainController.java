@@ -1,14 +1,15 @@
 package org.korea;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
 import org.korea.dto.MemberDTO;
 import org.korea.service.MemberService;
-import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -51,12 +52,13 @@ public class MainController {
 	}
 	
 	@RequestMapping("/delete.do")
-	public String delete(HttpServletRequest request, HttpServletResponse response) {
+	public String delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String id = request.getParameter("id");
 		service.deleteMember(id);
 		ArrayList<MemberDTO> list = service.selectAllMember();
 		JSONArray arr = new JSONArray(list);
 		response.setContentType("text/html;charset=utf-8");
+		System.out.println(arr.toString());
 		response.getWriter().write(arr.toString());
 		return null;
 	}

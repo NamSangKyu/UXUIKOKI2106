@@ -22,4 +22,12 @@ public class MemberService {
 	public ArrayList<MemberDTO> selectAllMember() {
 		return dao.selectAllMember();
 	}
+
+	public void deleteMember(String id) {
+		dao.deleteMember(id);
+	}
 }
+
+
+
+
