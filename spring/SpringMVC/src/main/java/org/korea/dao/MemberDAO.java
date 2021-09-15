@@ -40,6 +40,8 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			manager.close(pstmt, rs);
 		}
 		
 		return dto;
@@ -62,7 +64,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			manager.close(conn ,pstmt, rs);
+			manager.close(pstmt, rs);
 		}
 		
 		return list;

@@ -3,10 +3,12 @@ package org.korea;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.korea.dto.MemberDTO;
 import org.korea.service.MemberService;
+import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -47,6 +49,18 @@ public class MainController {
 		session.invalidate();
 		return "main";
 	}
+	
+	@RequestMapping("/delete.do")
+	public String delete(HttpServletRequest request, HttpServletResponse response) {
+		String id = request.getParameter("id");
+		service.deleteMember(id);
+		ArrayList<MemberDTO> list = service.selectAllMember();
+		JSONArray arr = new JSONArray(list);
+		response.setContentType("text/html;charset=utf-8");
+		response.getWriter().write(arr.toString());
+		return null;
+	}
+	
 	
 }
 
