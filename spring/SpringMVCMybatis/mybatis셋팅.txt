@@ -1,0 +1,49 @@
+1. 접속정보 설정 - application.properties
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@127.0.0.1:1521:xe
+spring.datasource.username=scott
+spring.datasource.password=tiger
+spring.datasource.connection-test-query=SELECT 1
+
+#mybatis mapping type short cut
+mybatis.type-aliases-package= com.example.demo.db
+mybatis.mapper-locations=mapper/**/*.xml
+
+logging.level.com.example.demo.db=trace
+
+2. 서비스 클래스에서
+@Autowired로 Mapper인터페이스 연결
+
+@Autowired
+MemberMapper memberMapper;
+
+3. Mapper클래스에 @Mapper 설정
+@Mapper
+public interface MemberMapper {
+	MemberVO selectMemberById(String id);
+	List<MemberVO> selectAllMember();
+	void insertMember(MemberVO vo);
+}
+
+4. VO, DTO 클래스에 별칭 설정, 단 접속정보 설정에서 mybatis.type-aliases-package 설정 해줘야됨
+@Alias("member")
+public class MemberVO {
+
+
+5. xml 생성시 mybatis.mapper-locations=mapper/**/*.xml 설정한 대로
+resource/mapper 하위에 생성
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.db.MemberMapper">
+	<select id="selectMemberById" parameterType="String" resultType="member">
+		SELECT * FROM MEMBER WHERE ID LIKE #{id}
+	</select>
+	<select id="selectAllMember" resultType="member">
+		SELECT * FROM MEMBER
+	</select>
+	<insert id="insertMember">
+		INSERT INTO MEMBER VALUES(#{id},#{pass},#{name},#{age})
+	</insert>	
+
+</mapper>
