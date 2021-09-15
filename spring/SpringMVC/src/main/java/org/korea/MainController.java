@@ -12,6 +12,7 @@ import org.korea.dto.MemberDTO;
 import org.korea.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -86,6 +87,15 @@ public class MainController {
 		String grade = request.getParameter("grade");
 		service.insertMember(new MemberDTO(id,pass,name,age,grade));
 		ArrayList<MemberDTO> list = service.selectAllMember();
+		JSONArray arr = new JSONArray(list);
+		response.setContentType("text/html;charset=utf-8");
+		System.out.println(arr.toString());
+		response.getWriter().write(arr.toString());
+		return null;
+	}
+	@RequestMapping("/search.do")
+	public String search(@RequestParam("search")String search, HttpServletResponse response) throws IOException {
+		ArrayList<MemberDTO> list = service.searchMember(search);
 		JSONArray arr = new JSONArray(list);
 		response.setContentType("text/html;charset=utf-8");
 		System.out.println(arr.toString());

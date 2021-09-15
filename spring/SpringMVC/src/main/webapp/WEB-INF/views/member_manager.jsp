@@ -8,6 +8,22 @@
 <title>Insert title here</title>
 <script src="/resource/lib/jquery-3.6.0.min.js"></script>
 <script>
+	function writeResult(r){
+		var tag = "";
+		for(i=0;i<r.length;i++){
+			tag += "<form>";
+			tag += "<input type='text' name='id' value='"+r[i].id+"'>";
+			tag += "<input type='text' name='passwd' value='"+r[i].pass+"'>";
+			tag += "<input type='text' name='name' value='"+r[i].name+"'>";
+			tag += "<input type='text' name='age' value='"+r[i].age+"'>";
+			tag += "<input type='text' name='grade' value='"+r[i].grade+"'>";
+			tag += "<button type='button' class='btnUpdate'>수정</button>";
+			tag += "<button type='button' class='btnDelete'>삭제</button>";
+			tag += "</form>";
+		}
+		$(".result").html(tag);
+		updateEvent();
+	} 
 	function updateEvent(){
 		$(".btnDelete").click(function() {
 			//alert($(this).parent().find("input[name=id]").val());
@@ -17,20 +33,7 @@
 				dataType:"json",
 				type:"get",
 				success:function(r){
-					var tag = "";
-					for(i=0;i<r.length;i++){
-						tag += "<form>";
-						tag += "<input type='text' name='id' value='"+r[i].id+"'>";
-						tag += "<input type='text' name='passwd' value='"+r[i].pass+"'>";
-						tag += "<input type='text' name='name' value='"+r[i].name+"'>";
-						tag += "<input type='text' name='age' value='"+r[i].age+"'>";
-						tag += "<input type='text' name='grade' value='"+r[i].grade+"'>";
-						tag += "<button type='button' class='btnUpdate'>수정</button>";
-						tag += "<button type='button' class='btnDelete'>삭제</button>";
-						tag += "</form>";
-					}
-					$(".result").html(tag);
-					updateEvent();
+					writeResult(r);
 				}
 			});
 		});
@@ -42,20 +45,7 @@
 				dataType:"json",
 				type:"get",
 				success:function(r){
-					var tag = "";
-					for(i=0;i<r.length;i++){
-						tag += "<form>";
-						tag += "<input type='text' name='id' value='"+r[i].id+"'>";
-						tag += "<input type='text' name='passwd' value='"+r[i].pass+"'>";
-						tag += "<input type='text' name='name' value='"+r[i].name+"'>";
-						tag += "<input type='text' name='age' value='"+r[i].age+"'>";
-						tag += "<input type='text' name='grade' value='"+r[i].grade+"'>";
-						tag += "<button type='button' class='btnUpdate'>수정</button>";
-						tag += "<button type='button' class='btnDelete'>삭제</button>";
-						tag += "</form>";
-					}
-					$(".result").html(tag);
-					updateEvent();
+					writeResult(r);
 				}
 			});
 		});
@@ -70,22 +60,21 @@
 				type:"post",
 				dataType:"json",
 				success:function(r){
-					var tag = "";
-					for(i=0;i<r.length;i++){
-						tag += "<form>";
-						tag += "<input type='text' name='id' value='"+r[i].id+"'>";
-						tag += "<input type='text' name='passwd' value='"+r[i].pass+"'>";
-						tag += "<input type='text' name='name' value='"+r[i].name+"'>";
-						tag += "<input type='text' name='age' value='"+r[i].age+"'>";
-						tag += "<input type='text' name='grade' value='"+r[i].grade+"'>";
-						tag += "<button type='button' class='btnUpdate'>수정</button>";
-						tag += "<button type='button' class='btnDelete'>삭제</button>";
-						tag += "</form>";
-					}
-					$(".result").html(tag);
-					updateEvent();
+					writeResult(r);
 				}
 			})
+		});
+		$(".search").keyup(function(){
+			var d = "search="+$(this).val();
+			$.ajax({
+				data : d,
+				url : "search.do",
+				type:"get",
+				dataType:"json",
+				success:function(r){
+					writeResult(r);
+				}
+			});
 		});
 	});
 </script>
@@ -102,6 +91,13 @@
 		<input type="text" name="age" placeholder="나이를 입력하세요">
 		<button type="button" class="btnRegister">등록</button>
 	</form>
+	<hr>
+	<!-- 
+		검색창
+		검색어를 입력할때 마다 입력한 내용을 기준으로
+		아이디, 이름, 등급에 해당내용이 포함되면 화면에 출력 
+	-->
+	검색 : <input type="text" class="search" placeholder="검색어 입력하세요">
 	<hr>
 	<div class="result">
 	<!-- 전체 회원 목록을 출력 -->

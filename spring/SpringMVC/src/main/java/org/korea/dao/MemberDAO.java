@@ -132,6 +132,34 @@ public class MemberDAO {
 		}
 		
 	}
+
+	public ArrayList<MemberDTO> searchMember(String search) {
+		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+		String sql = "select * from member where id like '%' || ? || '%' or "
+				+ "name like '%' || ? || '%' or grade like '%' || ? || '%'";
+		Connection conn = null;
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, search);
+			pstmt.setString(2, search);
+			pstmt.setString(3, search);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(7)));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(pstmt, rs);
+		}
+		
+		return list;
+	}
 }
 
 

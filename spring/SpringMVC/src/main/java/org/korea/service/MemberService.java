@@ -34,6 +34,10 @@ public class MemberService {
 	public void insertMember(MemberDTO dto) {
 		dao.insertMember(dto);
 	}
+
+	public ArrayList<MemberDTO> searchMember(String search) {
+		return dao.searchMember(search);
+	}
 }
 
 
