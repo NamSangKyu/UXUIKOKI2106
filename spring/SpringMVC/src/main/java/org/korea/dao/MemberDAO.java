@@ -109,6 +109,29 @@ public class MemberDAO {
 			manager.close(pstmt, null);
 		}
 	}
+
+	public void insertMember(MemberDTO dto) {
+		String sql = "insert into member(id,passwd,name,age)"
+				+ " values(?,?,?,?)";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = manager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getId());
+			pstmt.setString(2, dto.getPass());
+			pstmt.setString(3, dto.getName());
+			pstmt.setInt(4, dto.getAge());
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(pstmt, null);
+		}
+		
+	}
 }
 
 

@@ -30,6 +30,10 @@ public class MemberService {
 	public void updateMember(MemberDTO dto) {
 		dao.updateMember(dto);
 	}
+
+	public void insertMember(MemberDTO dto) {
+		dao.insertMember(dto);
+	}
 }
 
 

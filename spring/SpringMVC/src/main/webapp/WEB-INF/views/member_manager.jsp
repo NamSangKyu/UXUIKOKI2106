@@ -62,13 +62,46 @@
 	}
 	$(function() {
 		updateEvent();
+		$(".btnRegister").click(function() {
+			var d = $(this).parent().serialize();
+			$.ajax({
+				data : d,
+				url : "insert.do",
+				type:"post",
+				dataType:"json",
+				success:function(r){
+					var tag = "";
+					for(i=0;i<r.length;i++){
+						tag += "<form>";
+						tag += "<input type='text' name='id' value='"+r[i].id+"'>";
+						tag += "<input type='text' name='passwd' value='"+r[i].pass+"'>";
+						tag += "<input type='text' name='name' value='"+r[i].name+"'>";
+						tag += "<input type='text' name='age' value='"+r[i].age+"'>";
+						tag += "<input type='text' name='grade' value='"+r[i].grade+"'>";
+						tag += "<button type='button' class='btnUpdate'>수정</button>";
+						tag += "<button type='button' class='btnDelete'>삭제</button>";
+						tag += "</form>";
+					}
+					$(".result").html(tag);
+					updateEvent();
+				}
+			})
+		});
 	});
 </script>
 </head>
 <body>
 	${sessionScope.dto.id }님 로그인<br>
 	<!-- 로그아웃 처리 -->
-	<a href="logout.do">로그아웃</a>	
+	<a href="logout.do">로그아웃</a>
+	<!-- 회원정보 추가 -->
+	<form>
+		<input type="text" name="id" placeholder="아이디를 입력하세요">
+		<input type="password" name="passwd" placeholder="암호를 입력하세요">
+		<input type="text" name="name" placeholder="이름을 입력하세요">
+		<input type="text" name="age" placeholder="나이를 입력하세요">
+		<button type="button" class="btnRegister">등록</button>
+	</form>
 	<hr>
 	<div class="result">
 	<!-- 전체 회원 목록을 출력 -->

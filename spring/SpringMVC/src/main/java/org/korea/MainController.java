@@ -77,6 +77,21 @@ public class MainController {
 		response.getWriter().write(arr.toString());
 		return null;
 	}
+	@RequestMapping("/insert.do")
+	public String insert(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String id = request.getParameter("id");
+		String pass = request.getParameter("passwd");
+		String name = request.getParameter("name");
+		int age = Integer.parseInt(request.getParameter("age"));
+		String grade = request.getParameter("grade");
+		service.insertMember(new MemberDTO(id,pass,name,age,grade));
+		ArrayList<MemberDTO> list = service.selectAllMember();
+		JSONArray arr = new JSONArray(list);
+		response.setContentType("text/html;charset=utf-8");
+		System.out.println(arr.toString());
+		response.getWriter().write(arr.toString());
+		return null;
+	}
 	
 	
 }
