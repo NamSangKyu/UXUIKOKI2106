@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 import org.korea.dto.MemberDTO;
@@ -26,6 +27,10 @@ public class MainController {
 	@RequestMapping("/")
 	public String main() {
 		return "main";
+	}
+	@RequestMapping("boardList.do")
+	public String boardMain() {
+		return "board/board_list";
 	}
 	
 	@RequestMapping("/login.do")
@@ -79,6 +84,12 @@ public class MainController {
 			object.put("result",false);
 		response.getWriter().write(object.toString());	
 		return null;
+	}
+	
+	@RequestMapping("logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "main";
 	}
 }
 
