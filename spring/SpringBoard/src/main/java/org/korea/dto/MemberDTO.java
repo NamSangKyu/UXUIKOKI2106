@@ -15,6 +15,17 @@ public class MemberDTO {
 	public MemberDTO() {
 	}
 
+	public MemberDTO(String id, String passwd, String name, int age, String gender, int point, String grade) {
+		super();
+		this.id = id;
+		this.passwd = passwd;
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.point = point;
+		this.grade = grade;
+	}
+
 	public String getId() {
 		return id;
 	}

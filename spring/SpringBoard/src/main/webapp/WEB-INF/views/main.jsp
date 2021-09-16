@@ -14,7 +14,7 @@
 		<button type="button" class="btnRegister">회원가입</button>
 	</form>
 <script type="text/javascript">
-	document.querySelector(".btnRegister").click = function(){
+	document.querySelector(".btnRegister").onclick = function(){
 		location.href = "registerView.do";
 	}	
 </script>

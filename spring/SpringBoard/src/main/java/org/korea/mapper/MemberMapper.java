@@ -9,5 +9,6 @@ import org.korea.dto.MemberDTO;
 public interface MemberMapper {
 
 	MemberDTO login(HashMap<String, Object> map);
+	int insertMember(MemberDTO dto);
 
 }

@@ -6,4 +6,8 @@
 	<select id="login" parameterType="Map" resultType="member">
 		select * from member where id = #{id} and passwd = #{pass}
 	</select>
+	<insert id="insertMember" parameterType="member">
+		insert into member(id,passwd,name,age,gender)
+		values(#{id},#{passwd},#{name},#{age},#{gender})
+	</insert>
 </mapper>
