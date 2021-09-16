@@ -1,12 +1,14 @@
 package org.korea;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
+import org.korea.dto.BoardDTO;
 import org.korea.dto.MemberDTO;
 import org.korea.service.BoardService;
 import org.korea.service.MemberService;
@@ -29,7 +31,9 @@ public class MainController {
 		return "main";
 	}
 	@RequestMapping("boardList.do")
-	public String boardMain() {
+	public String boardMain(HttpServletRequest request) {
+		ArrayList<BoardDTO> list = boardService.selectBoard(1);
+		request.setAttribute("list", list);
 		return "board/board_list";
 	}
 	
@@ -46,7 +50,7 @@ public class MainController {
 			return null;
 		}else {
 			request.getSession().setAttribute("client", dto);
-			return "board/board_list";
+			return boardMain(request);
 		}
 		
 	}
@@ -70,7 +74,7 @@ public class MainController {
 			return null;
 		}
 		request.getSession().setAttribute("client", dto);
-		return "board/board_list";
+		return boardMain(request);
 	}
 	@RequestMapping("idCheck.do")
 	public String idCheck(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -112,7 +116,7 @@ public class MainController {
 			return null;
 		}
 		
-		return "board/board_list";
+		return boardMain(request);
 	}
 }
 

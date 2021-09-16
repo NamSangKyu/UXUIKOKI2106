@@ -9,10 +9,42 @@ public class BoardDTO {
 	private String writer;
 	private String bdate;
 	private String content;
-	private int count;
-
+	private int bcount;
+	private int blike;
+	private int bhate;
+	
 	public BoardDTO() {
 	}
+	public BoardDTO(int bno, String title, String writer, String bdate, String content, int bcount, int blike,
+			int bhate) {
+		super();
+		this.bno = bno;
+		this.title = title;
+		this.writer = writer;
+		this.bdate = bdate;
+		this.content = content;
+		this.bcount = bcount;
+		this.blike = blike;
+		this.bhate = bhate;
+	}
+	public int getBlike() {
+		return blike;
+	}
+
+	public void setBlike(int blike) {
+		this.blike = blike;
+	}
+
+	public int getBhate() {
+		return bhate;
+	}
+
+	public void setBhate(int bhate) {
+		this.bhate = bhate;
+	}
+
+	
+
 	public int getBno() {
 		return bno;
 	}
@@ -43,12 +75,13 @@ public class BoardDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getCount() {
-		return count;
+	public int getBcount() {
+		return bcount;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setBcount(int bcount) {
+		this.bcount = bcount;
 	}
-	
+
+
 	
 }

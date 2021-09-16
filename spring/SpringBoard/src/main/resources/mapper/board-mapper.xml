@@ -3,4 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.korea.mapper.BoardMapper">
+	<select id="selectBoard" parameterType="int" resultType="board">
+		select * from (select b.*, ceil(rownum/5)  as pageno from 
+		(select * from board_list order by bno desc) b)
+		where pageno = #{pageno}
+	</select>
 </mapper>
