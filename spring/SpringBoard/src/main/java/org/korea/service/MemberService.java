@@ -24,6 +24,10 @@ public class MemberService {
 	public int insertMember(MemberDTO dto) {
 		return mapper.insertMember(dto);
 	}
+
+	public MemberDTO idCheck(String id) {
+		return mapper.idCheck(id);
+	}
 	
 	
 }

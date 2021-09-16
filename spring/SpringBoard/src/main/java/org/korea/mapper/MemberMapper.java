@@ -10,5 +10,6 @@ public interface MemberMapper {
 
 	MemberDTO login(HashMap<String, Object> map);
 	int insertMember(MemberDTO dto);
+	MemberDTO idCheck(String id);
 
 }

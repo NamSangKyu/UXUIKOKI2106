@@ -10,4 +10,7 @@
 		insert into member(id,passwd,name,age,gender)
 		values(#{id},#{passwd},#{name},#{age},#{gender})
 	</insert>
+	<select id="idCheck" parameterType="String" resultType="member">
+		select * from member where id = #{id}
+	</select>
 </mapper>

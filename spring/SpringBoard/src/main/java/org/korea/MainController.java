@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
 import org.korea.dto.MemberDTO;
 import org.korea.service.BoardService;
 import org.korea.service.MemberService;
@@ -66,7 +67,19 @@ public class MainController {
 		request.getSession().setAttribute("client", dto);
 		return "board/board_list";
 	}
-	
+	@RequestMapping("idCheck.do")
+	public String idCheck(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String id = request.getParameter("id");
+		MemberDTO dto = memberService.idCheck(id);
+		JSONObject object = new JSONObject();
+		System.out.println(dto);
+		if(dto == null) 
+			object.put("result",true);
+		else
+			object.put("result",false);
+		response.getWriter().write(object.toString());	
+		return null;
+	}
 }
 
 
