@@ -1,12 +1,19 @@
 package org.korea;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.json.JSONObject;
 import org.korea.dto.BoardDTO;
 import org.korea.dto.MemberDTO;
@@ -118,6 +125,38 @@ public class MainController {
 		
 		return boardMain(request);
 	}
+	
+	@RequestMapping("boardWriteView.do")
+	public String boardWriteView() {
+		return "board/board_write";
+	}
+	@RequestMapping("boardWrite.do")
+	public String boardWrite(HttpServletRequest request, HttpSession session) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
+		String encoding = "utf-8";
+		String root = "c:\\fileupload\\";
+		File userRoot = new File(root);
+		
+		if(!userRoot.exists())
+			userRoot.mkdirs();
+		
+		DiskFileItemFactory factory = new DiskFileItemFactory();
+		factory.setRepository(userRoot);
+		factory.setSizeThreshold(1024*1024);
+		
+		ServletFileUpload upload = new ServletFileUpload(factory);
+		try {
+			List<FileItem> list = upload.parseRequest(request);
+			
+		}catch (FileUploadException e) {
+			// TODO: handle exception
+		}
+		
+		
+		return boardMain(request);
+	}
+	
+	
 }
 
 

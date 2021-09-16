@@ -43,6 +43,10 @@
 		<td>${board.bhate }</td>
 	</tr>
 	</c:forEach>
+	<tr>
+		<a href="boardWriteView.do">글쓰기</a>
+	</tr>
 	</table>
+	
 </body>
 </html>
