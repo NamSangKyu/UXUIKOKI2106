@@ -91,6 +91,29 @@ public class MainController {
 		session.invalidate();
 		return "main";
 	}
+	
+	@RequestMapping("memberUpdateView.do")
+	public String memberUpdateView(HttpSession session) {
+		return "member/member_update";
+	}
+	@RequestMapping("memberUpdate.do")
+	public String memberUpdate(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		String name = request.getParameter("name");
+		int age = Integer.parseInt(request.getParameter("age"));
+		MemberDTO dto = new MemberDTO(id,pass,name,age,null, 0, null);
+		int count = memberService.updateMember(dto);
+		if(count == 0) {
+			request.getSession().invalidate();
+			response.setContentType("text/html;charset=utf-8");
+			response.getWriter().write("<script>alert('없는 회원 입니다. 확인 후 다시 수행해 주세요');"
+					+ "location.href = '/';</script>");
+			return null;
+		}
+		
+		return "board/board_list";
+	}
 }
 
 

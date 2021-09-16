@@ -28,6 +28,10 @@ public class MemberService {
 	public MemberDTO idCheck(String id) {
 		return mapper.idCheck(id);
 	}
+
+	public int updateMember(MemberDTO dto) {
+		return mapper.updateMember(dto);
+	}
 	
 	
 }
