@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.json.JSONObject;
 import org.korea.dto.BoardDTO;
+import org.korea.dto.FileDTO;
 import org.korea.dto.MemberDTO;
 import org.korea.service.BoardService;
 import org.korea.service.MemberService;
@@ -147,9 +149,48 @@ public class MainController {
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		try {
 			List<FileItem> list = upload.parseRequest(request);
-			
+			ArrayList<FileDTO> flist = new ArrayList<FileDTO>();
+			String user = ((MemberDTO)session.getAttribute("client")).getId();
+			BoardDTO dto = new BoardDTO();
+			dto.setWriter(user);
+
+			for(int i=0;i<list.size();i++) {
+				FileItem item = list.get(i);
+				
+				if(item.isFormField()) {
+					//폼일 경우
+					switch(item.getFieldName()) {
+					case "title":
+						dto.setTitle(item.getString(encoding));
+						break;
+					case "content":
+						dto.setContent(item.getString(encoding));
+						break;
+					}
+				}else {
+					//파일일 경우
+					if(item.getSize()>0) {
+						int idx = item.getName().lastIndexOf("\\");
+						if(idx == -1)
+							idx = item.getName().lastIndexOf("/");
+						String fileName = item.getName().substring(idx+1);
+						File uploadFile = new File(root + "\\" + fileName);
+						if(!uploadFile.getParentFile().exists())
+							uploadFile.getParentFile().mkdirs();
+						item.write(uploadFile);//주어진 경로로 파일 쓰기
+						flist.add(new FileDTO(uploadFile));
+					}
+				}
+			}
+			//게시글 등록
+			int bno = boardService.insertBoard(dto);
+			//파일테이블에 경로 등록
+			boardService.insertFileList(bno,flist);
 		}catch (FileUploadException e) {
 			// TODO: handle exception
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		

@@ -7,7 +7,7 @@ import org.korea.dto.BoardDTO;
 
 @Mapper
 public interface BoardMapper {
-
 	ArrayList<BoardDTO> selectBoard(int pageNo);
-
+	int selectBoardNo();
+	void insertBoard(BoardDTO dto);
 }

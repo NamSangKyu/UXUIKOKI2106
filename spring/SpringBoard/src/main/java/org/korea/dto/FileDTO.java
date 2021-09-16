@@ -3,7 +3,9 @@ package org.korea.dto;
 import java.io.File;
 
 public class FileDTO {
-	private int fileNo;
+	private int fno;
+	private int bno;
+	private String writer;
 	private String path;
 	private String fileName;
 	private String type;
@@ -27,11 +29,11 @@ public class FileDTO {
 	}
 
 	public int getFileNo() {
-		return fileNo;
+		return fno;
 	}
 
 	public void setFileNo(int fileNo) {
-		this.fileNo = fileNo;
+		this.fno = fileNo;
 	}
 
 	public String getPath() {

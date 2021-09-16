@@ -8,4 +8,11 @@
 		(select * from board_list order by bno desc) b)
 		where pageno = #{pageno}
 	</select>
+	<select id="selectBoardNo" resultType="int">
+		select board_no_seq.nextval from dual
+	</select>
+	<insert id="insertBoard" parameterType="board">
+		insert into board(bno,title,writer,bdate,content,bcount)
+		values(#{bno},#{title},#{writer},sysdate,#{content},0)
+	</insert>
 </mapper>
