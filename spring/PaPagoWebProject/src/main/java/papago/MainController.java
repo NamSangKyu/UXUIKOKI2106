@@ -1,20 +1,40 @@
+package papago;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-public class PaPaGoEx2 {
-	public static String papagoTranslate(String target, String text) {
+@Controller
+public class MainController {
+	@RequestMapping("/")
+	public String main() {
+		return "papago_main";
+	}
+	@RequestMapping("translate.do")
+	public String translate(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String target = request.getParameter("target");
+		String source= request.getParameter("source");
+		String text = request.getParameter("text");
+		System.out.println(source + " "+target + " " + text);
+		response.setContentType("text/html;charset=utf-8");
+		response.getWriter().write(papagoTranslate(target, source, text));
+		return null;		
+	}
+	
+	public String papagoTranslate(String target,String source, String text) {
 		String clientId = "_1rIIr0u6hwdD4VpqYnd";//애플리케이션 클라이언트 아이디값";
 		String clientSecret = "k5ERzutCdQ";//애플리케이션 클라이언트 시크릿값";
 		String msg = null;
@@ -30,7 +50,7 @@ public class PaPaGoEx2 {
 	        con.setRequestProperty("X-Naver-Client-Id", clientId);
 	        con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
 	        //요청 데이터 셋팅
-	        String postParams = "source=ko&target="+target+"&text=" + text;
+	        String postParams = "source="+source+"&target="+target+"&text=" + text;
 	        //데이터 전송
 	        con.setDoOutput(true);
 	        dos = new DataOutputStream(con.getOutputStream());
@@ -50,6 +70,7 @@ public class PaPaGoEx2 {
 	        	if(str == null) break;
 	        	msg += str;
 	        }
+	        System.out.println(msg);
 	        JSONObject json = new JSONObject(msg);
 	        msg = json.getJSONObject("message").getJSONObject("result").getString("translatedText");
 		}catch (UnsupportedEncodingException e) {
@@ -64,11 +85,14 @@ public class PaPaGoEx2 {
 		
 		return msg;
 	}
-	public static void main(String[] args) {
-		String result = papagoTranslate("de", "일본에 태풍 또 가네");
-		System.out.println(result);
-   
-    }
-
-   
 }
+
+
+
+
+
+
+
+
+
+
