@@ -13,23 +13,41 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
-public class PaPaGoEx1 {
-
+public class PaPaGoEx2 {
+	public static String papagoTranslate(String target, String text) {
+		String clientId = "_1rIIr0u6hwdD4VpqYnd";//애플리케이션 클라이언트 아이디값";
+		String clientSecret = "k5ERzutCdQ";//애플리케이션 클라이언트 시크릿값";
+		try {
+			text = URLEncoder.encode(text, "UTF-8");
+			//해당 주소 url 연결
+			URL url = new URL("https://openapi.naver.com/v1/papago/n2mt");
+	        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+	        con.setRequestMethod("POST");
+	        con.setRequestProperty("X-Naver-Client-Id", clientId);
+	        con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
+	        //요청 데이터 셋팅
+	        String postParams = "source=ko&target="+target+"&text=" + text;
+	        //데이터 전송
+	        con.setDoOutput(true);
+	        DataOutputStream dos = new DataOutputStream(con.getOutputStream());
+	        dos.writeBytes(postParams);
+	        dos.flush();
+	        dos.close();
+	        //데이터 받는 부분
+		}catch (UnsupportedEncodingException e) {
+			throw new RuntimeException("인코딩 실패", e);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	public static void main(String[] args) {
-        String clientId = "_1rIIr0u6hwdD4VpqYnd";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "k5ERzutCdQ";//애플리케이션 클라이언트 시크릿값";
-
-        String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
-        String text;
-        try {
-            text = URLEncoder.encode("안녕하세요. 오늘 기분은 어떻습니까?", "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("인코딩 실패", e);
-        }
 
         Map<String, String> requestHeaders = new HashMap<>();
-        requestHeaders.put("X-Naver-Client-Id", clientId);
-        requestHeaders.put("X-Naver-Client-Secret", clientSecret);
+       
 
         String responseBody = post(apiURL, requestHeaders, text);
         JSONObject json = new JSONObject(responseBody);
@@ -42,7 +60,7 @@ public class PaPaGoEx1 {
         HttpURLConnection con = connect(apiUrl);
         String postParams = "source=ko&target=en&text=" + text; //원본언어: 한국어 (ko) -> 목적언어: 영어 (en)
         try {
-            con.setRequestMethod("POST");
+            
             for(Map.Entry<String, String> header :requestHeaders.entrySet()) {
                 con.setRequestProperty(header.getKey(), header.getValue());
             }
