@@ -81,6 +81,11 @@ public class BoardDTO {
 	public void setBcount(int bcount) {
 		this.bcount = bcount;
 	}
+	@Override
+	public String toString() {
+		return "BoardDTO [bno=" + bno + ", title=" + title + ", writer=" + writer + ", bdate=" + bdate + ", content="
+				+ content + ", bcount=" + bcount + ", blike=" + blike + ", bhate=" + bhate + "]";
+	}
 
 
 	

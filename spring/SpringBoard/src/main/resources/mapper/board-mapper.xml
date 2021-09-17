@@ -15,4 +15,7 @@
 		insert into board(bno,title,writer,bdate,content,bcount)
 		values(#{bno},#{title},#{writer},sysdate,#{content},0)
 	</insert>
+	<insert id="insertFileInfo" parameterType="file">
+		insert into board_file_list values(file_no_seq.nextval,#{bno},#{writer},#{path},sysdate)
+	</insert>
 </mapper>

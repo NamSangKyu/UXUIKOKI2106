@@ -4,17 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.json.JSONObject;
 import org.korea.dto.BoardDTO;
 import org.korea.dto.FileDTO;
@@ -23,6 +18,8 @@ import org.korea.service.BoardService;
 import org.korea.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
 public class MainController {
@@ -133,66 +130,47 @@ public class MainController {
 		return "board/board_write";
 	}
 	@RequestMapping("boardWrite.do")
-	public String boardWrite(HttpServletRequest request, HttpSession session) throws UnsupportedEncodingException {
-		request.setCharacterEncoding("utf-8");
-		String encoding = "utf-8";
-		String root = "c:\\fileupload\\";
-		File userRoot = new File(root);
+	public String boardWrite(MultipartHttpServletRequest request, HttpSession session) throws UnsupportedEncodingException {
 		
-		if(!userRoot.exists())
-			userRoot.mkdirs();
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String writer = ((MemberDTO)session.getAttribute("client")).getId();
+		int bno = boardService.insertBoard(
+				new BoardDTO(0, title, writer, null, content, 0, 0, 0));
+		//업로드한 파일 목록
+		System.out.println(request.getParameterMap());
+		List<MultipartFile> fileList = request.getFiles("file"); 
+		System.out.println(fileList.size());
+		String path = "c:\\fileupload\\"+writer+"\\";
+		ArrayList<FileDTO> flist = new ArrayList<FileDTO>();
 		
-		DiskFileItemFactory factory = new DiskFileItemFactory();
-		factory.setRepository(userRoot);
-		factory.setSizeThreshold(1024*1024);
-		
-		ServletFileUpload upload = new ServletFileUpload(factory);
-		try {
-			List<FileItem> list = upload.parseRequest(request);
-			ArrayList<FileDTO> flist = new ArrayList<FileDTO>();
-			String user = ((MemberDTO)session.getAttribute("client")).getId();
-			BoardDTO dto = new BoardDTO();
-			dto.setWriter(user);
-
-			for(int i=0;i<list.size();i++) {
-				FileItem item = list.get(i);
-				
-				if(item.isFormField()) {
-					//폼일 경우
-					switch(item.getFieldName()) {
-					case "title":
-						dto.setTitle(item.getString(encoding));
-						break;
-					case "content":
-						dto.setContent(item.getString(encoding));
-						break;
-					}
-				}else {
-					//파일일 경우
-					if(item.getSize()>0) {
-						int idx = item.getName().lastIndexOf("\\");
-						if(idx == -1)
-							idx = item.getName().lastIndexOf("/");
-						String fileName = item.getName().substring(idx+1);
-						File uploadFile = new File(root + "\\" + fileName);
-						if(!uploadFile.getParentFile().exists())
-							uploadFile.getParentFile().mkdirs();
-						item.write(uploadFile);//주어진 경로로 파일 쓰기
-						flist.add(new FileDTO(uploadFile));
-					}
-				}
+		for(MultipartFile mf : fileList) {
+			//원본 파일명
+			String originalFileName = mf.getOriginalFilename();
+			long fileSize = mf.getSize();
+			if(fileSize == 0) continue;
+			//저장할 파일 경로 완성
+			String saveFile = path+originalFileName;
+			System.out.println(saveFile);
+			File f = new File(saveFile);
+			FileDTO dto = new FileDTO(f);
+			dto.setBno(bno);
+			dto.setWriter(writer);
+			flist.add(dto);
+			System.out.println(dto.toString());
+			try {
+				//파일 업로드
+				File parentPath = new File(path);
+				if(!parentPath.exists()) parentPath.mkdirs();
+				mf.transferTo(f);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-			//게시글 등록
-			int bno = boardService.insertBoard(dto);
-			//파일테이블에 경로 등록
-			boardService.insertFileList(bno,flist);
-		}catch (FileUploadException e) {
-			// TODO: handle exception
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
-		
+		boardService.insertFileList(flist);
 		
 		return boardMain(request);
 	}

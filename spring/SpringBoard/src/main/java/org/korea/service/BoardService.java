@@ -28,9 +28,8 @@ public class BoardService {
 		return bno;
 	}
 
-	public void insertFileList(int bno, ArrayList<FileDTO> flist) {
+	public void insertFileList(ArrayList<FileDTO> flist) {
 		for(int i=0;i<flist.size();i++) {
-			flist.get(i).setBno(bno);
 			mapper.insertFileInfo(flist.get(i));
 		}
 	}

@@ -1,0 +1,7 @@
+1. form 에서 input tag file의 name속성을 동일하게 처리
+
+2. 컨트롤러에서 MultipartHttpServletRequest로 request를 받음
+
+3. request.getFiles('파일 name속성')
+
+4. 파일 업로드 처리 - boardWrite부분 참고

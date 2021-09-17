@@ -13,7 +13,7 @@
 		$("#plus").click(function() {
 			if(count==5) return;
 			count++;
-			$("form").append("<p><input type='file' name='file"+count+"'></p>");
+			$("form").append("<p><input type='file' name='file'></p>");
 		});
 		$("#minus").click(function() {
 			if(count==1) return;
@@ -33,17 +33,17 @@
 	<h2>글쓰기 페이지</h2>
 	<form action="boardWrite.do" method="post" enctype="multipart/form-data">
 		제목 : <input type="text" name="title" placeholder="제목을 입력하세요">
-		내용<br>
+		<br>내용
 		<textarea name="content" placeholder="내용을 입력하세요"></textarea>
 		<hr>
 		<p>
-			<input type="file" name="file1">
+			<input type="file" name="file">
 			<button type="button" id="plus">+</button>
 			<button type="button" id="minus">-</button>
 		</p>
-		<p><input type="file" name="file2">	</p>
-		<p><input type="file" name="file3">	</p>
-
+		<p><input type="file" name="file">	</p>
+		<p><input type="file" name="file">	</p>
+		<button>글쓰기</button>
 	</form>
 </body>
 </html>
