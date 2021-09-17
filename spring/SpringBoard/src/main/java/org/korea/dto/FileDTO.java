@@ -12,7 +12,8 @@ public class FileDTO {
 	private String path;
 	private String fileName;
 	private String type;
-
+	private String originFileName;
+	
 	public FileDTO() {
 	}
 	
@@ -99,6 +100,14 @@ public class FileDTO {
 	public String toString() {
 		return "FileDTO [fno=" + fno + ", bno=" + bno + ", writer=" + writer + ", fdate=" + fdate + ", path=" + path
 				+ ", fileName=" + fileName + ", type=" + type + "]";
+	}
+
+	public String getOriginFileName() {
+		return originFileName;
+	}
+
+	public void setOriginFileName(String originFileName) {
+		this.originFileName = originFileName;
 	}
 	
 

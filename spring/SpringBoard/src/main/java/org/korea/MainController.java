@@ -3,7 +3,9 @@ package org.korea;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -143,17 +145,24 @@ public class MainController {
 		System.out.println(fileList.size());
 		String path = "c:\\fileupload\\"+writer+"\\";
 		ArrayList<FileDTO> flist = new ArrayList<FileDTO>();
-		
+		int i = 1;
 		for(MultipartFile mf : fileList) {
 			//원본 파일명
 			String originalFileName = mf.getOriginalFilename();
 			long fileSize = mf.getSize();
 			if(fileSize == 0) continue;
 			//저장할 파일 경로 완성
-			String saveFile = path+originalFileName;
+			SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss");
+			int idx = originalFileName.lastIndexOf(".");
+			//실제 저장할 파일 경로
+			String saveName = format.format(Calendar.getInstance().getTime())+
+					"_"+writer+"_"+i+"."+originalFileName.substring(idx+1);
+			i++;
+			String saveFile = path+saveName;
 			System.out.println(saveFile);
 			File f = new File(saveFile);
 			FileDTO dto = new FileDTO(f);
+			dto.setOriginFileName(originalFileName);
 			dto.setBno(bno);
 			dto.setWriter(writer);
 			flist.add(dto);
