@@ -184,6 +184,19 @@ public class MainController {
 		return boardMain(request);
 	}
 	
+	@RequestMapping("boardView.do")
+	public String boardView(HttpServletRequest request) {
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		BoardDTO dto = boardService.selectBoardContent(bno);
+		request.setAttribute("board", dto);
+		//파일목록
+		/*
+		 * ArrayList<FileDTO> flist = boardService.selectFileList(bno);
+		 * request.setAttribute("flist", flist);
+		 */
+		return "board/board_view";
+	}
+	
 	
 }
 

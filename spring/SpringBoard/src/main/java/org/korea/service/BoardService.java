@@ -33,6 +33,10 @@ public class BoardService {
 			mapper.insertFileInfo(flist.get(i));
 		}
 	}
+
+	public BoardDTO selectBoardContent(int bno) {
+		return mapper.selectBoardContent(bno);
+	}
 	
 }
 

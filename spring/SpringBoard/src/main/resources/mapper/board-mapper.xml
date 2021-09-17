@@ -18,4 +18,14 @@
 	<insert id="insertFileInfo" parameterType="file">
 		insert into board_file_list values(file_no_seq.nextval,#{bno},#{writer},#{path},sysdate,#{originFileName})
 	</insert>
+	<select id="selectBoardContent" parameterType="int" resultType="board">
+		select * from board where bno = #{bno}
+	</select>	
+	
 </mapper>
+
+
+
+
+
+
