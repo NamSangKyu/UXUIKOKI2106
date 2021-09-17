@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.graalvm.compiler.nodes.calc.IntegerLessThanNode;
 import org.json.JSONObject;
 import org.korea.dto.BoardDTO;
 import org.korea.dto.FileDTO;
@@ -27,7 +26,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.yaml.snakeyaml.util.UriEncoder;
 
 @Controller
 public class MainController {
