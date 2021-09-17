@@ -21,7 +21,12 @@
 	<select id="selectBoardContent" parameterType="int" resultType="board">
 		select * from board where bno = #{bno}
 	</select>	
-	
+	<select id="selectFileList" parameterType="int" resultType="file">
+		select * from board_file_list where bno = #{bno}
+	</select>
+	<select id="selectFile" parameterType="int" resultType="file">
+		select * from board_file_list where fno = #{fno}
+	</select>
 </mapper>
 
 

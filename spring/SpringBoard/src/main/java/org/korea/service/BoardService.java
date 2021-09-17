@@ -37,6 +37,14 @@ public class BoardService {
 	public BoardDTO selectBoardContent(int bno) {
 		return mapper.selectBoardContent(bno);
 	}
+
+	public ArrayList<FileDTO> selectFileList(int bno) {
+		return mapper.selectFileList(bno);
+	}
+
+	public FileDTO selectFile(int fno) {
+		return mapper.selectFile(fno);
+	}
 	
 }
 

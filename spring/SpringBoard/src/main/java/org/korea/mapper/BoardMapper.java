@@ -13,4 +13,6 @@ public interface BoardMapper {
 	void insertBoard(BoardDTO dto);
 	void insertFileInfo(FileDTO fileDTO);
 	BoardDTO selectBoardContent(int bno);
+	ArrayList<FileDTO> selectFileList(int bno);
+	FileDTO selectFile(int fno);
 }
