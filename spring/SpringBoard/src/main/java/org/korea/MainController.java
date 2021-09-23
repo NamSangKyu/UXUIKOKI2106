@@ -23,11 +23,14 @@ import org.korea.dto.FileDTO;
 import org.korea.dto.MemberDTO;
 import org.korea.service.BoardService;
 import org.korea.service.MemberService;
+import org.korea.tanslate.TranslateModule;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 
 @Controller
 public class MainController {
@@ -47,9 +50,22 @@ public class MainController {
 	}
 
 	@RequestMapping("boardList.do")
-	public String boardMain(HttpServletRequest request) {
+	public String boardMain(HttpServletRequest request, HttpSession session) {
 		ArrayList<BoardDTO> list = boardService.selectBoard(1);
-		request.setAttribute("list", list);
+		if(session.getAttribute("target") == null || session.getAttribute("target").equals("ko"))
+			request.setAttribute("list", list);
+		else {
+			TranslateModule module = ctx.getBean("translateModule",TranslateModule.class);
+			//선택한 언어로 번역
+			for(int i=0;i<list.size();i++) {
+				String text = module.translate(
+						"ko", session.getAttribute("target").toString(), list.get(i).getTitle());
+				
+				System.out.println(text);
+				list.get(i).setTitle(text);
+				request.setAttribute("list", list);
+			}
+		}
 		return "board/board_list";
 	}
 
@@ -66,7 +82,7 @@ public class MainController {
 			return null;
 		} else {
 			request.getSession().setAttribute("client", dto);
-			return boardMain(request);
+			return boardMain(request, request.getSession());
 		}
 
 	}
@@ -92,7 +108,7 @@ public class MainController {
 			return null;
 		}
 		request.getSession().setAttribute("client", dto);
-		return boardMain(request);
+		return boardMain(request, request.getSession());
 	}
 
 	@RequestMapping("idCheck.do")
@@ -136,7 +152,7 @@ public class MainController {
 			return null;
 		}
 
-		return boardMain(request);
+		return boardMain(request, request.getSession());
 	}
 
 	@RequestMapping("boardWriteView.do")
@@ -196,7 +212,7 @@ public class MainController {
 		}
 		boardService.insertFileList(flist);
 
-		return boardMain(request);
+		return boardMain(request, request.getSession());
 	}
 
 	@RequestMapping("boardView.do")
