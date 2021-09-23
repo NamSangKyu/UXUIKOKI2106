@@ -28,7 +28,7 @@ public class SearchEx1 {
         }
 
 
-        String apiURL = "https://openapi.naver.com/v1/search/blog?query=" + text;    // json 결과
+        String apiURL = "https://openapi.naver.com/v1/search/blog.json?query=" + text;    // json 결과
         //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // xml 결과
 
 
