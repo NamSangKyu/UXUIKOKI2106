@@ -15,6 +15,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.json.JSONObject;
 import org.korea.dto.BoardDTO;
@@ -199,7 +200,8 @@ public class MainController {
 	}
 
 	@RequestMapping("boardView.do")
-	public String boardView(HttpServletRequest request) {
+	public String boardView(HttpServletRequest request,HttpSession session) {
+		System.out.println(session.getAttribute("target"));
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		BoardDTO dto = boardService.selectBoardContent(bno);
 		request.setAttribute("board", dto);
@@ -252,5 +254,11 @@ public class MainController {
 		return null;
 	}
 	//번역하는 부분 추가
-	
+	@RequestMapping("language.do")
+	public String setlanguage(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+		System.out.println("target");
+		session.setAttribute("target", request.getParameter("target"));
+		response.getWriter().write("true");
+		return null;
+	}
 }

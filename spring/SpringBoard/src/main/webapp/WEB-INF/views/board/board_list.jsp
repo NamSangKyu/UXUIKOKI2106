@@ -6,6 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판 페이지</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#target").change(function() {
+			$.ajax({
+				url : "language.do",
+				data : "target="+$("#target").val(),
+				type:"get",
+				success : function (r) {
+					location.reload();
+				}
+			});
+		});
+	});
+</script>
 <style type="text/css">
 	table{
 		border-collapse: collapse;
@@ -23,6 +38,16 @@
 	<a href="logout.do">로그아웃</a>
 	<hr>
 	<table>
+	<tr>
+		<td colspan="7">
+		언어선택 : <select name="target" id="target">
+				<option value="ko" <c:if test="${sessionScope.target=='ko' }">selected</c:if>>한국어</option>
+				<option value="en" <c:if test="${sessionScope.target=='en' }">selected</c:if>>영어</option>
+				<option value="ja" <c:if test="${sessionScope.target=='ja' }">selected</c:if>>일본어</option>
+				<option value="zh-CN" <c:if test="${sessionScope.target=='zh-CN' }">selected</c:if>>중국어</option>
+			</select>
+		</td>
+	</tr>
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
