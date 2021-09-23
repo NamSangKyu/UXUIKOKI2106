@@ -34,7 +34,9 @@ public class CreateHTML {
 		return result;
 	}
 	public static void main(String[] args) {
-		readHTML();
+		String tag = readHTML();
+		tag = String.format(tag, "코로나","<table><tr><td>제목</td><td>링크</td><td>블로그명</td></tr><tr><td><b>코로나</b> 방역 믿고 맡길수 있었죠</td><td>https://blog.naver.com/jjanggyo?Redirect=Log&logNo=222494087403</td><td>MENTE CREATIVA - 짱꾜</td></tr></table>");
+		System.out.println(tag);
 	}
 
 }
