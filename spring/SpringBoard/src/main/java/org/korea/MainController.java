@@ -221,6 +221,17 @@ public class MainController {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		BoardDTO dto = boardService.selectBoardContent(bno);
 		request.setAttribute("board", dto);
+		if(session.getAttribute("target") != null && !session.getAttribute("target").equals("ko")) {
+			TranslateModule module = ctx.getBean("translateModule",TranslateModule.class);
+			String text = module.translate(
+					"ko", session.getAttribute("target").toString(), dto.getTitle());
+			dto.setTitle(text);
+			text = module.translate(
+					"ko", session.getAttribute("target").toString(), dto.getContent());
+			dto.setContent(text);
+			
+		}
+			
 		// 파일목록
 		ArrayList<FileDTO> flist = boardService.selectFileList(bno);
 		request.setAttribute("flist", flist);
