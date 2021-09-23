@@ -22,6 +22,7 @@ import org.korea.dto.FileDTO;
 import org.korea.dto.MemberDTO;
 import org.korea.service.BoardService;
 import org.korea.service.MemberService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,11 +32,12 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 public class MainController {
 	private BoardService boardService;
 	private MemberService memberService;
-
+	private AnnotationConfigApplicationContext ctx ;
 	public MainController(BoardService boardService, MemberService memberService) {
 		super();
 		this.boardService = boardService;
 		this.memberService = memberService;
+		ctx = new AnnotationConfigApplicationContext(DIContainer.class);
 	}
 
 	@RequestMapping("/")
@@ -249,4 +251,6 @@ public class MainController {
 		}
 		return null;
 	}
+	//번역하는 부분 추가
+	
 }
