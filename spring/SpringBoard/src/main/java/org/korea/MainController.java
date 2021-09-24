@@ -230,6 +230,7 @@ public class MainController {
 	public String boardView(HttpServletRequest request,HttpSession session) {
 		System.out.println(session.getAttribute("target"));
 		int bno = Integer.parseInt(request.getParameter("bno"));
+		boardService.addBoardCount(bno);
 		BoardDTO dto = boardService.selectBoardContent(bno);
 		request.setAttribute("board", dto);
 		if(session.getAttribute("target") != null && !session.getAttribute("target").equals("ko")) {

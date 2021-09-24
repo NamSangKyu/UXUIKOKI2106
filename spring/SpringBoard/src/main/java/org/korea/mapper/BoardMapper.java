@@ -19,4 +19,9 @@ public interface BoardMapper {
 	int deleteBoard(int bno);
 	int updateBoard(HashMap<String, Object> map);
 	int selectBoardCount();
+	int addBoardCount(int bno);
 }
+
+
+
+

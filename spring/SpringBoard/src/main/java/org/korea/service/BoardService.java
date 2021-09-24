@@ -62,6 +62,10 @@ public class BoardService {
 	public int selectBoardCount() {
 		return mapper.selectBoardCount();
 	}
+
+	public void addBoardCount(int bno) {
+		mapper.addBoardCount(bno);
+	}
 	
 }
 

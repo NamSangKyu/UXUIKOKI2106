@@ -36,6 +36,9 @@
 	<select id="selectBoardCount" resultType="int">
 		select count(*) from board
 	</select>
+	<update id="addBoardCount" parameterType="int">
+		update board set bcount = bcount + 1 where bno = #{bno}
+	</update>
 </mapper>
 
 
