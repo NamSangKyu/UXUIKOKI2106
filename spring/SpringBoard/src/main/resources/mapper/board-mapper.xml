@@ -19,7 +19,10 @@
 		insert into board_file_list values(file_no_seq.nextval,#{bno},#{writer},#{path},sysdate,#{originFileName})
 	</insert>
 	<select id="selectBoardContent" parameterType="int" resultType="board">
-		select * from board where bno = #{bno}
+		select b.bno, b.title, b.writer, b.bdate, b.content, b.bcount,
+		(select count(*) from BOARD_LIKE bl where b.bno = bl.bno) as blike,
+		(select count(*) from BOARD_hate bh where b.bno = bh.bno) as bhate 
+		from board b where b.bno = #{bno} order by bno desc
 	</select>	
 	<select id="selectFileList" parameterType="int" resultType="file">
 		select * from board_file_list where bno = #{bno}
@@ -39,6 +42,19 @@
 	<update id="addBoardCount" parameterType="int">
 		update board set bcount = bcount + 1 where bno = #{bno}
 	</update>
+	<insert id="insertBoardLike" parameterType="map">
+		insert into board_like values(#{bno},#{id})
+	</insert>
+	<delete id="deleteBoardLike" parameterType="map">
+		delete from board_like where bno = #{bno} and id like #{id}
+	</delete>
+	<insert id="insertBoardHate" parameterType="map">
+		insert into board_hate values(#{bno},#{id})
+	</insert>
+	<delete id="deleteBoardHate" parameterType="map">
+		delete from board_hate where bno = #{bno} and id like #{id}
+	</delete>
+	
 </mapper>
 
 

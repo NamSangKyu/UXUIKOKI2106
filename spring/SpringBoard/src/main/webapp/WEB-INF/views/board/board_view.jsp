@@ -19,6 +19,36 @@
 				}
 			});
 		});
+		$(".like").click(function(e) {
+			e.preventDefault();
+			$.ajax({
+				url : $(this).attr("href"),
+				type: "get",
+				dataType:"json",
+				success:function(r){
+					alert(r.msg);
+					if(r.code == 400)
+						location.href = "/";
+					else
+						location.reload();
+				}
+			});
+		});
+		$(".hate").click(function(e) {
+			e.preventDefault();
+			$.ajax({
+				url : $(this).attr("href"),
+				type: "get",
+				dataType:"json",
+				success:function(r){
+					alert(r.msg);
+					if(r.code == 400)
+						location.href = "/";
+					else
+						location.reload();
+				}
+			});
+		});
 	});
 </script>
 </head>
@@ -31,7 +61,10 @@
 			</select><br>
 	제목 : ${requestScope.board.title }<br>
 	작성자 : ${requestScope.board.writer}, 작성일 : ${requestScope.board.bdate}<br>
-	조회수 : ${requestScope.board.bcount}<br>
+	조회수 : ${requestScope.board.bcount}, 
+	좋아요 : <a href="boardLike.do?bno=${requestScope.board.bno}" class="like">${requestScope.board.blike}</a>,
+	싫어요 : : <a href="boardHate.do?bno=${requestScope.board.bno}" class="hate">${requestScope.board.bhate}</a>
+	<br>
 	내용<br> ${requestScope.board.content}
 	<hr>
 	첨부파일 목록<br>

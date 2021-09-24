@@ -66,6 +66,36 @@ public class BoardService {
 	public void addBoardCount(int bno) {
 		mapper.addBoardCount(bno);
 	}
+
+	public boolean insertBoardLike(int bno, String id) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("bno", bno);
+		int count = 0;
+		try {
+		count = mapper.insertBoardLike(map);
+		}catch (Exception e) {
+			System.out.println("이미 좋아요 표시 하였음");
+		}
+		if(count == 0)
+			mapper.deleteBoardLike(map);
+		return count==1;
+	}
+
+	public boolean insertBoardHate(int bno, String id) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("bno", bno);
+		int count = 0;
+		try {
+			count = mapper.insertBoardHate(map);
+		}catch (Exception e) {
+			System.out.println("이미 싫어요 표시 하였음");
+		}
+		if(count == 0)
+			mapper.deleteBoardHate(map);
+		return count==1;
+	}
 	
 }
 
