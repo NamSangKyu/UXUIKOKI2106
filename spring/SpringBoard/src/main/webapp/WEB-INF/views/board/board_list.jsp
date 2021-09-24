@@ -68,10 +68,39 @@
 		<td>${board.bhate }</td>
 	</tr>
 	</c:forEach>
+	<!-- 페이징 처리 -->
 	<tr>
-		<a href="boardWriteView.do">글쓰기</a>
+		<td colspan="7">
+			<c:if test="${requestScope.pagging.priviousPageGroup }">
+				<a href="boardList.do?pageNo=${requestScope.pagging.startPageOfPageGroup-1 }"><<</a>			
+			</c:if>			
+			<c:forEach var="i" begin="${requestScope.pagging.startPageOfPageGroup}" end="${requestScope.pagging.endPageOfPageGroup}">
+				<c:choose>
+					<c:when test="${i == requestScope.pagging.currentPageNo }">
+						${i }
+					</c:when>
+					<c:otherwise>
+						<a href="boardList.do?pageNo=${i} ">${i }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${requestScope.pagging.nextPageGroup }">
+				<a href="boardList.do?pageNo=${requestScope.pagging.endPageOfPageGroup+1 }">>></a>			
+			</c:if>			
+		</td>
+	</tr>
+	<tr>
+		<td colspan="7">
+			<a href="boardWriteView.do">글쓰기</a>
+		</td>
 	</tr>
 	</table>
 	
 </body>
 </html>
+
+
+
+
+
+
