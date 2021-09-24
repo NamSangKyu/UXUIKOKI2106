@@ -1,11 +1,17 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 import org.json.JSONArray;
@@ -64,6 +70,28 @@ public class ProductSearchMain {
 			//받은 결과 코드가 500일때 텍스파일에 로그 기록
 			//기록 형식 년_월_일_시_분_초\t에러메세지,  파일명 log.txt
 			//단 파일 기록시 기존 내용은 유지가 되어야 됨
+			FileWriter fw = null;
+			PrintWriter pw = null;
+			try {
+				fw = new FileWriter("log.txt", true);
+				pw = new PrintWriter(fw);
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss");
+				String str = sdf.format(Calendar.getInstance().getTime())+"\t"+e.getMessage();
+				pw.println(str);
+				pw.flush();
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}finally {
+				try {
+					if(pw != null)pw.close();
+					if(fw != null)fw.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}				
+				
+			}
 			System.out.println(e.getMessage());
 		}
 	}
