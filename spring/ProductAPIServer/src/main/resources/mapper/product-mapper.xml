@@ -6,7 +6,9 @@
 	<select id="searchList" parameterType="String" resultType="product">
 		select * from product where pname like '%' || #{search} || '%'
 	</select>
-	
+	<insert id="insertLog" parameterType="map">
+		insert into product_log  values(to_date(#{date},'YYYY_MM_DD_HH_MI_SS'),#{code},#{content})
+	</insert>
 </mapper>
 
 

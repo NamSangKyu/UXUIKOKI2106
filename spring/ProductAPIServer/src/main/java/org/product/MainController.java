@@ -42,7 +42,17 @@ public class MainController {
 		response.getWriter().write(result.toString());
 		return null;
 	}
-	
+	@RequestMapping("sendLog.do")
+	public String sendLog(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String date = request.getParameter("date");
+		String code = request.getParameter("code");
+		String content = request.getParameter("content");
+		
+		int result = service.insertLog(date,code,content);
+		
+		response.getWriter().write(String.valueOf(result));
+		return null;
+	}
 }
 
 
