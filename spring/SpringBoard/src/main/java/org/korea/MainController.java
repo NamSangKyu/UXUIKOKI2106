@@ -52,7 +52,11 @@ public class MainController {
 
 	@RequestMapping("boardList.do")
 	public String boardMain(HttpServletRequest request, HttpSession session) {
-		ArrayList<BoardDTO> list = boardService.selectBoard(1);
+		//1. 현재 페이지 번호 - 없으면 페이지 번호 1로 설정
+		String pageNo = request.getParameter("pageNo");
+		int currentPageNo = pageNo == null || pageNo.equals("") ? 1 : Integer.parseInt(pageNo);
+		
+		ArrayList<BoardDTO> list = boardService.selectBoard(currentPageNo);
 		if(session.getAttribute("target") == null || session.getAttribute("target").equals("ko"))
 			request.setAttribute("list", list);
 		else {
@@ -67,6 +71,7 @@ public class MainController {
 				request.setAttribute("list", list);
 			}
 		}
+		//페이징 처리
 		return "board/board_list";
 	}
 
