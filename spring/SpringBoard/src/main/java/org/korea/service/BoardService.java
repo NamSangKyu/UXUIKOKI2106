@@ -1,6 +1,7 @@
 package org.korea.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.javassist.tools.framedump;
 import org.korea.dto.BoardDTO;
@@ -48,6 +49,14 @@ public class BoardService {
 
 	public void deleteBoard(int bno) {
 		mapper.deleteBoard(bno);
+	}
+
+	public void updateBoard(int bno, String title, String content) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("bno", bno);
+		map.put("title", title);
+		map.put("content", content);
+		mapper.updateBoard(map);		
 	}
 	
 }

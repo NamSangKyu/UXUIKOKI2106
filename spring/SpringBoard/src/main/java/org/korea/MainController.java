@@ -29,6 +29,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 
@@ -294,6 +295,27 @@ public class MainController {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		boardService.deleteBoard(bno);
 		return "redirect:boardList.do";
+	}
+	//게시글 수정 페이지로 이동
+	@RequestMapping("boardUpdateView.do")
+	public String boardUpdateView(HttpServletRequest request) {
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		BoardDTO dto = boardService.selectBoardContent(bno);
+		request.setAttribute("board", dto);
+		return "board/board_update_view";
+	}
+	
+	//게시글 수정
+	@RequestMapping("boardUpdate.do")
+	public String boardUpdate(HttpServletRequest request, RedirectAttributes redirectAttributes) {
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		
+		boardService.updateBoard(bno, title, content);
+		redirectAttributes.addAttribute("bno",bno);
+		return "redirect:/boardView.do";
+//		return "redirect:/boardView.do?bno="+bno;
 	}
 }
 
