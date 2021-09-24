@@ -21,6 +21,7 @@ import org.json.JSONObject;
 import org.korea.dto.BoardDTO;
 import org.korea.dto.FileDTO;
 import org.korea.dto.MemberDTO;
+import org.korea.dto.PaggingVO;
 import org.korea.service.BoardService;
 import org.korea.service.MemberService;
 import org.korea.tanslate.TranslateModule;
@@ -72,6 +73,10 @@ public class MainController {
 			}
 		}
 		//페이징 처리
+		//전체 게시글 개수
+		int count = boardService.selectBoardCount();
+		PaggingVO vo = new PaggingVO(count, currentPageNo, 5, 4);
+		request.setAttribute("pagging", vo);
 		return "board/board_list";
 	}
 

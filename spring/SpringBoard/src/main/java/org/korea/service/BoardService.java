@@ -58,6 +58,10 @@ public class BoardService {
 		map.put("content", content);
 		mapper.updateBoard(map);		
 	}
+
+	public int selectBoardCount() {
+		return mapper.selectBoardCount();
+	}
 	
 }
 

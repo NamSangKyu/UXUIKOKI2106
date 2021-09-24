@@ -33,6 +33,9 @@
 	<update id="updateBoard" parameterType="map">
 		update board set title=#{title},content=#{content} where bno = #{bno}
 	</update>
+	<select id="selectBoardCount" resultType="int">
+		select count(*) from board
+	</select>
 </mapper>
 
 

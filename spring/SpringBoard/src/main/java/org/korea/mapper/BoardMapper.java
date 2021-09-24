@@ -18,4 +18,5 @@ public interface BoardMapper {
 	FileDTO selectFile(int fno);
 	int deleteBoard(int bno);
 	int updateBoard(HashMap<String, Object> map);
+	int selectBoardCount();
 }
