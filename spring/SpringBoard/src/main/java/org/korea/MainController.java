@@ -212,7 +212,7 @@ public class MainController {
 		}
 		boardService.insertFileList(flist);
 
-		return boardMain(request, request.getSession());
+		return "redirect:boardList.do";
 	}
 
 	@RequestMapping("boardView.do")
@@ -288,4 +288,19 @@ public class MainController {
 		response.getWriter().write("true");
 		return null;
 	}
+	//게시글 삭제
+	@RequestMapping("boardDelete.do")
+	public String boardDelete(HttpServletRequest request) {
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		boardService.deleteBoard(bno);
+		return "redirect:boardList.do";
+	}
 }
+
+
+
+
+
+
+
+

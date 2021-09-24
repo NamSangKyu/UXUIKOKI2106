@@ -27,6 +27,9 @@
 	<select id="selectFile" parameterType="int" resultType="file">
 		select * from board_file_list where fno = #{fno}
 	</select>
+	<delete id="deleteBoard" parameterType="int">
+		delete from board where bno = #{bno}
+	</delete>
 </mapper>
 
 

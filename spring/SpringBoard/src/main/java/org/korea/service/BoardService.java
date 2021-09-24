@@ -45,6 +45,10 @@ public class BoardService {
 	public FileDTO selectFile(int fno) {
 		return mapper.selectFile(fno);
 	}
+
+	public void deleteBoard(int bno) {
+		mapper.deleteBoard(bno);
+	}
 	
 }
 

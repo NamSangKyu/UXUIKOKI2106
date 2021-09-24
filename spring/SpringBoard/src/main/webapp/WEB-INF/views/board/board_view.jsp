@@ -41,8 +41,20 @@
 	</c:forEach>
 	<hr>
 	<button type="button" class=".btnBack">뒤로가기</button>
-	<button type="button" class=".btnUpdate">수정</button>
-	<button type="button" class=".btnDeletet">삭제</button>
+	<c:if test="${requestScope.board.writer == sessionScope.client.id }">
+		<button type="button" class="btnUpdate">수정</button>
+		<button type="button" class="btnDelete">삭제</button>
+		<script type="text/javascript">
+			 		var btnDelete = document.querySelector(".btnDelete");
+			 		btnDelete.onclick = function(){
+			 			location.href = "boardDelete.do?bno=${requestScope.board.bno}";
+			 		}
+			 		var btnUpdate= document.querySelector(".btnUpdate");
+			 		btnUpdate.onclick = function(){
+			 			location.href = "boardUpdateView.do?bno=${requestScope.board.bno}";
+			 		}
+		</script>
+	</c:if>
 </body>
 </html>
 

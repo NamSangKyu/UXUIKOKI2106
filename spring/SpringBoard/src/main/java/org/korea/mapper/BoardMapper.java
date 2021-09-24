@@ -15,4 +15,5 @@ public interface BoardMapper {
 	BoardDTO selectBoardContent(int bno);
 	ArrayList<FileDTO> selectFileList(int bno);
 	FileDTO selectFile(int fno);
+	int deleteBoard(int bno);
 }
