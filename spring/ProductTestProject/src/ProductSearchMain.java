@@ -61,6 +61,9 @@ public class ProductSearchMain {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
+			//받은 결과 코드가 500일때 텍스파일에 로그 기록
+			//기록 형식 년_월_일_시_분_초\t에러메세지,  파일명 log.txt
+			//단 파일 기록시 기존 내용은 유지가 되어야 됨
 			System.out.println(e.getMessage());
 		}
 	}
