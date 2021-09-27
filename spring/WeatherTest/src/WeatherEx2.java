@@ -8,19 +8,19 @@ import java.net.URL;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class WeatherEx {
+public class WeatherEx2 {
 
 	public static void main(String[] args) {
 		String nx, ny, baseTime, serviceKey, dataType, baseDate, numOfRows, url;
 		//위치값 셋팅
-		nx = "60";
-		ny = "127";
-		url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst";
+		nx = "98";
+		ny = "76";
+		url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
 		serviceKey = "hpOVfNem4MVro1QdBZTMTq%2FMZs%2B8yylSvxNQlqPiEQec%2Bo99WRRbIvrVqLltto5W0TmluoxR7uQHpHFNZ146qg%3D%3D";
 		dataType = "json";
 		numOfRows = "10";
 		baseDate = "20210927";
-		baseTime = "1000";
+		baseTime = "1100";
 		
 		String apiUrl = url + "?serviceKey="+serviceKey;
 		apiUrl += "&base_date="+baseDate;
@@ -61,12 +61,13 @@ public class WeatherEx {
 				for(int i=0;i<arr.length();i++) {
 					JSONObject item = arr.getJSONObject(i);
 					switch(item.getString("category")) {
-					case "T1H":
+					case "SKY":
+					case "TMP":
 					case "REH":
 					case "VEC":
 					case "WSD":
 						System.out.println(item.getString("category") + 
-								" " + item.getString("obsrValue"));
+								" " + item.getString("fcstValue"));
 					}
 				}
 			}
