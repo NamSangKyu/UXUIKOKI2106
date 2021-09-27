@@ -5,6 +5,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class WeatherEx {
 
 	public static void main(String[] args) {
@@ -42,6 +45,33 @@ public class WeatherEx {
 				result += temp;
 			}
 			System.out.println(result);
+			JSONObject obj = new JSONObject(result);
+			String code = obj.getJSONObject("response").
+					getJSONObject("header").getString("resultCode");
+			
+			if(code.equals("00") == false) {
+				//에러 코드와 에러 메세지 출력
+				String msg = obj.getJSONObject("response").
+						getJSONObject("header").getString("resultMsg");
+				System.out.println(msg);
+			}else {
+				//원하는 데이터를 뽑음
+				JSONArray arr = obj.getJSONObject("response").
+						getJSONObject("body").getJSONObject("items").getJSONArray("item");
+				for(int i=0;i<arr.length();i++) {
+					JSONObject item = arr.getJSONObject(i);
+					switch(item.getString("category")) {
+					case "T1H":
+					case "REH":
+					case "VEC":
+					case "WSD":
+						System.out.println(item.getString("category") + 
+								" " + item.getString("obsrValue"));
+					}
+				}
+			}
+			
+			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
