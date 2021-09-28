@@ -1,4 +1,4 @@
-package batch;
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,7 +19,7 @@ public class SendLogJob implements Job {
 
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
-		File file = new File("error.txt");
+		File file = new File("log.txt");
 		FileReader fr = null;
 		BufferedReader br = null;
 		try {
