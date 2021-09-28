@@ -2,6 +2,8 @@ package com.example.step01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,17 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onButtonClick(View view){
         Toast.makeText(getBaseContext(),"두번째 버튼을 눌렀습니다.",Toast.LENGTH_LONG).show();
+    }
+
+    //전화걸기
+    public void onClickTel(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-0000-0000"));
+        startActivity(intent);
+    }
+    //네이버로 이동
+    public void onClickURL(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.naver.com"));
+        startActivity(intent);
     }
 }
 
