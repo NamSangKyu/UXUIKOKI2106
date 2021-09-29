@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">widget</string>
+    <string name="btn_first">버튼</string>
+</resources>
