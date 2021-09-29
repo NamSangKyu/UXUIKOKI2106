@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Toast.makeText(getBaseContext(),charSequence,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getBaseContext(),charSequence,Toast.LENGTH_SHORT).show();
+                Log.i("SMS", charSequence.length() + "  글자");
+                view.setText(charSequence.length() + " / 80 글자");
             }
 
             @Override
