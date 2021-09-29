@@ -35,7 +35,13 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 //Toast.makeText(getBaseContext(),charSequence,Toast.LENGTH_SHORT).show();
                 Log.i("SMS", charSequence.length() + "  글자");
-                view.setText(charSequence.length() + " / 80 글자");
+                //글자 개수 80글자가 넘으면 넘어가는 해당 글자들을 제거
+                if(charSequence.length() > 80) {
+                    Log.i("SMS", charSequence.subSequence(0, 80).toString());
+                    sms.setText(charSequence.subSequence(0, 80));
+                    sms.setSelection(80);//커서 위치 설정
+                }
+                view.setText(sms.getText().length() + " / 80 글자");
             }
 
             @Override
@@ -43,7 +49,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //finishAndRemoveTask();//태스크 리스트에 남지 않음
+                finish();//태스크 리스트에 남음
+            }
+        });
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getBaseContext(),sms.getText(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
