@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">widget</string>
     <string name="btn_first">버튼</string>
+    <string-array name="mail_list">
+        <item>gmail.com</item>
+        <item>naver.com</item>
+        <item>hanmail.net</item>
+        <item>직접입력</item>
+    </string-array>
+    <string-array name="tel_list">
+        <item>010</item>
+        <item>011</item>
+        <item>016</item>
+        <item>019</item>
+    </string-array>
 </resources>

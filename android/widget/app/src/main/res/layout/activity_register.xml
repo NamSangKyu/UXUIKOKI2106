@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="회원가입 뷰"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/register_txt_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="아이디를 입력하세요"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/register_txt_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="암호를 입력하세요"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/register_txt_password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="암호를 합번더 입력하세요"
+        android:inputType="textPassword" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center|top"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/register_txt_email"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="이메일 아이디 입력하세요"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/register_host"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:entries="@array/mail_list"
+            android:spinnerMode="dialog" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/register_tel_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/tel_list"
+            android:spinnerMode="dropdown" />
+
+        <EditText
+            android:id="@+id/register_txt_tel_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="phone"
+            android:maxLength="4" />
+
+        <EditText
+            android:id="@+id/register_txt_tel_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="phone"
+            android:maxLength="4" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/register_chk_agree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원 가입 약관에 동의합니다" />
+
+    <Button
+        android:id="@+id/register_btn_reg"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#4096BF"
+        android:text="가입하기"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/register_btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#4096BF"
+        android:text="취소"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</LinearLayout>
