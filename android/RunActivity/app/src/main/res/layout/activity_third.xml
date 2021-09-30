@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    tools:context=".ThirdActivity">
 
     <Button
-        android:id="@+id/btn_exit"
+        android:id="@+id/btn_success"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="320dp"
-        android:text="Exit Activity"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="180dp"
+        android:text="successs"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txt_view"
+    <Button
+        android:id="@+id/btn_fail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="140dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="180dp"
+        android:text="fail"
+        app:layout_constraintStart_toEndOf="@+id/btn_success"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
