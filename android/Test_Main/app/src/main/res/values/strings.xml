@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">회원가입</string>
+    <string-array name="host_list">
+        <item>gmail.com</item>
+        <item>naver.com</item>
+        <item>hanmail.net</item>
+        <item>직접입력</item>
+    </string-array>
+</resources>
