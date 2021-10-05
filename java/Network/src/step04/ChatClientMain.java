@@ -16,7 +16,7 @@ public class ChatClientMain {
 		PrintWriter pw = null;
 		
 		try {
-			server = new Socket("127.0.0.1",1234);
+			server = new Socket("192.168.2.101",1234);
 			pw = new PrintWriter(server.getOutputStream());
 			MessageReceive worker = new MessageReceive(server);
 			worker.start();
