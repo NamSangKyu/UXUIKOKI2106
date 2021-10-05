@@ -12,7 +12,8 @@ public class Player extends Thread{
 	
 	public void getMoney() {
 		money = bank.transMoney(1000);
-		System.out.println(getName() + " : "+ money);
+		System.out.println(getName() + " : "+
+		money);
 	}
 	
 	@Override
@@ -20,3 +21,5 @@ public class Player extends Thread{
 		getMoney();
 	}
 }
+
+

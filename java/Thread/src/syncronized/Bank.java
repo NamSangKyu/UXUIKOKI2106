@@ -8,7 +8,7 @@ public class Bank {
 		money = 1000;
 	}
 	
-	public int transMoney(int money)  {
+	public synchronized int transMoney(int money)  {
 		this.money += money;
 		try {
 			Thread.sleep(1000);
