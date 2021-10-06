@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
@@ -12,13 +13,27 @@ public class MainActivity extends AppCompatActivity {
     Button btnRun;
     Button btnStop;
     int value=0;
+    ProgressTask task;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bar = findViewById(R.id.progressBar);
         btnRun = findViewById(R.id.btnRun);
+        btnRun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                task = new ProgressTask();
+                task.execute();
+            }
+        });
         btnStop = findViewById(R.id.btnStop);
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                task.cancel(true);
+            }
+        });
     }
 
     public class ProgressTask extends AsyncTask<Integer, Integer, Integer>{
