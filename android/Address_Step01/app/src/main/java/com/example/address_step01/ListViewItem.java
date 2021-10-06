@@ -6,11 +6,21 @@ public class ListViewItem {
     private Drawable profile;
     private String name;
     private String content;
+    private int profileId;
 
-    public ListViewItem(Drawable profile, String name, String content) {
+    public long getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(int profileId) {
+        this.profileId = profileId;
+    }
+
+    public ListViewItem(Drawable profile, String name, String content, int profileId) {
         this.profile = profile;
         this.name = name;
         this.content = content;
+        this.profileId = profileId;
     }
 
     public Drawable getProfile() {

@@ -32,8 +32,8 @@ public class CustomListAdapter extends BaseAdapter {
     public long getItemId(int i) {
         return i;
     }
-    public void addItem(Drawable profile, String name, String content){
-        list.add(new ListViewItem(profile,name,content));
+    public void addItem(Drawable profile, String name, String content, int id){
+        list.add(new ListViewItem(profile,name,content,id));
     }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
