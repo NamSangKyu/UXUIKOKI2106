@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     int count;
     NumberHandler handler;
+    Handler defaultHandler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +43,17 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 //핸들러로 전달할 메세지
-                Message msg = handler.obtainMessage();
-                Bundle bundle = new Bundle();
-                bundle.putInt("count",count);
-                msg.setData(bundle);
-                handler.sendMessage(msg);
+//                Message msg = handler.obtainMessage();
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("count",count);
+//                msg.setData(bundle);
+//                handler.sendMessage(msg);
+                 handler.post(new Runnable() {
+                     @Override
+                     public void run() {
+                         textView.setText("count : " + count);
+                     }
+                 });
             }
         }
     }
