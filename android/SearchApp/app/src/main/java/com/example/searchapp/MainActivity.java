@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
                 //요청 데이터 셋팅
                 //데이터 전송
-                con.setDoOutput(true);
+                //con.setDoOutput(true);
                 //데이터 받는 부분
                 int responseCode = con.getResponseCode();
                 if (responseCode == HttpURLConnection.HTTP_OK) {
