@@ -14,7 +14,7 @@ import java.util.List;
 public class DBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "Address";
     public DBHelper(Context context){
-        super(context,DB_NAME,null,1);
+        super(context,DB_NAME,null,2);
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {

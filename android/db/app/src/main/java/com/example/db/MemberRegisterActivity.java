@@ -18,7 +18,11 @@ public class MemberRegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_register);
-
+        btnAdd = findViewById(R.id.register_btn_add);
+        btnCancel = findViewById(R.id.register_btn_cancel);
+        txtTel = findViewById(R.id.register_txt_tel);
+        txtName = findViewById(R.id.register_txt_name);
+        dbHelper = new DBHelper(getApplicationContext());
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,7 +30,7 @@ public class MemberRegisterActivity extends AppCompatActivity {
                 name = txtName.getText().toString();
                 tel = txtTel.getText().toString();
                 dbHelper.add(new AddressVO(name, tel));
-                finishActivity(1000);
+                finish();
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
