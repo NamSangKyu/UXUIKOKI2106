@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Intent intent = new Intent(MainActivity.this, MemberUpdateActivity.class);
+                    
                 }
             });
             linearLayout.addView(row);

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DB">
         <activity
+            android:name=".MemberUpdateActivity"
+            android:exported="true" />
+        <activity
             android:name=".MemberRegisterActivity"
             android:exported="true" />
         <activity
