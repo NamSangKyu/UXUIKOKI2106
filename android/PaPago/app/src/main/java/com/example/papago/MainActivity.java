@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     PaPaGo papago;
 
     InputMethodManager imm;
-
+    String arr[] = {"ja","zh-CN","fr","en"};
     private static final String TAG = "PAPAGO";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         btnTranslate = findViewById(R.id.btn_translate);
         btnVoice = findViewById(R.id.btn_voice_translate);
         spinner = findViewById(R.id.spn_lang_code);
-        String arr[] = {"ja","zh-CN","fr","en"};
+
         imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
         btnVoice.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK && requestCode == 2000){
             ArrayList<String> list = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             edtText.setText(list.get(0));
+            String str = arr[(int) spinner.getSelectedItemId()];
+            papago = new PaPaGo();
+            papago.execute(str);
             for(int i=0;i<list.size();i++)
                 Log.i(TAG, "onActivityResult: "+list.get(i));
         }else{
