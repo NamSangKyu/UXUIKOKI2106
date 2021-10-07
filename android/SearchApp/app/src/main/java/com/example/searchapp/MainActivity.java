@@ -2,10 +2,13 @@ package com.example.searchapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -41,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 blogSearch  = new BlogSearch();
                 blogSearch.execute();
+            }
+        });
+        blogList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ListViewItem item = (ListViewItem) adapter.getItem(i);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getUrl()));
+                startActivity(intent);
+
             }
         });
     }
