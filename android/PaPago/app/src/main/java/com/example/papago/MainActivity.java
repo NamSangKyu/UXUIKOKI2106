@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     EditText edtText;
     EditText edtResult;
     Button btnTranslate;
+    Spinner spinner;
     PaPaGo papago;
     private static final String TAG = "PAPAGO";
     @Override
@@ -36,14 +39,19 @@ public class MainActivity extends AppCompatActivity {
         edtText = findViewById(R.id.edt_text);
         edtResult = findViewById(R.id.edt_traslate);
         btnTranslate = findViewById(R.id.btn_translate);
+        spinner = findViewById(R.id.spn_lang_code);
+        String arr[] = {"ja","zh-CN","fr","en"};
+
 
         btnTranslate.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
+                Toast.makeText(MainActivity.this,spinner.getSelectedItemId()+"",Toast.LENGTH_SHORT).show();
                 papago = new PaPaGo();
-                papago.execute();
+                String str = arr[(int) spinner.getSelectedItemId()];
+                papago.execute(str);
             }
         });
 
@@ -70,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 con.setRequestProperty("X-Naver-Client-Id", clientId);
                 con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
                 //요청 데이터 셋팅
-                String postParams = "source=ko&target=en&text=" + text;
+                String postParams = "source=ko&target="+strings[0]+"&text=" + text;
                 //데이터 전송
                 con.setDoOutput(true);
                 dos = new DataOutputStream(con.getOutputStream());

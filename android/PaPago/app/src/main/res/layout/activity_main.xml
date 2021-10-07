@@ -27,6 +27,13 @@
             android:layout_weight="1"
             android:text="번역하기" />
 
+        <Spinner
+            android:id="@+id/spn_lang_code"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:entries="@array/code" />
+
         <Button
             android:id="@+id/btn_voice_translate"
             android:layout_width="wrap_content"

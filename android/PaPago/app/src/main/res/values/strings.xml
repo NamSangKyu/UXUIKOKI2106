@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PaPago</string>
+    <string-array name="code">
+        <item>일본어</item>
+        <item>중국어</item>
+        <item>프랑스어</item>
+        <item>영어</item>
+    </string-array>
 </resources>
