@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,11 +27,13 @@ public class MainActivity extends AppCompatActivity {
     EditText edtSearch;
     Button btnSearch;
     BlogSearch blogSearch;
+    ListView blogList;
+    CustomListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        blogList = findViewById(R.id.lst_blog);
         edtSearch = findViewById(R.id.edt_search);
         btnSearch = findViewById(R.id.btn_search);
         btnSearch.setOnClickListener(new View.OnClickListener() {
@@ -80,11 +83,13 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject json = new JSONObject(msg);
                 JSONArray arr;
                 arr = json.getJSONArray("items");
+                adapter = new CustomListAdapter();
                 for(int i=0;i<arr.length();i++) {
                     JSONObject temp = (JSONObject) arr.get(i);
                     result+=temp.getString("title") +
                             " " + temp.getString("link") + " " +
                             temp.getString("bloggername") + " " + temp.getString("postdate")+"\n";
+                    adapter.addItem(temp.getString("title"),temp.getString("link"),temp.getString("bloggername"));
                 }
                 Log.i("test", "doInBackground: "+result);
 
@@ -105,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
+            blogList.setAdapter(adapter);
             super.onPostExecute(s);
         }
     }

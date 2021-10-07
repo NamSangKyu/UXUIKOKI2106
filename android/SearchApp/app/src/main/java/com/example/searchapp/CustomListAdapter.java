@@ -50,6 +50,10 @@ public class CustomListAdapter extends BaseAdapter {
         url.setText(item.getUrl());
         return view;
     }
+
+    public void addItem(String title, String link, String bloggername) {
+        list.add(new ListViewItem(title,bloggername,link));
+    }
 }
 
 
