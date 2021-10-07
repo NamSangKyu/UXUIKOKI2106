@@ -42,12 +42,10 @@ public class CustomListAdapter extends BaseAdapter {
         }
         TextView title =view.findViewById(R.id.txt_title);
         TextView blogName=view.findViewById(R.id.txt_blog_name);
-        TextView url=view.findViewById(R.id.txt_url);
 
         ListViewItem item = list.get(i);
         title.setText(item.getTitle());
         blogName.setText(item.getBlogName());
-        url.setText(item.getUrl());
         return view;
     }
 

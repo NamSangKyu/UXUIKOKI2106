@@ -40,6 +40,11 @@
     <ListView
         android:id="@+id/lst_blog"
         android:layout_width="match_parent"
-        android:layout_height="215dp" />
+        android:layout_height="220dp" />
+
+    <ListView
+        android:id="@+id/lst_news"
+        android:layout_width="match_parent"
+        android:layout_height="220dp" />
 
 </LinearLayout>
