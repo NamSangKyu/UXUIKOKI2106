@@ -1,11 +1,16 @@
 package com.example.papago;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -24,13 +29,18 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     EditText edtText;
     EditText edtResult;
     Button btnTranslate;
+    Button btnVoice;
     Spinner spinner;
     PaPaGo papago;
+
+    InputMethodManager imm;
+
     private static final String TAG = "PAPAGO";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +49,20 @@ public class MainActivity extends AppCompatActivity {
         edtText = findViewById(R.id.edt_text);
         edtResult = findViewById(R.id.edt_traslate);
         btnTranslate = findViewById(R.id.btn_translate);
+        btnVoice = findViewById(R.id.btn_voice_translate);
         spinner = findViewById(R.id.spn_lang_code);
         String arr[] = {"ja","zh-CN","fr","en"};
+        imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
+        btnVoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                startActivityForResult(intent, 2000);
+            }
+        });
 
         btnTranslate.setOnClickListener(new View.OnClickListener() {
 
@@ -54,6 +75,20 @@ public class MainActivity extends AppCompatActivity {
                 papago.execute(str);
             }
         });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && requestCode == 2000){
+            ArrayList<String> list = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            edtText.setText(list.get(0));
+            for(int i=0;i<list.size();i++)
+                Log.i(TAG, "onActivityResult: "+list.get(i));
+        }else{
+            edtText.setText("음성인식에 실패 하였습니다");
+        }
 
     }
 
