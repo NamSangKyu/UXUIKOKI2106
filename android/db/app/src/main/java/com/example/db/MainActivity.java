@@ -3,6 +3,7 @@ package com.example.db;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.location.Address;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -65,7 +66,15 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, MemberUpdateActivity.class);
-                    
+                    TextView id = (TextView) linearLayout.getChildAt(0);
+                    int no = Integer.parseInt(id.getText().toString());
+                    AddressVO vo = getAddress(no);
+                    if(vo == null) return;
+
+                    intent.putExtra("name",vo.getName());
+                    intent.putExtra("tel",vo.getTel());
+                    intent.putExtra("id",vo.getId());
+                    startActivity(intent);
                 }
             });
             linearLayout.addView(row);
