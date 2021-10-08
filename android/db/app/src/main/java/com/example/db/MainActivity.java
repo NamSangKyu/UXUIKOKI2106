@@ -38,6 +38,46 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent,1000);
             }
         });
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                list = dbHelper.selectAddressVO(txtSearch.getText().toString());
+                linearLayout.removeAllViews();
+                for (int i = 0; i < list.size(); i++) {
+                    LinearLayout row = new LinearLayout(MainActivity.this);
+                    row.setOrientation(LinearLayout.HORIZONTAL);
+                    String content = list.get(i).getName() + "\t\t" + list.get(i).getTel();
+                    TextView txt = new TextView(MainActivity.this);
+                    txt.setText(content);
+                    txt.setTextSize(16);
+                    txt.setPadding(30, 0, 0, 0);
+                    TextView id = new TextView(MainActivity.this);
+                    String mid = String.valueOf(list.get(i).getId());
+                    id.setText(mid);
+                    id.setTextSize(20);
+                    id.setVisibility(View.INVISIBLE);
+                    row.addView(id);
+                    row.addView(txt);
+                    row.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(MainActivity.this, MemberUpdateActivity.class);
+                            LinearLayout linear = (LinearLayout) view;
+                            TextView id = (TextView) linear.getChildAt(0);
+                            int no = Integer.parseInt(id.getText().toString());
+                            AddressVO vo = getAddress(no);
+                            if (vo == null) return;
+
+                            intent.putExtra("name", vo.getName());
+                            intent.putExtra("tel", vo.getTel());
+                            intent.putExtra("id", vo.getId());
+                            startActivity(intent);
+                        }
+                    });
+                    linearLayout.addView(row);
+                }
+            }
+        });
     }
 
     @Override
