@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginBottom="212dp"
-        android:text="주소록 추가"
+        android:text="삭제"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

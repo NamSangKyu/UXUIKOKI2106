@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, MemberUpdateActivity.class);
-                    TextView id = (TextView) linearLayout.getChildAt(0);
+                    LinearLayout linear = (LinearLayout) view;
+                    TextView id = (TextView) linear.getChildAt(0);
                     int no = Integer.parseInt(id.getText().toString());
                     AddressVO vo = getAddress(no);
                     if(vo == null) return;
@@ -79,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
             });
             linearLayout.addView(row);
         }
+    }
+
+    private AddressVO getAddress(int no) {
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).getId() == no)
+                return list.get(i);
+        }
+        return null;
     }
 }
 
