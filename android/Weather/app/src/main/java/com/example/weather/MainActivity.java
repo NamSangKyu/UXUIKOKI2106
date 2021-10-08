@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -25,11 +26,13 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     Weather weather;
     TextView detail;
+    ImageView imgStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         detail = findViewById(R.id.detail);
+        imgStatus = findViewById(R.id.img_status);
         weather = new Weather();
         weather.execute();
 
@@ -124,9 +127,21 @@ public class MainActivity extends AppCompatActivity {
                         "강수형태 : "+json.getString("PTY") +"\n" +
                         "하늘상태 : "+json.getString("SKY") +"\n" +
                         "습도 : "+json.getString("REH") +"\n";
-                
+
                 detail.setText(msg);
-                        
+                if(json.getString("PTY").equals("0")){
+                    if(json.getString("SKY").equals("1"))
+                        imgStatus.setImageResource(R.drawable.sun);
+                    else
+                        imgStatus.setImageResource(R.drawable.cloud);
+                }else{
+                    if(json.getString("PTY").equals("1")  || json.getString("PTY").equals("4"))
+                        imgStatus.setImageResource(R.drawable.rain);
+                    else if(json.getString("PTY").equals("2"))
+                        imgStatus.setImageResource(R.drawable.rain_snow);
+                    else if(json.getString("PTY").equals("3"))
+                        imgStatus.setImageResource(R.drawable.snow);
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
