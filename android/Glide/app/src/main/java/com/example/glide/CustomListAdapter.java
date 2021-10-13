@@ -5,6 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +40,16 @@ public class CustomListAdapter  extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.custom_list_item,viewGroup,false);
         }
+
+        ImageView imageView = view.findViewById(R.id.imageView);
+        TextView title = view.findViewById(R.id.txt_title);
+        TextView content = view.findViewById(R.id.txt_content);
+
+        title.setText(list.get(i).getTitle());
+        content.setText(list.get(i).getContent());
+
+        Glide.with(view).load(list.get(i).getImgUrl())
+                .placeholder(R.drawable.ic_launcher_background).into(imageView);
 
         return view;
     }
