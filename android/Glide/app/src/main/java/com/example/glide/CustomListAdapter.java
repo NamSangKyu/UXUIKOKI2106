@@ -16,6 +16,11 @@ import java.util.List;
 public class CustomListAdapter  extends BaseAdapter {
     private ArrayList<ListItem> list;
     public CustomListAdapter(){list = new ArrayList<ListItem>();}
+
+    public void AddItem(String url, String title, String content){
+        list.add(new ListItem(url,title,content));
+    }
+
     @Override
     public int getCount() {
         return list.size();
