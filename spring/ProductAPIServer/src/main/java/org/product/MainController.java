@@ -21,7 +21,10 @@ public class MainController {
 		super();
 		this.service = service;
 	}
-	
+	@RequestMapping("/")
+	public String main() {
+		return "main";
+	}
 	@RequestMapping("search.do")
 	public String search(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//클라이언트가 보낸 제품명 일부를 가지고 검색 - parameter : search

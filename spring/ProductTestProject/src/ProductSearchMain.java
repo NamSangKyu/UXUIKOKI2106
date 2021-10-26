@@ -36,7 +36,7 @@ public class ProductSearchMain {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		String apiUrl = "http://localhost:9999/search.do?search="+search;
+		String apiUrl = "http://nsk2626.cafe24.com/search.do?search="+search;
 		try {
 			//open connection
 			URL url = new URL(apiUrl);
@@ -48,6 +48,7 @@ public class ProductSearchMain {
 			while((temp = br.readLine())!=null)
 				str+=temp;
 			JSONObject obj = new JSONObject(str);
+			System.out.println(str);
 			System.out.println(obj.get("code"));
 			if(obj.getInt("code")==500) throw new Exception(obj.getString("responseMessage"));
 			JSONArray arr = obj.getJSONArray("responseMessage");
